@@ -13,11 +13,11 @@ NyxNet::CPipeTraceOutputRef NyxNet::CPipeTraceOutput::Alloc(const char* szName)
  */
 NyxNet::CPipeTraceOutput_Impl::CPipeTraceOutput_Impl(const char* szName)
 {
-	m_refPipeName = Nyx::CAnsiString::Alloc(szName);
-	m_refPipeName->Append("_Pipe");
+	m_PipeName = szName;
+	m_PipeName += "_Pipe";
 
 	m_refSocket = NyxNet::CPipeSocketWriter::Alloc();
-	m_refSocket->Create(m_refPipeName->c_str());
+	m_refSocket->Create(m_PipeName.c_str());
 
 	m_refConnection = NyxNet::CNxConnection::Alloc();
 	m_refConnection->Open(m_refSocket);

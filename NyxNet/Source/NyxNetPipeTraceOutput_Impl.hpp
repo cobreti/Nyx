@@ -22,7 +22,7 @@ namespace NyxNet
 
 	protected:
 
-		Nyx::CAnsiStringRef					m_refPipeName;
+		Nyx::CAString                       m_PipeName;
 		NyxNet::CPipeSocketWriterRef		m_refSocket;
 		NyxNet::CNxConnectionRef			m_refConnection;
 	};

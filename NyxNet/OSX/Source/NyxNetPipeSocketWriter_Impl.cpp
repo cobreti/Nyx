@@ -47,8 +47,8 @@ Nyx::NyxResult NyxNetOSX::CPipeSocketWriter_Impl::Create( const char* szPipename
 
 	signal( SIGPIPE, NyxNetOSXPipeClosed );
 	
-	m_refPipename = Nyx::CAnsiString::Alloc("/tmp/");
-	m_refPipename->Append(szPipename);
+	m_Pipename = "/tmp/";
+	m_Pipename += szPipename;
 	
 	return res;
 }
@@ -61,7 +61,7 @@ Nyx::NyxResult NyxNetOSX::CPipeSocketWriter_Impl::Connect()
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
 	
-	m_PipeId = open( m_refPipename->c_str(), O_WRONLY );
+	m_PipeId = open( m_Pipename.c_str(), O_WRONLY );
 	if ( m_PipeId == -1 )
 		res = Nyx::kNyxRes_Failure;
 	else

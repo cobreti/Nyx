@@ -4,7 +4,7 @@
 #include "NyxNetPipeSocketWriter.hpp"
 #include "NyxObject_Impl.hpp"
 #include "NyxBuffer.hpp"
-#include "NyxAnsiString.hpp"
+#include "NyxAString.hpp"
 
 namespace NyxNetOSX
 {
@@ -26,7 +26,7 @@ namespace NyxNetOSX
 	protected:
 	
 		int							m_PipeId;
-		Nyx::CAnsiStringRef			m_refPipename;
+		Nyx::CAString               m_Pipename;
 		NyxNet::ISocketListener*	m_pListener;
 	};
 }
