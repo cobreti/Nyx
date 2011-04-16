@@ -1,0 +1,42 @@
+#ifndef _NYXWSTRING_HPP_
+#define _NYXWSTRING_HPP_
+
+#include "NyxMFString.hpp"
+
+
+namespace Nyx
+{
+	class CAString;
+
+	/**
+	 *
+	 */
+	class CWString : public Nyx::CMFString
+	{
+	public:
+		CWString();
+		explicit CWString(const wchar_t* wszValue);
+		explicit CWString(const CMFString& rString);
+		
+		const wchar_t& operator [] (size_t index) const;
+		wchar_t& operator [] (size_t index);
+		
+		CMFTmpString operator + (const CMFString& str) const;
+		CMFTmpString operator + (const wchar_t* wszValue) const;
+		
+		const CWString& operator = (const CMFString& str);
+		const CWString& operator = (const CMFTmpString& str);
+		const CWString& operator = (const CAString& str);
+		const CWString& operator = (const wchar_t* wszText);
+		const CWString& operator = (const char* szText);
+		
+		const wchar_t* c_str() const		{ return m_Buffer.pConstWChar; }
+
+		bool operator == (const CWString& str) const;
+		bool operator != (const CWString& str) const;
+		bool operator < (const CWString& str) const;
+	};
+}
+
+
+#endif // _NYXWSTRING_HPP_

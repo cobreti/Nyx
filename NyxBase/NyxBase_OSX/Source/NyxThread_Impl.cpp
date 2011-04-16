@@ -16,8 +16,11 @@ Nyx::CThreadRef Nyx::CThread::Alloc()
  *
  */
 NyxOSX::CThread_Impl::CThread_Impl() :
-m_bRunning(false)
+m_bRunning(false),
+m_bThreadLoopStarted(false),
+m_pThreadUserData(NULL)
 {
+	m_refInitializedEvent = Nyx::CEvent::Alloc();
 }
 
 
@@ -38,8 +41,12 @@ Nyx::NyxResult NyxOSX::CThread_Impl::Start(Nyx::CThreadProc* pTProc)
 	Nyx::NyxResult		ret = Nyx::kNyxRes_Success;
 
 	m_refThreadProc = pTProc;
+	m_bThreadLoopStarted = false;
 	
 	pthread_create(&m_ID, NULL, CThread_Impl::ThreadEntryPoint, this);
+	
+	if ( !m_bThreadLoopStarted )
+		m_refInitializedEvent->WaitSignaled();
 
 	return ret;
 }
@@ -72,6 +79,7 @@ bool NyxOSX::CThread_Impl::IsRunning() const
  */
 void NyxOSX::CThread_Impl::SetThreadUserData(void* pData)
 {
+	m_pThreadUserData = pData;
 }
 
 
@@ -80,7 +88,7 @@ void NyxOSX::CThread_Impl::SetThreadUserData(void* pData)
  */
 void* NyxOSX::CThread_Impl::GetThreadUserData()
 {
-	return NULL;
+	return m_pThreadUserData;
 }
 
 
@@ -94,8 +102,13 @@ void* NyxOSX::CThread_Impl::ThreadEntryPoint( void* pParam )
 	
 	if ( NULL != Nyx::CModule::GetDefault()->Traces().Reference() )
 		refTraceCompositor = Nyx::CModule::GetDefault()->Traces().Reference()->Clone();
-		
+
+	Nyx::CModule::GetDefault()->Threads().SetThreadUserData(pThreadImpl->m_pThreadUserData);
+
 	pThreadImpl->m_bRunning = true;
+	
+	pThreadImpl->m_refInitializedEvent->Signal(0);
+	pThreadImpl->m_bThreadLoopStarted = true;
 	
 	pThreadImpl->m_refThreadProc->Run();
 	

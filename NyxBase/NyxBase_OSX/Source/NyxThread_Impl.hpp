@@ -4,6 +4,7 @@
 #include "NyxThread.hpp"
 #include "NyxObject_Impl.hpp"
 #include "NyxRef.hpp"
+#include "NyxEvent.hpp"
 
 #include <pthread.h>
 
@@ -30,8 +31,11 @@ namespace NyxOSX
 	protected:
 	
 		Nyx::CThreadProcRef					m_refThreadProc;
+		Nyx::CEventRef						m_refInitializedEvent;
 		pthread_t							m_ID;
 		bool								m_bRunning;
+		bool								m_bThreadLoopStarted;
+		void*								m_pThreadUserData;
 	};
 }
 

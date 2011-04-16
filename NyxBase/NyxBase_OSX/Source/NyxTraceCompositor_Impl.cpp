@@ -14,16 +14,18 @@ NyxOSX::CTraceCompositor_Impl::XDummyTraceOutput NyxOSX::CTraceCompositor_Impl::
 /**
  *
  */
-Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(ETraceCompositorCharSet charset)
+Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(ETraceCompositorCharSet charset, bool bUseAsDefault)
 {
-	return new NyxOSX::CTraceCompositor_Impl(charset);
+	return new NyxOSX::CTraceCompositor_Impl(charset, bUseAsDefault);
 }
 
 
 /**
  *
  */
-NyxOSX::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset) : m_pCompositorBuffer(NULL)
+NyxOSX::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset, bool bUseAsDefault) : 
+m_pCompositorBuffer(NULL),
+m_bUseAsDefault(bUseAsDefault)
 {
 	size_t		Size = 0;
 
@@ -49,15 +51,17 @@ NyxOSX::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSe
 	m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = Nyx::CMutex::Alloc();
 	
-	Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
+	if ( UsedAsDefault() )
+		Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
 }
 
 
 /**
  *
  */
-NyxOSX::CTraceCompositor_Impl::CTraceCompositor_Impl( Nyx::CMutex* pMutex, Nyx::CTraceCompositorBuffer* pBuffer ) :
-m_pCompositorBuffer(pBuffer)
+NyxOSX::CTraceCompositor_Impl::CTraceCompositor_Impl( Nyx::CMutex* pMutex, Nyx::CTraceCompositorBuffer* pBuffer, bool bUseAsDefault ) :
+m_pCompositorBuffer(pBuffer),
+m_bUseAsDefault(bUseAsDefault)
 {
 	size_t		Size = 0;
 
@@ -72,7 +76,8 @@ m_pCompositorBuffer(pBuffer)
 	m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = pMutex;
 	
-	Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
+	if ( UsedAsDefault() )
+		Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
 }
 
 
@@ -139,7 +144,7 @@ void NyxOSX::CTraceCompositor_Impl::Write(const Nyx::CTraceFeed& feed)
  */
 Nyx::CTraceCompositor* NyxOSX::CTraceCompositor_Impl::Clone()
 {
-	Nyx::CTraceCompositor*		pTraceCompositor = new NyxOSX::CTraceCompositor_Impl( new XDummyMutex(), m_pCompositorBuffer->Clone() );
+	Nyx::CTraceCompositor*		pTraceCompositor = new NyxOSX::CTraceCompositor_Impl( new XDummyMutex(), m_pCompositorBuffer->Clone(), UsedAsDefault() );
 	
 	pTraceCompositor->SetOutput(m_refOutput);
 	

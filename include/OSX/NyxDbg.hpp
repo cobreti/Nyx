@@ -6,7 +6,7 @@
 #include "NyxTraceStream.hpp"
 
 
-#define		NYXASSERT( _cond, _msg )			if ( !(_cond) )\
+#define		NYXASSERT_OLD( _cond, _msg )			if ( !(_cond) )\
 												{\
 													Nyx::CTraceStream(0x0).Write(L##_msg);\
 													raise(SIGTRAP);\

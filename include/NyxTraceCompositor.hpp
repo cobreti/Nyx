@@ -32,7 +32,7 @@ namespace Nyx
 		/**
 		 *	\brief		Allocates a new trace compositor object
 		 */
-		static CTraceCompositorRef Alloc(ETraceCompositorCharSet charset = eTCCS_WideChar);
+		static CTraceCompositorRef Alloc(ETraceCompositorCharSet charset = eTCCS_WideChar, bool bUseAsDefault = true);
 		
 	public:  // public methods
 		

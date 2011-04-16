@@ -15,7 +15,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					648,
+					650,
 					20,
 					48,
 					43,
@@ -54,39 +54,75 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300585655;
-			PBXWorkspaceStateSaveDate = 300585655;
+			PBXPerProjectTemplateStateSaveDate = 321413645;
+			PBXWorkspaceStateSaveDate = 321413645;
 		};
 		perUserProjectItems = {
-			162A725111B2060700238224 /* PBXTextBookmark */ = 162A725111B2060700238224 /* PBXTextBookmark */;
-			162A725211B2060700238224 /* PBXTextBookmark */ = 162A725211B2060700238224 /* PBXTextBookmark */;
-			162A725311B2060700238224 /* PBXTextBookmark */ = 162A725311B2060700238224 /* PBXTextBookmark */;
-			1665B78B11EA4A9E00D4B309 /* PBXTextBookmark */ = 1665B78B11EA4A9E00D4B309 /* PBXTextBookmark */;
-			1665B78C11EA4A9E00D4B309 /* PBXTextBookmark */ = 1665B78C11EA4A9E00D4B309 /* PBXTextBookmark */;
-			1665B78D11EA4A9E00D4B309 /* PBXTextBookmark */ = 1665B78D11EA4A9E00D4B309 /* PBXTextBookmark */;
-			1665B78E11EA4A9E00D4B309 /* PBXTextBookmark */ = 1665B78E11EA4A9E00D4B309 /* PBXTextBookmark */;
-			1665B78F11EA4A9E00D4B309 /* PBXTextBookmark */ = 1665B78F11EA4A9E00D4B309 /* PBXTextBookmark */;
-			1665B79011EA4A9E00D4B309 /* PBXTextBookmark */ = 1665B79011EA4A9E00D4B309 /* PBXTextBookmark */;
-			1665B89011EA520200D4B309 /* PBXTextBookmark */ = 1665B89011EA520200D4B309 /* PBXTextBookmark */;
-			16CC2BFE11EA9A7300B204C9 /* PBXTextBookmark */ = 16CC2BFE11EA9A7300B204C9 /* PBXTextBookmark */;
+			160518001308DBA800101688 /* PBXTextBookmark */ = 160518001308DBA800101688 /* PBXTextBookmark */;
+			160518011308DBA800101688 /* PBXTextBookmark */ = 160518011308DBA800101688 /* PBXTextBookmark */;
+			160518021308DBA800101688 /* PBXTextBookmark */ = 160518021308DBA800101688 /* PBXTextBookmark */;
+			1698102D132866CC00D1DC3C /* PBXTextBookmark */ = 1698102D132866CC00D1DC3C /* PBXTextBookmark */;
+			1698102E132866CC00D1DC3C /* PBXTextBookmark */ = 1698102E132866CC00D1DC3C /* PBXTextBookmark */;
+			16A511D512FDA9D200C33A9F /* PBXTextBookmark */ = 16A511D512FDA9D200C33A9F /* PBXTextBookmark */;
+			16A511D612FDA9D200C33A9F /* PBXTextBookmark */ = 16A511D612FDA9D200C33A9F /* PBXTextBookmark */;
+			16C6E8AC1300A3EA005D4642 /* PBXTextBookmark */ = 16C6E8AC1300A3EA005D4642 /* PBXTextBookmark */;
+			16C6E8AD1300A3EA005D4642 /* PBXTextBookmark */ = 16C6E8AD1300A3EA005D4642 /* PBXTextBookmark */;
+			16C6E8B01300A3EA005D4642 /* PBXTextBookmark */ = 16C6E8B01300A3EA005D4642 /* PBXTextBookmark */;
+			16C6E8B11300A3EA005D4642 /* PBXTextBookmark */ = 16C6E8B11300A3EA005D4642 /* PBXTextBookmark */;
+			16C6E8B31300A3EA005D4642 /* PBXTextBookmark */ = 16C6E8B31300A3EA005D4642 /* PBXTextBookmark */;
+			16C6E93A1300BBFE005D4642 /* PBXTextBookmark */ = 16C6E93A1300BBFE005D4642 /* PBXTextBookmark */;
+			16C6E9AA1300C8D1005D4642 /* PBXTextBookmark */ = 16C6E9AA1300C8D1005D4642 /* PBXTextBookmark */;
+			16C6EA161300D09E005D4642 /* PBXTextBookmark */ = 16C6EA161300D09E005D4642 /* PBXTextBookmark */;
+			16C6EA371300D338005D4642 /* PBXTextBookmark */ = 16C6EA371300D338005D4642 /* PBXTextBookmark */;
+			16CF1E6D12F48B790001C546 /* PBXTextBookmark */ = 16CF1E6D12F48B790001C546 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 16E5C4AC10644572000C8786 /* Source Control */;
 		userBuildSettings = {
 		};
 	};
+	160518001308DBA800101688 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582B10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.cpp */;
+		name = "NyxNetPipeSocketReader_Impl.cpp: 135";
+		rLen = 0;
+		rLoc = 2267;
+		rType = 0;
+		vrLen = 531;
+		vrLoc = 2208;
+	};
+	160518011308DBA800101688 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582C10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.hpp */;
+		name = "NyxNetPipeSocketReader_Impl.hpp: 31";
+		rLen = 0;
+		rLoc = 942;
+		rType = 0;
+		vrLen = 591;
+		vrLoc = 566;
+	};
+	160518021308DBA800101688 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582B10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.cpp */;
+		name = "NyxNetPipeSocketReader_Impl.cpp: 146";
+		rLen = 32;
+		rLoc = 2626;
+		rType = 0;
+		vrLen = 883;
+		vrLoc = 2097;
+	};
 	1625A9061094A40600E29478 /* NyxNetPipeSocket.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {828, 597}}";
-			sepNavSelRange = "{58, 0}";
-			sepNavVisRange = "{0, 389}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 325}}";
+			sepNavSelRange = "{238, 7}";
+			sepNavVisRange = "{0, 387}";
 			sepNavWindowFrame = "{{50, 261}, {857, 612}}";
 		};
 	};
 	1625A90A1094A70100E29478 /* NyxNetPipeSocketReader.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {828, 597}}";
-			sepNavSelRange = "{280, 0}";
-			sepNavVisRange = "{0, 448}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 312}}";
+			sepNavSelRange = "{220, 11}";
+			sepNavVisRange = "{38, 410}";
 			sepNavWindowFrame = "{{73, 240}, {857, 612}}";
 		};
 	};
@@ -99,46 +135,24 @@
 	};
 	162A71E311B1F79C00238224 /* NyxNetPipeTraceOutput_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 792}}";
-			sepNavSelRange = "{744, 0}";
-			sepNavVisRange = "{0, 1488}";
+			sepNavIntBoundsRect = "{{0, 0}, {873, 1638}}";
+			sepNavSelRange = "{592, 0}";
+			sepNavVisRange = "{0, 1064}";
+			sepNavWindowFrame = "{{122, 583}, {1275, 767}}";
 		};
 	};
-	162A725111B2060700238224 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 16FBB26A10D45EB100E5D0E2 /* NyxNetNxConnection.hpp */;
-		name = "NyxNetNxConnection.hpp: 15";
-		rLen = 20;
-		rLoc = 304;
-		rType = 0;
-		vrLen = 751;
-		vrLoc = 0;
-	};
-	162A725211B2060700238224 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 16FBB26B10D45EB100E5D0E2 /* NyxNetNxConnectionHandler.hpp */;
-		name = "NyxNetNxConnectionHandler.hpp: 20";
-		rLen = 0;
-		rLoc = 503;
-		rType = 0;
-		vrLen = 503;
-		vrLoc = 0;
-	};
-	162A725311B2060700238224 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 162A71E311B1F79C00238224 /* NyxNetPipeTraceOutput_Impl.cpp */;
-		name = "NyxNetPipeTraceOutput_Impl.cpp: 39";
-		rLen = 0;
-		rLoc = 744;
-		rType = 0;
-		vrLen = 1488;
-		vrLoc = 0;
+	162A71E411B1F79C00238224 /* NyxNetPipeTraceOutput_Impl.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {826, 645}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 818}";
+		};
 	};
 	16388D81109A784900F45720 /* NyxNet.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {751, 625}}";
-			sepNavSelRange = "{72, 0}";
-			sepNavVisRange = "{0, 97}";
+			sepNavIntBoundsRect = "{{0, 0}, {826, 645}}";
+			sepNavSelRange = "{384, 0}";
+			sepNavVisRange = "{0, 409}";
 		};
 	};
 	164A6207109DE2C200C2A6C6 /* NyxNetTcpIpSocket.hpp */ = {
@@ -148,152 +162,107 @@
 			sepNavVisRange = "{139, 582}";
 		};
 	};
-	1665B78B11EA4A9E00D4B309 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 16FBB26D10D45EB100E5D0E2 /* NyxNetNxStreamRW.hpp */;
-		name = "NyxNetNxStreamRW.hpp: 16";
-		rLen = 0;
-		rLoc = 313;
-		rType = 0;
-		vrLen = 1084;
-		vrLoc = 2870;
-	};
-	1665B78C11EA4A9E00D4B309 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 16E5C52110645A6C000C8786 /* NyxNetPipeServer.hpp */;
-		name = "NyxNetPipeServer.hpp: 13";
-		rLen = 7;
-		rLoc = 276;
-		rType = 0;
-		vrLen = 545;
-		vrLoc = 0;
-	};
-	1665B78D11EA4A9E00D4B309 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 168C583E10D54D7F001FB07F /* NyxNetPipeServer_Impl.hpp */;
-		name = "NyxNetPipeServer_Impl.hpp: 29";
-		rLen = 0;
-		rLoc = 751;
-		rType = 0;
-		vrLen = 1114;
-		vrLoc = 0;
-	};
-	1665B78E11EA4A9E00D4B309 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 168C583D10D54D7F001FB07F /* NyxNetPipeServer_Impl.cpp */;
-		name = "NyxNetPipeServer_Impl.cpp: 92";
-		rLen = 0;
-		rLoc = 1610;
-		rType = 0;
-		vrLen = 960;
-		vrLoc = 949;
-	};
-	1665B78F11EA4A9E00D4B309 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 16E1436F10D406900051F2F0 /* NyxNetServer.hpp */;
-		name = "NyxNetServer.hpp: 15";
-		rLen = 30;
-		rLoc = 265;
-		rType = 0;
-		vrLen = 344;
-		vrLoc = 0;
-	};
-	1665B79011EA4A9E00D4B309 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 168C584210D54D7F001FB07F /* NyxNetTcpIpServer_Impl.hpp */;
-		name = "NyxNetTcpIpServer_Impl.hpp: 26";
-		rLen = 0;
-		rLoc = 673;
-		rType = 0;
-		vrLen = 1194;
-		vrLoc = 0;
-	};
-	1665B89011EA520200D4B309 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 168C584110D54D7F001FB07F /* NyxNetTcpIpServer_Impl.cpp */;
-		name = "NyxNetTcpIpServer_Impl.cpp: 96";
-		rLen = 0;
-		rLoc = 1838;
-		rType = 0;
-		vrLen = 751;
-		vrLoc = 1675;
-	};
 	168C582710D54D4C001FB07F /* NyxNetNxConnection_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 4796}}";
-			sepNavSelRange = "{1327, 20}";
-			sepNavVisRange = "{742, 1177}";
+			sepNavIntBoundsRect = "{{0, 0}, {978, 5486}}";
+			sepNavSelRange = "{6744, 0}";
+			sepNavVisRange = "{6636, 692}";
 			sepNavWindowFrame = "{{73, 633}, {770, 519}}";
 		};
 	};
 	168C582810D54D4C001FB07F /* NyxNetNxConnection_Impl.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 1287}}";
-			sepNavSelRange = "{2828, 0}";
-			sepNavVisRange = "{670, 1937}";
+			sepNavIntBoundsRect = "{{0, 0}, {901, 1521}}";
+			sepNavSelRange = "{3195, 11}";
+			sepNavVisRange = "{2476, 899}";
+			sepNavWindowFrame = "{{38, 678}, {1037, 714}}";
 		};
 	};
 	168C582B10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 1672}}";
-			sepNavSelRange = "{1523, 0}";
-			sepNavVisRange = "{1049, 1061}";
+			sepNavIntBoundsRect = "{{0, 0}, {957, 2236}}";
+			sepNavSelRange = "{2626, 32}";
+			sepNavVisRange = "{1831, 1299}";
+			sepNavWindowFrame = "{{38, 793}, {640, 599}}";
 		};
 	};
 	168C582C10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 645}}";
-			sepNavSelRange = "{919, 0}";
-			sepNavVisRange = "{0, 1108}";
+			sepNavIntBoundsRect = "{{0, 0}, {845, 533}}";
+			sepNavSelRange = "{942, 0}";
+			sepNavVisRange = "{566, 591}";
 		};
 	};
 	168C582D10D54D63001FB07F /* NyxNetPipeSocketWriter_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 1452}}";
-			sepNavSelRange = "{963, 0}";
-			sepNavVisRange = "{443, 904}";
+			sepNavIntBoundsRect = "{{0, 0}, {957, 1742}}";
+			sepNavSelRange = "{1423, 0}";
+			sepNavVisRange = "{1309, 675}";
+		};
+	};
+	168C582E10D54D63001FB07F /* NyxNetPipeSocketWriter_Impl.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {845, 645}}";
+			sepNavSelRange = "{877, 0}";
+			sepNavVisRange = "{0, 991}";
+			sepNavWindowFrame = "{{61, 772}, {640, 599}}";
 		};
 	};
 	168C582F10D54D63001FB07F /* NyxNetTcpIpSocket_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 2387}}";
-			sepNavSelRange = "{2206, 0}";
-			sepNavVisRange = "{1628, 1091}";
+			sepNavIntBoundsRect = "{{0, 0}, {922, 2769}}";
+			sepNavSelRange = "{3389, 0}";
+			sepNavVisRange = "{2861, 835}";
+		};
+	};
+	168C583010D54D63001FB07F /* NyxNetTcpIpSocket_Impl.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {831, 645}}";
+			sepNavSelRange = "{1087, 0}";
+			sepNavVisRange = "{0, 1208}";
 		};
 	};
 	168C583710D54D7F001FB07F /* NyxNetModule_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1077, 1111}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 473}";
+			sepNavIntBoundsRect = "{{0, 0}, {826, 1209}}";
+			sepNavSelRange = "{662, 0}";
+			sepNavVisRange = "{503, 874}";
+			sepNavWindowFrame = "{{84, 751}, {640, 599}}";
 		};
 	};
 	168C583810D54D7F001FB07F /* NyxNetModule_Impl.hpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {826, 645}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 537}";
+			sepNavSelRange = "{392, 0}";
+			sepNavVisRange = "{0, 531}";
 		};
 	};
 	168C583B10D54D7F001FB07F /* NyxNetPipeClientConn.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 1034}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 1116}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 1196}}";
+			sepNavSelRange = "{741, 12}";
+			sepNavVisRange = "{409, 630}";
+		};
+	};
+	168C583C10D54D7F001FB07F /* NyxNetPipeClientConn.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {872, 650}}";
+			sepNavSelRange = "{724, 7}";
+			sepNavVisRange = "{229, 875}";
 		};
 	};
 	168C583D10D54D7F001FB07F /* NyxNetPipeServer_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {859, 2808}}";
-			sepNavSelRange = "{1610, 0}";
-			sepNavVisRange = "{949, 960}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 2821}}";
+			sepNavSelRange = "{1945, 15}";
+			sepNavVisRange = "{1552, 749}";
 		};
 	};
 	168C583E10D54D7F001FB07F /* NyxNetPipeServer_Impl.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 650}}";
-			sepNavSelRange = "{751, 0}";
-			sepNavVisRange = "{0, 1114}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 637}}";
+			sepNavSelRange = "{1002, 18}";
+			sepNavVisRange = "{399, 686}";
 		};
 	};
 	168C583F10D54D7F001FB07F /* NyxNetTcpIpClientConn.cpp */ = {
@@ -306,7 +275,7 @@
 	168C584110D54D7F001FB07F /* NyxNetTcpIpServer_Impl.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {826, 2314}}";
-			sepNavSelRange = "{1838, 0}";
+			sepNavSelRange = "{1713, 0}";
 			sepNavVisRange = "{1675, 751}";
 		};
 	};
@@ -317,36 +286,173 @@
 			sepNavVisRange = "{0, 1194}";
 		};
 	};
+	1698102D132866CC00D1DC3C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582C10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.hpp */;
+		name = "NyxNetPipeSocketReader_Impl.hpp: 31";
+		rLen = 0;
+		rLoc = 942;
+		rType = 0;
+		vrLen = 591;
+		vrLoc = 566;
+	};
+	1698102E132866CC00D1DC3C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582B10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.cpp */;
+		name = "NyxNetPipeSocketReader_Impl.cpp: 146";
+		rLen = 32;
+		rLoc = 2626;
+		rType = 0;
+		vrLen = 922;
+		vrLoc = 2071;
+	};
+	16A511D512FDA9D200C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16388D81109A784900F45720 /* NyxNet.hpp */;
+		name = "NyxNet.hpp: 14";
+		rLen = 0;
+		rLoc = 384;
+		rType = 0;
+		vrLen = 409;
+		vrLoc = 0;
+	};
+	16A511D612FDA9D200C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C583D10D54D7F001FB07F /* NyxNetPipeServer_Impl.cpp */;
+		name = "NyxNetPipeServer_Impl.cpp: 29";
+		rLen = 0;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 931;
+		vrLoc = 1483;
+	};
+	16C6E8AC1300A3EA005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C583D10D54D7F001FB07F /* NyxNetPipeServer_Impl.cpp */;
+		name = "NyxNetPipeServer_Impl.cpp: 110";
+		rLen = 15;
+		rLoc = 1945;
+		rType = 0;
+		vrLen = 749;
+		vrLoc = 1552;
+	};
+	16C6E8AD1300A3EA005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C583E10D54D7F001FB07F /* NyxNetPipeServer_Impl.hpp */;
+		name = "NyxNetPipeServer_Impl.hpp: 42";
+		rLen = 18;
+		rLoc = 1002;
+		rType = 0;
+		vrLen = 686;
+		vrLoc = 399;
+	};
+	16C6E8B01300A3EA005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C583C10D54D7F001FB07F /* NyxNetPipeClientConn.hpp */;
+		name = "NyxNetPipeClientConn.hpp: 27";
+		rLen = 7;
+		rLoc = 724;
+		rType = 0;
+		vrLen = 875;
+		vrLoc = 229;
+	};
+	16C6E8B11300A3EA005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C583B10D54D7F001FB07F /* NyxNetPipeClientConn.cpp */;
+		name = "NyxNetPipeClientConn.cpp: 42";
+		rLen = 12;
+		rLoc = 741;
+		rType = 0;
+		vrLen = 630;
+		vrLoc = 409;
+	};
+	16C6E8B31300A3EA005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16FBB26D10D45EB100E5D0E2 /* NyxNetNxStreamRW.hpp */;
+		name = "NyxNetNxStreamRW.hpp: 137";
+		rLen = 9;
+		rLoc = 3173;
+		rType = 0;
+		vrLen = 714;
+		vrLoc = 3019;
+	};
+	16C6E93A1300BBFE005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582C10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.hpp */;
+		name = "NyxNetPipeSocketReader_Impl.hpp: 8";
+		rLen = 0;
+		rLoc = 217;
+		rType = 0;
+		vrLen = 1042;
+		vrLoc = 74;
+	};
+	16C6E9AA1300C8D1005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582D10D54D63001FB07F /* NyxNetPipeSocketWriter_Impl.cpp */;
+		name = "NyxNetPipeSocketWriter_Impl.cpp: 95";
+		rLen = 0;
+		rLoc = 1423;
+		rType = 0;
+		vrLen = 675;
+		vrLoc = 1309;
+	};
+	16C6EA161300D09E005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582810D54D4C001FB07F /* NyxNetNxConnection_Impl.hpp */;
+		name = "NyxNetNxConnection_Impl.hpp: 108";
+		rLen = 11;
+		rLoc = 3195;
+		rType = 0;
+		vrLen = 899;
+		vrLoc = 2476;
+	};
+	16C6EA371300D338005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 168C582710D54D4C001FB07F /* NyxNetNxConnection_Impl.cpp */;
+		name = "NyxNetNxConnection_Impl.cpp: 351";
+		rLen = 0;
+		rLoc = 6744;
+		rType = 0;
+		vrLen = 692;
+		vrLoc = 6636;
+	};
 	16C7235310C4A72B00F025A9 /* NyxNetConnectionHandler.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {929, 597}}";
+			sepNavIntBoundsRect = "{{0, 0}, {929, 409}}";
 			sepNavSelRange = "{487, 0}";
 			sepNavVisRange = "{0, 487}";
 		};
 	};
 	16C7235710C4A73900F025A9 /* NyxNetConnection.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {828, 597}}";
-			sepNavSelRange = "{0, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 409}}";
+			sepNavSelRange = "{87, 20}";
 			sepNavVisRange = "{0, 196}";
 		};
 	};
 	16C82FFB10C358FA002276A9 /* NyxNetSocket.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {859, 597}}";
-			sepNavSelRange = "{506, 7}";
-			sepNavVisRange = "{0, 661}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 351}}";
+			sepNavSelRange = "{93, 0}";
+			sepNavVisRange = "{0, 628}";
 		};
 	};
-	16CC2BFE11EA9A7300B204C9 /* PBXTextBookmark */ = {
+	16CF1DE312F46DED0001C546 /* NyxNetPipeTraceOutput.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {826, 645}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 354}";
+		};
+	};
+	16CF1E6D12F48B790001C546 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
-		fRef = 168C584110D54D7F001FB07F /* NyxNetTcpIpServer_Impl.cpp */;
-		name = "NyxNetTcpIpServer_Impl.cpp: 96";
+		fRef = 16CF1DE312F46DED0001C546 /* NyxNetPipeTraceOutput.hpp */;
+		name = "NyxNetPipeTraceOutput.hpp: 1";
 		rLen = 0;
-		rLoc = 1838;
+		rLoc = 0;
 		rType = 0;
-		vrLen = 751;
-		vrLoc = 1675;
+		vrLen = 354;
+		vrLoc = 0;
 	};
 	16E1436F10D406900051F2F0 /* NyxNetServer.hpp */ = {
 		uiCtxt = {
@@ -361,7 +467,7 @@
 		isSCMEnabled = 0;
 		scmConfiguration = {
 			repositoryNamesForRoots = {
-				"" = "";
+				"" = Nyx;
 			};
 		};
 	};
@@ -372,8 +478,8 @@
 	16E5C4DC106453E9000C8786 /* NyxNetModule.hpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {826, 645}}";
-			sepNavSelRange = "{101, 0}";
-			sepNavVisRange = "{0, 520}";
+			sepNavSelRange = "{114, 0}";
+			sepNavVisRange = "{0, 511}";
 		};
 	};
 	16E5C52110645A6C000C8786 /* NyxNetPipeServer.hpp */ = {
@@ -408,16 +514,16 @@
 	};
 	16FBB26B10D45EB100E5D0E2 /* NyxNetNxConnectionHandler.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {826, 645}}";
+			sepNavIntBoundsRect = "{{0, 0}, {943, 645}}";
 			sepNavSelRange = "{503, 0}";
 			sepNavVisRange = "{0, 503}";
 		};
 	};
 	16FBB26D10D45EB100E5D0E2 /* NyxNetNxStreamRW.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {859, 2691}}";
-			sepNavSelRange = "{313, 0}";
-			sepNavVisRange = "{2870, 1084}";
+			sepNavIntBoundsRect = "{{0, 0}, {872, 2730}}";
+			sepNavSelRange = "{3173, 9}";
+			sepNavVisRange = "{3019, 714}";
 		};
 	};
 	D2AAC045055464E500DB518D /* NyxNet */ = {

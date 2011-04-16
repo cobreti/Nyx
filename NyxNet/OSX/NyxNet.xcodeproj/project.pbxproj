@@ -35,6 +35,7 @@
 		16C7235410C4A72B00F025A9 /* NyxNetConnectionHandler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16C7235310C4A72B00F025A9 /* NyxNetConnectionHandler.hpp */; };
 		16C7235810C4A73900F025A9 /* NyxNetConnection.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16C7235710C4A73900F025A9 /* NyxNetConnection.hpp */; };
 		16C82FFC10C358FA002276A9 /* NyxNetSocket.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16C82FFB10C358FA002276A9 /* NyxNetSocket.hpp */; };
+		16CF1DE412F46DED0001C546 /* NyxNetPipeTraceOutput.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16CF1DE312F46DED0001C546 /* NyxNetPipeTraceOutput.hpp */; };
 		16E1437010D406900051F2F0 /* NyxNetServer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16E1436F10D406900051F2F0 /* NyxNetServer.hpp */; };
 		16E1439C10D40AFA0051F2F0 /* NyxNetSocketListener.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16E1439B10D40AFA0051F2F0 /* NyxNetSocketListener.hpp */; };
 		16E5C4DD106453E9000C8786 /* NyxNetModule.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16E5C4DC106453E9000C8786 /* NyxNetModule.hpp */; };
@@ -76,6 +77,7 @@
 		16C7235310C4A72B00F025A9 /* NyxNetConnectionHandler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetConnectionHandler.hpp; path = ../include/NyxNetConnectionHandler.hpp; sourceTree = SOURCE_ROOT; };
 		16C7235710C4A73900F025A9 /* NyxNetConnection.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetConnection.hpp; path = ../include/NyxNetConnection.hpp; sourceTree = SOURCE_ROOT; };
 		16C82FFB10C358FA002276A9 /* NyxNetSocket.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetSocket.hpp; path = ../include/NyxNetSocket.hpp; sourceTree = SOURCE_ROOT; };
+		16CF1DE312F46DED0001C546 /* NyxNetPipeTraceOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetPipeTraceOutput.hpp; path = ../include/NyxNetPipeTraceOutput.hpp; sourceTree = SOURCE_ROOT; };
 		16E1436F10D406900051F2F0 /* NyxNetServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetServer.hpp; path = ../include/NyxNetServer.hpp; sourceTree = SOURCE_ROOT; };
 		16E1439B10D40AFA0051F2F0 /* NyxNetSocketListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetSocketListener.hpp; path = ../include/NyxNetSocketListener.hpp; sourceTree = SOURCE_ROOT; };
 		16E5C4DC106453E9000C8786 /* NyxNetModule.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetModule.hpp; path = ../include/NyxNetModule.hpp; sourceTree = SOURCE_ROOT; };
@@ -113,6 +115,7 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				16CF1DE312F46DED0001C546 /* NyxNetPipeTraceOutput.hpp */,
 				16FBB26810D45EA000E5D0E2 /* Nx */,
 				16EA267C10A4A46700F811A6 /* Sockets */,
 				16388D81109A784900F45720 /* NyxNet.hpp */,
@@ -245,6 +248,7 @@
 				168C584C10D54D7F001FB07F /* NyxNetTcpIpClientConn.hpp in Headers */,
 				168C584E10D54D7F001FB07F /* NyxNetTcpIpServer_Impl.hpp in Headers */,
 				162A71E611B1F79C00238224 /* NyxNetPipeTraceOutput_Impl.hpp in Headers */,
+				16CF1DE412F46DED0001C546 /* NyxNetPipeTraceOutput.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +279,14 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB91EF08733DB70010E9CD /* Build configuration list for PBXProject "NyxNet" */;
 			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* NyxNet */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -310,22 +321,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CONFIGURATION_BUILD_DIR = "../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DEBUGGING_SYMBOLS = full;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../include,
-					../../NyxBase/include/OSX,
-					../../NyxBase/include,
+					../../include,
+					../../include/OSX,
+					../../include/NyxNet,
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};
@@ -336,6 +348,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DEBUGGING_SYMBOLS = full;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -349,16 +363,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CONFIGURATION_BUILD_DIR = "../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../include,
-					../../NyxBase/include/OSX,
-					../../NyxBase/include,
+					../../include,
+					../../include/OSX,
+					../../include/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
@@ -370,7 +384,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DEBUGGING_SYMBOLS = default;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = NyxNet;
@@ -382,6 +397,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DEBUGGING_SYMBOLS = full;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -395,7 +412,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DEBUGGING_SYMBOLS = default;
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = NyxNet;
@@ -406,22 +424,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CONFIGURATION_BUILD_DIR = "../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DEBUGGING_SYMBOLS = full;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../include,
-					../../NyxBase/include/OSX,
-					../../NyxBase/include,
+					../../include,
+					../../include/OSX,
+					../../include/NyxNet,
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};
@@ -431,18 +450,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CONFIGURATION_BUILD_DIR = "../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_BUILD_DIR = "../../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					../include,
-					../../NyxBase/include/OSX,
-					../../NyxBase/include,
+					../../include,
+					../../include/OSX,
+					../../include/NyxNet,
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};

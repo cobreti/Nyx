@@ -1,6 +1,7 @@
 // !$*UTF8*$!
 {
 	0867D690FE84028FC02AAC07 /* Project object */ = {
+		activeArchitecturePreference = x86_64;
 		activeBuildConfigurationName = Debug_32;
 		activeTarget = D2AAC06E0554671400DB518D /* NyxBase_OSX */;
 		addToTargets = (
@@ -39,7 +40,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					810,
+					611,
 					20,
 					48,
 					43,
@@ -78,17 +79,18 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 300986478;
-			PBXWorkspaceStateSaveDate = 300986478;
+			PBXPerProjectTemplateStateSaveDate = 324652807;
+			PBXWorkspaceStateSaveDate = 324652807;
 		};
 		perUserProjectItems = {
-			163DE57611F0C5AC00FC97EF /* PBXTextBookmark */ = 163DE57611F0C5AC00FC97EF /* PBXTextBookmark */;
-			163DE57711F0C5AC00FC97EF /* PBXTextBookmark */ = 163DE57711F0C5AC00FC97EF /* PBXTextBookmark */;
-			16CC2AE711EA7FDF00B204C9 /* PBXTextBookmark */ = 16CC2AE711EA7FDF00B204C9 /* PBXTextBookmark */;
-			16CC2AF711EA917200B204C9 /* PBXTextBookmark */ = 16CC2AF711EA917200B204C9 /* PBXTextBookmark */;
-			16CC2B0A11EA92B400B204C9 /* PBXTextBookmark */ = 16CC2B0A11EA92B400B204C9 /* PBXTextBookmark */;
-			16CC2BFC11EA9A7200B204C9 /* PBXTextBookmark */ = 16CC2BFC11EA9A7200B204C9 /* PBXTextBookmark */;
-			16CC2BFD11EA9A7200B204C9 /* PBXTextBookmark */ = 16CC2BFD11EA9A7200B204C9 /* PBXTextBookmark */;
+			16A510DC12FCE51D00C33A9F /* PBXTextBookmark */ = 16A510DC12FCE51D00C33A9F /* PBXTextBookmark */;
+			16A5110C12FCEC8A00C33A9F /* PBXTextBookmark */ = 16A5110C12FCEC8A00C33A9F /* PBXTextBookmark */;
+			16A5110D12FCEC8A00C33A9F /* PBXTextBookmark */ = 16A5110D12FCEC8A00C33A9F /* PBXTextBookmark */;
+			16A5110E12FCEC8A00C33A9F /* PBXTextBookmark */ = 16A5110E12FCEC8A00C33A9F /* PBXTextBookmark */;
+			16A5115012FCFBE100C33A9F /* PBXTextBookmark */ = 16A5115012FCFBE100C33A9F /* PBXTextBookmark */;
+			16A5119D12FDA48100C33A9F /* PBXTextBookmark */ = 16A5119D12FDA48100C33A9F /* PBXTextBookmark */;
+			16A511D212FDA9D200C33A9F /* PBXTextBookmark */ = 16A511D212FDA9D200C33A9F /* PBXTextBookmark */;
+			16C6E9611300C30E005D4642 /* PBXTextBookmark */ = 16C6E9611300C30E005D4642 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 164BF43A0EABC09000A0E110 /* Source Control */;
 		userBookmarkGroup = 168A54250EB37325006BAD6F /* PBXBookmarkGroup */;
@@ -140,8 +142,8 @@
 	};
 	1612671710E5369900380581 /* NyxObject_Impl.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1004, 354}}";
-			sepNavSelRange = "{95, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {988, 392}}";
+			sepNavSelRange = "{293, 0}";
 			sepNavVisRange = "{0, 336}";
 		};
 	};
@@ -161,17 +163,17 @@
 	};
 	1613993E0F64751B009EEF4F /* NyxTraceCompositor.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 949}}";
-			sepNavSelRange = "{778, 0}";
-			sepNavVisRange = "{140, 1245}";
+			sepNavIntBoundsRect = "{{0, 0}, {838, 949}}";
+			sepNavSelRange = "{414, 0}";
+			sepNavVisRange = "{140, 1077}";
 			sepNavWindowFrame = "{{68, 316}, {750, 558}}";
 		};
 	};
 	1613994C0F6477A0009EEF4F /* NyxTraceFeed.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 962}}";
-			sepNavSelRange = "{846, 0}";
-			sepNavVisRange = "{138, 1173}";
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 975}}";
+			sepNavSelRange = "{214, 19}";
+			sepNavVisRange = "{0, 799}";
 			sepNavWindowFrame = "{{446, 464}, {750, 558}}";
 		};
 	};
@@ -185,14 +187,15 @@
 	};
 	1625A9261094AB3500E29478 /* NyxBuffer.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1039, 2310}}";
-			sepNavSelRange = "{407, 0}";
-			sepNavVisRange = "{164, 1008}";
+			sepNavIntBoundsRect = "{{0, 0}, {789, 2938}}";
+			sepNavSelRange = "{745, 0}";
+			sepNavVisRange = "{962, 1175}";
+			sepNavWindowFrame = "{{46, 663}, {1037, 714}}";
 		};
 	};
 	1625AA261094C44F00E29478 /* NyxException.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {792, 489}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1138, 872}}";
 			sepNavSelRange = "{325, 0}";
 			sepNavVisRange = "{0, 379}";
 			sepNavWindowFrame = "{{65, 219}, {857, 612}}";
@@ -200,9 +203,9 @@
 	};
 	1625AA431094C82400E29478 /* NyxBodyBlock.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {792, 798}}";
-			sepNavSelRange = "{1162, 0}";
-			sepNavVisRange = "{424, 973}";
+			sepNavIntBoundsRect = "{{0, 0}, {1138, 867}}";
+			sepNavSelRange = "{1378, 0}";
+			sepNavVisRange = "{0, 1466}";
 			sepNavWindowFrame = "{{88, 198}, {857, 612}}";
 		};
 	};
@@ -215,7 +218,7 @@
 	};
 	1636480910E6BC2D00AAF3A6 /* NyxStringFormater.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {870, 600}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 554}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 495}";
 		};
@@ -229,7 +232,7 @@
 	};
 	1636480C10E6BC5000AAF3A6 /* NyxStringFormater_Impl.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1039, 712}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1138, 867}}";
 			sepNavSelRange = "{191, 0}";
 			sepNavVisRange = "{0, 630}";
 		};
@@ -249,26 +252,6 @@
 			sepNavVisRange = "{0, 302}";
 			sepNavWindowFrame = "{{262, 466}, {740, 343}}";
 		};
-	};
-	163DE57611F0C5AC00FC97EF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1680EAAB10913EDE00EEBE67 /* NyxTraceFeeds.hpp */;
-		name = "NyxTraceFeeds.hpp: 151";
-		rLen = 0;
-		rLoc = 3182;
-		rType = 0;
-		vrLen = 1501;
-		vrLoc = 2352;
-	};
-	163DE57711F0C5AC00FC97EF /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1613994C0F6477A0009EEF4F /* NyxTraceFeed.hpp */;
-		name = "NyxTraceFeed.hpp: 48";
-		rLen = 0;
-		rLoc = 846;
-		rType = 0;
-		vrLen = 0;
-		vrLoc = 0;
 	};
 	164BF43A0EABC09000A0E110 /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -402,7 +385,7 @@
 	};
 	1670F80E0F0465910039B59D /* NyxEvent.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {850, 675}}";
+			sepNavIntBoundsRect = "{{0, 0}, {783, 683}}";
 			sepNavSelRange = "{293, 0}";
 			sepNavVisRange = "{0, 557}";
 			sepNavWindowFrame = "{{34, 495}, {701, 508}}";
@@ -417,9 +400,9 @@
 	};
 	1680EA5110913AF600EEBE67 /* Nyx.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1039, 734}}";
-			sepNavSelRange = "{501, 0}";
-			sepNavVisRange = "{0, 501}";
+			sepNavIntBoundsRect = "{{0, 0}, {783, 683}}";
+			sepNavSelRange = "{209, 0}";
+			sepNavVisRange = "{0, 587}";
 		};
 	};
 	1680EAA710913EDE00EEBE67 /* NyxDbg.hpp */ = {
@@ -446,32 +429,25 @@
 	};
 	1680EAAB10913EDE00EEBE67 /* NyxTraceFeeds.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 2288}}";
+			sepNavIntBoundsRect = "{{0, 0}, {988, 2379}}";
 			sepNavSelRange = "{3182, 0}";
-			sepNavVisRange = "{2352, 1501}";
+			sepNavVisRange = "{2296, 1556}";
 			sepNavWindowFrame = "{{557, 383}, {830, 472}}";
 		};
 	};
 	1680EAAC10913EDE00EEBE67 /* NyxTypes.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {745, 975}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1141, 858}}";
 			sepNavSelRange = "{239, 0}";
-			sepNavVisRange = "{178, 671}";
+			sepNavVisRange = "{0, 613}";
 		};
 	};
 	168290CB105C751800CEDA45 /* NyxThreadModule.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {737, 527}}";
+			sepNavIntBoundsRect = "{{0, 0}, {988, 821}}";
 			sepNavSelRange = "{127, 0}";
 			sepNavVisRange = "{0, 410}";
-		};
-	};
-	168560500F9A299B002DD28C /* NyxStringT.hpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {924, 935}}";
-			sepNavSelRange = "{2239, 0}";
-			sepNavVisRange = "{530, 1856}";
-			sepNavWindowFrame = "{{835, 123}, {983, 606}}";
+			sepNavWindowFrame = "{{76, 625}, {1275, 767}}";
 		};
 	};
 	1689688110A9FDD000FB7883 /* NyxStreamWriter.hpp */ = {
@@ -486,14 +462,6 @@
 			sepNavIntBoundsRect = "{{0, 0}, {792, 489}}";
 			sepNavSelRange = "{83, 0}";
 			sepNavVisRange = "{0, 243}";
-		};
-	};
-	1689A7170F8818E100E68313 /* NyxString.hpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {870, 600}}";
-			sepNavSelRange = "{385, 157}";
-			sepNavVisRange = "{0, 1307}";
-			sepNavWindowFrame = "{{446, 252}, {695, 582}}";
 		};
 	};
 	168A54250EB37325006BAD6F /* PBXBookmarkGroup */ = {
@@ -541,14 +509,14 @@
 	};
 	168C57D110D547A4001FB07F /* NyxEvent_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1166, 803}}";
-			sepNavSelRange = "{89, 0}";
-			sepNavVisRange = "{0, 526}";
+			sepNavIntBoundsRect = "{{0, 0}, {783, 949}}";
+			sepNavSelRange = "{126, 0}";
+			sepNavVisRange = "{0, 1166}";
 		};
 	};
 	168C57D210D547A4001FB07F /* NyxEvent_Impl.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1039, 712}}";
+			sepNavIntBoundsRect = "{{0, 0}, {783, 683}}";
 			sepNavSelRange = "{433, 0}";
 			sepNavVisRange = "{0, 588}";
 		};
@@ -570,45 +538,24 @@
 	};
 	168C57D510D547A4001FB07F /* NyxThread_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 1443}}";
-			sepNavSelRange = "{721, 0}";
-			sepNavVisRange = "{239, 737}";
+			sepNavIntBoundsRect = "{{0, 0}, {783, 1573}}";
+			sepNavSelRange = "{959, 0}";
+			sepNavVisRange = "{871, 985}";
 		};
 	};
 	168C57D610D547A4001FB07F /* NyxThread_Impl.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 821}}";
-			sepNavSelRange = "{447, 0}";
-			sepNavVisRange = "{0, 746}";
+			sepNavIntBoundsRect = "{{0, 0}, {783, 683}}";
+			sepNavSelRange = "{813, 0}";
+			sepNavVisRange = "{0, 885}";
 		};
 	};
-	168C57E510D547D2001FB07F /* NyxString_Impl.cpp */ = {
+	168C57DD10D547BD001FB07F /* NyxTaskExecuterPool_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 2639}}";
-			sepNavSelRange = "{1158, 0}";
-			sepNavVisRange = "{771, 657}";
-			sepNavWindowFrame = "{{50, 267}, {983, 606}}";
-		};
-	};
-	168C57E610D547D2001FB07F /* NyxString_Impl.hpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1039, 750}}";
-			sepNavSelRange = "{424, 0}";
-			sepNavVisRange = "{30, 1464}";
-		};
-	};
-	168C57E910D547DA001FB07F /* NyxAnsiString_Impl.cpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 2535}}";
-			sepNavSelRange = "{2646, 0}";
-			sepNavVisRange = "{1671, 975}";
-		};
-	};
-	168C57EA10D547DA001FB07F /* NyxAnsiString_Impl.hpp */ = {
-		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 676}}";
-			sepNavSelRange = "{1308, 0}";
-			sepNavVisRange = "{486, 971}";
+			sepNavIntBoundsRect = "{{0, 0}, {1138, 2574}}";
+			sepNavSelRange = "{2552, 0}";
+			sepNavVisRange = "{1992, 604}";
+			sepNavWindowFrame = "{{214, 499}, {1275, 767}}";
 		};
 	};
 	168C57F210D54810001FB07F /* NyxConsoleTraceOutput_Impl.cpp */ = {
@@ -629,23 +576,24 @@
 	};
 	168C57F610D5481C001FB07F /* NyxTraceCompositor_Impl.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1166, 2197}}";
-			sepNavSelRange = "{251, 0}";
-			sepNavVisRange = "{39, 469}";
+			sepNavIntBoundsRect = "{{0, 0}, {988, 2080}}";
+			sepNavSelRange = "{2109, 0}";
+			sepNavVisRange = "{750, 1609}";
 		};
 	};
 	168C57F710D5481C001FB07F /* NyxTraceCompositor_Impl.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 988}}";
-			sepNavSelRange = "{1792, 0}";
-			sepNavVisRange = "{0, 1633}";
+			sepNavIntBoundsRect = "{{0, 0}, {988, 1014}}";
+			sepNavSelRange = "{957, 0}";
+			sepNavVisRange = "{280, 1680}";
+			sepNavWindowFrame = "{{53, 646}, {1275, 767}}";
 		};
 	};
 	168C57F810D5481C001FB07F /* NyxTraceStream.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1260, 1989}}";
-			sepNavSelRange = "{256, 0}";
-			sepNavVisRange = "{0, 510}";
+			sepNavIntBoundsRect = "{{0, 0}, {988, 2002}}";
+			sepNavSelRange = "{360, 0}";
+			sepNavVisRange = "{0, 1173}";
 			sepNavWindowFrame = "{{50, 615}, {750, 558}}";
 		};
 	};
@@ -655,6 +603,119 @@
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{190, 436}";
 		};
+	};
+	168C580010D54834001FB07F /* NyxTraceModule_Impl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {988, 1131}}";
+			sepNavSelRange = "{1334, 0}";
+			sepNavVisRange = "{194, 1141}";
+		};
+	};
+	168C580110D54834001FB07F /* NyxTraceModule_Impl.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {988, 821}}";
+			sepNavSelRange = "{580, 13}";
+			sepNavVisRange = "{0, 704}";
+		};
+	};
+	168C580410D5483D001FB07F /* NyxThreadModule_Impl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {988, 821}}";
+			sepNavSelRange = "{639, 0}";
+			sepNavVisRange = "{0, 641}";
+		};
+	};
+	168C580510D5483D001FB07F /* NyxThreadModule_Impl.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {988, 821}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 569}";
+		};
+	};
+	16A510D812FCE42200C33A9F /* NyxMemPoolWString.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1260, 377}}";
+			sepNavSelRange = "{349, 0}";
+			sepNavVisRange = "{266, 253}";
+		};
+	};
+	16A510DA12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {789, 858}}";
+			sepNavSelRange = "{846, 0}";
+			sepNavVisRange = "{467, 715}";
+			sepNavWindowFrame = "{{15, 814}, {640, 599}}";
+		};
+	};
+	16A510DC12FCE51D00C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16E9869612D9493100F48942 /* NyxWString_Impl.cpp */;
+		name = "NyxWString_Impl.cpp: 124";
+		rLen = 3;
+		rLoc = 1926;
+		rType = 0;
+		vrLen = 820;
+		vrLoc = 1287;
+	};
+	16A5110C12FCEC8A00C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16CF1E7A12F48D400001C546 /* NyxMemoryPool_Impl.hpp */;
+		name = "NyxMemoryPool_Impl.hpp: 48";
+		rLen = 0;
+		rLoc = 897;
+		rType = 0;
+		vrLen = 310;
+		vrLoc = 700;
+	};
+	16A5110D12FCEC8A00C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16A510DA12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp */;
+		name = "NyxMemPoolString_Impl.cpp: 6";
+		rLen = 0;
+		rLoc = 89;
+		rType = 0;
+		vrLen = 217;
+		vrLoc = 0;
+	};
+	16A5110E12FCEC8A00C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16E9833B12D8D41B00F48942 /* NyxMFString_Impl.cpp */;
+		name = "NyxMFString_Impl.cpp: 43";
+		rLen = 0;
+		rLoc = 529;
+		rType = 0;
+		vrLen = 243;
+		vrLoc = 435;
+	};
+	16A5115012FCFBE100C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16CF1E7C12F48D560001C546 /* NyxMemoryPool_Impl.cpp */;
+		name = "NyxMemoryPool_Impl.cpp: 104";
+		rLen = 0;
+		rLoc = 1675;
+		rType = 0;
+		vrLen = 500;
+		vrLoc = 1282;
+	};
+	16A5119D12FDA48100C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16CF1E7A12F48D400001C546 /* NyxMemoryPool_Impl.hpp */;
+		name = "NyxMemoryPool_Impl.hpp: 48";
+		rLen = 0;
+		rLoc = 897;
+		rType = 0;
+		vrLen = 577;
+		vrLoc = 433;
+	};
+	16A511D212FDA9D200C33A9F /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16E9833B12D8D41B00F48942 /* NyxMFString_Impl.cpp */;
+		name = "NyxMFString_Impl.cpp: 406";
+		rLen = 0;
+		rLoc = 6487;
+		rType = 0;
+		vrLen = 734;
+		vrLoc = 6099;
 	};
 	16AC42DB0ED9DF8D004E562A /* NyxMutex.hpp */ = {
 		uiCtxt = {
@@ -678,6 +739,16 @@
 			sepNavVisRange = "{363, 922}";
 		};
 	};
+	16C6E9611300C30E005D4642 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 16A510DA12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp */;
+		name = "NyxMemPoolWString_Impl.cpp: 50";
+		rLen = 0;
+		rLoc = 846;
+		rType = 0;
+		vrLen = 715;
+		vrLoc = 467;
+	};
 	16C7232F10C4A57000F025A9 /* NyxStreamHandler.hpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {783, 564}}";
@@ -685,55 +756,33 @@
 			sepNavVisRange = "{0, 264}";
 		};
 	};
-	16CC2AE711EA7FDF00B204C9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1613994C0F6477A0009EEF4F /* NyxTraceFeed.hpp */;
-		name = "NyxTraceFeed.hpp: 10";
-		rLen = 0;
-		rLoc = 137;
-		rType = 0;
-		vrLen = 465;
-		vrLoc = 0;
+	16CF1E7412F48C2B0001C546 /* NyxMemoryPool.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {789, 390}}";
+			sepNavSelRange = "{170, 42}";
+			sepNavVisRange = "{150, 245}";
+		};
 	};
-	16CC2AF711EA917200B204C9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1680EAAB10913EDE00EEBE67 /* NyxTraceFeeds.hpp */;
-		name = "NyxTraceFeeds.hpp: 19";
-		rLen = 0;
-		rLoc = 263;
-		rType = 0;
-		vrLen = 480;
-		vrLoc = 184;
+	16CF1E7A12F48D400001C546 /* NyxMemoryPool_Impl.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {789, 728}}";
+			sepNavSelRange = "{897, 0}";
+			sepNavVisRange = "{433, 577}";
+		};
 	};
-	16CC2B0A11EA92B400B204C9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 168C57F810D5481C001FB07F /* NyxTraceStream.cpp */;
-		name = "NyxTraceStream.cpp: 15";
-		rLen = 0;
-		rLoc = 360;
-		rType = 0;
-		vrLen = 633;
-		vrLoc = 59;
+	16CF1E7C12F48D560001C546 /* NyxMemoryPool_Impl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {783, 1534}}";
+			sepNavSelRange = "{1675, 0}";
+			sepNavVisRange = "{1282, 500}";
+		};
 	};
-	16CC2BFC11EA9A7200B204C9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1680EAAB10913EDE00EEBE67 /* NyxTraceFeeds.hpp */;
-		name = "NyxTraceFeeds.hpp: 166";
-		rLen = 0;
-		rLoc = 3443;
-		rType = 0;
-		vrLen = 1194;
-		vrLoc = 2659;
-	};
-	16CC2BFD11EA9A7200B204C9 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1613994C0F6477A0009EEF4F /* NyxTraceFeed.hpp */;
-		name = "NyxTraceFeed.hpp: 48";
-		rLen = 0;
-		rLoc = 846;
-		rType = 0;
-		vrLen = 215;
-		vrLoc = 213;
+	16CF1EA312F49EA80001C546 /* NyxMemPoolObj.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {789, 689}}";
+			sepNavSelRange = "{369, 19}";
+			sepNavVisRange = "{228, 668}";
+		};
 	};
 	16D0C54C0FEEA17600CA6D93 /* NyxActiveObject.hpp */ = {
 		uiCtxt = {
@@ -753,9 +802,9 @@
 	};
 	16D0C5550FEEA6DD00CA6D93 /* NyxLock.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {792, 602}}";
-			sepNavSelRange = "{71, 0}";
-			sepNavVisRange = "{0, 461}";
+			sepNavIntBoundsRect = "{{0, 0}, {783, 683}}";
+			sepNavSelRange = "{297, 0}";
+			sepNavVisRange = "{0, 557}";
 			sepNavWindowFrame = "{{236, 93}, {857, 612}}";
 		};
 	};
@@ -766,11 +815,48 @@
 			sepNavVisRange = "{224, 829}";
 		};
 	};
-	16E5C54D10646464000C8786 /* NyxAnsiString.hpp */ = {
+	16E9833812D8C69100F48942 /* NyxMFString.hpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {988, 572}}";
-			sepNavSelRange = "{760, 0}";
-			sepNavVisRange = "{180, 1136}";
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 2067}}";
+			sepNavSelRange = "{3011, 8}";
+			sepNavVisRange = "{2088, 1206}";
+		};
+	};
+	16E9833B12D8D41B00F48942 /* NyxMFString_Impl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {789, 7748}}";
+			sepNavSelRange = "{6487, 0}";
+			sepNavVisRange = "{6099, 734}";
+		};
+	};
+	16E984F612D8F4F100F48942 /* NyxAssert.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {783, 430}}";
+			sepNavSelRange = "{289, 0}";
+			sepNavVisRange = "{0, 295}";
+			sepNavWindowFrame = "{{191, 520}, {1275, 767}}";
+		};
+	};
+	16E9869412D9490B00F48942 /* NyxWString.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {783, 559}}";
+			sepNavSelRange = "{277, 0}";
+			sepNavVisRange = "{26, 232}";
+		};
+	};
+	16E9869612D9493100F48942 /* NyxWString_Impl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {783, 2210}}";
+			sepNavSelRange = "{1926, 3}";
+			sepNavVisRange = "{1287, 820}";
+			sepNavWindowFrame = "{{107, 730}, {640, 599}}";
+		};
+	};
+	16E9872312D951CC00F48942 /* NyxStringsFormat.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1138, 369}}";
+			sepNavSelRange = "{204, 0}";
+			sepNavVisRange = "{0, 204}";
 		};
 	};
 	16EA272310A4B4AF00F811A6 /* NyxTask.hpp */ = {
@@ -802,6 +888,20 @@
 			sepNavSelRange = "{725, 0}";
 			sepNavVisRange = "{0, 983}";
 			sepNavWindowFrame = "{{61, 273}, {750, 558}}";
+		};
+	};
+	16F65A9412E227E40023255C /* NyxAString.hpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {783, 683}}";
+			sepNavSelRange = "{990, 0}";
+			sepNavVisRange = "{0, 1026}";
+		};
+	};
+	16F65A9C12E229110023255C /* NyxAString_Impl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1138, 1937}}";
+			sepNavSelRange = "{240, 0}";
+			sepNavVisRange = "{0, 1085}";
 		};
 	};
 	32BAE0B70371A74B00C91783 /* NyxBase_OSX_Prefix.pch */ = {
