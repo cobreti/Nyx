@@ -41,8 +41,8 @@ Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Create( const char* szPipename
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
 	
-	m_refPipename = Nyx::CAnsiString::Alloc("/tmp/");
-	m_refPipename->Append(szPipename);
+	m_Pipename = "/tmp/";
+	m_Pipename += szPipename;
 	
 	m_Buffer.Alloc(BufferSize);
 	
@@ -60,10 +60,10 @@ Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Connect()
 	m_Timeout.tv_sec = 1;
 	m_Timeout.tv_usec = 0;
 	
-	nRet = mkfifo(m_refPipename->c_str(), 0666);
+	nRet = mkfifo(m_Pipename.c_str(), 0666);
 	if ( nRet != -1 )
 	{
-		m_PipeId = open(m_refPipename->c_str(), O_RDONLY | O_NONBLOCK );
+		m_PipeId = open(m_Pipename.c_str(), O_RDONLY | O_NONBLOCK );
 		if ( m_PipeId == -1 )
 			res = Nyx::kNyxRes_Failure;
 		else
@@ -92,7 +92,7 @@ void NyxNetOSX::CPipeSocketReader_Impl::Disconnect()
 	{
 		close(m_PipeId);
 		m_PipeId = -1;
-		remove(m_refPipename->c_str());
+		remove(m_Pipename.c_str());
 		
 		if ( m_pListener != NULL )
 			m_pListener->OnSocketDisconnected(this);

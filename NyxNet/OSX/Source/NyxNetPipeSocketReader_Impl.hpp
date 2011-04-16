@@ -4,7 +4,7 @@
 #include "NyxNetPipeSocketReader.hpp"
 #include "NyxObject_Impl.hpp"
 #include "NyxBuffer.hpp"
-#include "NyxAnsiString.hpp"
+#include "NyxAString.hpp"
 
 namespace NyxNetOSX
 {
@@ -28,7 +28,7 @@ namespace NyxNetOSX
 		int							m_PipeId;
 		bool						m_bConnected;
 		Nyx::TBuffer<Nyx::Byte>		m_Buffer;
-		Nyx::CAnsiStringRef			m_refPipename;
+		Nyx::CAString               m_Pipename;
 		timeval						m_Timeout;
 		NyxNet::ISocketListener*	m_pListener;
 	};
