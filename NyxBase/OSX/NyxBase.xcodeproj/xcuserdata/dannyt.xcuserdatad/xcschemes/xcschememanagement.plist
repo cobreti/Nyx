@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>NyxBase_OSX_Debug.xcscheme</key>
+		<key>NyxBase_Debug.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>NyxBase_OSX_Release.xcscheme</key>
+		<key>NyxBase_Release.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>

@@ -72,6 +72,7 @@
 		1676F96C1359CF5400705042 /* NyxTraceOutput.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9341359CF5400705042 /* NyxTraceOutput.hpp */; };
 		1676F96D1359CF5400705042 /* NyxTraces.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9351359CF5400705042 /* NyxTraces.hpp */; };
 		1676F96E1359CF5400705042 /* NyxTraceStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9361359CF5400705042 /* NyxTraceStream.hpp */; };
+		16809E911359E77200DADB54 /* NyxBase_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 16809E901359E77200DADB54 /* NyxBase_Prefix.pch */; };
 		168A555C0EB3AB4D006BAD6F /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 168A555B0EB3AB4D006BAD6F /* CoreServices.framework */; };
 		168C57D710D547A4001FB07F /* NyxEvent_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168C57D110D547A4001FB07F /* NyxEvent_Impl.cpp */; };
 		168C57D810D547A5001FB07F /* NyxEvent_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168C57D210D547A4001FB07F /* NyxEvent_Impl.hpp */; };
@@ -178,6 +179,7 @@
 		1676F9341359CF5400705042 /* NyxTraceOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxTraceOutput.hpp; path = ../../include/NyxTraceOutput.hpp; sourceTree = "<group>"; };
 		1676F9351359CF5400705042 /* NyxTraces.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxTraces.hpp; path = ../../include/NyxTraces.hpp; sourceTree = "<group>"; };
 		1676F9361359CF5400705042 /* NyxTraceStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxTraceStream.hpp; path = ../../include/NyxTraceStream.hpp; sourceTree = "<group>"; };
+		16809E901359E77200DADB54 /* NyxBase_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NyxBase_Prefix.pch; sourceTree = "<group>"; };
 		168A555B0EB3AB4D006BAD6F /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		168C57D110D547A4001FB07F /* NyxEvent_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxEvent_Impl.cpp; path = Source/NyxEvent_Impl.cpp; sourceTree = "<group>"; };
 		168C57D210D547A4001FB07F /* NyxEvent_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxEvent_Impl.hpp; path = Source/NyxEvent_Impl.hpp; sourceTree = "<group>"; };
@@ -214,7 +216,6 @@
 		16E9833B12D8D41B00F48942 /* NyxMFString_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxMFString_Impl.cpp; path = Source/NyxMFString_Impl.cpp; sourceTree = "<group>"; };
 		16E9869612D9493100F48942 /* NyxWString_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxWString_Impl.cpp; path = Source/NyxWString_Impl.cpp; sourceTree = "<group>"; };
 		16F65A9C12E229110023255C /* NyxAString_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxAString_Impl.cpp; path = Source/NyxAString_Impl.cpp; sourceTree = "<group>"; };
-		32BAE0B70371A74B00C91783 /* NyxBase_OSX_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NyxBase_OSX_Prefix.pch; sourceTree = "<group>"; };
 		D2AAC06F0554671400DB518D /* libNyxBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNyxBase.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -244,7 +245,6 @@
 			children = (
 				1676F8FE1359CF3100705042 /* Public Headers */,
 				1662341B1359D5A7007168BD /* Private */,
-				32BAE0B70371A74B00C91783 /* NyxBase_OSX_Prefix.pch */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DDFF38A45A11DB9C8B /* Products */,
 			);
@@ -322,6 +322,7 @@
 		1662341B1359D5A7007168BD /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				16809E901359E77200DADB54 /* NyxBase_Prefix.pch */,
 				16CF1E7312F48B960001C546 /* Memory */,
 				1682748B0F042E6400412713 /* Threading */,
 				16EA271F10A4B46800F811A6 /* Tasks */,
@@ -527,6 +528,7 @@
 				1676F96C1359CF5400705042 /* NyxTraceOutput.hpp in Headers */,
 				1676F96D1359CF5400705042 /* NyxTraces.hpp in Headers */,
 				1676F96E1359CF5400705042 /* NyxTraceStream.hpp in Headers */,
+				16809E911359E77200DADB54 /* NyxBase_Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,7 +557,7 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB920508733DBB0010E9CD /* Build configuration list for PBXProject "NyxBase_OSX" */;
+			buildConfigurationList = 1DEB920508733DBB0010E9CD /* Build configuration list for PBXProject "NyxBase" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -649,7 +651,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = NyxBase_OSX_Prefix.pch;
+				GCC_PREFIX_HEADER = NyxBase_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = NyxBase;
 				ZERO_LINK = YES;
@@ -682,7 +684,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = NyxBase_OSX_Prefix.pch;
+				GCC_PREFIX_HEADER = NyxBase_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = NyxBase;
 			};
@@ -697,7 +699,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = NyxBase_OSX_Prefix.pch;
+				GCC_PREFIX_HEADER = NyxBase_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = NyxBase;
 				ZERO_LINK = YES;
@@ -710,7 +712,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = NyxBase_OSX_Prefix.pch;
+				GCC_PREFIX_HEADER = NyxBase_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = NyxBase;
 			};
@@ -778,7 +780,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug_32;
 		};
-		1DEB920508733DBB0010E9CD /* Build configuration list for PBXProject "NyxBase_OSX" */ = {
+		1DEB920508733DBB0010E9CD /* Build configuration list for PBXProject "NyxBase" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB920608733DBB0010E9CD /* Debug_Universal_32_64 */,
