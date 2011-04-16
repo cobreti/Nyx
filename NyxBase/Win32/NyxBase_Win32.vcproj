@@ -17,7 +17,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\lib\$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="..\..\lib\$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\include;..\include\Win32"
+				AdditionalIncludeDirectories="..\..\include;..\..\include\Win32"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -83,7 +83,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\lib\$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="..\..\lib\$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
@@ -106,7 +106,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\include;..\include\Win32"
+				AdditionalIncludeDirectories="..\..\include;..\..\include\Win32"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -145,7 +145,7 @@
 		</Configuration>
 		<Configuration
 			Name="DebugCLR|Win32"
-			OutputDirectory="..\lib\$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="..\..\lib\$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
@@ -169,7 +169,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\include;..\include\Win32"
+				AdditionalIncludeDirectories="..\..\include;..\..\include\Win32"
 				PreprocessorDefinitions="WIN32;_DEBUG;_LIB"
 				MinimalRebuild="false"
 				BasicRuntimeChecks="0"
@@ -212,7 +212,7 @@
 		</Configuration>
 		<Configuration
 			Name="ReleaseCLR|Win32"
-			OutputDirectory="..\lib\$(PlatformName)\$(ConfigurationName)"
+			OutputDirectory="..\..\lib\$(PlatformName)\$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="4"
 			CharacterSet="1"
@@ -236,7 +236,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="..\include;..\include\Win32"
+				AdditionalIncludeDirectories="..\..\include;..\..\include\Win32"
 				PreprocessorDefinitions="WIN32;NDEBUG;_LIB"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -549,7 +549,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Source\NyxAString_Impl.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\include\NyxFixedString.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Source\NyxMFString_Impl.cpp"
 				>
 			</File>
 			<File
@@ -562,6 +570,10 @@
 			</File>
 			<File
 				RelativePath="..\include\NyxStringT.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Source\NyxWString_Impl.cpp"
 				>
 			</File>
 			<Filter
@@ -1248,6 +1260,22 @@
 					>
 				</File>
 			</Filter>
+		</Filter>
+		<Filter
+			Name="MemoryPool"
+			>
+			<File
+				RelativePath=".\Source\NyxMemoryPool_Impl.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Source\NyxMemoryPool_Impl.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Source\NyxMemPoolWString_Impl.cpp"
+				>
+			</File>
 		</Filter>
 		<File
 			RelativePath="..\include\Nyx.hpp"

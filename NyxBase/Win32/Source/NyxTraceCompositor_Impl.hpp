@@ -14,7 +14,7 @@ namespace NyxWin32
 	class CTraceCompositor_Impl : public Nyx::CObject_Impl<Nyx::CTraceCompositor>
 	{
 	public:
-		CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset);
+		CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset, bool bUseAsDefault);
 		CTraceCompositor_Impl( Nyx::CMutex* pMutex, Nyx::CTraceCompositorBuffer* pBuffer );
 		virtual ~CTraceCompositor_Impl();
 		

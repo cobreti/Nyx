@@ -15,16 +15,16 @@ NyxWin32::CTraceCompositor_Impl::XDummyTraceOutput NyxWin32::CTraceCompositor_Im
 /**
  *
  */
-Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(ETraceCompositorCharSet charset)
+Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(ETraceCompositorCharSet charset, bool bUseAsDefault)
 {
-	return new NyxWin32::CTraceCompositor_Impl(charset);
+	return new NyxWin32::CTraceCompositor_Impl(charset, bUseAsDefault);
 }
 
 
 /**
  *
  */
-NyxWin32::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset) :
+NyxWin32::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset, bool bUseAsDefault) :
 m_pCompositorBuffer(NULL)
 {
 	size_t		Size = 0;

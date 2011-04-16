@@ -1,6 +1,7 @@
 #include "NyxWString.hpp"
 #include "NyxBodyBlock.hpp"
 #include "NyxAString.hpp"
+#include "NyxAssert.hpp"
 
 namespace Nyx
 {
