@@ -16,6 +16,9 @@
 #include <NyxMTInterfaceAccess.hpp>
 #include <NyxBuffer.hpp>
 #include <NyxAlgorithm.hpp>
+#include <NyxAString.hpp>
+#include <NyxWString.hpp>
+#include <NyxMFString.hpp>
 
 
 #endif // _NYX_HPP_
