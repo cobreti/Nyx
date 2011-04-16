@@ -1,0 +1,21 @@
+syntax: glob
+*.obj
+*.idb
+*.lib
+*.exe
+*.bsc
+*.pdb
+moc_*
+*.suo
+*.ncb
+ui_*
+*.sbr
+*.user
+*.manifest
+*.dll
+*.exp
+Debug/*
+debug/*
+release/*
+Release/*
+generatedfiles/*
