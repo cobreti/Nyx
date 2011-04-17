@@ -1273,6 +1273,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\include\NyxMemPoolObj.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Source\NyxMemPoolWString_Impl.cpp"
 				>
 			</File>
