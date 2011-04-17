@@ -32,11 +32,11 @@ namespace Nyx
 			return pPool->AllocMem(size);
 		}
 		
-		void operator delete(void* pPtr)
+		void operator delete(void* pPtr, CMemoryPool*)
 		{
-			CMemPoolObj<BASETYPE>*	pObj = static_cast<CMemPoolObj<BASETYPE>*>(pPtr);
-			
-			pObj->m_pMemoryPool->FreeMem(pPtr);
+			//CMemPoolObj<BASETYPE>*	pObj = static_cast<CMemPoolObj<BASETYPE>*>(pPtr);
+			//
+			//pObj->m_pMemoryPool->FreeMem(pPtr);
 		}
 		
         CMemoryPool*        MemoryPool() const		{ return m_pMemoryPool; }
