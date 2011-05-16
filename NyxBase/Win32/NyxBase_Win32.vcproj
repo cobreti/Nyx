@@ -725,7 +725,7 @@
 				>
 			</File>
 			<File
-				RelativePath="..\include\NyxThread.hpp"
+				RelativePath="..\..\include\NyxThread.hpp"
 				>
 			</File>
 			<File
