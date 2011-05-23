@@ -6,12 +6,17 @@
  */
 Nyx::CMemoryPoolRef Nyx::CMemoryPool::Alloc(size_t BlockSize)
 {
-	return new NyxOSX::CMemoryPool_Impl(BlockSize);
+	return new NyxWin32::CMemoryPool_Impl(BlockSize);
 }
 
 
-namespace NyxOSX
+namespace NyxWin32
 {
+    enum
+    {
+        kAlignment = sizeof(char*)
+    };
+
 	/**
 	 *
 	 */
@@ -84,7 +89,7 @@ namespace NyxOSX
 		}
 	}
 
-	
+
 	/**
 	 *
 	 */
@@ -92,15 +97,15 @@ namespace NyxOSX
 	{
 		Nyx::TLock<Nyx::CMutex>		Lock(m_refMutex, true);
 		
-		if ( (size & 3) != 0 )
-			size = ((size >> 4) + 1) << 4;
+		if ( (size & (kAlignment-1)) != 0 )
+			size = ((size >> kAlignment) + 1) << kAlignment;
 		
-		void*		pPtr = m_pTopBlock->GetMemBlock(size);
+		char*		pPtr = (char*)m_pTopBlock->GetMemBlock(size);
 		
 		if ( pPtr == NULL )
 		{
 			m_pTopBlock = new CMemoryBlock(m_BlockSize, m_pTopBlock);
-			pPtr = m_pTopBlock->GetMemBlock(size);
+			pPtr = (char*)m_pTopBlock->GetMemBlock(size);
 		}
 		
 		return pPtr;
@@ -112,5 +117,6 @@ namespace NyxOSX
 	 */
 	void CMemoryPool_Impl::FreeMem(void* pBlock)
 	{
+        char*   pPtr = (char*)pBlock;
 	}
 }

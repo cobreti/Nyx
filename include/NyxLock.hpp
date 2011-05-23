@@ -2,6 +2,7 @@
 #define _NYXLOCK_HPP_
 
 #include "NyxRef.hpp"
+#include "NyxMutex.hpp"
 
 namespace Nyx
 {
@@ -37,6 +38,8 @@ namespace Nyx
 		bool		m_bOwn;
 		TypeRef		m_refObj;
 	};
+
+    typedef     TLock<Nyx::CMutex>      TMutexLock;
 }
 
 

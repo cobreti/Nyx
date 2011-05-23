@@ -6,7 +6,7 @@
 #include "NyxMutex.hpp"
 #include "NyxLock.hpp"
 
-namespace NyxOSX
+namespace NyxWin32
 {
 	/**
 	 *

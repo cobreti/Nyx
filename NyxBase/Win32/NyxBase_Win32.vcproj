@@ -1265,6 +1265,10 @@
 			Name="MemoryPool"
 			>
 			<File
+				RelativePath="..\..\include\NyxMemoryPool.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Source\NyxMemoryPool_Impl.cpp"
 				>
 			</File>
@@ -1278,6 +1282,22 @@
 			</File>
 			<File
 				RelativePath=".\Source\NyxMemPoolWString_Impl.cpp"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="ObjectsPool"
+			>
+			<File
+				RelativePath="..\..\include\NyxObjectsPool.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Source\NyxObjectsPool_Impl.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Source\NyxObjectsPool_Impl.hpp"
 				>
 			</File>
 		</Filter>

@@ -38,6 +38,13 @@ namespace Nyx
 			
 			pObj->m_pMemoryPool->FreeMem(pPtr);
 		}
+
+        void operator delete(void* pPtr)
+        {
+			CMemPoolObj<BASETYPE>*	pObj = static_cast<CMemPoolObj<BASETYPE>*>(pPtr);
+			
+			pObj->m_pMemoryPool->FreeMem(pPtr);
+        }
 		
         CMemoryPool*        MemoryPool() const		{ return m_pMemoryPool; }
 		
