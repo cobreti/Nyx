@@ -6,11 +6,11 @@
  */
 Nyx::CMemoryPoolRef Nyx::CMemoryPool::Alloc(size_t BlockSize)
 {
-	return new NyxWin32::CMemoryPool_Impl(BlockSize);
+	return new NyxOSX::CMemoryPool_Impl(BlockSize);
 }
 
 
-namespace NyxWin32
+namespace NyxOSX
 {
     enum
     {
