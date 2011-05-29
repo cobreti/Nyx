@@ -45,8 +45,8 @@ Nyx::NyxResult NyxOSX::CThread_Impl::Start(Nyx::CThreadProc* pTProc)
 	
 	pthread_create(&m_ID, NULL, CThread_Impl::ThreadEntryPoint, this);
 	
-	if ( !m_bThreadLoopStarted )
-		m_refInitializedEvent->WaitSignaled();
+    while ( !m_bThreadLoopStarted )
+        m_refInitializedEvent->WaitSignaled(200);
 
 	return ret;
 }
