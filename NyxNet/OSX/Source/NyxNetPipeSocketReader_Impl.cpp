@@ -61,6 +61,12 @@ Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Connect()
 	m_Timeout.tv_usec = 0;
 	
 	nRet = mkfifo(m_Pipename.c_str(), 0666);
+    if ( nRet == -1 )
+    {
+        remove(m_Pipename.c_str());
+        nRet = mkfifo(m_Pipename.c_str(), 0666);
+    }
+    
 	if ( nRet != -1 )
 	{
 		m_PipeId = open(m_Pipename.c_str(), O_RDONLY | O_NONBLOCK );

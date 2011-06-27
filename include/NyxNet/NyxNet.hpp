@@ -10,6 +10,7 @@
 #include <NyxNetTcpIpServer.hpp>
 #include <NyxNetNxConnection.hpp>
 #include <NyxNetNxConnectionHandler.hpp>
+#include <NyxNetPipeTraceOutput.hpp>
 
 #endif // _NYXNET_HPP_
 

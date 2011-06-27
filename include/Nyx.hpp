@@ -5,6 +5,7 @@
 #include <NyxTraces.hpp>
 #include <NyxTraceCompositor.hpp>
 #include <NyxBodyBlock.hpp>
+#include <NyxAssert.hpp>
 #include <NyxString.hpp>
 #include <NyxAnsiString.hpp>
 #include <NyxStringFormater.hpp>
@@ -20,6 +21,9 @@
 #include <NyxWString.hpp>
 #include <NyxMFString.hpp>
 #include <NyxMemPoolObj.hpp>
+#include <NyxObjectsPool.hpp>
+#include <NyxMemoryPool.hpp>
+#include <NyxStdAllocators.hpp>
 
 
 #endif // _NYX_HPP_

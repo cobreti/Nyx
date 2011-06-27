@@ -107,8 +107,8 @@
 		168C581210D54863001FB07F /* NyxActiveObject_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168C581010D54863001FB07F /* NyxActiveObject_Impl.cpp */; };
 		168C581310D54863001FB07F /* NyxActiveObject_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168C581110D54863001FB07F /* NyxActiveObject_Impl.hpp */; };
 		16A510DB12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A510DA12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp */; };
-		16CF1E7B12F48D400001C546 /* NyxMemoryPool_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16CF1E7A12F48D400001C546 /* NyxMemoryPool_Impl.hpp */; };
-		16CF1E7D12F48D560001C546 /* NyxMemoryPool_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16CF1E7C12F48D560001C546 /* NyxMemoryPool_Impl.cpp */; };
+		16C2EECB13ABB5F0001F8FEF /* NyxMFString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16C2EECA13ABB5F0001F8FEF /* NyxMFString.hpp */; };
+		16C2EED513B63071001F8FEF /* NyxWString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16C2EED413B63071001F8FEF /* NyxWString.hpp */; };
 		16DD5B0B1391DF6300714FF5 /* NyxAssert.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16DD5B031391DF6300714FF5 /* NyxAssert.hpp */; };
 		16DD5B0C1391DF6300714FF5 /* NyxAtomicValue.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16DD5B041391DF6300714FF5 /* NyxAtomicValue.hpp */; };
 		16DD5B0D1391DF6300714FF5 /* NyxDbg.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16DD5B051391DF6300714FF5 /* NyxDbg.hpp */; };
@@ -232,8 +232,8 @@
 		168C581010D54863001FB07F /* NyxActiveObject_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxActiveObject_Impl.cpp; path = Source/NyxActiveObject_Impl.cpp; sourceTree = "<group>"; };
 		168C581110D54863001FB07F /* NyxActiveObject_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxActiveObject_Impl.hpp; path = Source/NyxActiveObject_Impl.hpp; sourceTree = "<group>"; };
 		16A510DA12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxMemPoolWString_Impl.cpp; path = Source/NyxMemPoolWString_Impl.cpp; sourceTree = "<group>"; };
-		16CF1E7A12F48D400001C546 /* NyxMemoryPool_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxMemoryPool_Impl.hpp; path = Source/NyxMemoryPool_Impl.hpp; sourceTree = "<group>"; };
-		16CF1E7C12F48D560001C546 /* NyxMemoryPool_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxMemoryPool_Impl.cpp; path = Source/NyxMemoryPool_Impl.cpp; sourceTree = "<group>"; };
+		16C2EECA13ABB5F0001F8FEF /* NyxMFString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxMFString.hpp; path = ../../include/NyxMFString.hpp; sourceTree = "<group>"; };
+		16C2EED413B63071001F8FEF /* NyxWString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxWString.hpp; path = ../../include/NyxWString.hpp; sourceTree = "<group>"; };
 		16DD5B031391DF6300714FF5 /* NyxAssert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxAssert.hpp; path = ../../include/OSX/NyxAssert.hpp; sourceTree = "<group>"; };
 		16DD5B041391DF6300714FF5 /* NyxAtomicValue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxAtomicValue.hpp; path = ../../include/OSX/NyxAtomicValue.hpp; sourceTree = "<group>"; };
 		16DD5B051391DF6300714FF5 /* NyxDbg.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxDbg.hpp; path = ../../include/OSX/NyxDbg.hpp; sourceTree = "<group>"; };
@@ -361,7 +361,6 @@
 				16809E901359E77200DADB54 /* NyxBase_Prefix.pch */,
 				16DF3570138C9A37008C3E30 /* ObjectPool */,
 				16DF356B138C9A0C008C3E30 /* MemoryPool */,
-				16CF1E7312F48B960001C546 /* Memory */,
 				1682748B0F042E6400412713 /* Threading */,
 				16EA271F10A4B46800F811A6 /* Tasks */,
 				1682748D0F042E8F00412713 /* Strings */,
@@ -389,6 +388,7 @@
 				1676F9021359CF5400705042 /* NyxAnsiString.hpp */,
 				16685D511359F254007AF4E1 /* NyxMFString.hpp */,
 				1676F9031359CF5400705042 /* NyxBodyBlock.hpp */,
+				16C2EECA13ABB5F0001F8FEF /* NyxMFString.hpp */,
 				1676F9041359CF5400705042 /* NyxBuffer.hpp */,
 				1676F9051359CF5400705042 /* NyxConsoleTraceOutput.hpp */,
 				1676F9061359CF5400705042 /* NyxDefs.hpp */,
@@ -427,6 +427,7 @@
 				1676F9271359CF5400705042 /* NyxTestUnit.hpp */,
 				1676F9281359CF5400705042 /* NyxTestUnitsGroup.hpp */,
 				1676F9291359CF5400705042 /* NyxThread.hpp */,
+				16C2EED413B63071001F8FEF /* NyxWString.hpp */,
 				1676F92A1359CF5400705042 /* NyxThreadId.hpp */,
 				1676F92B1359CF5400705042 /* NyxThreadModule.hpp */,
 				1676F92C1359CF5400705042 /* NyxThreadProc.hpp */,
@@ -470,15 +471,6 @@
 				16A510DA12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp */,
 			);
 			name = Strings;
-			sourceTree = "<group>";
-		};
-		16CF1E7312F48B960001C546 /* Memory */ = {
-			isa = PBXGroup;
-			children = (
-				16CF1E7A12F48D400001C546 /* NyxMemoryPool_Impl.hpp */,
-				16CF1E7C12F48D560001C546 /* NyxMemoryPool_Impl.cpp */,
-			);
-			name = Memory;
 			sourceTree = "<group>";
 		};
 		16DD5B021391DF4E00714FF5 /* OSX */ = {
@@ -549,7 +541,6 @@
 				1636480E10E6BC5000AAF3A6 /* NyxStringFormater_Impl.hpp in Headers */,
 				1605928D11557E89005867D2 /* NyxThreadId_Impl.hpp in Headers */,
 				1654D169118C75D100297437 /* NyxOpaqueList_Impl.hpp in Headers */,
-				16CF1E7B12F48D400001C546 /* NyxMemoryPool_Impl.hpp in Headers */,
 				1676F9371359CF5400705042 /* Nyx.hpp in Headers */,
 				1676F9381359CF5400705042 /* NyxActiveObject.hpp in Headers */,
 				1676F9391359CF5400705042 /* NyxAlgorithm.hpp in Headers */,
@@ -623,6 +614,8 @@
 				16DD5B101391DF6300714FF5 /* NyxSystem.hpp in Headers */,
 				16DD5B111391DF6300714FF5 /* NyxTraceFeeds.hpp in Headers */,
 				16DD5B121391DF6300714FF5 /* NyxTypes.hpp in Headers */,
+				16C2EECB13ABB5F0001F8FEF /* NyxMFString.hpp in Headers */,
+				16C2EED513B63071001F8FEF /* NyxWString.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +693,6 @@
 				16E9833D12D8D41B00F48942 /* NyxMFString_Impl.cpp in Sources */,
 				16E9869712D9493100F48942 /* NyxWString_Impl.cpp in Sources */,
 				16F65A9D12E229110023255C /* NyxAString_Impl.cpp in Sources */,
-				16CF1E7D12F48D560001C546 /* NyxMemoryPool_Impl.cpp in Sources */,
 				16A510DB12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp in Sources */,
 				16DF356E138C9A32008C3E30 /* NyxMemoryPool_Impl.cpp in Sources */,
 				16DF3573138C9A60008C3E30 /* NyxObjectsPool_Impl.cpp in Sources */,

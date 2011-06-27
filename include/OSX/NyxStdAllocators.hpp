@@ -2,6 +2,7 @@
 #define _NYXSTDALLOCATORS_HPP_
 
 #include <NyxObjectsPool.hpp>
+#include <list>
 
 namespace Nyx
 {
