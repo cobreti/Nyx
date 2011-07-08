@@ -35,6 +35,7 @@ namespace Nyx
 		bool operator == (const CWString& str) const;
 		bool operator != (const CWString& str) const;
 		bool operator < (const CWString& str) const;
+        bool operator > (const CWString& str) const;
 	};
 }
 

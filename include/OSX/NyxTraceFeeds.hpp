@@ -163,7 +163,7 @@ namespace Nyx
 		{
 			timeval t;
 			gettimeofday(&t, NULL);
-			sprintf(m_szBuffer, " [%i%i] ", (int)t.tv_sec, (int)t.tv_usec );
+			sprintf(m_szBuffer, " [%012i%06i] ", (int)t.tv_sec, (int)t.tv_usec );
 		}
 		
 //		virtual const wchar_t* GetWideCharText() const { return NULL; }

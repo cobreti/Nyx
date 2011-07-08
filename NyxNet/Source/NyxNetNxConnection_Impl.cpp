@@ -93,7 +93,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
 
 			if ( datatype == NyxNet::eNxDT_HandShake )
 			{
-				Nyx::CTraceStream(0x0).Write(L"Received handshake");
+				//Nyx::CTraceStream(0x0).Write(L"Received handshake");
 			}
 		}
 	}
@@ -355,7 +355,7 @@ void NyxNet::CNxConnection_Impl::SvrCheckHandshakeThreadProc()
 			if ( m_ReceivedData == 0 )
 			{
 				m_MissedHandshakes ++;
-				Nyx::CTraceStream(0x0).Write(L"Missed data reception : %i", m_MissedHandshakes);
+				//Nyx::CTraceStream(0x0).Write(L"Missed data reception : %i", m_MissedHandshakes);
 			}
 			else
 			{
@@ -365,7 +365,7 @@ void NyxNet::CNxConnection_Impl::SvrCheckHandshakeThreadProc()
 
 			if ( m_MissedHandshakes > 2 )
 			{
-				Nyx::CTraceStream(0x0).Write(L"too many missed handshakes : closing connection");
+				//Nyx::CTraceStream(0x0).Write(L"too many missed handshakes : closing connection");
 				m_bRunning = false;
 				m_pConnection->Close();
 			}

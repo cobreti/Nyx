@@ -103,7 +103,7 @@ void NyxOSX::CTraceCompositor_Impl::Begin(const Nyx::TraceFilter& filter)
 	m_refMutex->Lock();
 	
 	gettimeofday(&t, NULL);
-	Size = sprintf( m_TraceHeader.TickCount(), "%lu%lu", (unsigned long)t.tv_sec, (unsigned long)t.tv_usec);
+	Size = sprintf( m_TraceHeader.TickCount(), "%012lu%06lu", (unsigned long)t.tv_sec, (unsigned long)t.tv_usec);
 	m_TraceHeader.TickCount().SetLength(Size);
 
 	m_pCompositorBuffer->Begin();
