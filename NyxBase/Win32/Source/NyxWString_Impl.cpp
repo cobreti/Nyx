@@ -136,6 +136,14 @@ namespace Nyx
 	}
 
 
+    /**
+     *
+     */
+    size_t CWString::length() const
+    {
+        return wcslen(m_Buffer.pConstWChar);
+    }
+
 	/**
 	 *
 	 */

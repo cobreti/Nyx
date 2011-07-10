@@ -31,6 +31,7 @@ namespace Nyx
 		const CWString& operator = (const char* szText);
 		
 		const wchar_t* c_str() const		{ return m_Buffer.pConstWChar; }
+        size_t length() const;
 
 		bool operator == (const CWString& str) const;
 		bool operator != (const CWString& str) const;

@@ -33,6 +33,7 @@ namespace Nyx
 		bool operator < (const CAString& str) const;
 		
 		const char* c_str() const		{ return m_Buffer.pConstChar; }
+        size_t length() const;
 
 		char* BufferPtr()	{ return m_Buffer.pChar; }
 	};

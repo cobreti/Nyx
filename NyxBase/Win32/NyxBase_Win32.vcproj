@@ -293,6 +293,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\include\NyxAnsiFile.hpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\include\NyxAnsiString.hpp"
 				>
 			</File>
@@ -326,6 +330,10 @@
 			</File>
 			<File
 				RelativePath="..\..\include\NyxException.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\NyxFile.hpp"
 				>
 			</File>
 			<File
@@ -474,6 +482,10 @@
 			</File>
 			<File
 				RelativePath="..\..\include\NyxTestUnitsGroup.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\NyxTextFile.hpp"
 				>
 			</File>
 			<File
@@ -1371,6 +1383,18 @@
 						</FileConfiguration>
 					</File>
 				</Filter>
+			</Filter>
+			<Filter
+				Name="FileIO"
+				>
+				<File
+					RelativePath="..\Source\NyxAnsiFile_Impl.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\Source\NyxAnsiFile_Impl.hpp"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<File
