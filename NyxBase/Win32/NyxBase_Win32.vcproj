@@ -1388,11 +1388,11 @@
 				Name="FileIO"
 				>
 				<File
-					RelativePath="..\Source\NyxAnsiFile_Impl.cpp"
+					RelativePath=".\Source\NyxAnsiFile_Impl.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\Source\NyxAnsiFile_Impl.hpp"
+					RelativePath=".\Source\NyxAnsiFile_Impl.hpp"
 					>
 				</File>
 			</Filter>
