@@ -171,5 +171,14 @@ namespace Nyx
     {
         return wcscmp(m_Buffer.pConstWChar, str.m_Buffer.pConstWChar) > 0;
     }
+    
+    
+    /**
+     *
+     */
+    size_t CWString::length() const
+    {
+        return wcslen(m_Buffer.pConstWChar);
+    }
 }
 

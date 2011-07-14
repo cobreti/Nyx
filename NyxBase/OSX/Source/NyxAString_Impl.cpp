@@ -143,5 +143,14 @@ namespace Nyx
 	{
 		return strcmp(m_Buffer.pConstChar, str.m_Buffer.pConstChar) < 0;
 	}
+    
+    
+    /**
+     *
+     */
+    size_t CAString::length() const
+    {
+        return strlen(m_Buffer.pConstChar);
+    }
 }
 
