@@ -6,7 +6,8 @@
 #include "NyxAString.hpp"
 #include "NyxWString.hpp"
 
-#include <stdio.h>
+//#include <stdio.h>
+#include <CoreFoundation/CoreFoundation.h>
 
 namespace NyxOSX
 {
@@ -27,7 +28,8 @@ namespace NyxOSX
 
     protected:
 
-        FILE*                   m_pFile;
+        FSIORefNum              m_ForkRef;
+        bool                    m_OpennedFork;
         Nyx::CAString           m_AnsiBuffer;
         Nyx::CAString           m_EOL;
     };
