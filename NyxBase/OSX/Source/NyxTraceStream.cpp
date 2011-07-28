@@ -72,6 +72,13 @@ Nyx::CTraceStream& Nyx::CTraceStream::Write( const wchar_t* const wszText, ... )
 					operator << ( Nyx::CTF_Int(value) );
 				}
 				break;
+                    
+                case L'f':
+                {
+                    double value = va_arg(arg_ptr, double);
+                    operator << ( Nyx::CTF_Float(value) );
+                }
+                break;
 
 				case L'%':
 					CharFeed.Set(*pC);
