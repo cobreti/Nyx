@@ -180,5 +180,25 @@ namespace Nyx
     {
         return wcslen(m_Buffer.pConstWChar);
     }
+    
+    
+    /**
+     *
+     */
+    size_t CWString::CountOccurencesOf( const wchar_t& c ) const
+    {
+        size_t              count = 0;
+        const wchar_t*      pC = m_Buffer.pConstWChar;
+        
+        while ( *pC != L'\0' )
+        {
+            if ( *pC == c )
+                ++ count;
+            
+            ++ pC;
+        }
+        
+        return count;
+    }
 }
 
