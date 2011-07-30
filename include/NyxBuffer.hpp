@@ -2,6 +2,7 @@
 #define _NYXBUFFER_HPP_
 
 #include "NyxTypes.hpp"
+#include <NyxTraces.hpp>
 
 #include <stdlib.h>
 
@@ -15,7 +16,7 @@ namespace Nyx
 		/**
 		 *	\brief		constructor
 		 */
-		TBuffer() : m_pBuffer(NULL), m_Size(0) {}
+		TBuffer() : m_pBuffer(NULL), m_Size(0), m_DataSize(0), m_pNextReadPos(NULL), m_pNextWritePos(NULL) {}
 		
 		/**
 		 *	\brief		destructor
@@ -36,13 +37,20 @@ namespace Nyx
 			
 			if ( NULL != m_pBuffer )
 				Free();
-				
+			
+			m_pNextReadPos = NULL;
+			m_pNextWritePos = NULL;
+			m_DataSize = 0;
 			m_pBuffer = (TYPE*)::malloc(BufferSize * sizeof(TYPE));
 
 			if ( NULL == m_pBuffer )
 				res = Nyx::kNyxRes_Failure;
 			else
+			{
 				m_Size = BufferSize;
+				m_pNextWritePos = m_pBuffer;
+				m_pNextReadPos = m_pBuffer;
+			}
 			
 			return res;
 		}
@@ -60,14 +68,22 @@ namespace Nyx
 			if ( NewBufferSize < m_Size )	// don't resize if size if smaller
 				return Nyx::kNyxRes_Success;
 
-			Nyx::NyxResult res = Nyx::kNyxRes_Success;
+			Nyx::NyxResult		res = Nyx::kNyxRes_Success;
+			Nyx::NyxSize		ReadOffset = (m_pNextReadPos - m_pBuffer) / sizeof(TYPE);
+			Nyx::NyxSize		WriteOffset = (m_pNextWritePos - m_pBuffer) / sizeof(TYPE);
 					
+			m_pNextReadPos = NULL;
+			m_pNextWritePos = NULL;
 			m_pBuffer = (TYPE*)::realloc(m_pBuffer, NewBufferSize*sizeof(TYPE));
 
 			if ( NULL == m_pBuffer )
 				res = Nyx::kNyxRes_Failure;
 			else
+			{
 				m_Size = NewBufferSize;
+				m_pNextReadPos = m_pBuffer + ReadOffset;;
+				m_pNextWritePos = m_pBuffer + WriteOffset;
+			}
 			
 			return res;
 		}
@@ -136,11 +152,65 @@ namespace Nyx
 		 *	\brief		Returns the buffer size in bytes
 		 */
 		const Nyx::NyxSize& TotalSize() const { return m_Size * sizeof(TYPE); }
+		
+		/**
+		 *	\brief		Returns the data size
+		 */
+		const Nyx::NyxSize& DataSize() const		{ return m_DataSize; }
+		
+		/**
+		 *
+		 */
+		const Nyx::NyxSize FreeSize() const         { return m_Size-m_DataSize; }
+		
+		/**
+		 *	\brief		Adds the given size to data size
+		 */
+		void addDataSize( const Nyx::NyxSize& size ) 
+		{ 
+			m_DataSize += size;
+			m_pNextWritePos += m_DataSize;
+		}
+		
+		/**
+		 *	\brief		Adjust buffer for a write and returns the write position
+		 */
+		TYPE* getWritePos()
+		{
+            //Nyx::CTraceStream(0x0).Write(L"getWritePos - %X / %X / size = %i", m_pBuffer, m_pNextReadPos, m_DataSize);
+            
+            //if ( m_DataSize > 0 )
+            //    memmove( m_pBuffer, m_pNextReadPos, m_DataSize );
+
+			//m_pNextReadPos = m_pBuffer;
 			
+			return m_pBuffer + m_DataSize;
+		}
+		
+		
+		/**
+		 *
+		 */
+		Nyx::NyxSize ReadData( void* pBuffer, const Nyx::NyxSize& size )
+		{
+            //Nyx::CTraceStream(0x0).Write(L"ReadData : %i / %i", size, m_DataSize );
+			Nyx::NyxSize		ReadSize = (size > m_DataSize) ? m_DataSize : size;
+			
+			memcpy(pBuffer, m_pNextReadPos, ReadSize);
+			//m_pNextReadPos += ReadSize;
+			m_DataSize -= ReadSize;
+            memmove(m_pBuffer, m_pBuffer+ReadSize, m_DataSize);
+			return ReadSize;
+		}
+
 	protected:
 	
 		TYPE*			m_pBuffer;
 		Nyx::NyxSize	m_Size;
+		Nyx::NyxSize	m_DataSize;
+		TYPE*			m_pNextReadPos;
+		TYPE*			m_pNextWritePos;
+        TYPE*           m_pLastPos;
 	};
 }
 

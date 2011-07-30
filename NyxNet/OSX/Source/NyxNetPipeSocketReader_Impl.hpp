@@ -5,6 +5,7 @@
 #include "NyxObject_Impl.hpp"
 #include "NyxBuffer.hpp"
 #include "NyxAString.hpp"
+#include "NyxEvent.hpp"
 
 namespace NyxNetOSX
 {
@@ -14,7 +15,7 @@ namespace NyxNetOSX
 		CPipeSocketReader_Impl();
 		virtual ~CPipeSocketReader_Impl();
 		
-	public: // CPipeSocket mehtods
+	public: // CPipeSocket methods
 	
 		virtual Nyx::NyxResult Create( const char* szPipename, const Nyx::NyxSize& BufferSize );
 		virtual Nyx::NyxResult Connect();
@@ -28,9 +29,10 @@ namespace NyxNetOSX
 		int							m_PipeId;
 		bool						m_bConnected;
 		Nyx::TBuffer<Nyx::Byte>		m_Buffer;
-		Nyx::CAString               m_Pipename;
+		Nyx::CAString				m_Pipename;
 		timeval						m_Timeout;
 		NyxNet::ISocketListener*	m_pListener;
+		Nyx::CEventRef				m_refWaitEvent;
 	};
 }
 

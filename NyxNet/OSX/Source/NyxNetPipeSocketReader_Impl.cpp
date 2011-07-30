@@ -1,5 +1,6 @@
 #include "NyxNetPipeSocketReader_Impl.hpp"
 #include "NyxNetSocketListener.hpp"
+#include <NyxTraceStream.hpp>
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -23,6 +24,7 @@ m_PipeId(-1),
 m_bConnected(false),
 m_pListener(NULL)
 {
+	m_refWaitEvent = Nyx::CEvent::Alloc();
 }
 
 
@@ -55,9 +57,9 @@ Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Create( const char* szPipename
 Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Connect()
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
-	int					nRet;
+	int					nRet = 0;
 	
-	m_Timeout.tv_sec = 1;
+	m_Timeout.tv_sec = 10;
 	m_Timeout.tv_usec = 0;
 	
 	nRet = mkfifo(m_Pipename.c_str(), 0666);
@@ -118,32 +120,48 @@ Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Write( const void* pBuffer, co
 /**
  *
  */
-Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Read(	void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& ReadSize )
+Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Read(	void* pBuffer, 
+														const Nyx::NyxSize& DataSize, 
+														Nyx::NyxSize& ReadSize )
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
 	int					nRet = 0;
 	fd_set				fdset;
 	ssize_t				BytesRead(0);
-		
-	while ( m_bConnected && !(BytesRead > 0) )
-	{
-		FD_ZERO(&fdset);
-		FD_SET(m_PipeId, &fdset);
 
-		nRet = select(m_PipeId+1, &fdset, NULL, NULL, &m_Timeout);
-		if ( nRet > 0 )
-		{
-			BytesRead = read(m_PipeId, m_Buffer.Buffer(), DataSize);
-		}
-	}
-	
-	if ( m_bConnected && BytesRead > 0 )
+	if ( m_bConnected && m_Buffer.DataSize() >= DataSize )
 	{
-		::memcpy(pBuffer, m_Buffer.Buffer(), BytesRead);
-		ReadSize = BytesRead;
+		ReadSize = m_Buffer.ReadData(pBuffer, DataSize);
 	}
-	else 
-		res = Nyx::kNyxRes_Failure;
+	else
+	{		
+		m_refWaitEvent->WaitSignaled(10);
+
+		do
+		{
+			FD_ZERO(&fdset);
+			FD_SET(m_PipeId, &fdset);
+			BytesRead = 0;
+			
+			nRet = select(m_PipeId+1, &fdset, NULL, NULL, &m_Timeout);
+			if ( nRet > 0 )
+			{
+				void*	pWritePos = m_Buffer.getWritePos();
+				//Nyx::CTraceStream(0x0).Write(L"Buffer FreeSize: %i bytes", m_Buffer.FreeSize());
+				BytesRead = read(m_PipeId, pWritePos, m_Buffer.FreeSize());
+				m_Buffer.addDataSize(BytesRead);
+				//Nyx::CTraceStream(0x0).Write(L"Read %i bytes from pipe", BytesRead);
+			}
+		}
+		while ( m_bConnected && !(BytesRead > 0) && m_Buffer.FreeSize() > 100 );
+
+		if ( m_bConnected && m_Buffer.DataSize() >= DataSize )
+		{
+			ReadSize = m_Buffer.ReadData(pBuffer, DataSize);
+		}
+		else
+			res = Nyx::kNyxRes_Failure;
+	}
 
 	
 	return res;
