@@ -194,7 +194,7 @@ namespace Nyx
 		Nyx::NyxSize ReadData( void* pBuffer, const Nyx::NyxSize& size )
 		{
             //Nyx::CTraceStream(0x0).Write(L"ReadData : %i / %i", size, m_DataSize );
-			Nyx::NyxSize		ReadSize = (size > m_DataSize) ? m_DataSize : size;
+			Nyx::NyxSize		ReadSize = (size >= m_DataSize) ? m_DataSize : size;
 			
 			memcpy(pBuffer, m_pNextReadPos, ReadSize);
 			//m_pNextReadPos += ReadSize;

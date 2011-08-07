@@ -4,7 +4,7 @@
 #include "NyxNetPipeSocketReader.hpp"
 #include "NyxObject_Impl.hpp"
 #include "NyxBuffer.hpp"
-#include "NyxAnsiString.hpp"
+#include "NyxAString.hpp"
 
 #include <Windows.h>
 
@@ -35,7 +35,8 @@ namespace NyxNetWin32
 		HANDLE						m_ahPipeEvent[2];
 		OVERLAPPED					m_PipeOverlap;
 		Nyx::TBuffer<Nyx::Byte>		m_Buffer;
-		Nyx::CAnsiStringRef			m_refPipename;
+        Nyx::TBuffer<Nyx::Byte>     m_ReadBuffer;
+		Nyx::CAString				m_Pipename;
 		bool						m_bConnected;
 		NyxNet::ISocketListener*	m_pListener;
 	};

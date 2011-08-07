@@ -1,6 +1,9 @@
 #include "NyxNetPipeSocketReader_Impl.hpp"
 #include "NyxNetSocketListener.hpp"
-
+#include "NyxWString.hpp"
+#include "NyxAString.hpp"
+#include <NyxTraceStream.hpp>
+#include <NyxAssert.hpp>
 
 /**
  *
@@ -42,12 +45,13 @@ NyxNetWin32::CPipeSocketReader_Impl::~CPipeSocketReader_Impl()
  */
 Nyx::NyxResult NyxNetWin32::CPipeSocketReader_Impl::Create( const char* szPipename, const Nyx::NyxSize& BufferSize )
 {
-	Nyx::NyxResult	res = Nyx::kNyxRes_Success;
+	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
 
+    //m_ReadBuffer.Alloc(BufferSize);
 	m_Buffer.Alloc(BufferSize);
 
-	m_refPipename = Nyx::CAnsiString::Alloc("\\\\.\\pipe\\");
-	m_refPipename->Append(szPipename);
+	m_Pipename = "\\\\.\\pipe\\";
+	m_Pipename += szPipename;
 
 	return res;
 }
@@ -61,7 +65,7 @@ Nyx::NyxResult NyxNetWin32::CPipeSocketReader_Impl::Connect()
 	Nyx::NyxResult	res = Nyx::kNyxRes_Success;
 
 	m_hPipe = ::CreateNamedPipeA(
-				m_refPipename->c_str(),
+				m_Pipename.c_str(),
 				PIPE_ACCESS_DUPLEX | FILE_FLAG_OVERLAPPED,
 				PIPE_TYPE_BYTE,
 				1,
@@ -149,33 +153,54 @@ Nyx::NyxResult NyxNetWin32::CPipeSocketReader_Impl::Read( void* pBuffer, const N
 	bool		bDataRead = false;
 	DWORD		dwBytesRead;
 
-	while ( !bDataRead && m_bConnected )
+	BOOL		fPeekRet;
+	DWORD		TotalBytes;
+	DWORD		BytesLeft;
+
+	if ( m_bConnected && m_Buffer.DataSize() >= DataSize )
 	{
-		dwWait = WaitForMultipleObjects(2, m_ahPipeEvent, FALSE, INFINITE);
-
-		if ( !bPendingIO )
-		{
-			fSuccess = ReadFile(m_hPipe, m_Buffer.Buffer(), (DWORD)DataSize, &dwBytesRead, &m_PipeOverlap);
-		}
-
-		dwErr = 0;
-		fSuccess = GetOverlappedResult(m_ahPipeEvent[0], &m_PipeOverlap, &cbRet, FALSE);
-		if ( !fSuccess )
-			dwErr = GetLastError();
-
-		bPendingIO = (dwErr == ERROR_IO_INCOMPLETE);
-
-		if ( !bPendingIO )
-		{
-			if ( m_PipeOverlap.InternalHigh != 0 && m_PipeOverlap.Internal == 0 && m_bConnected )
-			{
-				bDataRead = true;
-				res = Nyx::kNyxRes_Success;
-				ReadSize = m_PipeOverlap.InternalHigh;
-				memcpy(pBuffer, m_Buffer.Buffer(), ReadSize);
-			}
-		}
+		ReadSize = m_Buffer.ReadData(pBuffer, DataSize);
+        res = Nyx::kNyxRes_Success;
 	}
+    else
+    {
+	    while ( !bDataRead && m_bConnected && m_Buffer.DataSize() < DataSize )
+	    {
+		    dwWait = WaitForMultipleObjects(2, m_ahPipeEvent, FALSE, INFINITE);
+
+		    if ( !bPendingIO )
+		    {
+                ReadFile( m_hPipe, m_Buffer.getWritePos(), m_Buffer.FreeSize(), &dwBytesRead, &m_PipeOverlap);
+			    //fSuccess = ReadFile(m_hPipe, m_ReadBuffer.Buffer(), (DWORD)m_ReadBuffer.FreeSize(), &dwBytesRead, &m_PipeOverlap);
+			    //fSuccess = ReadFile(m_hPipe, m_ReadBuffer.Buffer(), (DWORD)DataSize, &dwBytesRead, &m_PipeOverlap);
+		    }
+
+		    dwErr = 0;
+		    fSuccess = GetOverlappedResult(m_ahPipeEvent[0], &m_PipeOverlap, &cbRet, FALSE);
+		    if ( !fSuccess )
+			    dwErr = GetLastError();
+
+		    bPendingIO = (dwErr == ERROR_IO_INCOMPLETE);
+
+		    if ( !bPendingIO )
+		    {
+			    if ( m_PipeOverlap.InternalHigh != 0 && m_PipeOverlap.Internal == 0 && m_bConnected )
+			    {
+                    //Nyx::CTraceStream(0x0).Write(L"bytes read : %i", m_PipeOverlap.InternalHigh);
+				    bDataRead = true;
+                    //void* pWritePos = m_Buffer.getWritePos();
+                    //memcpy(pWritePos, m_ReadBuffer.Buffer(), m_PipeOverlap.InternalHigh);
+                    m_Buffer.addDataSize(m_PipeOverlap.InternalHigh);
+			    }
+		    }
+	    }
+
+	    if ( m_bConnected && m_Buffer.DataSize() >= DataSize )
+	    {
+		    ReadSize = m_Buffer.ReadData(pBuffer, DataSize);
+            res = Nyx::kNyxRes_Success;
+	    }
+    }
 
 	return res;
 }
