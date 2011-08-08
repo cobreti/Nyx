@@ -166,6 +166,7 @@ Nyx::NyxResult NyxNetWin32::CPipeSocketReader_Impl::Read( void* pBuffer, const N
     {
 	    while ( !bDataRead && m_bConnected && m_Buffer.DataSize() < DataSize )
 	    {
+            Sleep(1);
 		    dwWait = WaitForMultipleObjects(2, m_ahPipeEvent, FALSE, INFINITE);
 
 		    if ( !bPendingIO )
