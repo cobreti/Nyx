@@ -137,7 +137,7 @@ Nyx::NyxResult NyxOSX::CStringFormater_Impl::Format( const wchar_t* wszFormat, .
 /**
  *
  */
-const wchar_t* NyxOSX::CStringFormater_Impl::GetBuffer()
+const wchar_t* NyxOSX::CStringFormater_Impl::GetFormattedString()
 {
 	return m_wszBuffer;
 }

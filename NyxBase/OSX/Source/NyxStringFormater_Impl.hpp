@@ -16,7 +16,7 @@ namespace NyxOSX
 
 	public:
 		virtual Nyx::NyxResult Format( const wchar_t* wszFormat, ... );
-		virtual const wchar_t* GetBuffer();
+		virtual const wchar_t* GetFormattedString();
 
 	protected:
 
