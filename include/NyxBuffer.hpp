@@ -177,15 +177,13 @@ namespace Nyx
 		 */
 		TYPE* getWritePos()
 		{
-            //Nyx::CTraceStream(0x0).Write(L"getWritePos - %X / %X / size = %i", m_pBuffer, m_pNextReadPos, m_DataSize);
-            
-            //if ( m_DataSize > 0 )
-            //    memmove( m_pBuffer, m_pNextReadPos, m_DataSize );
-
-			//m_pNextReadPos = m_pBuffer;
-			
 			return m_pBuffer + m_DataSize;
 		}
+        
+        TYPE* getReadPos()
+        {
+            return m_pNextReadPos;
+        }
 		
 		
 		/**
@@ -193,11 +191,9 @@ namespace Nyx
 		 */
 		Nyx::NyxSize ReadData( void* pBuffer, const Nyx::NyxSize& size )
 		{
-            //Nyx::CTraceStream(0x0).Write(L"ReadData : %i / %i", size, m_DataSize );
 			Nyx::NyxSize		ReadSize = (size >= m_DataSize) ? m_DataSize : size;
 			
 			memcpy(pBuffer, m_pNextReadPos, ReadSize);
-			//m_pNextReadPos += ReadSize;
 			m_DataSize -= ReadSize;
             memmove(m_pBuffer, m_pBuffer+ReadSize, m_DataSize);
 			return ReadSize;

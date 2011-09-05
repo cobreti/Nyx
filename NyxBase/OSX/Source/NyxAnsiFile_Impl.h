@@ -5,6 +5,7 @@
 #include "NyxObject_Impl.hpp"
 #include "NyxAString.hpp"
 #include "NyxWString.hpp"
+#include "NyxBuffer.hpp"
 
 #include <CoreFoundation/CoreFoundation.h>
 
@@ -21,17 +22,27 @@ namespace NyxOSX
         virtual Nyx::NyxResult Create( const char* filename );
         virtual Nyx::NyxResult Open( const char* filename );
         virtual void Close();
+        
         virtual Nyx::NyxResult Write( const char* data, size_t length );
         virtual Nyx::NyxResult Write( const Nyx::CAString& data );
         virtual Nyx::NyxResult Write( const Nyx::CWString& data );
         virtual Nyx::NyxResult WriteEOL();
+        
+        virtual Nyx::NyxResult Read( Nyx::CAString& data );
 
+    protected:
+        
+        virtual void FillBuffer();
+        
     protected:
 
         Nyx::CAString           m_AnsiBuffer;
         Nyx::CAString           m_EOL;
         
         NSFileHandle*           m_idFile;
+
+        Nyx::TBuffer<char>      m_Buffer;
+        
     };
 };
 

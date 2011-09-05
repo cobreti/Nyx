@@ -18,7 +18,7 @@ namespace Nyx
 	public:
 
 		virtual Nyx::NyxResult Format( const wchar_t* wszFormat, ... ) = 0;
-		virtual const wchar_t* GetBuffer() = 0;
+		virtual const wchar_t* GetFormattedString() = 0;
 	};
 }
 

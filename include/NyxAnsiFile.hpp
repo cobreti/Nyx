@@ -28,6 +28,10 @@ namespace Nyx
         virtual Nyx::NyxResult Write( const Nyx::CAString& data ) = 0;
         virtual Nyx::NyxResult Write( const Nyx::CWString& data ) = 0;
         virtual Nyx::NyxResult WriteEOL() = 0;
+        
+        virtual Nyx::NyxResult Read( Nyx::CAString& data ) = 0;
+        
+        
     };
 }
 
