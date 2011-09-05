@@ -99,6 +99,7 @@ void* NyxOSX::CThread_Impl::ThreadEntryPoint( void* pParam )
 {
 	NyxOSX::CThread_Impl*		pThreadImpl = reinterpret_cast<NyxOSX::CThread_Impl*>(pParam);
 	Nyx::CTraceCompositorRef	refTraceCompositor;
+    NSAutoreleasePool*          pAutoreleasePool = [[NSAutoreleasePool alloc] init];
 	
 	if ( NULL != Nyx::CModule::GetDefault()->Traces().Reference() )
 		refTraceCompositor = Nyx::CModule::GetDefault()->Traces().Reference()->Clone();
@@ -115,6 +116,8 @@ void* NyxOSX::CThread_Impl::ThreadEntryPoint( void* pParam )
 	pThreadImpl->m_refThreadProc = NULL;
 	
 	pThreadImpl->m_bRunning = false;
+    
+    [pAutoreleasePool release];
 	
 	return NULL;
 }

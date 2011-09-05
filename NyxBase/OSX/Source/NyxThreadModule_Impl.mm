@@ -1,3 +1,5 @@
+#include <NyxTraceStream.hpp>
+
 #include "NyxThreadModule_Impl.hpp"
 
 

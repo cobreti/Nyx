@@ -34,6 +34,10 @@ namespace NyxOSX
 	
 		NyxOSX::CTraceModule_Impl		m_TraceModule;
 		NyxOSX::CThreadModule_Impl		m_ThreadModule;
+        
+    private:
+        
+        NSAutoreleasePool*          m_AutoReleasePool;
 	};
 }
 

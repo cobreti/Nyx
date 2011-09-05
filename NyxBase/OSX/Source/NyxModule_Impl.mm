@@ -1,5 +1,5 @@
 #include "NyxModule_Impl.hpp"
-
+#include "NyxTraceStream.hpp"
 
 Nyx::CModule* NyxOSX::CModule_Impl::s_pDefaultModule = NULL;
 
@@ -25,7 +25,8 @@ Nyx::CModule* Nyx::CModule::GetDefault()
 /**
  *
  */
-NyxOSX::CModule_Impl::CModule_Impl()
+NyxOSX::CModule_Impl::CModule_Impl() :
+m_AutoReleasePool(nil)
 {
 	s_pDefaultModule = this;
 	Init();
@@ -47,8 +48,11 @@ NyxOSX::CModule_Impl::~CModule_Impl()
  */
 void NyxOSX::CModule_Impl::Init()
 {
+    m_AutoReleasePool = [[NSAutoreleasePool alloc] init];
+    
 	m_ThreadModule.Init();
 	m_TraceModule.Init();
+    
 }
 
 
@@ -57,6 +61,9 @@ void NyxOSX::CModule_Impl::Init()
  */
 void NyxOSX::CModule_Impl::Terminate()
 {
+    [m_AutoReleasePool release];
+    m_AutoReleasePool = nil;
+    
 	m_TraceModule.Terminate();
 	m_ThreadModule.Terminate();
 }
