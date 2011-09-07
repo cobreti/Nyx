@@ -143,7 +143,7 @@ Nyx::NyxResult NyxWin32::CStringFormater_Impl::Format( const wchar_t* wszFormat,
 /**
  *
  */
-const wchar_t* NyxWin32::CStringFormater_Impl::GetBuffer()
+const wchar_t* NyxWin32::CStringFormater_Impl::GetFormattedString()
 {
 	return m_wszBuffer;
 }
