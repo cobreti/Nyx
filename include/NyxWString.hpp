@@ -2,7 +2,7 @@
 #define _NYXWSTRING_HPP_
 
 #include "NyxMFString.hpp"
-
+#include "NyxRange.hpp"
 
 namespace Nyx
 {
@@ -39,6 +39,9 @@ namespace Nyx
         bool operator > (const CWString& str) const;
         
         size_t CountOccurencesOf( const wchar_t& c ) const;
+        void GetSplitRanges( const char delimiter, CRangesArray& ranges );
+        
+        CMFTmpString GetSubString( CRange range );
 	};
 }
 

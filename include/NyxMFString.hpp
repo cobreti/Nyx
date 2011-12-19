@@ -149,6 +149,7 @@ namespace Nyx
 	{
 	public:
 		CMFTmpString() {};
+		explicit CMFTmpString(size_t size, EStringsFormat format) : CMFString(size, format) {}
 		virtual ~CMFTmpString() {};
 	};
 }

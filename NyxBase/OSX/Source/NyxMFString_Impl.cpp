@@ -81,7 +81,7 @@ namespace Nyx
 	m_BufferSize(0)
 	{
 		m_Buffer.pData = NULL;
-		m_Flags.fMutable = 1;
+//		m_Flags.fMutable = 1;
 
 		if ( refValue.m_Flags.fAnsi )
 		{
