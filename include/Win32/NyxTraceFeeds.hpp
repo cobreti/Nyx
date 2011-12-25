@@ -181,7 +181,7 @@ namespace Nyx
 		CTF_TickCount()
 		{
 			//swprintf(m_wszBuffer, (size_t)kBufferSize, L" [%i] ", GetTickCount() );
-			sprintf_s(m_szBuffer, kBufferSize, " [%i] ", GetTickCount() );
+			sprintf_s(m_szBuffer, kBufferSize, " [%i] ", timeGetTime() );
 		}
 
 		virtual const wchar_t* GetWideCharText() const { return NULL; }

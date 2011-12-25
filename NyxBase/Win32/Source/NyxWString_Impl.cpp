@@ -198,5 +198,51 @@ namespace Nyx
         
         return count;
     }
+
+    /**
+     *
+     */
+    void CWString::GetSplitRanges( const char delimiter, CRangesArray& ranges )
+    {
+        const wchar_t*      pC = m_Buffer.pConstWChar;
+        CRange              range(0,0);
+        size_t              pos = 0;
+        
+
+        while ( *pC != L'\0' )
+
+        {
+            if ( *pC == delimiter )
+            {
+                ranges.push_back(range);
+                range = CRange(pos+1,0);
+            }
+            else
+                ++ range.Length();
+            
+
+            ++ pC;
+            ++ pos;
+        }
+        
+        if ( range.Length() > 0 )
+            ranges.push_back(range);
+
+    }
+    
+    
+    /**
+     *
+     */
+    CMFTmpString CWString::GetSubString( CRange range )
+    {
+        const wchar_t*      pStart = m_Buffer.pConstWChar + range.Start();
+        CMFTmpString        result(range.Length(), eSF_Wide);
+        
+        wcsncpy( result.m_Buffer.pWChar, pStart, range.Length() );
+        
+        return result;
+    }
+
 }
 
