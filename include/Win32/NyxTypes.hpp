@@ -19,6 +19,10 @@ namespace Nyx
 	
 	typedef		int					Int32;
 
+    typedef     __int64             Int64;
+
+    typedef     unsigned __int64    UInt64;
+
 	typedef		unsigned long		MsgIdentifier;
 	
 	/**
