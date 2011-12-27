@@ -18,6 +18,10 @@ namespace Nyx
 	typedef		unsigned int		UInt32;
 	
 	typedef		int					Int32;
+    
+    typedef     __int64_t           Int64;
+    
+    typedef     __uint64_t          UInt64;
 	
 	/**
 	 *	\brief	Nyx size type

@@ -42,6 +42,8 @@ namespace Nyx
         void GetSplitRanges( const char delimiter, CRangesArray& ranges );
         
         CMFTmpString GetSubString( CRange range );
+        
+        void Format( const wchar_t* wszFormat, ... );
 	};
 }
 

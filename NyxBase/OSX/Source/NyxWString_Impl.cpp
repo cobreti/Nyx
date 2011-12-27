@@ -242,5 +242,20 @@ namespace Nyx
         
         return result;
     }
+    
+    
+    /**
+     *
+     */
+    void CWString::Format(const wchar_t *wszFormat, ...)
+    {
+        va_list     vl;
+        
+        va_start(vl, wszFormat);
+        
+        vswprintf( m_Buffer.pWChar, Size(), wszFormat, vl );
+        
+        va_end(vl);
+    }
 }
 
