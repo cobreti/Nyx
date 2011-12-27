@@ -3,6 +3,8 @@
 #include "NyxAString.hpp"
 #include "NyxAssert.hpp"
 
+#include <strsafe.h>
+
 namespace Nyx
 {
 	/**
@@ -244,5 +246,19 @@ namespace Nyx
         return result;
     }
 
+
+    /**
+     *
+     */
+    void CWString::Format(const wchar_t *wszFormat, ...)
+    {
+        va_list     vl;
+        
+        va_start(vl, wszFormat);
+        
+        StringCbVPrintfW( m_Buffer.pWChar, Size(), wszFormat, vl );
+        
+        va_end(vl);
+    }
 }
 
