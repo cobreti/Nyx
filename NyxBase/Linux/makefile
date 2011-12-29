@@ -44,12 +44,20 @@ OBJS := $(OBJDIR)/NyxMFString_Impl.o \
 		$(OBJDIR)/NyxMsgQueue_Impl.o \
 		$(OBJDIR)/NyxMsgHandlers_Impl.o \
 		$(OBJDIR)/NyxMemoryPool_Impl.o \
-		$(OBJDIR)/NyxMemPoolWString_Impl.o
+		$(OBJDIR)/NyxMemPoolWString_Impl.o \
+		$(OBJDIR)/NyxTraceCompositorBuffer_Ansi.o \
+		$(OBJDIR)/NyxTraceCompositorBuffer_WideChar.o \
+		$(OBJDIR)/NyxOpaqueDataBucket.o \
+		$(OBJDIR)/NyxOpaqueList_Impl.o \
+		$(OBJDIR)/NyxTaskExecuterPool_Impl.o \
+		$(OBJDIR)/NyxThreadTaskExecuter_Impl.o
 
 
 $(OBJDIR)/%.o: ./Source/%.cpp
 	g++ -o $@ $(CXX_CFLAGS) -c $^
 
+$(OBJDIR)/%.o: ../Source/%.cpp
+	g++ -o $@ $(CXX_CFLAGS) -c $^
 
 $(OBJDIR)/libNyxBase.a: $(OBJS)	
 	ar -r $(OBJDIR)/libNyxBase.a $(OBJS)
