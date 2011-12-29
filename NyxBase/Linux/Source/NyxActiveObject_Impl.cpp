@@ -4,19 +4,21 @@
 
 #include "NyxTraceStream.hpp"
 
+#include <sys/syscall.h>
+
 /**
  *
  */
 Nyx::CActiveObject* Nyx::CActiveObject::Alloc()
 {
-	return new NyxOSX::CActiveObject_Impl();
+	return new NyxLinux::CActiveObject_Impl();
 }
 
 
 /**
  *
  */
-NyxOSX::CActiveObject_Impl::CActiveObject_Impl() :
+NyxLinux::CActiveObject_Impl::CActiveObject_Impl() :
 m_bRunning(false),
 m_pSentMsg(NULL)
 {
@@ -33,7 +35,7 @@ m_pSentMsg(NULL)
 /**
  *
  */
-NyxOSX::CActiveObject_Impl::~CActiveObject_Impl()
+NyxLinux::CActiveObject_Impl::~CActiveObject_Impl()
 {
 	if ( m_bRunning )
 	{
@@ -47,18 +49,18 @@ NyxOSX::CActiveObject_Impl::~CActiveObject_Impl()
 /**
  *
  */
-void NyxOSX::CActiveObject_Impl::Start()
+void NyxLinux::CActiveObject_Impl::Start()
 {	
 	if ( !m_refThread.Valid() )
 	{
 		m_bRunning = true;
 		m_refThread = Nyx::CThread::Alloc();
 		
-		m_refThread->Start( new NyxOSX::CActiveObjectThreadProc(*this) );
+		m_refThread->Start( new NyxLinux::CActiveObjectThreadProc(*this) );
 		
-		/*m_refThread->Start( new Nyx::CThreadDelegate<NyxOSX::CActiveObject_Impl>(this,
-								&NyxOSX::CActiveObject_Impl::RunningLoop,
-								&NyxOSX::CActiveObject_Impl::StopThreadCallback ) );*/
+		/*m_refThread->Start( new Nyx::CThreadDelegate<NyxLinux::CActiveObject_Impl>(this,
+								&NyxLinux::CActiveObject_Impl::RunningLoop,
+								&NyxLinux::CActiveObject_Impl::StopThreadCallback ) );*/
 	}
 }
 
@@ -66,7 +68,7 @@ void NyxOSX::CActiveObject_Impl::Start()
 /**
  *
  */
-void NyxOSX::CActiveObject_Impl::Stop()
+void NyxLinux::CActiveObject_Impl::Stop()
 {
 	if ( m_refThread.Valid() )
 	{
@@ -79,7 +81,7 @@ void NyxOSX::CActiveObject_Impl::Stop()
 /**
  *
  */
-Nyx::CMsgHandlers& NyxOSX::CActiveObject_Impl::Handlers()
+Nyx::CMsgHandlers& NyxLinux::CActiveObject_Impl::Handlers()
 {
 	return *(Nyx::CMsgHandlers*)m_refHandlers;
 }
@@ -88,7 +90,7 @@ Nyx::CMsgHandlers& NyxOSX::CActiveObject_Impl::Handlers()
 /**
  *
  */
-const Nyx::CMsgHandlers& NyxOSX::CActiveObject_Impl::Handlers() const
+const Nyx::CMsgHandlers& NyxLinux::CActiveObject_Impl::Handlers() const
 {
 	return *(const Nyx::CMsgHandlers*)m_refHandlers;
 }
@@ -97,7 +99,7 @@ const Nyx::CMsgHandlers& NyxOSX::CActiveObject_Impl::Handlers() const
 /**
  *
  */
-void NyxOSX::CActiveObject_Impl::Post( Nyx::CMsgBucket& msg )
+void NyxLinux::CActiveObject_Impl::Post( Nyx::CMsgBucket& msg )
 {
 	m_refMsgQueue->Push(msg.m_pMsg);
 	msg.m_pMsg = NULL;
@@ -107,11 +109,11 @@ void NyxOSX::CActiveObject_Impl::Post( Nyx::CMsgBucket& msg )
 /**
  *
  */
-void NyxOSX::CActiveObject_Impl::Send( const Nyx::CMsg& msg )
+void NyxLinux::CActiveObject_Impl::Send( const Nyx::CMsg& msg )
 {
 	Nyx::TLock<Nyx::CMutex>		lock(m_refMutexSendMsg, true);
 	
-	IncrementAtomic(&m_MsgCount);
+	__sync_fetch_and_add(&m_MsgCount, 1);
 	m_pSentMsg = const_cast<Nyx::CMsg*>(&msg);
 	m_refPostMsgInEvent->Signal(0);
 	m_refSentMsgHandled->WaitSignaled();
@@ -121,9 +123,9 @@ void NyxOSX::CActiveObject_Impl::Send( const Nyx::CMsg& msg )
 /**
  *
  */
-void NyxOSX::CActiveObject_Impl::OnMessageReceived()
+void NyxLinux::CActiveObject_Impl::OnMessageReceived()
 {
-	IncrementAtomic(&m_MsgCount);
+	__sync_fetch_and_add(&m_MsgCount, 1);
 	m_refPostMsgInEvent->Signal(0);
 }
 
@@ -131,7 +133,7 @@ void NyxOSX::CActiveObject_Impl::OnMessageReceived()
 /**
  *
  */
-void NyxOSX::CActiveObject_Impl::RunningLoop()
+void NyxLinux::CActiveObject_Impl::RunningLoop()
 {
 	Nyx::CMsg*				pMsg = NULL;
 	Nyx::CMsgHandlerRef		refMsgHandler;
@@ -150,7 +152,7 @@ void NyxOSX::CActiveObject_Impl::RunningLoop()
 				
 				m_pSentMsg = NULL;
 				m_refSentMsgHandled->Signal(0);
-				DecrementAtomic(&m_MsgCount);
+				__sync_fetch_and_sub(&m_MsgCount, 1);
 			}
 
 			refMsgHandler = m_refHandlers->Get(pMsg->Id());
@@ -161,7 +163,7 @@ void NyxOSX::CActiveObject_Impl::RunningLoop()
 			
 			delete pMsg;
 			pMsg = NULL;
-			DecrementAtomic(&m_MsgCount);
+			__sync_fetch_and_sub(&m_MsgCount, 1);
 		}		
 
 		if ( NULL != m_pSentMsg )
@@ -174,11 +176,11 @@ void NyxOSX::CActiveObject_Impl::RunningLoop()
 			
 			m_pSentMsg = NULL;
 			m_refSentMsgHandled->Signal(0);
-			DecrementAtomic(&m_MsgCount);
+			__sync_fetch_and_sub(&m_MsgCount, 1);
 		}
 
 		
-		if ( m_bRunning && (0 == BitAndAtomic(0xFFFFFFFF, (UInt32*)&m_MsgCount)) )
+		if ( m_bRunning && (0 == __sync_fetch_and_and((Nyx::UInt32*)&m_MsgCount, 0xFFFFFFFF)) )
 		{
 			m_refPostMsgInEvent->WaitSignaled();
 		}
@@ -190,7 +192,7 @@ void NyxOSX::CActiveObject_Impl::RunningLoop()
 /**
  *
  */
-void NyxOSX::CActiveObject_Impl::StopThreadCallback()
+void NyxLinux::CActiveObject_Impl::StopThreadCallback()
 {
 	m_bRunning = false;
 	m_refPostMsgInEvent->Signal(0);
@@ -207,7 +209,7 @@ void NyxOSX::CActiveObject_Impl::StopThreadCallback()
 /**
  *
  */ 
-NyxOSX::CActiveObjectThreadProc::CActiveObjectThreadProc( NyxOSX::CActiveObject_Impl& rActiveObject ) :
+NyxLinux::CActiveObjectThreadProc::CActiveObjectThreadProc( NyxLinux::CActiveObject_Impl& rActiveObject ) :
 	m_rActiveObject(rActiveObject)
 {
 }
@@ -216,7 +218,7 @@ NyxOSX::CActiveObjectThreadProc::CActiveObjectThreadProc( NyxOSX::CActiveObject_
 /**
  *
  */
-NyxOSX::CActiveObjectThreadProc::~CActiveObjectThreadProc()
+NyxLinux::CActiveObjectThreadProc::~CActiveObjectThreadProc()
 {
 }
 
@@ -224,7 +226,7 @@ NyxOSX::CActiveObjectThreadProc::~CActiveObjectThreadProc()
 /**
  *
  */
-void NyxOSX::CActiveObjectThreadProc::Run()
+void NyxLinux::CActiveObjectThreadProc::Run()
 {
 	m_rActiveObject.RunningLoop();
 }
@@ -233,7 +235,7 @@ void NyxOSX::CActiveObjectThreadProc::Run()
 /**
  *
  */
-void NyxOSX::CActiveObjectThreadProc::Stop()
+void NyxLinux::CActiveObjectThreadProc::Stop()
 {
 	m_rActiveObject.StopThreadCallback();
 }

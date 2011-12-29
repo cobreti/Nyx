@@ -4,12 +4,12 @@
 
 Nyx::CEvent* Nyx::CEvent::Alloc()
 {
-	return new NyxOSX::CEvent_Impl();
+	return new NyxLinux::CEvent_Impl();
 }
 
 
 
-NyxOSX::CEvent_Impl::CEvent_Impl()
+NyxLinux::CEvent_Impl::CEvent_Impl()
 {
 	pthread_mutexattr_init(&m_MutexAttributes);
 	pthread_mutexattr_settype(&m_MutexAttributes, PTHREAD_MUTEX_RECURSIVE);
@@ -18,7 +18,7 @@ NyxOSX::CEvent_Impl::CEvent_Impl()
 }
 
 
-NyxOSX::CEvent_Impl::~CEvent_Impl()
+NyxLinux::CEvent_Impl::~CEvent_Impl()
 {
 	pthread_cond_destroy(&m_Cond);
 	pthread_mutex_destroy(&m_Mutex);
@@ -26,13 +26,13 @@ NyxOSX::CEvent_Impl::~CEvent_Impl()
 }
 
 
-void NyxOSX::CEvent_Impl::Signal( const Nyx::UInt32& unFlag )
+void NyxLinux::CEvent_Impl::Signal( const Nyx::UInt32& unFlag )
 {
 	pthread_cond_signal(&m_Cond);
 }
 
 
-Nyx::NyxResult NyxOSX::CEvent_Impl::WaitSignaled( const Nyx::UInt32& unTimeout )
+Nyx::NyxResult NyxLinux::CEvent_Impl::WaitSignaled( const Nyx::UInt32& unTimeout )
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	int					nRes = 0;
@@ -58,7 +58,7 @@ Nyx::NyxResult NyxOSX::CEvent_Impl::WaitSignaled( const Nyx::UInt32& unTimeout )
 }
 
 
-Nyx::NyxResult NyxOSX::CEvent_Impl::WaitSignaled()
+Nyx::NyxResult NyxLinux::CEvent_Impl::WaitSignaled()
 {
 	Nyx::NyxResult				res = Nyx::kNyxRes_Failure;
 	int							nRes = 0;

@@ -1,6 +1,8 @@
 #include <NyxMemPoolWString.hpp>
 #include <NyxAssert.hpp>
 
+#include <string.h>
+
 namespace Nyx
 {
 	/**

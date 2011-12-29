@@ -1,14 +1,14 @@
 #include "NyxMsgQueue_Impl.hpp"
 #include "NyxLock.hpp"
 
-size_t NyxOSX::CMsgBlock::s_BlocksCount = 0;
+size_t NyxLinux::CMsgBlock::s_BlocksCount = 0;
 
 /**
  *
  */
 Nyx::CMsgQueue* Nyx::CMsgQueue::Alloc()
 {
-	NyxOSX::CMsgQueue_Impl* pMsgQueue = new NyxOSX::CMsgQueue_Impl();
+	NyxLinux::CMsgQueue_Impl* pMsgQueue = new NyxLinux::CMsgQueue_Impl();
 	if ( NULL != pMsgQueue )
 	{
 		pMsgQueue->Init();
@@ -21,7 +21,7 @@ Nyx::CMsgQueue* Nyx::CMsgQueue::Alloc()
 /**
  *
  */
-NyxOSX::CMsgQueue_Impl::CMsgQueue_Impl() :
+NyxLinux::CMsgQueue_Impl::CMsgQueue_Impl() :
 	m_pHead(NULL),
 	m_pTail(NULL),
 	m_pFreeBlocks(NULL),
@@ -33,7 +33,7 @@ NyxOSX::CMsgQueue_Impl::CMsgQueue_Impl() :
 /**
  *
  */
-NyxOSX::CMsgQueue_Impl::~CMsgQueue_Impl()
+NyxLinux::CMsgQueue_Impl::~CMsgQueue_Impl()
 {
 	Destroy();
 }
@@ -42,7 +42,7 @@ NyxOSX::CMsgQueue_Impl::~CMsgQueue_Impl()
 /**
  *
  */
-void NyxOSX::CMsgQueue_Impl::Init()
+void NyxLinux::CMsgQueue_Impl::Init()
 {
 	m_refMutexBlocksAccess = Nyx::CMutex::Alloc();
 }
@@ -51,7 +51,7 @@ void NyxOSX::CMsgQueue_Impl::Init()
 /**
  *
  */
-void NyxOSX::CMsgQueue_Impl::Destroy()
+void NyxLinux::CMsgQueue_Impl::Destroy()
 {
 	ClearAllBlocks();
 	m_refMutexBlocksAccess = NULL;
@@ -61,13 +61,13 @@ void NyxOSX::CMsgQueue_Impl::Destroy()
 /**
  *
  */
-void NyxOSX::CMsgQueue_Impl::Push( Nyx::CMsg* const pMsg )
+void NyxLinux::CMsgQueue_Impl::Push( Nyx::CMsg* const pMsg )
 {
 	Nyx::TLock<Nyx::CMutex>		BlocksLock(m_refMutexBlocksAccess, true);
 
 	//m_refMutexBlocksAccess->Lock();
 
-	NyxOSX::CMsgBlock*			pBlock = GetFreeBlock();
+	NyxLinux::CMsgBlock*			pBlock = GetFreeBlock();
 
 	pBlock->Msg() = pMsg;
 
@@ -94,13 +94,13 @@ void NyxOSX::CMsgQueue_Impl::Push( Nyx::CMsg* const pMsg )
 /**
  *
  */
-Nyx::CMsg* NyxOSX::CMsgQueue_Impl::Pop()
+Nyx::CMsg* NyxLinux::CMsgQueue_Impl::Pop()
 {
 	Nyx::TLock<Nyx::CMutex>		BlocksLock(m_refMutexBlocksAccess, true);
 	
 	//m_refMutexBlocksAccess->Lock();
 	
-	NyxOSX::CMsgBlock*			pBlock = m_pHead;
+	NyxLinux::CMsgBlock*			pBlock = m_pHead;
 	Nyx::CMsg*					pMsg = NULL;
 	
 	if ( NULL == pBlock )
@@ -124,7 +124,7 @@ Nyx::CMsg* NyxOSX::CMsgQueue_Impl::Pop()
 /**
  *
  */
-void NyxOSX::CMsgQueue_Impl::SetHandler( Nyx::IMsgQueueEventHandler* pHandler )
+void NyxLinux::CMsgQueue_Impl::SetHandler( Nyx::IMsgQueueEventHandler* pHandler )
 {
 	m_pHandler = pHandler;
 }
@@ -133,13 +133,13 @@ void NyxOSX::CMsgQueue_Impl::SetHandler( Nyx::IMsgQueueEventHandler* pHandler )
 /**
  *
  */
-NyxOSX::CMsgBlock* NyxOSX::CMsgQueue_Impl::GetFreeBlock()
+NyxLinux::CMsgBlock* NyxLinux::CMsgQueue_Impl::GetFreeBlock()
 {
-	NyxOSX::CMsgBlock*		pBlock = m_pFreeBlocks;
+	NyxLinux::CMsgBlock*		pBlock = m_pFreeBlocks;
 	
 	if ( NULL == pBlock )
 	{
-		pBlock = new NyxOSX::CMsgBlock();
+		pBlock = new NyxLinux::CMsgBlock();
 	}
 	else
 	{
@@ -154,7 +154,7 @@ NyxOSX::CMsgBlock* NyxOSX::CMsgQueue_Impl::GetFreeBlock()
 /**
  *
  */
-void NyxOSX::CMsgQueue_Impl::ReleaseBlock( CMsgBlock* pBlock )
+void NyxLinux::CMsgQueue_Impl::ReleaseBlock( CMsgBlock* pBlock )
 {
 	pBlock->Link() = m_pFreeBlocks;
 	m_pFreeBlocks = pBlock;
@@ -164,11 +164,11 @@ void NyxOSX::CMsgQueue_Impl::ReleaseBlock( CMsgBlock* pBlock )
 /**
  *
  */
-void NyxOSX::CMsgQueue_Impl::ClearAllBlocks()
+void NyxLinux::CMsgQueue_Impl::ClearAllBlocks()
 {
 	Nyx::TLock<Nyx::CMutex>		BlocksLock(m_refMutexBlocksAccess, true);
-	NyxOSX::CMsgBlock*			pBlock = m_pHead;
-	NyxOSX::CMsgBlock*			pTempBlock = NULL;
+	NyxLinux::CMsgBlock*			pBlock = m_pHead;
+	NyxLinux::CMsgBlock*			pTempBlock = NULL;
 	
 	while ( NULL != pBlock )
 	{

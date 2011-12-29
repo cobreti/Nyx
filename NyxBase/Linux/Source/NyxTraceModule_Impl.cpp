@@ -4,7 +4,7 @@
 /**
  *
  */
-NyxOSX::CTraceModule_Impl::CTraceModule_Impl() :
+NyxLinux::CTraceModule_Impl::CTraceModule_Impl() :
 m_pReference(NULL)
 {
 }
@@ -13,7 +13,7 @@ m_pReference(NULL)
 /**
  *
  */
-NyxOSX::CTraceModule_Impl::~CTraceModule_Impl()
+NyxLinux::CTraceModule_Impl::~CTraceModule_Impl()
 {
 }
 
@@ -21,7 +21,7 @@ NyxOSX::CTraceModule_Impl::~CTraceModule_Impl()
 /**
  *
  */
-void NyxOSX::CTraceModule_Impl::Init()
+void NyxLinux::CTraceModule_Impl::Init()
 {
 	pthread_key_create(&m_keyTraceCompositor, NULL);
 }
@@ -30,7 +30,7 @@ void NyxOSX::CTraceModule_Impl::Init()
 /**
  *
  */
-void NyxOSX::CTraceModule_Impl::Terminate()
+void NyxLinux::CTraceModule_Impl::Terminate()
 {
 	pthread_key_delete(m_keyTraceCompositor);
 }
@@ -39,7 +39,7 @@ void NyxOSX::CTraceModule_Impl::Terminate()
 /**
  *
  */
-Nyx::CTraceCompositor* NyxOSX::CTraceModule_Impl::Reference()
+Nyx::CTraceCompositor* NyxLinux::CTraceModule_Impl::Reference()
 {
 	return m_pReference;
 }
@@ -48,7 +48,7 @@ Nyx::CTraceCompositor* NyxOSX::CTraceModule_Impl::Reference()
 /**
  *
  */
-void NyxOSX::CTraceModule_Impl::SetThreadDefault( Nyx::CTraceCompositor* pDefault )
+void NyxLinux::CTraceModule_Impl::SetThreadDefault( Nyx::CTraceCompositor* pDefault )
 {
 	if ( NULL != pDefault )
 	{
@@ -63,7 +63,7 @@ void NyxOSX::CTraceModule_Impl::SetThreadDefault( Nyx::CTraceCompositor* pDefaul
 /**
  *
  */
-Nyx::CTraceCompositor* NyxOSX::CTraceModule_Impl::ThreadDefault()
+Nyx::CTraceCompositor* NyxLinux::CTraceModule_Impl::ThreadDefault()
 {
 	Nyx::CTraceCompositor*	pTraceCompositor = reinterpret_cast<Nyx::CTraceCompositor*>(pthread_getspecific(m_keyTraceCompositor));
 	return pTraceCompositor;
@@ -73,7 +73,7 @@ Nyx::CTraceCompositor* NyxOSX::CTraceModule_Impl::ThreadDefault()
 /**
  *
  */
-void NyxOSX::CTraceModule_Impl::RemoveThreadDefault()
+void NyxLinux::CTraceModule_Impl::RemoveThreadDefault()
 {
 	Nyx::CTraceCompositor*	pTraceCompositor = reinterpret_cast<Nyx::CTraceCompositor*>(pthread_getspecific(m_keyTraceCompositor));
 	if (NULL != pTraceCompositor )

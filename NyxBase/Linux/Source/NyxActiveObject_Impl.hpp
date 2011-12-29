@@ -19,7 +19,7 @@ DECLARE_NYXOBJECTREF(CMutex);
 DECLARE_NYXOBJECTREF(CMsgHandlers);
 
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	/**
 	 *	\brief		Active object implementation
@@ -53,7 +53,7 @@ namespace NyxOSX
 		
 	protected: // protected members
 	
-		SInt32					m_MsgCount;
+		long					m_MsgCount;
 		Nyx::CMsgQueueRef		m_refMsgQueue;
 		Nyx::CThreadRef			m_refThread;
 		Nyx::CEventRef			m_refPostMsgInEvent;
@@ -71,7 +71,7 @@ namespace NyxOSX
 	class CActiveObjectThreadProc : public Nyx::CObject_Impl<Nyx::CThreadProc>
 	{
 	public:	// public methods
-		CActiveObjectThreadProc( NyxOSX::CActiveObject_Impl& rActiveObject );
+		CActiveObjectThreadProc( NyxLinux::CActiveObject_Impl& rActiveObject );
 		virtual ~CActiveObjectThreadProc();
 		
 		virtual void Run();
@@ -79,7 +79,7 @@ namespace NyxOSX
 	
 	protected: // protected members
 	
-		NyxOSX::CActiveObject_Impl&		m_rActiveObject;
+		NyxLinux::CActiveObject_Impl&		m_rActiveObject;
 	};
 }
 

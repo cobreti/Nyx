@@ -9,21 +9,21 @@
 #include <sys/time.h>
 
 
-NyxOSX::CTraceCompositor_Impl::XDummyTraceOutput NyxOSX::CTraceCompositor_Impl::s_DummyTraceOutput;
+NyxLinux::CTraceCompositor_Impl::XDummyTraceOutput NyxLinux::CTraceCompositor_Impl::s_DummyTraceOutput;
 
 /**
  *
  */
 Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(ETraceCompositorCharSet charset, bool bUseAsDefault)
 {
-	return new NyxOSX::CTraceCompositor_Impl(charset, bUseAsDefault);
+	return new NyxLinux::CTraceCompositor_Impl(charset, bUseAsDefault);
 }
 
 
 /**
  *
  */
-NyxOSX::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset, bool bUseAsDefault) : 
+NyxLinux::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset, bool bUseAsDefault) :
 m_pCompositorBuffer(NULL),
 m_bUseAsDefault(bUseAsDefault)
 {
@@ -59,7 +59,7 @@ m_bUseAsDefault(bUseAsDefault)
 /**
  *
  */
-NyxOSX::CTraceCompositor_Impl::CTraceCompositor_Impl( Nyx::CMutex* pMutex, Nyx::CTraceCompositorBuffer* pBuffer, bool bUseAsDefault ) :
+NyxLinux::CTraceCompositor_Impl::CTraceCompositor_Impl( Nyx::CMutex* pMutex, Nyx::CTraceCompositorBuffer* pBuffer, bool bUseAsDefault ) :
 m_pCompositorBuffer(pBuffer),
 m_bUseAsDefault(bUseAsDefault)
 {
@@ -84,7 +84,7 @@ m_bUseAsDefault(bUseAsDefault)
 /**
  *
  */
-NyxOSX::CTraceCompositor_Impl::~CTraceCompositor_Impl()
+NyxLinux::CTraceCompositor_Impl::~CTraceCompositor_Impl()
 {
 	Nyx::CModule::GetDefault()->Traces().RemoveThreadDefault();
 	
@@ -95,7 +95,7 @@ NyxOSX::CTraceCompositor_Impl::~CTraceCompositor_Impl()
 /**
  *
  */
-void NyxOSX::CTraceCompositor_Impl::Begin(const Nyx::TraceFilter& filter)
+void NyxLinux::CTraceCompositor_Impl::Begin(const Nyx::TraceFilter& filter)
 {	
 	size_t		Size = 0;
 	timeval		t;
@@ -115,7 +115,7 @@ void NyxOSX::CTraceCompositor_Impl::Begin(const Nyx::TraceFilter& filter)
 /**
  *
  */
-void NyxOSX::CTraceCompositor_Impl::End()
+void NyxLinux::CTraceCompositor_Impl::End()
 {
 	m_pCompositorBuffer->End(m_TraceHeader, m_refOutput);
 	m_refMutex->Unlock();
@@ -125,7 +125,7 @@ void NyxOSX::CTraceCompositor_Impl::End()
 /**
  *
  */
-void NyxOSX::CTraceCompositor_Impl::Write(const Nyx::CTraceFeed& feed)
+void NyxLinux::CTraceCompositor_Impl::Write(const Nyx::CTraceFeed& feed)
 {
 	switch (feed.CharFormat())
 	{
@@ -142,9 +142,9 @@ void NyxOSX::CTraceCompositor_Impl::Write(const Nyx::CTraceFeed& feed)
 /**
  *
  */
-Nyx::CTraceCompositor* NyxOSX::CTraceCompositor_Impl::Clone()
+Nyx::CTraceCompositor* NyxLinux::CTraceCompositor_Impl::Clone()
 {
-	Nyx::CTraceCompositor*		pTraceCompositor = new NyxOSX::CTraceCompositor_Impl( new XDummyMutex(), m_pCompositorBuffer->Clone(), UsedAsDefault() );
+	Nyx::CTraceCompositor*		pTraceCompositor = new NyxLinux::CTraceCompositor_Impl( new XDummyMutex(), m_pCompositorBuffer->Clone(), UsedAsDefault() );
 	
 	pTraceCompositor->SetOutput(m_refOutput);
 	
@@ -155,7 +155,7 @@ Nyx::CTraceCompositor* NyxOSX::CTraceCompositor_Impl::Clone()
 /**
  *
  */
-void NyxOSX::CTraceCompositor_Impl::SetOutput( Nyx::CTraceOutput* pOutput )
+void NyxLinux::CTraceCompositor_Impl::SetOutput( Nyx::CTraceOutput* pOutput )
 {
 	m_refOutput = pOutput;
 }
@@ -164,7 +164,7 @@ void NyxOSX::CTraceCompositor_Impl::SetOutput( Nyx::CTraceOutput* pOutput )
 /**
  *
  */
-void NyxOSX::CTraceCompositor_Impl::Write(const wchar_t& c)
+void NyxLinux::CTraceCompositor_Impl::Write(const wchar_t& c)
 {
 	m_pCompositorBuffer->Write(c);
 }

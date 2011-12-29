@@ -10,7 +10,7 @@
 
 DECLARE_NYXOBJECTREF(CMsgHandler)
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CMsgHandlers_Impl : public Nyx::CObject_Impl<Nyx::CMsgHandlers>
 	{

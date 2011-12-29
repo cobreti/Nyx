@@ -6,7 +6,7 @@
 
 #include <pthread.h>
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CTraceModule_Impl : public Nyx::CTraceModule
 	{

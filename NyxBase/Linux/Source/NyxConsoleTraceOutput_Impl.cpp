@@ -9,14 +9,14 @@
  */
 Nyx::CConsoleTraceOutputRef Nyx::CConsoleTraceOutput::Alloc()
 {
-	return new NyxOSX::CConsoleTraceOutput_Impl();
+	return new NyxLinux::CConsoleTraceOutput_Impl();
 }
 
 
 /**
  *
  */
-NyxOSX::CConsoleTraceOutput_Impl::CConsoleTraceOutput_Impl()
+NyxLinux::CConsoleTraceOutput_Impl::CConsoleTraceOutput_Impl()
 {
 	m_refMutex = Nyx::CMutex::Alloc();
 }
@@ -25,7 +25,7 @@ NyxOSX::CConsoleTraceOutput_Impl::CConsoleTraceOutput_Impl()
 /**
  *
  */
-NyxOSX::CConsoleTraceOutput_Impl::~CConsoleTraceOutput_Impl()
+NyxLinux::CConsoleTraceOutput_Impl::~CConsoleTraceOutput_Impl()
 {
 }
 
@@ -33,7 +33,7 @@ NyxOSX::CConsoleTraceOutput_Impl::~CConsoleTraceOutput_Impl()
 /**
  *
  */
-void NyxOSX::CConsoleTraceOutput_Impl::Write( const Nyx::CTraceHeader& header, const wchar_t* wszText )
+void NyxLinux::CConsoleTraceOutput_Impl::Write( const Nyx::CTraceHeader& header, const wchar_t* wszText )
 {
 	Nyx::TLock<Nyx::CMutex>		Lock(m_refMutex, true);
 	
@@ -53,7 +53,7 @@ void NyxOSX::CConsoleTraceOutput_Impl::Write( const Nyx::CTraceHeader& header, c
 /**
  *
  */
-void NyxOSX::CConsoleTraceOutput_Impl::Write( const Nyx::CTraceHeader& header, const char* szText )
+void NyxLinux::CConsoleTraceOutput_Impl::Write( const Nyx::CTraceHeader& header, const char* szText )
 {
 	Nyx::TLock<Nyx::CMutex>		Lock(m_refMutex, true);
 	

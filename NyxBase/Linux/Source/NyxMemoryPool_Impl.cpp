@@ -1,16 +1,17 @@
 #include "NyxMemoryPool_Impl.hpp"
 
+#include <stdlib.h>
 
 /**
  *
  */
 Nyx::CMemoryPoolRef Nyx::CMemoryPool::Alloc(size_t BlockSize)
 {
-	return new NyxOSX::CMemoryPool_Impl(BlockSize);
+	return new NyxLinux::CMemoryPool_Impl(BlockSize);
 }
 
 
-namespace NyxOSX
+namespace NyxLinux
 {
     enum
     {

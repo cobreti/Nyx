@@ -8,7 +8,7 @@
 
 DECLARE_NYXOBJECTREF(CMutex);
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CMsgBlock;
 

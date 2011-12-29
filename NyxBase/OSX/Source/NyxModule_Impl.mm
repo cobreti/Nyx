@@ -1,7 +1,7 @@
 #include "NyxModule_Impl.hpp"
 #include "NyxTraceStream.hpp"
 
-Nyx::CModule* NyxOSX::CModule_Impl::s_pDefaultModule = NULL;
+Nyx::CModule* NyxLinux::CModule_Impl::s_pDefaultModule = NULL;
 
 
 /**
@@ -9,7 +9,7 @@ Nyx::CModule* NyxOSX::CModule_Impl::s_pDefaultModule = NULL;
  */
 Nyx::CModuleRef Nyx::CModule::Alloc()
 {
-	return new NyxOSX::CModule_Impl();
+	return new NyxLinux::CModule_Impl();
 }
 
 
@@ -18,15 +18,14 @@ Nyx::CModuleRef Nyx::CModule::Alloc()
  */
 Nyx::CModule* Nyx::CModule::GetDefault()
 {
-	return NyxOSX::CModule_Impl::s_pDefaultModule;
+	return NyxLinux::CModule_Impl::s_pDefaultModule;
 }
 
 
 /**
  *
  */
-NyxOSX::CModule_Impl::CModule_Impl() :
-m_AutoReleasePool(nil)
+NyxLinux::CModule_Impl::CModule_Impl()
 {
 	s_pDefaultModule = this;
 	Init();
@@ -36,7 +35,7 @@ m_AutoReleasePool(nil)
 /**
  *
  */
-NyxOSX::CModule_Impl::~CModule_Impl()
+NyxLinux::CModule_Impl::~CModule_Impl()
 {
 	Terminate();
 	s_pDefaultModule = NULL;
@@ -46,10 +45,8 @@ NyxOSX::CModule_Impl::~CModule_Impl()
 /**
  *
  */
-void NyxOSX::CModule_Impl::Init()
+void NyxLinux::CModule_Impl::Init()
 {
-    m_AutoReleasePool = [[NSAutoreleasePool alloc] init];
-    
 	m_ThreadModule.Init();
 	m_TraceModule.Init();
     
@@ -59,11 +56,8 @@ void NyxOSX::CModule_Impl::Init()
 /**
  *
  */
-void NyxOSX::CModule_Impl::Terminate()
+void NyxLinux::CModule_Impl::Terminate()
 {
-    [m_AutoReleasePool release];
-    m_AutoReleasePool = nil;
-    
 	m_TraceModule.Terminate();
 	m_ThreadModule.Terminate();
 }
@@ -72,7 +66,7 @@ void NyxOSX::CModule_Impl::Terminate()
 /**
  *
  */
-Nyx::CTraceModule& NyxOSX::CModule_Impl::Traces()
+Nyx::CTraceModule& NyxLinux::CModule_Impl::Traces()
 {
 	return m_TraceModule;
 }
@@ -81,7 +75,7 @@ Nyx::CTraceModule& NyxOSX::CModule_Impl::Traces()
 /**
  *
  */
-Nyx::CThreadModule& NyxOSX::CModule_Impl::Threads()
+Nyx::CThreadModule& NyxLinux::CModule_Impl::Threads()
 {
 	return m_ThreadModule;
 }

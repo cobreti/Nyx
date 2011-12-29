@@ -6,7 +6,7 @@
 
 #include <pthread.h>
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CEvent_Impl : public Nyx::CObject_Impl<Nyx::CEvent>
 	{

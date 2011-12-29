@@ -8,7 +8,7 @@
 #include <pthread.h>
 
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CThreadModule_Impl : public Nyx::CObject_Impl<Nyx::CThreadModule>
 	{

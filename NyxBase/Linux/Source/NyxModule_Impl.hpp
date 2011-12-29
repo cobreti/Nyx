@@ -12,7 +12,7 @@
 
 DECLARE_NYXOBJECTREF(CModule)
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CModule_Impl : public Nyx::CObject_Impl<Nyx::CModule>
 	{
@@ -32,13 +32,9 @@ namespace NyxOSX
 
 	protected:
 	
-		NyxOSX::CTraceModule_Impl		m_TraceModule;
-		NyxOSX::CThreadModule_Impl		m_ThreadModule;
-        
-    private:
-        
-        NSAutoreleasePool*          m_AutoReleasePool;
-	};
+		NyxLinux::CTraceModule_Impl		m_TraceModule;
+		NyxLinux::CThreadModule_Impl		m_ThreadModule;
+  	};
 }
 
 

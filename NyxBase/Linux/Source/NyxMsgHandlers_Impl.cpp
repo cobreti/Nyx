@@ -6,14 +6,14 @@
  */
 Nyx::CMsgHandlers* Nyx::CMsgHandlers::Alloc()
 {
-	return new NyxOSX::CMsgHandlers_Impl();
+	return new NyxLinux::CMsgHandlers_Impl();
 }
 
 
 /**
  *
  */
-NyxOSX::CMsgHandlers_Impl::CMsgHandlers_Impl()
+NyxLinux::CMsgHandlers_Impl::CMsgHandlers_Impl()
 {
 }
 
@@ -21,7 +21,7 @@ NyxOSX::CMsgHandlers_Impl::CMsgHandlers_Impl()
 /**
  *
  */
-NyxOSX::CMsgHandlers_Impl::~CMsgHandlers_Impl()
+NyxLinux::CMsgHandlers_Impl::~CMsgHandlers_Impl()
 {
 }
 
@@ -29,7 +29,7 @@ NyxOSX::CMsgHandlers_Impl::~CMsgHandlers_Impl()
 /**
  *
  */
-Nyx::NyxResult NyxOSX::CMsgHandlers_Impl::Add( const Nyx::MsgIdentifier& MsgId, Nyx::CMsgHandler* pHandler )
+Nyx::NyxResult NyxLinux::CMsgHandlers_Impl::Add( const Nyx::MsgIdentifier& MsgId, Nyx::CMsgHandler* pHandler )
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
 	
@@ -42,7 +42,7 @@ Nyx::NyxResult NyxOSX::CMsgHandlers_Impl::Add( const Nyx::MsgIdentifier& MsgId, 
 /**
  *
  */
-Nyx::CMsgHandlerRef NyxOSX::CMsgHandlers_Impl::Get( const Nyx::MsgIdentifier& MsgId )
+Nyx::CMsgHandlerRef NyxLinux::CMsgHandlers_Impl::Get( const Nyx::MsgIdentifier& MsgId )
 {	
 	return m_Handlers[MsgId];
 }
@@ -51,7 +51,7 @@ Nyx::CMsgHandlerRef NyxOSX::CMsgHandlers_Impl::Get( const Nyx::MsgIdentifier& Ms
 /**
  *
  */
-Nyx::NyxResult NyxOSX::CMsgHandlers_Impl::Remove( const Nyx::MsgIdentifier& MsgId )
+Nyx::NyxResult NyxLinux::CMsgHandlers_Impl::Remove( const Nyx::MsgIdentifier& MsgId )
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
 	

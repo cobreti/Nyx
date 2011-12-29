@@ -1,9 +1,7 @@
 #ifndef _NYXATOMICVALUE_HPP_
 #define _NYXATOMICVALUE_HPP_
 
-
-#include <carbon/carbon.h>
-
+#include <sys/syscall.h>
 
 namespace Nyx
 {
@@ -13,20 +11,20 @@ namespace Nyx
 		CAtomicValue() : m_Value(0) {}
 		~CAtomicValue() {}
 		
-		const SInt32 operator ++ ()
+		const long operator ++ ()
 		{
-			return IncrementAtomic(&m_Value) + 1;
+			return __sync_fetch_and_add( &m_Value, 1 );
 		}
 		
-		const SInt32 operator -- ()
+		const long operator -- ()
 		{
-			return DecrementAtomic(&m_Value) - 1;
+			return __sync_fetch_and_sub(&m_Value, 1);
 		}
 		
-		const SInt32 Value() const { return m_Value; }
+		const long Value() const { return m_Value; }
 	
 	private:
-		SInt32		m_Value;
+		long		m_Value;
 	};
 }
 

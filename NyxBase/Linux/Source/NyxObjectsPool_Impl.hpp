@@ -8,7 +8,7 @@
 #include "NyxLock.hpp"
 #include "NyxMemoryPool.hpp"
 
-namespace NyxOSX
+namespace NyxLinux
 {
     /**
      *

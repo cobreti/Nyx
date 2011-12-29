@@ -6,11 +6,11 @@
  */
 Nyx::CObjectsPoolRef Nyx::CObjectsPool::Alloc(size_t BlockSize)
 {
-    return new NyxOSX::CObjectsPool_Impl(BlockSize);
+    return new NyxLinux::CObjectsPool_Impl(BlockSize);
 }
 
 
-namespace NyxOSX
+namespace NyxLinux
 {
     enum
     {

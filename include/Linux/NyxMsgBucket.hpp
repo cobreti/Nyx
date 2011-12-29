@@ -2,7 +2,7 @@
 #define _NYXMSGBUCKET_HPP_
 
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CActiveObject_Impl;
 }
@@ -16,7 +16,7 @@ namespace Nyx
 	 */
 	class CMsgBucket
 	{
-		friend class NyxOSX::CActiveObject_Impl;
+		friend class NyxLinux::CActiveObject_Impl;
 	
 	public:
 		CMsgBucket() : m_pMsg(NULL) {}

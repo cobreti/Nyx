@@ -9,7 +9,7 @@
 #include "NyxMutex.hpp"
 #include "NyxTraceCompositorBuffer.hpp"
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CTraceCompositor_Impl : public Nyx::CObject_Impl<Nyx::CTraceCompositor>
 	{

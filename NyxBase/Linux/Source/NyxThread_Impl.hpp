@@ -10,7 +10,7 @@
 
 DECLARE_NYXOBJECTREF(CThreadProc)
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CThread_Impl : public Nyx::CObject_Impl<Nyx::CThread>
 	{

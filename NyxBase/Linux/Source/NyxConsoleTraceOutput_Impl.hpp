@@ -6,7 +6,7 @@
 #include "NyxMutex.hpp"
 #include "NyxFixedString.hpp"
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CConsoleTraceOutput_Impl : public Nyx::CObject_Impl<Nyx::CConsoleTraceOutput>
 	{

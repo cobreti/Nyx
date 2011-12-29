@@ -3,6 +3,8 @@
 #include "NyxAString.hpp"
 #include "NyxAssert.hpp"
 
+#include <stdarg.h>
+
 namespace Nyx
 {
 	/**

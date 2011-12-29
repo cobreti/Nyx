@@ -6,7 +6,7 @@
 
 #include <pthread.h>
 
-namespace NyxOSX
+namespace NyxLinux
 {
 	class CThreadId_Impl : public Nyx::CRefCount_Impl<Nyx::CThreadId>
 	{
