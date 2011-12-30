@@ -11,8 +11,6 @@
 		1605928F115582D5005867D2 /* NyxThreadId_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1605928E115582D5005867D2 /* NyxThreadId_Impl.cpp */; };
 		16264BB0149CE16400AFAE80 /* NyxRange.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16264BAF149CE16400AFAE80 /* NyxRange.hpp */; };
 		16264BB214A2AFE700AFAE80 /* NyxTraceFeeds.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16264BB114A2AFE700AFAE80 /* NyxTraceFeeds.hpp */; };
-		1636480D10E6BC5000AAF3A6 /* NyxStringFormater_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1636480B10E6BC5000AAF3A6 /* NyxStringFormater_Impl.cpp */; };
-		1636480E10E6BC5000AAF3A6 /* NyxStringFormater_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1636480C10E6BC5000AAF3A6 /* NyxStringFormater_Impl.hpp */; };
 		1654D15E118C71C300297437 /* NyxOpaqueDataBucket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1654D15D118C71C300297437 /* NyxOpaqueDataBucket.cpp */; };
 		1654D169118C75D100297437 /* NyxOpaqueList_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1654D168118C75D100297437 /* NyxOpaqueList_Impl.hpp */; };
 		1654D16B118C775F00297437 /* NyxOpaqueList_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1654D16A118C775F00297437 /* NyxOpaqueList_Impl.cpp */; };
@@ -23,7 +21,6 @@
 		1676F9371359CF5400705042 /* Nyx.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F8FF1359CF5400705042 /* Nyx.hpp */; };
 		1676F9381359CF5400705042 /* NyxActiveObject.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9001359CF5400705042 /* NyxActiveObject.hpp */; };
 		1676F9391359CF5400705042 /* NyxAlgorithm.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9011359CF5400705042 /* NyxAlgorithm.hpp */; };
-		1676F93A1359CF5400705042 /* NyxAnsiString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9021359CF5400705042 /* NyxAnsiString.hpp */; };
 		1676F93B1359CF5400705042 /* NyxBodyBlock.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9031359CF5400705042 /* NyxBodyBlock.hpp */; };
 		1676F93C1359CF5400705042 /* NyxBuffer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9041359CF5400705042 /* NyxBuffer.hpp */; };
 		1676F93D1359CF5400705042 /* NyxConsoleTraceOutput.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9051359CF5400705042 /* NyxConsoleTraceOutput.hpp */; };
@@ -54,9 +51,6 @@
 		1676F9561359CF5400705042 /* NyxStreamReader.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F91E1359CF5400705042 /* NyxStreamReader.hpp */; };
 		1676F9571359CF5400705042 /* NyxStreamRW.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F91F1359CF5400705042 /* NyxStreamRW.hpp */; };
 		1676F9581359CF5400705042 /* NyxStreamWriter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9201359CF5400705042 /* NyxStreamWriter.hpp */; };
-		1676F9591359CF5400705042 /* NyxString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9211359CF5400705042 /* NyxString.hpp */; };
-		1676F95A1359CF5400705042 /* NyxStringFormater.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9221359CF5400705042 /* NyxStringFormater.hpp */; };
-		1676F95B1359CF5400705042 /* NyxStringT.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9231359CF5400705042 /* NyxStringT.hpp */; };
 		1676F95C1359CF5400705042 /* NyxTask.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9241359CF5400705042 /* NyxTask.hpp */; };
 		1676F95D1359CF5400705042 /* NyxTaskExecuter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9251359CF5400705042 /* NyxTaskExecuter.hpp */; };
 		1676F95E1359CF5400705042 /* NyxTaskExecuterPool.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1676F9261359CF5400705042 /* NyxTaskExecuterPool.hpp */; };
@@ -142,8 +136,6 @@
 		1605928E115582D5005867D2 /* NyxThreadId_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxThreadId_Impl.cpp; path = Source/NyxThreadId_Impl.cpp; sourceTree = "<group>"; };
 		16264BAF149CE16400AFAE80 /* NyxRange.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxRange.hpp; path = ../../include/NyxRange.hpp; sourceTree = "<group>"; };
 		16264BB114A2AFE700AFAE80 /* NyxTraceFeeds.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxTraceFeeds.hpp; path = ../../../../Nyx/include/OSX/NyxTraceFeeds.hpp; sourceTree = "<group>"; };
-		1636480B10E6BC5000AAF3A6 /* NyxStringFormater_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxStringFormater_Impl.cpp; path = Source/NyxStringFormater_Impl.cpp; sourceTree = "<group>"; };
-		1636480C10E6BC5000AAF3A6 /* NyxStringFormater_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxStringFormater_Impl.hpp; path = Source/NyxStringFormater_Impl.hpp; sourceTree = "<group>"; };
 		1654D15D118C71C300297437 /* NyxOpaqueDataBucket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxOpaqueDataBucket.cpp; path = ../Source/NyxOpaqueDataBucket.cpp; sourceTree = SOURCE_ROOT; };
 		1654D168118C75D100297437 /* NyxOpaqueList_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxOpaqueList_Impl.hpp; path = ../Source/NyxOpaqueList_Impl.hpp; sourceTree = SOURCE_ROOT; };
 		1654D16A118C775F00297437 /* NyxOpaqueList_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxOpaqueList_Impl.cpp; path = ../Source/NyxOpaqueList_Impl.cpp; sourceTree = SOURCE_ROOT; };
@@ -154,7 +146,6 @@
 		1676F8FF1359CF5400705042 /* Nyx.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Nyx.hpp; path = ../../include/Nyx.hpp; sourceTree = "<group>"; };
 		1676F9001359CF5400705042 /* NyxActiveObject.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxActiveObject.hpp; path = ../../include/NyxActiveObject.hpp; sourceTree = "<group>"; };
 		1676F9011359CF5400705042 /* NyxAlgorithm.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxAlgorithm.hpp; path = ../../include/NyxAlgorithm.hpp; sourceTree = "<group>"; };
-		1676F9021359CF5400705042 /* NyxAnsiString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxAnsiString.hpp; path = ../../include/NyxAnsiString.hpp; sourceTree = "<group>"; };
 		1676F9031359CF5400705042 /* NyxBodyBlock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxBodyBlock.hpp; path = ../../include/NyxBodyBlock.hpp; sourceTree = "<group>"; };
 		1676F9041359CF5400705042 /* NyxBuffer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxBuffer.hpp; path = ../../include/NyxBuffer.hpp; sourceTree = "<group>"; };
 		1676F9051359CF5400705042 /* NyxConsoleTraceOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxConsoleTraceOutput.hpp; path = ../../include/NyxConsoleTraceOutput.hpp; sourceTree = "<group>"; };
@@ -185,9 +176,6 @@
 		1676F91E1359CF5400705042 /* NyxStreamReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxStreamReader.hpp; path = ../../include/NyxStreamReader.hpp; sourceTree = "<group>"; };
 		1676F91F1359CF5400705042 /* NyxStreamRW.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxStreamRW.hpp; path = ../../include/NyxStreamRW.hpp; sourceTree = "<group>"; };
 		1676F9201359CF5400705042 /* NyxStreamWriter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxStreamWriter.hpp; path = ../../include/NyxStreamWriter.hpp; sourceTree = "<group>"; };
-		1676F9211359CF5400705042 /* NyxString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxString.hpp; path = ../../include/NyxString.hpp; sourceTree = "<group>"; };
-		1676F9221359CF5400705042 /* NyxStringFormater.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxStringFormater.hpp; path = ../../include/NyxStringFormater.hpp; sourceTree = "<group>"; };
-		1676F9231359CF5400705042 /* NyxStringT.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxStringT.hpp; path = ../../include/NyxStringT.hpp; sourceTree = "<group>"; };
 		1676F9241359CF5400705042 /* NyxTask.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxTask.hpp; path = ../../include/NyxTask.hpp; sourceTree = "<group>"; };
 		1676F9251359CF5400705042 /* NyxTaskExecuter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxTaskExecuter.hpp; path = ../../include/NyxTaskExecuter.hpp; sourceTree = "<group>"; };
 		1676F9261359CF5400705042 /* NyxTaskExecuterPool.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxTaskExecuterPool.hpp; path = ../../include/NyxTaskExecuterPool.hpp; sourceTree = "<group>"; };
@@ -443,8 +431,6 @@
 		1682748D0F042E8F00412713 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
-				1636480B10E6BC5000AAF3A6 /* NyxStringFormater_Impl.cpp */,
-				1636480C10E6BC5000AAF3A6 /* NyxStringFormater_Impl.hpp */,
 				16E9833B12D8D41B00F48942 /* NyxMFString_Impl.cpp */,
 				16E9869612D9493100F48942 /* NyxWString_Impl.cpp */,
 				16F65A9C12E229110023255C /* NyxAString_Impl.cpp */,
@@ -512,11 +498,7 @@
 				1676F90A1359CF5400705042 /* NyxFixedString.hpp */,
 				16685D4D1359F243007AF4E1 /* NyxAString.hpp */,
 				16685D4F1359F24C007AF4E1 /* NyxWString.hpp */,
-				1676F9021359CF5400705042 /* NyxAnsiString.hpp */,
 				16C2EECA13ABB5F0001F8FEF /* NyxMFString.hpp */,
-				1676F9211359CF5400705042 /* NyxString.hpp */,
-				1676F9221359CF5400705042 /* NyxStringFormater.hpp */,
-				1676F9231359CF5400705042 /* NyxStringT.hpp */,
 				16C2EED413B63071001F8FEF /* NyxWString.hpp */,
 			);
 			name = Strings;
@@ -668,13 +650,11 @@
 				168C580D10D54859001FB07F /* NyxMsgHandlers_Impl.hpp in Headers */,
 				168C580F10D54859001FB07F /* NyxMsgQueue_Impl.hpp in Headers */,
 				168C581310D54863001FB07F /* NyxActiveObject_Impl.hpp in Headers */,
-				1636480E10E6BC5000AAF3A6 /* NyxStringFormater_Impl.hpp in Headers */,
 				1605928D11557E89005867D2 /* NyxThreadId_Impl.hpp in Headers */,
 				1654D169118C75D100297437 /* NyxOpaqueList_Impl.hpp in Headers */,
 				1676F9371359CF5400705042 /* Nyx.hpp in Headers */,
 				1676F9381359CF5400705042 /* NyxActiveObject.hpp in Headers */,
 				1676F9391359CF5400705042 /* NyxAlgorithm.hpp in Headers */,
-				1676F93A1359CF5400705042 /* NyxAnsiString.hpp in Headers */,
 				1676F93B1359CF5400705042 /* NyxBodyBlock.hpp in Headers */,
 				1676F93C1359CF5400705042 /* NyxBuffer.hpp in Headers */,
 				1676F93D1359CF5400705042 /* NyxConsoleTraceOutput.hpp in Headers */,
@@ -705,9 +685,6 @@
 				1676F9561359CF5400705042 /* NyxStreamReader.hpp in Headers */,
 				1676F9571359CF5400705042 /* NyxStreamRW.hpp in Headers */,
 				1676F9581359CF5400705042 /* NyxStreamWriter.hpp in Headers */,
-				1676F9591359CF5400705042 /* NyxString.hpp in Headers */,
-				1676F95A1359CF5400705042 /* NyxStringFormater.hpp in Headers */,
-				1676F95B1359CF5400705042 /* NyxStringT.hpp in Headers */,
 				1676F95C1359CF5400705042 /* NyxTask.hpp in Headers */,
 				1676F95D1359CF5400705042 /* NyxTaskExecuter.hpp in Headers */,
 				1676F95E1359CF5400705042 /* NyxTaskExecuterPool.hpp in Headers */,
@@ -816,7 +793,6 @@
 				168C580C10D54859001FB07F /* NyxMsgHandlers_Impl.cpp in Sources */,
 				168C580E10D54859001FB07F /* NyxMsgQueue_Impl.cpp in Sources */,
 				168C581210D54863001FB07F /* NyxActiveObject_Impl.cpp in Sources */,
-				1636480D10E6BC5000AAF3A6 /* NyxStringFormater_Impl.cpp in Sources */,
 				1605928F115582D5005867D2 /* NyxThreadId_Impl.cpp in Sources */,
 				1654D15E118C71C300297437 /* NyxOpaqueDataBucket.cpp in Sources */,
 				1654D16B118C775F00297437 /* NyxOpaqueList_Impl.cpp in Sources */,

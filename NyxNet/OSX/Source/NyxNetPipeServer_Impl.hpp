@@ -4,7 +4,7 @@
 #include "NyxNetPipeServer.hpp"
 #include "NyxObject_Impl.hpp"
 #include "NyxThread.hpp"
-#include "NyxAnsiString.hpp"
+#include "NyxAString.hpp"
 #include "NyxStreamRW.hpp"
 #include "NyxNetPipeSocketReader.hpp"
 #include "NyxNetPipeClientConn.hpp"

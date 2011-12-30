@@ -3,7 +3,7 @@
 
 #include "NyxObject.hpp"
 #include "NyxRef.hpp"
-#include "NyxAnsiString.hpp"
+#include "NyxAString.hpp"
 
 
 DECLARE_NSPOBJECTREF(NyxNet, CModule)
@@ -19,8 +19,8 @@ namespace NyxNet
 		
 	public:
 	
-		virtual Nyx::NyxResult GetHostname( Nyx::CAnsiString& rHostname ) = 0;
-		virtual Nyx::NyxResult GetHostIp( const char* szComputerName, Nyx::CAnsiString& rHostIp ) = 0;
+		virtual Nyx::NyxResult GetHostname( Nyx::CAString& rHostname ) = 0;
+		virtual Nyx::NyxResult GetHostIp( const char* szComputerName, Nyx::CAString& rHostIp ) = 0;
 	};
 }
 

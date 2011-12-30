@@ -128,7 +128,7 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Connect()
 	int						nRet = 0;
 	
     serv_addr.sin_family = AF_INET;
-	serv_addr.sin_addr.s_addr = inet_addr(m_refIp->c_str());
+	serv_addr.sin_addr.s_addr = inet_addr(m_Ip.c_str());
 	serv_addr.sin_port = htons(m_Port);
     nRet = connect(m_Socket, (sockaddr*)&serv_addr,sizeof(serv_addr));
 	if ( nRet >= 0 )
@@ -199,7 +199,7 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::Nyx
  */
 Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Create( const char* szIp, const NyxNet::TcpIpPort& Port )
 {
-	m_refIp = Nyx::CAnsiString::Alloc(szIp);
+	m_Ip = szIp;
 	m_Port = Port;	
 	
 	return Nyx::kNyxRes_Success;

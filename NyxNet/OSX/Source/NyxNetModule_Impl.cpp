@@ -51,7 +51,7 @@ NyxNetOSX::CModule_Impl::~CModule_Impl()
 /**
  *
  */
-Nyx::NyxResult NyxNetOSX::CModule_Impl::GetHostname( Nyx::CAnsiString& rHostname )
+Nyx::NyxResult NyxNetOSX::CModule_Impl::GetHostname( Nyx::CAString& rHostname )
 {
 	const int			knHostnameSize = 200;
 
@@ -60,7 +60,7 @@ Nyx::NyxResult NyxNetOSX::CModule_Impl::GetHostname( Nyx::CAnsiString& rHostname
 	
 	if ( gethostname(szHostname, knHostnameSize) != -1 )
 	{
-		rHostname.Set(szHostname);
+		rHostname = szHostname;
 	}
 	else
 		res = Nyx::kNyxRes_Failure;
@@ -72,7 +72,7 @@ Nyx::NyxResult NyxNetOSX::CModule_Impl::GetHostname( Nyx::CAnsiString& rHostname
 /**
  *
  */
-Nyx::NyxResult NyxNetOSX::CModule_Impl::GetHostIp( const char* szComputerName, Nyx::CAnsiString& rHostIp )
+Nyx::NyxResult NyxNetOSX::CModule_Impl::GetHostIp( const char* szComputerName, Nyx::CAString& rHostIp )
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	hostent*			pHostent = NULL;			
@@ -83,7 +83,7 @@ Nyx::NyxResult NyxNetOSX::CModule_Impl::GetHostIp( const char* szComputerName, N
 	{
 		char* szIp = inet_ntoa(*((struct in_addr *)pHostent->h_addr_list[0]));
 
-		rHostIp.Set(szIp);
+		rHostIp = szIp;
 		
 		res = Nyx::kNyxRes_Success;
 	}

@@ -6,9 +6,6 @@
 #include <NyxTraceCompositor.hpp>
 #include <NyxBodyBlock.hpp>
 #include <NyxAssert.hpp>
-#include <NyxString.hpp>
-#include <NyxAnsiString.hpp>
-#include <NyxStringFormater.hpp>
 #include <NyxThread.hpp>
 #include <NyxThreadId.hpp>
 #include <NyxEvent.hpp>
