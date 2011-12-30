@@ -18,8 +18,8 @@ namespace NyxNetLinux
 		
 	public:
 	
-		virtual Nyx::NyxResult GetHostname( Nyx::CAnsiString& rHostname );
-		virtual Nyx::NyxResult GetHostIp( const char* szComputerName, Nyx::CAnsiString& rHostIp );
+		virtual Nyx::NyxResult GetHostname( Nyx::CAString& rHostname );
+		virtual Nyx::NyxResult GetHostIp( const char* szComputerName, Nyx::CAString& rHostIp );
 	};
 }
 
