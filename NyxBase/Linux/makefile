@@ -5,14 +5,17 @@ endif
 
 ifeq ($(Config),Release)
 	OBJDIR := Release
+	LIBDIR := ../../Lib/Linux/Release_32
 	CONFIG_CFLAGS := -O3
 else
 	OBJDIR := Debug
+	LIBDIR := ../../Lib/Linux/Debug_32
 	CONFIG_CFLAGS := -O0
 endif
 
 
 $(shell [ -d $(OBJDIR) ] || mkdir -p $(OBJDIR))
+$(shell [ -d $(LIBDIR) ] || mkdir -p $(LIBDIR))
 
 
 RM := rm -rf
@@ -59,11 +62,11 @@ $(OBJDIR)/%.o: ./Source/%.cpp
 $(OBJDIR)/%.o: ../Source/%.cpp
 	g++ -o $@ $(CXX_CFLAGS) -c $^
 
-$(OBJDIR)/libNyxBase.a: $(OBJS)	
-	ar -r $(OBJDIR)/libNyxBase.a $(OBJS)
+$(LIBDIR)/libNyxBase.a: $(OBJS)	
+	ar -r $(LIBDIR)/libNyxBase.a $(OBJS)
 
 
-all: 	$(OBJDIR)/libNyxBase.a \
+all: 	$(LIBDIR)/libNyxBase.a \
 
 clean:
 	-$(RM) Debug
