@@ -6,7 +6,7 @@
 #include "NyxThread.hpp"
 #include "NyxRef.hpp"
 #include "NyxStreamRW.hpp"
-#include "NyxAnsiString.hpp"
+#include "NyxAString.hpp"
 #include "NyxNetPipeSocketReader.hpp"
 #include "NyxNetPipeClientConn.hpp"
 

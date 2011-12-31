@@ -875,107 +875,11 @@
 					Name="Implementation"
 					>
 					<File
-						RelativePath=".\Source\NyxAnsiString_Impl.cpp"
-						>
-						<FileConfiguration
-							Name="Debug|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="DebugCLR|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="ReleaseCLR|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-					</File>
-					<File
-						RelativePath=".\Source\NyxAnsiString_Impl.hpp"
-						>
-					</File>
-					<File
 						RelativePath=".\Source\NyxAString_Impl.cpp"
 						>
 					</File>
 					<File
 						RelativePath=".\Source\NyxMFString_Impl.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\Source\NyxString_Impl.cpp"
-						>
-						<FileConfiguration
-							Name="Debug|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="DebugCLR|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="ReleaseCLR|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-					</File>
-					<File
-						RelativePath=".\Source\NyxString_Impl.hpp"
-						>
-					</File>
-					<File
-						RelativePath=".\Source\NyxStringFormater_Impl.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\Source\NyxStringFormater_Impl.hpp"
 						>
 					</File>
 					<File

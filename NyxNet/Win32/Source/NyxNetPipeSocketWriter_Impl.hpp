@@ -3,7 +3,7 @@
 
 #include "NyxNetPipeSocketWriter.hpp"
 #include "NyxObject_Impl.hpp"
-#include "NyxAnsiString.hpp"
+#include "NyxAString.hpp"
 
 namespace NyxNetWin32
 {
@@ -25,7 +25,7 @@ namespace NyxNetWin32
 	protected:
 
 		HANDLE						m_hPipe;
-		Nyx::CAnsiStringRef			m_refPipename;
+		Nyx::CAString			    m_Pipename;
 		NyxNet::ISocketListener*	m_pListener;
 	};
 }

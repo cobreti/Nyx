@@ -36,8 +36,8 @@ Nyx::NyxResult NyxNetWin32::CPipeSocketWriter_Impl::Create( const char* szPipena
 {
 	Nyx::NyxResult	res = Nyx::kNyxRes_Success;
 
-	m_refPipename = Nyx::CAnsiString::Alloc("\\\\.\\pipe\\");
-	m_refPipename->Append(szPipename);
+	m_Pipename = "\\\\.\\pipe\\";
+	m_Pipename += szPipename;
 
 	return res;
 }
@@ -53,7 +53,7 @@ Nyx::NyxResult NyxNetWin32::CPipeSocketWriter_Impl::Connect()
 
 	Nyx::NyxResult			res = Nyx::kNyxRes_Success;
 
-	m_hPipe = ::CreateFileA(	m_refPipename->c_str(),
+	m_hPipe = ::CreateFileA(	m_Pipename.c_str(),
 								GENERIC_WRITE,
 								0,
 								NULL,

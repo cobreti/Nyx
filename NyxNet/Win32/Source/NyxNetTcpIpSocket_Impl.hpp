@@ -3,7 +3,7 @@
 
 #include "NyxObject_Impl.hpp"
 #include "NyxNetTcpIpSocket.hpp"
-#include "NyxAnsiString.hpp"
+#include "NyxAString.hpp"
 
 namespace NyxNet
 {
@@ -29,7 +29,7 @@ namespace NyxNet
 	protected:
 	
 		SOCKET						m_Socket;
-		Nyx::CAnsiStringRef			m_refIp;
+		Nyx::CAString			    m_Ip;
 		NyxNet::TcpIpPort			m_Port;
 		NyxNet::ISocketListener*	m_pListener;
 	};
