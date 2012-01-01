@@ -5,11 +5,11 @@ endif
 
 ifeq ($(Config),Release)
 	OBJDIR := Release
-	LIBDIR := ../../Lib/Linux/Release_32
+	LIBDIR := ../../Lib/Linux/Release
 	CONFIG_CFLAGS := -O3
 else
 	OBJDIR := Debug
-	LIBDIR := ../../Lib/Linux/Debug_32
+	LIBDIR := ../../Lib/Linux/Debug
 	CONFIG_CFLAGS := -O0
 endif
 
