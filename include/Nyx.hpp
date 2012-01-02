@@ -11,7 +11,7 @@
 #include <NyxEvent.hpp>
 #include <NyxMutex.hpp>
 #include "NyxDelegateBase.hpp"
-#include <NyxMTInterfaceAccess.hpp>
+//#include <NyxMTInterfaceAccess.hpp>
 #include <NyxBuffer.hpp>
 #include <NyxAlgorithm.hpp>
 #include <NyxAString.hpp>
