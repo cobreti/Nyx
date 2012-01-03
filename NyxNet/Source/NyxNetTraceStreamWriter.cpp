@@ -52,11 +52,20 @@ namespace NyxNet
      */
     void CTraceStreamWriter::Write( const Nyx::CTraceHeader& header, const wchar_t* wszText )
     {
+        Nyx::UInt32                 SectionsCount = 4;
+        
     	CNxStreamWriter				SWriter((NyxNet::CNxConnection*)m_refConnection, eNxDT_TraceData);
         NyxNet::TraceFlags			flags = m_TraceBaseFlags | TFlags_WideChar;
         
         if ( SWriter.Valid() )
         {
+            // write sections count
+            {
+                CNxSectionStreamWriter      SectionsCountWriter(SWriter, sizeof(SectionsCount));
+                
+                SectionsCountWriter.Write(&SectionsCount, sizeof(SectionsCount));
+            }
+            
             // write version
             {
                 CNxSectionStreamWriter		FlagsWriter(SWriter, sizeof(flags));

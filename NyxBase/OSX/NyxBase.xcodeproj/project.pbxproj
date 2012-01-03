@@ -100,7 +100,6 @@
 		168C581310D54863001FB07F /* NyxActiveObject_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168C581110D54863001FB07F /* NyxActiveObject_Impl.hpp */; };
 		16A510DB12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16A510DA12FCE4F500C33A9F /* NyxMemPoolWString_Impl.cpp */; };
 		16C2EECB13ABB5F0001F8FEF /* NyxMFString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16C2EECA13ABB5F0001F8FEF /* NyxMFString.hpp */; };
-		16C2EED513B63071001F8FEF /* NyxWString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16C2EED413B63071001F8FEF /* NyxWString.hpp */; };
 		16CA3D8B1403270B00FD1E43 /* NyxModule_Impl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16CA3D8A1403270B00FD1E43 /* NyxModule_Impl.mm */; };
 		16CA3D8D14033D6E00FD1E43 /* NyxThreadModule_Impl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16CA3D8C14033D6E00FD1E43 /* NyxThreadModule_Impl.mm */; };
 		16CA3D8F14033F7C00FD1E43 /* NyxThread_Impl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16CA3D8E14033F7C00FD1E43 /* NyxThread_Impl.mm */; };
@@ -721,7 +720,6 @@
 				16DD5B111391DF6300714FF5 /* NyxTraceFeeds.hpp in Headers */,
 				16DD5B121391DF6300714FF5 /* NyxTypes.hpp in Headers */,
 				16C2EECB13ABB5F0001F8FEF /* NyxMFString.hpp in Headers */,
-				16C2EED513B63071001F8FEF /* NyxWString.hpp in Headers */,
 				16E814D013CE7B3300C61202 /* NyxFile.hpp in Headers */,
 				16E814D213CE7B4700C61202 /* NyxTextFile.hpp in Headers */,
 				16E814D413CE7B5200C61202 /* NyxAnsiFile.hpp in Headers */,
@@ -756,6 +754,9 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = 1DEB920508733DBB0010E9CD /* Build configuration list for PBXProject "NyxBase" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -822,7 +823,6 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DEBUGGING_SYMBOLS = full;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
@@ -836,8 +836,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OBJROOT = build;
 				ONLY_ACTIVE_ARCH = NO;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				SYMROOT = build;
 			};
 			name = Debug_32;
@@ -847,7 +846,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -873,8 +871,7 @@
 					../../include/OSX,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Release_32;
 		};
@@ -895,7 +892,6 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -926,7 +922,6 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DEBUGGING_SYMBOLS = full;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
@@ -940,8 +935,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OBJROOT = build;
 				ONLY_ACTIVE_ARCH = NO;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 				SYMROOT = build;
 			};
 			name = Debug_Universal_32_64;
@@ -961,8 +955,7 @@
 					../../include/OSX,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				PREBINDING = NO;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx;
 			};
 			name = Release_Universal_32_64;
 		};

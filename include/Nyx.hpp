@@ -10,6 +10,7 @@
 #include <NyxThreadId.hpp>
 #include <NyxEvent.hpp>
 #include <NyxMutex.hpp>
+#include <NyxLock.hpp>
 #include "NyxDelegateBase.hpp"
 //#include <NyxMTInterfaceAccess.hpp>
 #include <NyxBuffer.hpp>

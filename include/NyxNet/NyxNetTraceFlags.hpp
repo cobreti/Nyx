@@ -5,6 +5,9 @@
 
 namespace NyxNet
 {
+    /**
+     *
+     */
     typedef     Nyx::UInt32     TraceFlags;
     
     /**
