@@ -26,6 +26,7 @@ namespace NyxNetOSX
 		virtual Nyx::NyxResult Read( void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& ReadSize );
 		virtual Nyx::NyxResult Create( const char* szIp, const NyxNet::TcpIpPort& Port );
 		virtual void SetListener( NyxNet::ISocketListener* pListener );
+        virtual bool Valid() const;
 
 	protected:
 	
@@ -33,6 +34,7 @@ namespace NyxNetOSX
 		Nyx::CAString               m_Ip;
 		NyxNet::TcpIpPort			m_Port;
 		NyxNet::ISocketListener*	m_pListener;
+        bool                        m_bValid;
 	};
 }
 

@@ -19,6 +19,7 @@ namespace NyxNet
 		virtual Nyx::NyxResult Connect() = 0;
 		virtual void Disconnect() = 0;
 		virtual void SetListener( NyxNet::ISocketListener* pListener ) = 0;
+        virtual bool Valid() const = 0;
 	};
 }
 

@@ -177,3 +177,11 @@ void NyxNetOSX::CPipeSocketReader_Impl::SetListener( NyxNet::ISocketListener* pL
 }
 
 
+/**
+ *
+ */
+bool NyxNetOSX::CPipeSocketReader_Impl::Valid() const
+{
+    return true;
+}
+

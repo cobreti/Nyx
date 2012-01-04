@@ -23,6 +23,7 @@ namespace NyxNetOSX
 		virtual Nyx::NyxResult Write(	const void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& WrittenSize );
 		virtual Nyx::NyxResult Read(	void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& ReadSize );
 		virtual void SetListener( NyxNet::ISocketListener* pListener );
+        virtual bool Valid() const;
 		
 	protected:
 	

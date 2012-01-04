@@ -127,3 +127,11 @@ void NyxNetOSX::CPipeSocketWriter_Impl::SetListener( NyxNet::ISocketListener* pL
 	m_pListener = pListener;
 }
 
+
+/**
+ *
+ */
+bool NyxNetOSX::CPipeSocketWriter_Impl::Valid() const
+{
+    return true;
+}

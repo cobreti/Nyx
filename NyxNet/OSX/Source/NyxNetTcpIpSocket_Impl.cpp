@@ -21,7 +21,8 @@ NyxNet::CTcpIpSocketRef NyxNet::CTcpIpSocket::Alloc()
 NyxNetOSX::CTcpIpSocket_Impl::CTcpIpSocket_Impl() :
 m_Socket(0),
 m_Port(0),
-m_pListener(NULL)
+m_pListener(NULL),
+m_bValid(false)
 {
 	m_Socket = socket(PF_INET, SOCK_STREAM, 0);
 }
@@ -33,7 +34,8 @@ m_pListener(NULL)
 NyxNetOSX::CTcpIpSocket_Impl::CTcpIpSocket_Impl( const int& SocketValue ) :
 m_Socket(SocketValue),
 m_Port(0),
-m_pListener(NULL)
+m_pListener(NULL),
+m_bValid(true)
 {
 }
 
@@ -134,6 +136,7 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Connect()
 	if ( nRet >= 0 )
 	{
 		res = Nyx::kNyxRes_Success;
+        m_bValid = true;
 		
 		if ( m_pListener != NULL )
 			m_pListener->OnSocketConnected(this);
@@ -150,6 +153,7 @@ void NyxNetOSX::CTcpIpSocket_Impl::Disconnect()
 {
 	if ( m_Socket > 0 )
 	{
+        m_bValid = false;
 		close(m_Socket);
 		m_Socket = 0;
 		
@@ -164,15 +168,18 @@ void NyxNetOSX::CTcpIpSocket_Impl::Disconnect()
  */
 Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Write(	const void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& WrittenSize )
 {
+    if ( !m_bValid )
+        return Nyx::kNyxRes_Failure;
+    
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	ssize_t		size;
 	
-	size = ::write(m_Socket, pBuffer, DataSize);
-	if ( size > 0 )
-	{
-		WrittenSize = size;
-		res = Nyx::kNyxRes_Success;
-	}
+    size = ::write(m_Socket, pBuffer, DataSize);
+    if ( size > 0 )
+    {
+        WrittenSize = size;
+        res = Nyx::kNyxRes_Success;
+    }
 	
 	return res;
 }
@@ -180,6 +187,9 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Write(	const void* pBuffer, const N
 
 Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& ReadSize )
 {
+    if ( !m_bValid )
+        return Nyx::kNyxRes_Failure;
+    
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	ssize_t		size;
 	
@@ -214,3 +224,11 @@ void NyxNetOSX::CTcpIpSocket_Impl::SetListener( NyxNet::ISocketListener* pListen
 	m_pListener = pListener;
 }
 
+
+/**
+ *
+ */
+bool NyxNetOSX::CTcpIpSocket_Impl::Valid() const
+{
+    return true;
+}
