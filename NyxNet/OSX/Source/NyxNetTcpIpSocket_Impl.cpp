@@ -140,7 +140,12 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Connect()
 		
 		if ( m_pListener != NULL )
 			m_pListener->OnSocketConnected(this);
-	} 
+	}
+    else
+    {
+        close(m_Socket);
+        m_Socket = socket(PF_INET, SOCK_STREAM, 0);
+    }
 
 	return res;
 }
@@ -230,5 +235,5 @@ void NyxNetOSX::CTcpIpSocket_Impl::SetListener( NyxNet::ISocketListener* pListen
  */
 bool NyxNetOSX::CTcpIpSocket_Impl::Valid() const
 {
-    return true;
+    return m_bValid;
 }
