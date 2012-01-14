@@ -219,6 +219,15 @@ void NyxNetWin32::CPipeSocketReader_Impl::SetListener( NyxNet::ISocketListener* 
 /**
  *
  */
+bool NyxNetWin32::CPipeSocketReader_Impl::Valid() const
+{
+    return (m_hPipe != INVALID_HANDLE_VALUE);
+}
+
+
+/**
+ *
+ */
 void NyxNetWin32::CPipeSocketReader_Impl::CreateEvents()
 {
 	ReleaseEvents();

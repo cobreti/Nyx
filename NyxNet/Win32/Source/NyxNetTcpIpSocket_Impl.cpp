@@ -211,3 +211,12 @@ void NyxNet::CTcpIpSocket_Impl::SetListener( NyxNet::ISocketListener* pListener 
 {
 	m_pListener = pListener;
 }
+
+
+/**
+ *
+ */
+bool NyxNet::CTcpIpSocket_Impl::Valid() const
+{
+    return (m_Socket != INVALID_SOCKET);
+}

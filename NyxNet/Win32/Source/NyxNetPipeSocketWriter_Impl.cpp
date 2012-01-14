@@ -129,3 +129,11 @@ void NyxNetWin32::CPipeSocketWriter_Impl::SetListener( NyxNet::ISocketListener* 
 	m_pListener = pListener;
 }
 
+
+/**
+ *
+ */
+bool NyxNetWin32::CPipeSocketWriter_Impl::Valid() const
+{
+    return (m_hPipe != INVALID_HANDLE_VALUE);
+}
