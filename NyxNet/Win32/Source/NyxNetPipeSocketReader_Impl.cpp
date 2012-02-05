@@ -153,9 +153,9 @@ Nyx::NyxResult NyxNetWin32::CPipeSocketReader_Impl::Read( void* pBuffer, const N
 	bool		bDataRead = false;
 	DWORD		dwBytesRead;
 
-	BOOL		fPeekRet;
-	DWORD		TotalBytes;
-	DWORD		BytesLeft;
+	//BOOL		fPeekRet;
+	//DWORD		TotalBytes;
+	//DWORD		BytesLeft;
 
 	if ( m_bConnected && m_Buffer.DataSize() >= DataSize )
 	{
@@ -171,7 +171,7 @@ Nyx::NyxResult NyxNetWin32::CPipeSocketReader_Impl::Read( void* pBuffer, const N
 
 		    if ( !bPendingIO )
 		    {
-                ReadFile( m_hPipe, m_Buffer.getWritePos(), m_Buffer.FreeSize(), &dwBytesRead, &m_PipeOverlap);
+                ReadFile( m_hPipe, m_Buffer.getWritePos(), (DWORD)m_Buffer.FreeSize(), &dwBytesRead, &m_PipeOverlap);
 			    //fSuccess = ReadFile(m_hPipe, m_ReadBuffer.Buffer(), (DWORD)m_ReadBuffer.FreeSize(), &dwBytesRead, &m_PipeOverlap);
 			    //fSuccess = ReadFile(m_hPipe, m_ReadBuffer.Buffer(), (DWORD)DataSize, &dwBytesRead, &m_PipeOverlap);
 		    }

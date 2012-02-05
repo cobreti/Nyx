@@ -246,7 +246,7 @@ namespace Nyx
         return result;
     }
 
-
+#pragma managed(push, off)
     /**
      *
      */
@@ -260,5 +260,6 @@ namespace Nyx
         
         va_end(vl);
     }
+#pragma managed(pop)
 }
 
