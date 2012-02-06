@@ -128,3 +128,12 @@ void NyxNetLinux::CPipeSocketWriter_Impl::SetListener( NyxNet::ISocketListener* 
 	m_pListener = pListener;
 }
 
+
+/**
+ *
+ */
+bool NyxNetLinux::CPipeSocketWriter_Impl::Valid() const
+{
+	return true;
+}
+

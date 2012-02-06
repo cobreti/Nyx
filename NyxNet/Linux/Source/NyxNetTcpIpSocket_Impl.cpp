@@ -215,3 +215,12 @@ void NyxNetLinux::CTcpIpSocket_Impl::SetListener( NyxNet::ISocketListener* pList
 	m_pListener = pListener;
 }
 
+
+/**
+ *
+ */
+bool NyxNetLinux::CTcpIpSocket_Impl::Valid() const
+{
+	return true;
+}
+

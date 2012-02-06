@@ -179,3 +179,12 @@ void NyxNetLinux::CPipeSocketReader_Impl::SetListener( NyxNet::ISocketListener* 
 }
 
 
+/**
+ *
+ */
+bool NyxNetLinux::CPipeSocketReader_Impl::Valid() const
+{
+	return true;
+}
+
+
