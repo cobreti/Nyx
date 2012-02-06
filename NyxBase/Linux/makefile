@@ -30,31 +30,31 @@ CXX_CFLAGS := 	-I ../../include \
 
 
 OBJS := $(OBJDIR)/NyxMFString_Impl.o \
-		$(OBJDIR)/NyxAString_Impl.o \
-		$(OBJDIR)/NyxWString_Impl.o \
-		$(OBJDIR)/NyxMutex_Impl.o \
-		$(OBJDIR)/NyxEvent_Impl.o \
-		$(OBJDIR)/NyxThread_Impl.o \
-		$(OBJDIR)/NyxThreadId_Impl.o \
-		$(OBJDIR)/NyxThreadModule_Impl.o \
-		$(OBJDIR)/NyxActiveObject_Impl.o \
-		$(OBJDIR)/NyxModule_Impl.o \
-		$(OBJDIR)/NyxTraceModule_Impl.o \
-		$(OBJDIR)/NyxTraceStream.o \
-		$(OBJDIR)/NyxTraceCompositor_Impl.o \
-		$(OBJDIR)/NyxConsoleTraceOutput_Impl.o \
-		$(OBJDIR)/NyxObjectsPool_Impl.o \
-		$(OBJDIR)/NyxMsgQueue_Impl.o \
-		$(OBJDIR)/NyxMsgHandlers_Impl.o \
-		$(OBJDIR)/NyxMemoryPool_Impl.o \
-		$(OBJDIR)/NyxMemPoolWString_Impl.o \
-		$(OBJDIR)/NyxTraceCompositorBuffer_Ansi.o \
-		$(OBJDIR)/NyxTraceCompositorBuffer_WideChar.o \
-		$(OBJDIR)/NyxOpaqueDataBucket.o \
-		$(OBJDIR)/NyxOpaqueList_Impl.o \
-		$(OBJDIR)/NyxTaskExecuterPool_Impl.o \
-		$(OBJDIR)/NyxThreadTaskExecuter_Impl.o \
-		$(OBJDIR)/NyxAnsiFile_Impl.o
+	$(OBJDIR)/NyxAString_Impl.o \
+	$(OBJDIR)/NyxWString_Impl.o \
+	$(OBJDIR)/NyxMutex_Impl.o \
+	$(OBJDIR)/NyxEvent_Impl.o \
+	$(OBJDIR)/NyxThread_Impl.o \
+	$(OBJDIR)/NyxThreadId_Impl.o \
+	$(OBJDIR)/NyxThreadModule_Impl.o \
+	$(OBJDIR)/NyxActiveObject_Impl.o \
+	$(OBJDIR)/NyxModule_Impl.o \
+	$(OBJDIR)/NyxTraceModule_Impl.o \
+	$(OBJDIR)/NyxTraceStream.o \
+	$(OBJDIR)/NyxTraceCompositor_Impl.o \
+	$(OBJDIR)/NyxConsoleTraceOutput_Impl.o \
+	$(OBJDIR)/NyxObjectsPool_Impl.o \
+	$(OBJDIR)/NyxMsgQueue_Impl.o \
+	$(OBJDIR)/NyxMsgHandlers_Impl.o \
+	$(OBJDIR)/NyxMemoryPool_Impl.o \
+	$(OBJDIR)/NyxMemPoolWString_Impl.o \
+	$(OBJDIR)/NyxTraceCompositorBuffer_Ansi.o \
+	$(OBJDIR)/NyxTraceCompositorBuffer_WideChar.o \
+	$(OBJDIR)/NyxOpaqueDataBucket.o \
+	$(OBJDIR)/NyxOpaqueList_Impl.o \
+	$(OBJDIR)/NyxTaskExecuterPool_Impl.o \
+	$(OBJDIR)/NyxThreadTaskExecuter_Impl.o \
+	$(OBJDIR)/NyxAnsiFile_Impl.o
 
 
 $(OBJDIR)/%.o: ./Source/%.cpp

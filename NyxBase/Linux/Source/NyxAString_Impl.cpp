@@ -150,6 +150,24 @@ namespace Nyx
     /**
      *
      */
+    bool CAString::operator != (const CAString& str) const
+    {
+        return this->operator != (str.c_str());
+    }
+
+
+    /**
+     *
+     */
+    bool CAString::operator != (const char* szText) const
+    {
+        return strcmp(m_Buffer.pConstChar, szText) != 0 ;
+    }
+
+
+    /**
+     *
+     */
     size_t CAString::length() const
     {
         return strlen(m_Buffer.pConstChar);
