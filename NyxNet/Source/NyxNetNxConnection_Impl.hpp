@@ -32,14 +32,34 @@ namespace NyxNet
 										const Nyx::NyxSize& SizeToRead,
 										Nyx::NyxSize& SizeRead )
 		{
-			return m_refSocket->Read(pBuffer, SizeToRead, SizeRead);
+			Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
+
+			try
+			{
+				res = m_refSocket->Read(pBuffer, SizeToRead, SizeRead);
+			}
+			catch (...)
+			{
+			}
+
+			return res;
 		}
 
 		virtual Nyx::NyxResult Write(	void* pBuffer,
 										const Nyx::NyxSize& SizeToWrite,
 										Nyx::NyxSize& SizeWritten )
 		{
-			return m_refSocket->Write(pBuffer, SizeToWrite, SizeWritten);
+			Nyx::NyxResult	res = Nyx::kNyxRes_Failure;
+
+			try
+			{
+				res = m_refSocket->Write(pBuffer, SizeToWrite, SizeWritten);
+			}
+			catch (...)
+			{
+			}
+
+			return res;
 		}
 
 	protected:

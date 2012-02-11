@@ -34,6 +34,7 @@ namespace NyxNetLinux
 		Nyx::CAString				m_Ip;
 		NyxNet::TcpIpPort			m_Port;
 		NyxNet::ISocketListener*	m_pListener;
+		bool						m_bValid;
 	};
 }
 

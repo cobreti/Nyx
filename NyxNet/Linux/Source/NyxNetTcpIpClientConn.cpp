@@ -1,5 +1,6 @@
 #include "NyxNetTcpIpClientConn.hpp"
 #include "NyxStreamHandler.hpp"
+#include "NyxTraceStream.hpp"
 
 /**
  *

@@ -1,5 +1,6 @@
 #include "NyxNetTcpIpSocket_Impl.hpp"
 #include "NyxNetSocketListener.hpp"
+#include "NyxTraceStream.hpp"
 
 #include <sys/socket.h>
 #include <sys/types.h> 
@@ -22,8 +23,11 @@ NyxNet::CTcpIpSocketRef NyxNet::CTcpIpSocket::Alloc()
 NyxNetLinux::CTcpIpSocket_Impl::CTcpIpSocket_Impl() :
 m_Socket(0),
 m_Port(0),
-m_pListener(NULL)
+m_pListener(NULL),
+m_bValid(false)
 {
+	Nyx::CTraceStream(0x0) << Nyx::CTF_Text(L"CTcpIpSocket creation");
+
 	m_Socket = socket(PF_INET, SOCK_STREAM, 0);
 }
 
@@ -34,8 +38,10 @@ m_pListener(NULL)
 NyxNetLinux::CTcpIpSocket_Impl::CTcpIpSocket_Impl( const int& SocketValue ) :
 m_Socket(SocketValue),
 m_Port(0),
-m_pListener(NULL)
+m_pListener(NULL),
+m_bValid(false)
 {
+	Nyx::CTraceStream(0x0) << Nyx::CTF_Text(L"CTcpIpSocket creation from socket value");
 }
 
 
@@ -44,6 +50,8 @@ m_pListener(NULL)
  */
 NyxNetLinux::CTcpIpSocket_Impl::~CTcpIpSocket_Impl()
 {
+	Nyx::CTraceStream(0x0) << Nyx::CTF_Text(L"CTcpIpSocket destruction");
+
 	if ( m_Socket > 0 )
 		close(m_Socket);
 }
@@ -64,6 +72,8 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Listen( const Nyx::UInt32& MaxPen
 			res = Nyx::kNyxRes_Success;
 	}
 	
+	m_bValid = Nyx::Succeeded(res);
+
 	return res;
 }
 
@@ -89,6 +99,8 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Bind( const NyxNet::TcpIpPort& Po
 			res = Nyx::kNyxRes_Success;
 	}
 	
+	m_bValid = Nyx::Succeeded(res);
+
 	return res;
 }
 
@@ -115,6 +127,8 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Accept( NyxNet::CTcpIpSocketRef& 
 		}
 	}
 	
+	m_bValid = Nyx::Succeeded(res);
+
 	return res;
 }
 
@@ -135,10 +149,15 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Connect()
 	if ( nRet >= 0 )
 	{
 		res = Nyx::kNyxRes_Success;
+		m_bValid = true;
 		
 		if ( m_pListener != NULL )
 			m_pListener->OnSocketConnected(this);
-	} 
+	}
+	else
+	{
+		m_bValid = false;
+	}
 
 	return res;
 }
@@ -156,6 +175,8 @@ void NyxNetLinux::CTcpIpSocket_Impl::Disconnect()
 		
 		if ( m_pListener != NULL )
 			m_pListener->OnSocketDisconnected(this);
+
+		m_bValid = false;
 	}
 }
 
@@ -165,14 +186,30 @@ void NyxNetLinux::CTcpIpSocket_Impl::Disconnect()
  */
 Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Write(	const void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& WrittenSize )
 {
+	if ( !Valid() )
+	{
+		WrittenSize = 0;
+		return Nyx::kNyxRes_Failure;
+	}
+
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	ssize_t		size;
-	
-	size = ::write(m_Socket, pBuffer, DataSize);
-	if ( size > 0 )
+
+	try
 	{
-		WrittenSize = size;
-		res = Nyx::kNyxRes_Success;
+		size = ::write(m_Socket, pBuffer, DataSize);
+		if ( size > 0 )
+		{
+			WrittenSize = size;
+			res = Nyx::kNyxRes_Success;
+		}
+	}
+	catch (...)
+	{
+		Nyx::CTraceStream(0x0) << Nyx::CTF_Text(L"CTcpIpSocket_Impl::Write - exception");
+
+		m_bValid = false;
+		res = Nyx::kNyxRes_Failure;
 	}
 	
 	return res;
@@ -181,6 +218,12 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Write(	const void* pBuffer, const
 
 Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& ReadSize )
 {
+	if ( !Valid() )
+	{
+		ReadSize = 0;
+		return Nyx::kNyxRes_Failure;
+	}
+
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	ssize_t		size;
 	
@@ -221,6 +264,6 @@ void NyxNetLinux::CTcpIpSocket_Impl::SetListener( NyxNet::ISocketListener* pList
  */
 bool NyxNetLinux::CTcpIpSocket_Impl::Valid() const
 {
-	return true;
+	return m_bValid;
 }
 

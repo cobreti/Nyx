@@ -6,11 +6,11 @@ endif
 ifeq ($(Config),Release)
 	OBJDIR := Release
 	LIBDIR := ../../Lib/Linux/Release
-	CONFIG_CFLAGS := -O3
+	CONFIG_CFLAGS := -O3 -fexceptions
 else
 	OBJDIR := Debug
 	LIBDIR := ../../Lib/Linux/Debug
-	CONFIG_CFLAGS := -O0
+	CONFIG_CFLAGS := -O0 -fexceptions
 endif
 
 

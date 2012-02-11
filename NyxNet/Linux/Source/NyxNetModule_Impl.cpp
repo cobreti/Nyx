@@ -1,11 +1,21 @@
-#include "NyxNetModule_Impl.hpp"
-#include "NyxTraces.hpp"
-
+#include <stdio.h>
+#include <signal.h>
 #include <unistd.h>
 #include <netdb.h>
 #include <arpa/inet.h>
 #include <sys/types.h>
 #include <sys/socket.h>
+
+
+#include "NyxNetModule_Impl.hpp"
+#include "NyxTraces.hpp"
+
+
+/**
+ *
+ */
+void SigPipeHandler(int);
+
 
 /**
  *
@@ -37,6 +47,7 @@ NyxNet::CModule* NyxNet::CModule::Default()
 NyxNetLinux::CModule_Impl::CModule_Impl()
 {
 	s_pDefault = this;
+	signal(SIGPIPE, SIG_IGN);
 }
 
 
@@ -90,5 +101,14 @@ Nyx::NyxResult NyxNetLinux::CModule_Impl::GetHostIp( const char* szComputerName,
 	}
 	
 	return res;
+}
+
+
+/**
+ *
+ */
+void SigPipeHandler(int)
+{
+	int i = 0;
 }
 
