@@ -22,6 +22,7 @@
 #include <NyxObjectsPool.hpp>
 #include <NyxMemoryPool.hpp>
 #include <NyxStdAllocators.hpp>
+#include <NyxTime.hpp>
 
 
 #endif // _NYX_HPP_

@@ -54,7 +54,8 @@ OBJS := $(OBJDIR)/NyxMFString_Impl.o \
 	$(OBJDIR)/NyxOpaqueList_Impl.o \
 	$(OBJDIR)/NyxTaskExecuterPool_Impl.o \
 	$(OBJDIR)/NyxThreadTaskExecuter_Impl.o \
-	$(OBJDIR)/NyxAnsiFile_Impl.o
+	$(OBJDIR)/NyxAnsiFile_Impl.o \
+	$(OBJDIR)/NyxTime_Impl.o
 
 
 $(OBJDIR)/%.o: ./Source/%.cpp
