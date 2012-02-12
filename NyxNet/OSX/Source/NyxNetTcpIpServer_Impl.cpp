@@ -97,6 +97,7 @@ Nyx::NyxResult NyxNetOSX::CTcpIpServer_Impl::Stop()
 	{
 		m_eState = eState_Stopped;
 		m_refBoundSocket->Disconnect();
+        m_refTaskExecuterPool->StopAllTasks();
 		m_refThread->Stop();
 		m_refThread = NULL;
 	}
