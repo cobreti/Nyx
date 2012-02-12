@@ -24,6 +24,7 @@ namespace NyxNetLinux
 		virtual Nyx::NyxResult Read(	void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& ReadSize );
 		virtual void SetListener( NyxNet::ISocketListener* pListener );
 		virtual bool Valid() const;
+		virtual Nyx::NyxResult Renew();
 		
 	protected:
 	

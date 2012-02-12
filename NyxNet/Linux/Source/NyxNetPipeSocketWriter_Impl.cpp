@@ -137,3 +137,11 @@ bool NyxNetLinux::CPipeSocketWriter_Impl::Valid() const
 	return true;
 }
 
+
+/**
+ *
+ */
+Nyx::NyxResult NyxNetLinux::CPipeSocketWriter_Impl::Renew()
+{
+	return Nyx::kNyxRes_Success;
+}

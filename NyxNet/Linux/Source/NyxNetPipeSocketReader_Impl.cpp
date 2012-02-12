@@ -188,3 +188,10 @@ bool NyxNetLinux::CPipeSocketReader_Impl::Valid() const
 }
 
 
+/**
+ *
+ */
+Nyx::NyxResult NyxNetLinux::CPipeSocketReader_Impl::Renew()
+{
+	return Nyx::kNyxRes_Success;
+}

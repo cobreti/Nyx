@@ -27,6 +27,7 @@ namespace NyxNetLinux
 		virtual Nyx::NyxResult Create( const char* szIp, const NyxNet::TcpIpPort& Port );
 		virtual void SetListener( NyxNet::ISocketListener* pListener );
 		virtual bool Valid() const;
+		virtual Nyx::NyxResult Renew();
 
 	protected:
 	
