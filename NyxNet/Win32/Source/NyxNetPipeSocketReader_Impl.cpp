@@ -256,3 +256,11 @@ void NyxNetWin32::CPipeSocketReader_Impl::ReleaseEvents()
 }
 
 
+/**
+ *
+ */
+Nyx::NyxResult NyxNetWin32::CPipeSocketReader_Impl::Renew()
+{
+    return Nyx::kNyxRes_Success;
+}
+

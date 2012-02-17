@@ -220,3 +220,20 @@ bool NyxNet::CTcpIpSocket_Impl::Valid() const
 {
     return (m_Socket != INVALID_SOCKET);
 }
+
+
+/**
+ *
+ */
+Nyx::NyxResult NyxNet::CTcpIpSocket_Impl::Renew()
+{
+	if ( m_Socket > 0 )
+	{
+		closesocket(m_Socket);
+		m_Socket = 0;
+	}
+
+	m_Socket = socket(PF_INET, SOCK_STREAM, 0);
+
+    return Nyx::kNyxRes_Success;
+}

@@ -137,3 +137,12 @@ bool NyxNetWin32::CPipeSocketWriter_Impl::Valid() const
 {
     return (m_hPipe != INVALID_HANDLE_VALUE);
 }
+
+
+/**
+ *
+ */
+Nyx::NyxResult NyxNetWin32::CPipeSocketWriter_Impl::Renew()
+{
+    return Nyx::kNyxRes_Success;
+}
