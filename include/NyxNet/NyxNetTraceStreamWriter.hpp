@@ -21,20 +21,17 @@ namespace NyxNet
         CTraceStreamWriter();
         virtual ~CTraceStreamWriter();
         
-        virtual void Init( NyxNet::CNxConnectionRef refConnection );
+        virtual void Init( CNxConnectionRef refConnection );
         virtual void Terminate();
         
         virtual void Write( const Nyx::CTraceHeader& header, const wchar_t* wszText );
         virtual void Write( const Nyx::CTraceHeader& header, const char* szText );
-        
+                
     protected:
         
-        virtual NyxNet::TraceFlags TraceFlags() const;
-        
-    protected:
-        
-        NyxNet::CNxConnectionRef        m_refConnection;
-        Nyx::UInt32                     m_TraceBaseFlags;
+        CNxConnectionRef                m_refConnection;
+
+        static const CTraceFlags        s_BaseTraceFlags;
     };
 }
 

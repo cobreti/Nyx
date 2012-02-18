@@ -638,6 +638,10 @@
 			>
 		</File>
 		<File
+			RelativePath=".\Source\NyxNetTraceFlags.cpp"
+			>
+		</File>
+		<File
 			RelativePath="..\..\include\NyxNet\NyxNetTraceFlags.hpp"
 			>
 		</File>
@@ -647,10 +651,6 @@
 		</File>
 		<File
 			RelativePath="..\..\include\NyxNet\NyxNetTraceStreamWriter.hpp"
-			>
-		</File>
-		<File
-			RelativePath=".\Source\NyxNetTraceStreamWriter_Win.cpp"
 			>
 		</File>
 		<File

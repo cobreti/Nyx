@@ -5,11 +5,12 @@
 
 namespace NyxNet
 {
+    const CTraceFlags       CTraceStreamWriter::s_BaseTraceFlags;
+
     /**
      *
      */
-    CTraceStreamWriter::CTraceStreamWriter() :
-    m_TraceBaseFlags(0)
+    CTraceStreamWriter::CTraceStreamWriter()
     {
     }
     
@@ -29,12 +30,6 @@ namespace NyxNet
     void CTraceStreamWriter::Init( NyxNet::CNxConnectionRef refConnection )
     {
         m_refConnection = refConnection;
-        m_TraceBaseFlags = TraceFlags();
-        
-        if ( sizeof(void*) == 4 )
-            m_TraceBaseFlags |= TFlags_32Bits;
-        else if ( sizeof(void*) == 8 )
-            m_TraceBaseFlags |= TFlags_64Bits;
     }
     
     
@@ -55,7 +50,7 @@ namespace NyxNet
         Nyx::UInt32                 SectionsCount = 4;
         
     	CNxStreamWriter				SWriter((NyxNet::CNxConnection*)m_refConnection, eNxDT_TraceData);
-        NyxNet::TraceFlags			flags = m_TraceBaseFlags | TFlags_WideChar;
+        CTraceFlags			        flags( s_BaseTraceFlags, CTraceFlags::TFlags_WideChar );
         
         if ( SWriter.Valid() )
         {
@@ -106,7 +101,7 @@ namespace NyxNet
         Nyx::UInt32                 SectionsCount = 4;
 
         CNxStreamWriter				SWriter((NyxNet::CNxConnection*)m_refConnection, eNxDT_TraceData);
-        Nyx::UInt32					flags = m_TraceBaseFlags | TFlags_Ansi;
+        CTraceFlags			        flags( s_BaseTraceFlags, CTraceFlags::TFlags_Ansi );
         
         if ( SWriter.Valid() )
         {
