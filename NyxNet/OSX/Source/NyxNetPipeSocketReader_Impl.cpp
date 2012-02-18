@@ -185,3 +185,11 @@ bool NyxNetOSX::CPipeSocketReader_Impl::Valid() const
     return true;
 }
 
+
+/**
+ *
+ */
+Nyx::NyxResult NyxNetOSX::CPipeSocketReader_Impl::Renew()
+{
+    return Nyx::kNyxRes_Success;
+}

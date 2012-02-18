@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1605928D11557E89005867D2 /* NyxThreadId_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1605928C11557E89005867D2 /* NyxThreadId_Impl.hpp */; };
 		1605928F115582D5005867D2 /* NyxThreadId_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1605928E115582D5005867D2 /* NyxThreadId_Impl.cpp */; };
+		160AF54A14E89294000D0B03 /* NyxTime_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 160AF54914E89294000D0B03 /* NyxTime_Impl.cpp */; };
 		16264BB0149CE16400AFAE80 /* NyxRange.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16264BAF149CE16400AFAE80 /* NyxRange.hpp */; };
 		16264BB214A2AFE700AFAE80 /* NyxTraceFeeds.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16264BB114A2AFE700AFAE80 /* NyxTraceFeeds.hpp */; };
 		1654D15E118C71C300297437 /* NyxOpaqueDataBucket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1654D15D118C71C300297437 /* NyxOpaqueDataBucket.cpp */; };
@@ -133,6 +134,7 @@
 		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		1605928C11557E89005867D2 /* NyxThreadId_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxThreadId_Impl.hpp; path = Source/NyxThreadId_Impl.hpp; sourceTree = "<group>"; };
 		1605928E115582D5005867D2 /* NyxThreadId_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxThreadId_Impl.cpp; path = Source/NyxThreadId_Impl.cpp; sourceTree = "<group>"; };
+		160AF54914E89294000D0B03 /* NyxTime_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxTime_Impl.cpp; path = Source/NyxTime_Impl.cpp; sourceTree = "<group>"; };
 		16264BAF149CE16400AFAE80 /* NyxRange.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxRange.hpp; path = ../../include/NyxRange.hpp; sourceTree = "<group>"; };
 		16264BB114A2AFE700AFAE80 /* NyxTraceFeeds.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxTraceFeeds.hpp; path = ../../../../Nyx/include/OSX/NyxTraceFeeds.hpp; sourceTree = "<group>"; };
 		1654D15D118C71C300297437 /* NyxOpaqueDataBucket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxOpaqueDataBucket.cpp; path = ../Source/NyxOpaqueDataBucket.cpp; sourceTree = SOURCE_ROOT; };
@@ -365,6 +367,7 @@
 		1662341B1359D5A7007168BD /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				160AF54914E89294000D0B03 /* NyxTime_Impl.cpp */,
 				16809E901359E77200DADB54 /* NyxBase_Prefix.pch */,
 				16E814E113CE7D9300C61202 /* File IO */,
 				16DF3570138C9A37008C3E30 /* ObjectPool */,
@@ -809,6 +812,7 @@
 				16CA3D8B1403270B00FD1E43 /* NyxModule_Impl.mm in Sources */,
 				16CA3D8D14033D6E00FD1E43 /* NyxThreadModule_Impl.mm in Sources */,
 				16CA3D8F14033F7C00FD1E43 /* NyxThread_Impl.mm in Sources */,
+				160AF54A14E89294000D0B03 /* NyxTime_Impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

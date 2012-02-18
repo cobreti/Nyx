@@ -135,3 +135,14 @@ bool NyxNetOSX::CPipeSocketWriter_Impl::Valid() const
 {
     return true;
 }
+
+
+/**
+ *
+ */
+Nyx::NyxResult NyxNetOSX::CPipeSocketWriter_Impl::Renew()
+{
+    return Nyx::kNyxRes_Success;
+}
+
+
