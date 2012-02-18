@@ -39,10 +39,10 @@ OBJS := $(OBJDIR)/NyxNetModule_Impl.o \
 		$(OBJDIR)/NyxNetTcpIpClientConn.o \
 		$(OBJDIR)/NyxNetTcpIpServer_Impl.o \
 		$(OBJDIR)/NyxNetTcpIpSocket_Impl.o \
-		$(OBJDIR)/NyxNetTraceStreamWriter_Linux.o \
 		$(OBJDIR)/NyxNetNxConnection_Impl.o \
 		$(OBJDIR)/NyxNetPipeTraceOutput_Impl.o \
-		$(OBJDIR)/NyxNetTraceStreamWriter.o
+		$(OBJDIR)/NyxNetTraceStreamWriter.o \
+		$(OBJDIR)/NyxNetTraceFlags.o
 
 
 $(OBJDIR)/%.o: ./Source/%.cpp
