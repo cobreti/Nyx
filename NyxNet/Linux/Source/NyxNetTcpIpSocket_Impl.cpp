@@ -39,7 +39,7 @@ NyxNetLinux::CTcpIpSocket_Impl::CTcpIpSocket_Impl( const int& SocketValue ) :
 m_Socket(SocketValue),
 m_Port(0),
 m_pListener(NULL),
-m_bValid(false)
+m_bValid(true)
 {
 	Nyx::CTraceStream(0x0) << Nyx::CTF_Text(L"CTcpIpSocket creation from socket value");
 }

@@ -10,7 +10,7 @@ ifeq ($(Config),Release)
 else
 	OBJDIR := Debug
 	LIBDIR := ../../Lib/Linux/Debug
-	CONFIG_CFLAGS := -O0 -fexceptions
+	CONFIG_CFLAGS := -O0 -fexceptions -g
 endif
 
 
