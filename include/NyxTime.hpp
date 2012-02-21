@@ -8,6 +8,8 @@ namespace Nyx
 {
 	class CTime
 	{
+        friend class CLocalTime;
+        
 	public:
 
 		static const CTime GetCurrentTime();
