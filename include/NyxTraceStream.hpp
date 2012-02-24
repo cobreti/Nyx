@@ -4,17 +4,21 @@
 #include "NyxModule.hpp"
 #include "NyxTraceCompositor.hpp"
 #include "NyxTraceFeed.hpp"
-#include "NyxTraceFeeds.hpp"
+//#include "NyxTraceFeeds.hpp"
 
 
 #pragma managed(push, off)
+
+
+#define NYXTRACE(filter, output)        { Nyx::CTraceStream stream(filter); stream << output; }
+
 
 namespace Nyx
 {
 	class CTraceStream
 	{
 	public: // public functions
-		CTraceStream(const Nyx::TraceFilter& filter) :
+        explicit CTraceStream(const Nyx::TraceFilter& filter) :
 		m_pTrace(NULL)
 		{
 			m_pTrace = Nyx::CModule::GetDefault()->Traces().ThreadDefault();
@@ -26,7 +30,7 @@ namespace Nyx
 		}
 
 
-		CTraceStream(const Nyx::TraceFilter& filter, Nyx::CTraceCompositor* pTraceCompositor) :
+        explicit CTraceStream(const Nyx::TraceFilter& filter, Nyx::CTraceCompositor* pTraceCompositor) :
 		m_pTrace(pTraceCompositor)
 		{
 			m_pTrace->Begin(filter);

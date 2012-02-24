@@ -2,7 +2,7 @@
 #include "NyxMsg.hpp"
 #include "NyxLock.hpp"
 
-#include "NyxTraceStream.hpp"
+#include "NyxTraces.hpp"
 
 /**
  *
@@ -40,7 +40,8 @@ NyxOSX::CActiveObject_Impl::~CActiveObject_Impl()
 		m_refThread->Stop();
 	}
 
-	Nyx::CTraceStream(0x00) << Nyx::CTF_Text(L"CActiveObject_Impl::~CActiveObject_Impl");
+//	Nyx::CTraceStream(0x00) << Nyx::CTF_Text(L"CActiveObject_Impl::~CActiveObject_Impl");
+    NYXTRACE(0x0, L"CActiveObject_Impl::~CActiveObject_Impl");
 }
 
 
