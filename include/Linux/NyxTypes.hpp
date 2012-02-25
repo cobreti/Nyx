@@ -2,6 +2,7 @@
 #define _NYXTYPES_HPP_
 
 #include <stddef.h>
+#include <sys/time.h>
 
 namespace Nyx
 {

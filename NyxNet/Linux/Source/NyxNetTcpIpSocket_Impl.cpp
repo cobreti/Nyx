@@ -1,6 +1,6 @@
 #include "NyxNetTcpIpSocket_Impl.hpp"
 #include "NyxNetSocketListener.hpp"
-#include "NyxTraceStream.hpp"
+#include "NyxTraces.hpp"
 
 #include <sys/socket.h>
 #include <sys/types.h> 

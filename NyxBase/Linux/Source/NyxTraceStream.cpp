@@ -1,5 +1,6 @@
 #include "NyxTraceStream.hpp"
 #include "NyxTraceFeed.hpp"
+#include "NyxTraceFeeds.hpp"
 
 #include <stdarg.h>
 

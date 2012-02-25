@@ -2,6 +2,7 @@
 #define _NYXTRACEFEEDS_HPP_
 
 #include "NyxTraceFeed.hpp"
+#include "NyxTraceStream.hpp"
 
 #include <pthread.h>
 #include <sys/time.h>
@@ -28,6 +29,16 @@ namespace Nyx
 	};
 
 
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const wchar_t* text )
+    {
+        stream << CTF_Text(text);
+        return stream;
+    }
+
+
 	/**
 	 *	\brief		Ansi string trace feed
 	 */
@@ -39,6 +50,16 @@ namespace Nyx
 	};
 	
 	
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const char* text )
+    {
+        stream << CTF_AnsiText(text);
+        return stream;
+    }
+
+
 	/**
 	 *	\brief		Integer trace feed
 	 */
@@ -50,10 +71,6 @@ namespace Nyx
 			sprintf(m_szBuffer, "%i", nValue);
 		}
 		
-//		virtual const wchar_t* GetWideCharText() const { return NULL; }
-//		virtual const char* GetAnsiText() const { return m_szBuffer; }
-//		virtual ECharFormat CharFormat() const { return eCF_Ansi; }
-		
 	private: // private members
 		
 		enum { kBufferSize = 10 };
@@ -62,6 +79,16 @@ namespace Nyx
 	};
 	
 	
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const Nyx::Int32& value )
+    {
+        stream << CTF_Int(value);
+        return stream;
+    }
+
+
 	/**
 	 *
 	 */
@@ -73,16 +100,22 @@ namespace Nyx
 			sprintf(m_szBuffer, "%f", fValue);
 		}
 		
-//		virtual const wchar_t* GetWideCharText() const { return NULL; }
-//		virtual const char* GetAnsiText() const { return m_szBuffer; }
-//		virtual ECharFormat CharFormat() const { return eCF_Ansi; }
-	
 	private: // private members
 	
 		enum { kBufferSize = 20 };
 		
 		char		m_szBuffer[kBufferSize];
 	};
+
+
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const double& value )
+    {
+        stream << CTF_Double(value);
+        return stream;
+    }
 
 
 	/**
@@ -91,14 +124,10 @@ namespace Nyx
 	class CTF_Float : public CAnsiTraceFeed
 	{
 	public:
-		CTF_Float(const double& value) : CAnsiTraceFeed(m_szBuffer)
+		CTF_Float(const float& value) : CAnsiTraceFeed(m_szBuffer)
 		{
 			sprintf( m_szBuffer, "%f", value);
 		}
-		
-//		virtual const wchar_t* GetWideCharText() const { return NULL; }
-//		virtual const char* GetAnsiText() const { return m_szBuffer; }
-//		virtual ECharFormat CharFormat() const { return eCF_Ansi; }
 		
 	private: // private members
 		
@@ -106,6 +135,16 @@ namespace Nyx
 		
 		char		m_szBuffer[kBufferSize];
 	};
+
+
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const float& value)
+    {
+        stream << CTF_Float(value);
+        return stream;
+    }
 
 
 	/**

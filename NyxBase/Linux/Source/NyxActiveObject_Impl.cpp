@@ -2,7 +2,7 @@
 #include "NyxMsg.hpp"
 #include "NyxLock.hpp"
 
-#include "NyxTraceStream.hpp"
+#include "NyxTraces.hpp"
 
 #include <sys/syscall.h>
 
