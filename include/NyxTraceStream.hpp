@@ -4,7 +4,6 @@
 #include "NyxModule.hpp"
 #include "NyxTraceCompositor.hpp"
 #include "NyxTraceFeed.hpp"
-//#include "NyxTraceFeeds.hpp"
 
 
 #pragma managed(push, off)

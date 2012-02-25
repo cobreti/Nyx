@@ -1,5 +1,6 @@
 #include "NyxTraceStream.hpp"
 #include "NyxTraceFeed.hpp"
+#include "NyxTraceFeeds.hpp"
 
 #pragma unmanaged
 

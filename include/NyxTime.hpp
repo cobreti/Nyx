@@ -3,6 +3,9 @@
 
 #include <time.h>
 
+#if defined(GetCurrentTime)
+    #undef GetCurrentTime
+#endif
 
 namespace Nyx
 {

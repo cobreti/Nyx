@@ -341,6 +341,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\..\include\NyxLocalTime.hpp"
+				>
+			</File>
+			<File
 				RelativePath="..\..\include\nyxlock.hpp"
 				>
 			</File>
@@ -502,6 +506,10 @@
 			</File>
 			<File
 				RelativePath="..\..\include\NyxThreadProc.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\NyxTime.hpp"
 				>
 			</File>
 			<File
@@ -1297,6 +1305,18 @@
 				</File>
 				<File
 					RelativePath=".\Source\NyxAnsiFile_Impl.hpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Time"
+				>
+				<File
+					RelativePath=".\Source\NyxLocalTime_Impl.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Source\NyxTime_Impl.cpp"
 					>
 				</File>
 			</Filter>

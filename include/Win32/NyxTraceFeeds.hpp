@@ -4,6 +4,7 @@
 #include <Windows.h>
 
 #include "NyxTraceFeed.hpp"
+#include "NyxTraceStream.hpp"
 
 #pragma warning (disable:4996)
 
@@ -35,7 +36,17 @@ namespace Nyx
 	};
 	
 
-	/**
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const wchar_t* text )
+    {
+        stream << CTF_Text(text);
+        return stream;
+    }
+
+    
+    /**
 	 *
 	 */
 	class CTF_AnsiText : public CTraceFeed
@@ -53,6 +64,16 @@ namespace Nyx
 	};
 	
 
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const char* text )
+    {
+        stream << CTF_AnsiText(text);
+        return stream;
+    }
+    
+	
 	/**
 	 *	\brief		Integer trace feed
 	 */
@@ -78,6 +99,16 @@ namespace Nyx
 	};
 
 
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const Nyx::Int32& value )
+    {
+        stream << CTF_Int(value);
+        return stream;
+    }
+    
+	
 	/**
 	 *
 	 */
@@ -101,13 +132,23 @@ namespace Nyx
 	};
 
 
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const double& value )
+    {
+        stream << CTF_Double(value);
+        return stream;
+    }
+
+
 	/**
 	 *
 	 */
 	class CTF_Float : public CTraceFeed
 	{
 	public:
-		CTF_Float(const double& value)
+		CTF_Float(const float& value)
 		{
 			//swprintf_s( m_wszBuffer, kBufferSize, L"%f", value);
 			sprintf_s( m_szBuffer, kBufferSize, "%f", value);
@@ -123,6 +164,16 @@ namespace Nyx
 		
 		char		m_szBuffer[kBufferSize];
 	};
+
+
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const float& value)
+    {
+        stream << CTF_Float(value);
+        return stream;
+    }
 
 
 	/**
