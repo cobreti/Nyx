@@ -236,7 +236,7 @@ namespace Nyx
 			if ( !(size < FreeSize()) )
 				Resize( Size() + IncrementSize );
 
-			WriteData(pBuffer, size);
+			return WriteData(pBuffer, size);
 		}
 
 	protected:

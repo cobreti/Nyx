@@ -45,7 +45,8 @@ m_pCompositorBuffer(NULL)
 	m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = Nyx::CMutex::Alloc();
 
-	Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
+    if ( bUseAsDefault )
+	    Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
 }
 
 
