@@ -10,6 +10,7 @@
 #include "NyxMutex.hpp"
 #include "NyxNetNxConnectionHandler.hpp"
 #include "NyxNetSocketListener.hpp"
+#include "NyxBuffer.hpp"
 
 #pragma managed(push, off)
 
@@ -116,6 +117,16 @@ namespace NyxNet
 
 	protected:
 
+		class XBuffer : public Nyx::TBuffer<Nyx::UInt8>
+		{
+			typedef		TBuffer<Nyx::UInt8>		BaseType;
+
+		public:
+			XBuffer() : BaseType() {}
+		};
+
+		const Nyx::NyxSize					m_kBufferIncrement;
+
 		NyxNet::IConnection*				m_pConnection;
 		Nyx::IStreamRW*						m_pStreamRW;
 		CSocketStream						m_SocketStream;
@@ -128,6 +139,7 @@ namespace NyxNet
 		Nyx::UInt32							m_HSTimeout;
 		int									m_MissedHandshakes;
 		NyxNet::INxConnectionHandler*		m_pConnectionHandler;
+		XBuffer								m_Buffer;
 	};
 }
 

@@ -56,6 +56,17 @@ namespace Nyx
 		}
 
 		/**
+		 * \brief		Clears the buffer content
+		 */
+		void Clear()
+		{
+			m_pNextReadPos = m_pBuffer;
+			m_pNextWritePos = m_pBuffer;
+			m_DataSize = 0;
+		}
+
+
+		/**
 		 *	\brief		Resize the buffer
 		 *	\param		NewBufferSize	: new size of the buffer in number of elements
 		 *	\return		NyxResult
@@ -177,7 +188,7 @@ namespace Nyx
 		 */
 		TYPE* getWritePos()
 		{
-			return m_pBuffer + m_DataSize;
+			return m_pNextWritePos; //m_pBuffer + m_DataSize;
 		}
         
         TYPE* getReadPos()
@@ -195,8 +206,37 @@ namespace Nyx
 			
 			memcpy(pBuffer, m_pNextReadPos, ReadSize);
 			m_DataSize -= ReadSize;
+			m_pNextWritePos -= ReadSize;
             memmove(m_pBuffer, m_pBuffer+ReadSize, m_DataSize);
 			return ReadSize;
+		}
+
+
+		/**
+		 *
+		 */
+		Nyx::NyxSize WriteData( const void* pBuffer, const Nyx::NyxSize& size )
+		{
+			if ( !(size < FreeSize()) )
+				return 0;
+
+			memcpy( m_pNextWritePos, pBuffer, size );
+			m_pNextWritePos += size;
+			m_DataSize += size;
+
+			return size;
+		}
+
+
+		/**
+		 *
+		 */
+		Nyx::NyxSize WriteDataResize( const void* pBuffer, const Nyx::NyxSize& size, const Nyx::NyxSize& IncrementSize = 1024 )
+		{
+			if ( !(size < FreeSize()) )
+				Resize( Size() + IncrementSize );
+
+			WriteData(pBuffer, size);
 		}
 
 	protected:

@@ -7,6 +7,7 @@
 #include "NyxTraceStream.hpp"
 
 #include <stdio.h>
+#include <string.h>
 
 #pragma unmanaged
 
@@ -24,6 +25,7 @@ NyxNet::CNxConnectionRef NyxNet::CNxConnection::Alloc()
  *
  */
 NyxNet::CNxConnection_Impl::CNxConnection_Impl() :
+m_kBufferIncrement(8192),
 m_pConnection(NULL),
 m_pStreamRW(NULL),
 m_ReceivedData(0),
@@ -35,6 +37,8 @@ m_pConnectionHandler(NULL)
 	m_refHSEvent = Nyx::CEvent::Alloc();
 	m_refWriteMutex = Nyx::CMutex::Alloc();
 	m_refReadMutex = Nyx::CMutex::Alloc();
+
+	m_Buffer.Alloc(m_kBufferIncrement);
 }
 
 
@@ -42,6 +46,7 @@ m_pConnectionHandler(NULL)
  *
  */
 NyxNet::CNxConnection_Impl::CNxConnection_Impl(NyxNet::IConnection* pConnection) :
+m_kBufferIncrement(8192),
 m_pConnection(pConnection),
 m_pStreamRW(NULL),
 m_ReceivedData(0),
@@ -53,6 +58,8 @@ m_pConnectionHandler(NULL)
 	m_refHSEvent = Nyx::CEvent::Alloc();
 	m_refWriteMutex = Nyx::CMutex::Alloc();
 	m_refReadMutex = Nyx::CMutex::Alloc();
+
+	m_Buffer.Alloc(m_kBufferIncrement);
 }
 
 
@@ -171,14 +178,8 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWrite( const NyxNet::NxDataType&
 
 	m_refWriteMutex->Lock();
 
-	res = m_pStreamRW->Write( (void*)&datatype, sizeof(datatype), WrittenSize);
-	if ( Nyx::Failed(res) )
-	{
-		m_SocketStream.Socket()->Disconnect();
-		m_SocketStream.Socket()->Connect();
-
-		res = m_pStreamRW->Write( (void*)&datatype, sizeof(datatype), WrittenSize);
-	}
+	m_Buffer.Clear();
+	m_Buffer.WriteDataResize( &datatype, sizeof(datatype), m_kBufferIncrement );
 
 	if ( Nyx::Failed(res) )
 		m_refWriteMutex->Unlock();			
@@ -193,9 +194,8 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWrite( const NyxNet::NxDataType&
 Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWriteSection( const NyxNet::NxDataType& size )
 {
 	Nyx::NyxResult				res = Nyx::kNyxRes_Success;
-	Nyx::NyxSize				WrittenSize(0);
 
-	res = m_pStreamRW->Write( (void*)&size, sizeof(size), WrittenSize);
+	m_Buffer.WriteDataResize( &size, sizeof(size), m_kBufferIncrement );
 
 	if ( Nyx::Failed(res) )
 		m_refWriteMutex->Unlock();			
@@ -210,10 +210,9 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWriteSection( const NyxNet::NxDa
 Nyx::NyxResult NyxNet::CNxConnection_Impl::Write( void* pBuffer, const NyxNet::NxDataSize& DataSize )
 {
 	Nyx::NyxResult				res = Nyx::kNyxRes_Success;
-	Nyx::NyxSize				WrittenSize(0);
 	Nyx::TLock<Nyx::CMutex>		WriteLock(m_refWriteMutex, true);
 
-	res = m_pStreamRW->Write( pBuffer, DataSize, WrittenSize );
+	m_Buffer.WriteDataResize( pBuffer, DataSize, m_kBufferIncrement );
 
 	return res;
 }
@@ -232,6 +231,12 @@ void NyxNet::CNxConnection_Impl::EndWriteSection()
  */
 void NyxNet::CNxConnection_Impl::EndWrite()
 {
+	NYXTRACE(0x0, L"output buffer data size : " << m_Buffer.DataSize() );
+
+	Nyx::NyxSize				WrittenSize(0);
+
+	m_pStreamRW->Write( m_Buffer.Buffer(), m_Buffer.DataSize(), WrittenSize );
+
 	m_refWriteMutex->Unlock();
 }
 

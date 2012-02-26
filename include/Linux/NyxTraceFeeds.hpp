@@ -89,7 +89,17 @@ namespace Nyx
     }
 
 
-	/**
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const Nyx::NyxSize& value )
+    {
+        stream << CTF_Int(value);
+        return stream;
+    }
+
+
+    /**
 	 *
 	 */
 	class CTF_Double : public CAnsiTraceFeed
