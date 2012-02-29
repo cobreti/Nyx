@@ -139,7 +139,8 @@ namespace NyxNet
 		Nyx::UInt32							m_HSTimeout;
 		int									m_MissedHandshakes;
 		NyxNet::INxConnectionHandler*		m_pConnectionHandler;
-		XBuffer								m_Buffer;
+		XBuffer								m_WriteBuffer;
+        XBuffer                             m_ReadBuffer;
 	};
 }
 

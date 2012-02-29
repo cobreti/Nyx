@@ -38,7 +38,7 @@ m_pConnectionHandler(NULL)
 	m_refWriteMutex = Nyx::CMutex::Alloc();
 	m_refReadMutex = Nyx::CMutex::Alloc();
 
-	m_Buffer.Alloc(m_kBufferIncrement);
+	m_WriteBuffer.Alloc(m_kBufferIncrement);
 }
 
 
@@ -59,7 +59,7 @@ m_pConnectionHandler(NULL)
 	m_refWriteMutex = Nyx::CMutex::Alloc();
 	m_refReadMutex = Nyx::CMutex::Alloc();
 
-	m_Buffer.Alloc(m_kBufferIncrement);
+	m_WriteBuffer.Alloc(m_kBufferIncrement);
 }
 
 
@@ -87,26 +87,50 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
 {
 	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
 	Nyx::NyxSize		ReadSize;
+    Nyx::NyxSize        DataSize = 0;
+    Nyx::NyxSize        RemainingSizeToRead = 0;
 
 	m_refReadMutex->Lock();
 
 	do
 	{
-		res = m_pStreamRW->Read(&datatype, sizeof(datatype), ReadSize);
+        DataSize = 0;
+        datatype = NyxNet::eNxDT_HandShake;
+        res = m_pStreamRW->Read( &DataSize, sizeof(DataSize), ReadSize );
+        if ( Nyx::Succeeded(res) && DataSize > 0 && ReadSize > 0 )
+        {
+            m_ReadBuffer.Clear();
+            m_ReadBuffer.Resize(DataSize);
+            RemainingSizeToRead = DataSize;
 
-		if ( Nyx::Succeeded(res) )
-		{
-			++ m_ReceivedData;
+            do
+            {
+                res = m_pStreamRW->Read( m_ReadBuffer.getWritePos(), RemainingSizeToRead, ReadSize );
 
-			if ( datatype == NyxNet::eNxDT_HandShake )
-			{
-				//Nyx::CTraceStream(0x0).Write(L"Received handshake");
-			}
-		}
+                NYXTRACE(0x0, L"--> CNxConnection - BeginRead - read " << ReadSize << L" of " << RemainingSizeToRead );
+
+                m_ReadBuffer.addDataSize(ReadSize);
+                RemainingSizeToRead -= ReadSize;
+
+                NYXTRACE(0x0, L"--> Remaining size to read : " << RemainingSizeToRead );
+            }
+            while ( Nyx::Succeeded(res) && RemainingSizeToRead > 0 );
+
+		    if ( Nyx::Succeeded(res) )
+		    {
+			    ++ m_ReceivedData;
+                m_ReadBuffer.ReadData( &datatype, sizeof(datatype) );
+
+			    if ( datatype == NyxNet::eNxDT_HandShake )
+			    {
+				    //Nyx::CTraceStream(0x0).Write(L"Received handshake");
+			    }
+		    }
+        }
 	}
 	while ( datatype == NyxNet::eNxDT_HandShake && Nyx::Succeeded(res) );
 
-	m_bRunning = Nyx::Succeeded(res);
+    m_bRunning = Nyx::Succeeded(res);
 
 	if ( Nyx::Failed(res) )
 		m_refReadMutex->Unlock();
@@ -120,13 +144,15 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
  */
 Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginReadSection( NyxNet::NxDataSize& size )
 {
-	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
+	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	Nyx::NyxSize		ReadSize;
 
-	res = m_pStreamRW->Read(&size, sizeof(size), ReadSize);
-
-	if ( Nyx::Succeeded(res) )
+    ReadSize = m_ReadBuffer.ReadData( &size, sizeof(size) );
+    if ( ReadSize == sizeof(size) )
+    {
 		++ m_ReceivedData;
+        res = Nyx::kNyxRes_Success;
+    }
 
 	return res;
 }
@@ -137,13 +163,15 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginReadSection( NyxNet::NxDataSize&
  */
 Nyx::NyxResult NyxNet::CNxConnection_Impl::Read( void* pBuffer, const NyxNet::NxDataSize& size )
 {
-	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
+	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	Nyx::NyxSize		ReadSize(0);
 
-	res = m_pStreamRW->Read(pBuffer, size, ReadSize);
-
-	if ( Nyx::Succeeded(res) )
+    ReadSize = m_ReadBuffer.ReadData( pBuffer, size );
+    if ( ReadSize == size )
+    {
 		++ m_ReceivedData;
+        res = Nyx::kNyxRes_Success;
+    }
 
 	m_bRunning = Nyx::Succeeded(res);
 
@@ -178,8 +206,8 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWrite( const NyxNet::NxDataType&
 
 	m_refWriteMutex->Lock();
 
-	m_Buffer.Clear();
-	m_Buffer.WriteDataResize( &datatype, sizeof(datatype), m_kBufferIncrement );
+	m_WriteBuffer.Clear();
+	m_WriteBuffer.WriteDataResize( &datatype, sizeof(datatype), m_kBufferIncrement );
 
 	if ( Nyx::Failed(res) )
 		m_refWriteMutex->Unlock();			
@@ -195,7 +223,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWriteSection( const NyxNet::NxDa
 {
 	Nyx::NyxResult				res = Nyx::kNyxRes_Success;
 
-	m_Buffer.WriteDataResize( &size, sizeof(size), m_kBufferIncrement );
+	m_WriteBuffer.WriteDataResize( &size, sizeof(size), m_kBufferIncrement );
 
 	if ( Nyx::Failed(res) )
 		m_refWriteMutex->Unlock();			
@@ -212,7 +240,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::Write( void* pBuffer, const NyxNet::N
 	Nyx::NyxResult				res = Nyx::kNyxRes_Success;
 	Nyx::TLock<Nyx::CMutex>		WriteLock(m_refWriteMutex, true);
 
-	m_Buffer.WriteDataResize( pBuffer, DataSize, m_kBufferIncrement );
+	m_WriteBuffer.WriteDataResize( pBuffer, DataSize, m_kBufferIncrement );
 
 	return res;
 }
@@ -231,11 +259,12 @@ void NyxNet::CNxConnection_Impl::EndWriteSection()
  */
 void NyxNet::CNxConnection_Impl::EndWrite()
 {
-	NYXTRACE(0x0, L"output buffer data size : " << m_Buffer.DataSize() );
+    Nyx::NyxSize        DataSize = m_WriteBuffer.DataSize();
 
 	Nyx::NyxSize				WrittenSize(0);
 
-	m_pStreamRW->Write( m_Buffer.Buffer(), m_Buffer.DataSize(), WrittenSize );
+    m_pStreamRW->Write( &DataSize, sizeof(DataSize), WrittenSize );
+	m_pStreamRW->Write( m_WriteBuffer.Buffer(), m_WriteBuffer.DataSize(), WrittenSize );
 
 	m_refWriteMutex->Unlock();
 }
@@ -408,9 +437,13 @@ void NyxNet::CNxConnection_Impl::ClientCheckHandshakeThreadProc()
 			{
 				Nyx::TLock<Nyx::CMutex>		WriteLock(m_refWriteMutex, true);
 				NyxNet::NxDataType			DataType = NyxNet::eNxDT_HandShake;
+                Nyx::NyxSize                DataSize = sizeof(DataType);
 				Nyx::NyxSize				SizeWritten(0);
 
-				m_pStreamRW->Write( (void*)&DataType, sizeof(DataType), SizeWritten );
+                NYXTRACE(0x0, L"DataSize = " << DataSize << L" | DataType = " << Nyx::CTF_Hex(DataType) );
+
+                m_pStreamRW->Write( &DataSize, sizeof(DataSize), SizeWritten );
+				m_pStreamRW->Write( &DataType, sizeof(DataType), SizeWritten );
 			}
 
 		}

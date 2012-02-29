@@ -191,7 +191,12 @@ Nyx::NyxResult NyxNetWin32::CPipeSocketReader_Impl::Read( void* pBuffer, const N
 				    bDataRead = true;
                     //void* pWritePos = m_Buffer.getWritePos();
                     //memcpy(pWritePos, m_ReadBuffer.Buffer(), m_PipeOverlap.InternalHigh);
-                    m_Buffer.addDataSize(m_PipeOverlap.InternalHigh);
+                    Nyx::NyxSize    lSize = m_PipeOverlap.InternalHigh;
+
+                    if ( lSize > m_Buffer.FreeSize() )
+                        lSize = m_Buffer.FreeSize();
+
+                    m_Buffer.addDataSize(lSize);
 			    }
 		    }
 	    }
