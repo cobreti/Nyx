@@ -3,6 +3,7 @@
 
 #include "NyxTypes.hpp"
 #include "NyxFixedString.hpp"
+#include "NyxTraceTimeReference.hpp"
 
 namespace Nyx
 {
@@ -36,11 +37,14 @@ namespace Nyx
 		const TTickCount& TickCount() const		{ return m_TickCount; }
 		TTickCount& TickCount()					{ return m_TickCount; }
 
+        const CTraceTimeReference& TimeReference() const        { return m_TimeReference; }
+
 	protected:
 
-		Nyx::UInt32			m_Version;
-		TThreadId			m_ThreadId;
-		TTickCount			m_TickCount;
+		Nyx::UInt32			    m_Version;
+		TThreadId			    m_ThreadId;
+		TTickCount			    m_TickCount;
+        CTraceTimeReference     m_TimeReference;
 
 	private:
 		// disable copy-constructor

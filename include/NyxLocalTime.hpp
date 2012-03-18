@@ -5,6 +5,8 @@
 
 namespace Nyx
 {
+    class CAString;
+
     /**
      *
      */
@@ -29,6 +31,8 @@ namespace Nyx
         bool Valid() const                  { return m_ValidityFlag != 0; }
         
         const CLocalTime& operator = (const CLocalTime& ltime);
+
+        NyxResult GetString( CAString& str ) const;
         
     protected:
         

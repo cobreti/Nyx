@@ -297,10 +297,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\NyxAnsiString.hpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\NyxAString.hpp"
 				>
 			</File>
@@ -453,10 +449,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\NyxString.hpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\NyxStringFormater.hpp"
 				>
 			</File>
@@ -550,6 +542,10 @@
 			</File>
 			<File
 				RelativePath="..\..\include\NyxTraceStream.hpp"
+				>
+			</File>
+			<File
+				RelativePath="..\..\include\NyxTraceTimeReference.hpp"
 				>
 			</File>
 			<File
@@ -884,6 +880,10 @@
 					>
 					<File
 						RelativePath=".\Source\NyxAString_Impl.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\Source\NyxFixedString_Impl.cpp"
 						>
 					</File>
 					<File
@@ -1293,6 +1293,10 @@
 								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
 							/>
 						</FileConfiguration>
+					</File>
+					<File
+						RelativePath=".\Source\NyxTraceTimeReference.cpp"
+						>
 					</File>
 				</Filter>
 			</Filter>

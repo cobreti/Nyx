@@ -500,6 +500,10 @@
 				RelativePath=".\Source\NyxNetTcpIpServer_Impl.hpp"
 				>
 			</File>
+			<File
+				RelativePath="..\Source\NyxNetTraceStreamWriter.cpp"
+				>
+			</File>
 			<Filter
 				Name="Sockets"
 				>
@@ -643,10 +647,6 @@
 		</File>
 		<File
 			RelativePath="..\..\include\NyxNet\NyxNetTraceFlags.hpp"
-			>
-		</File>
-		<File
-			RelativePath="..\Source\NyxNetTraceStreamWriter.cpp"
 			>
 		</File>
 		<File

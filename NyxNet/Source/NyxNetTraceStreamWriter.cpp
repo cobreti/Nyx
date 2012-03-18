@@ -47,7 +47,7 @@ namespace NyxNet
      */
     void CTraceStreamWriter::Write( const Nyx::CTraceHeader& header, const wchar_t* wszText )
     {
-        Nyx::UInt32                 SectionsCount = 4;
+        Nyx::UInt32                 SectionsCount = 6;
         
     	CNxStreamWriter				SWriter((NyxNet::CNxConnection*)m_refConnection, eNxDT_TraceData);
         CTraceFlags			        flags( s_BaseTraceFlags, CTraceFlags::TFlags_WideChar );
@@ -61,25 +61,44 @@ namespace NyxNet
                 SectionsCountWriter.Write(&SectionsCount, sizeof(SectionsCount));
             }
             
-            // write version
+            // flags
             {
                 CNxSectionStreamWriter		FlagsWriter(SWriter, sizeof(flags));
                 
                 FlagsWriter.Write(&flags, sizeof(flags));
+            }
+
+            // write local time reference
+            {
+                //Nyx::UInt32                 value =     ((header.TimeReference().Time().Hours()) << 16) | 
+                //                                        ((header.TimeReference().Time().Minutes()) << 8) |
+                //                                        (header.TimeReference().Time().Seconds());
+
+                Nyx::NyxSize                time_length = header.TimeReference().TimeString().Length() + 1;
+
+                CNxSectionStreamWriter      LocalTimeWriter(SWriter, time_length);
+                LocalTimeWriter.Write((void*)header.TimeReference().TimeString().c_str(), time_length);
+            }
+
+            // write tick count reference
+            {
+                CNxSectionStreamWriter      RefTickCountWriter(SWriter, header.TimeReference().TickCount().Length()+1);
+
+                RefTickCountWriter.Write( (void*)header.TimeReference().TickCount().c_str(), (NyxNet::NxDataSize)header.TimeReference().TickCount().Length()+1);
             }
             
             // write thread id
             {
                 CNxSectionStreamWriter		ThreadIdWriter(SWriter, (NyxNet::NxDataSize)header.ThreadId().Length()+1);
                 
-                ThreadIdWriter.Write( (void*)(const char*)header.ThreadId(), (NyxNet::NxDataSize)header.ThreadId().Length()+1);
+                ThreadIdWriter.Write( (void*)header.ThreadId().c_str(), (NyxNet::NxDataSize)header.ThreadId().Length()+1);
             }
             
             // write tickcount
             {
                 CNxSectionStreamWriter		TickCountWriter(SWriter, (NyxNet::NxDataSize)header.TickCount().Length()+1);
                 
-                TickCountWriter.Write( (void*)(const char*)header.TickCount(), (NyxNet::NxDataSize)header.TickCount().Length()+1);
+                TickCountWriter.Write( (void*)header.TickCount().c_str(), (NyxNet::NxDataSize)header.TickCount().Length()+1);
             }
             
             // write data
@@ -123,14 +142,14 @@ namespace NyxNet
             {
                 CNxSectionStreamWriter		ThreadIdWriter(SWriter, (NyxNet::NxDataSize)header.ThreadId().Length()+1);
                 
-                ThreadIdWriter.Write( (void*)(const char*)header.ThreadId(), (NyxNet::NxDataSize)header.ThreadId().Length()+1);
+                ThreadIdWriter.Write( (void*)header.ThreadId().c_str(), (NyxNet::NxDataSize)header.ThreadId().Length()+1);
             }
             
             // write tickcount
             {
                 CNxSectionStreamWriter		TickCountWriter(SWriter, (NyxNet::NxDataSize)header.TickCount().Length()+1);
                 
-                TickCountWriter.Write( (void*)(const char*)header.TickCount(), (NyxNet::NxDataSize)header.TickCount().Length()+1);
+                TickCountWriter.Write( (void*)header.TickCount().c_str(), (NyxNet::NxDataSize)header.TickCount().Length()+1);
             }
             
             // write data
