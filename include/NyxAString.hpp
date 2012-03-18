@@ -38,7 +38,9 @@ namespace Nyx
         size_t length() const;
 
 		char* BufferPtr()	{ return m_Buffer.pChar; }
-	};
+
+        void Format( const char* szFormat, ... );
+    };
 }
 
 

@@ -3,6 +3,7 @@
 #include "NyxWString.hpp"
 #include "NyxAssert.hpp"
 
+#include <strsafe.h>
 
 namespace Nyx
 {
@@ -181,5 +182,21 @@ namespace Nyx
     {
         return strlen(m_Buffer.pConstChar);
     }
+
+#pragma managed(push, off)
+    /**
+     *
+     */
+    void CAString::Format(const char *szFormat, ...)
+    {
+        va_list     vl;
+        
+        va_start(vl, szFormat);
+        
+        StringCbVPrintfA( m_Buffer.pChar, Size(), szFormat, vl );
+        
+        va_end(vl);
+    }
+#pragma managed(pop)
 }
 
