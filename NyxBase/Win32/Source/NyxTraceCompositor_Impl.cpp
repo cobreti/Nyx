@@ -27,7 +27,7 @@ Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(ETraceCompositorCharSet ch
 NyxWin32::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset, bool bUseAsDefault) :
 m_pCompositorBuffer(NULL)
 {
-	size_t		Size = 0;
+	//size_t		Size = 0;
 
 	switch (charset)
 	{
@@ -39,8 +39,9 @@ m_pCompositorBuffer(NULL)
 			break;
 	};
 
-	Size = sprintf_s( m_TraceHeader.ThreadId(), m_TraceHeader.ThreadId().Size(), "%08X", GetCurrentThreadId());
-	m_TraceHeader.ThreadId().SetLength(Size);
+    m_TraceHeader.ThreadId().Format( "%08X", GetCurrentThreadId() );
+	//Size = sprintf_s( m_TraceHeader.ThreadId().GetBuffer(), m_TraceHeader.ThreadId().Size(), "%08X", GetCurrentThreadId());
+	//m_TraceHeader.ThreadId().SetLength(Size);
 
 	m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = Nyx::CMutex::Alloc();
@@ -56,10 +57,11 @@ m_pCompositorBuffer(NULL)
 NyxWin32::CTraceCompositor_Impl::CTraceCompositor_Impl( Nyx::CMutex* pMutex, Nyx::CTraceCompositorBuffer* pBuffer ) :
 m_pCompositorBuffer(pBuffer)
 {
-	size_t		Size = 0;
+	//size_t		Size = 0;
 
-	Size = sprintf_s( m_TraceHeader.ThreadId(), m_TraceHeader.ThreadId().Size(), "%08X", GetCurrentThreadId());
-	m_TraceHeader.ThreadId().SetLength(Size);
+    m_TraceHeader.ThreadId().Format( "%08X", GetCurrentThreadId() );
+	//Size = sprintf_s( m_TraceHeader.ThreadId().GetBuffer(), m_TraceHeader.ThreadId().Size(), "%08X", GetCurrentThreadId());
+	//m_TraceHeader.ThreadId().SetLength(Size);
 
 	m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = pMutex;
@@ -84,10 +86,11 @@ NyxWin32::CTraceCompositor_Impl::~CTraceCompositor_Impl()
  */
 void NyxWin32::CTraceCompositor_Impl::Begin(const Nyx::TraceFilter& filter)
 {
-	size_t		Size = 0;
+	//size_t		Size = 0;
 	m_refMutex->Lock();
-	Size = sprintf_s( m_TraceHeader.TickCount(), m_TraceHeader.TickCount().Size(), "%lu", GetTickCount() );
-	m_TraceHeader.TickCount().SetLength(Size);
+    m_TraceHeader.TickCount().Format( "%lu.0", GetTickCount() );
+	//Size = sprintf_s( m_TraceHeader.TickCount().GetBuffer(), m_TraceHeader.TickCount().Size(), "%lu.0", GetTickCount() );
+	//m_TraceHeader.TickCount().SetLength(Size);
 	m_pCompositorBuffer->Begin();
 }
 

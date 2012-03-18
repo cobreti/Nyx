@@ -57,12 +57,12 @@ void NyxWin32::CConsoleTraceOutput_Impl::Write(const Nyx::CTraceHeader& header, 
 
 	m_Header.Clear();
 	m_Header += "[";
-	m_Header += (const char*)header.ThreadId();
+	m_Header += header.ThreadId().c_str();
 	m_Header += "] [";
-	m_Header += (const char*)header.TickCount();
+	m_Header += header.TickCount().c_str();
 	m_Header += "] : ";
 
-	::WriteConsoleW(m_hConsole, (const wchar_t*)m_Header, (DWORD)m_Header.Length(), &dwWritten, NULL);
+	::WriteConsoleW(m_hConsole, m_Header.c_str(), (DWORD)m_Header.Length(), &dwWritten, NULL);
 	::WriteConsoleW(m_hConsole, wszText, (DWORD)wcslen(wszText), &dwWritten, NULL);
 	::WriteConsoleW(m_hConsole, m_wszNewLine, m_dwNewLineSize, &dwWritten, NULL);
 }
@@ -79,12 +79,12 @@ void NyxWin32::CConsoleTraceOutput_Impl::Write(const Nyx::CTraceHeader& header, 
 
 	m_Header.Clear();
 	m_Header += "[";
-	m_Header += (const char*)header.ThreadId();
+	m_Header += header.ThreadId().c_str();
 	m_Header += "] [";
-	m_Header += (const char*)header.TickCount();
+	m_Header += header.TickCount().c_str();
 	m_Header += "] : ";
 
-	::WriteConsoleW(m_hConsole, (const wchar_t*)m_Header, (DWORD)m_Header.Length(), &dwWritten, NULL);
+	::WriteConsoleW(m_hConsole, m_Header.c_str(), (DWORD)m_Header.Length(), &dwWritten, NULL);
 	::WriteConsoleA(m_hConsole, szText, (DWORD)strlen(szText), &dwWritten, NULL);
 	::WriteConsoleW(m_hConsole, m_wszNewLine, m_dwNewLineSize, &dwWritten, NULL);
 }
