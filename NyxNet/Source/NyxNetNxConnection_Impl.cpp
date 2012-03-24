@@ -5,6 +5,7 @@
 #include "NyxNetConnection.hpp"
 #include "NyxLock.hpp"
 #include "NyxTraceStream.hpp"
+#include "NyxTraces.hpp"
 
 #include <stdio.h>
 #include <string.h>
@@ -202,7 +203,7 @@ void NyxNet::CNxConnection_Impl::EndRead()
 Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWrite( const NyxNet::NxDataType& datatype )
 {
 	Nyx::NyxResult				res = Nyx::kNyxRes_Success;
-	Nyx::NyxSize				WrittenSize(0);
+//	Nyx::NyxSize				WrittenSize(0);
 
 	m_refWriteMutex->Lock();
 

@@ -89,6 +89,27 @@ namespace Nyx
     }
     
 	
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const Nyx::UInt32& value )
+    {
+        stream << CTF_Int(value);
+        return stream;
+    }
+    
+	
+    /**
+     *
+     */
+    inline CTraceStream& operator << ( CTraceStream& stream, const Nyx::NyxSize& value )
+    {
+        stream << CTF_Int(value);
+        return stream;
+    }
+    
+	
+
 	/**
 	 *
 	 */
@@ -194,7 +215,7 @@ namespace Nyx
 		{
 			timeval t;
 			gettimeofday(&t, NULL);
-			sprintf(m_szBuffer, " [%012i%06i] ", (int)t.tv_sec, (int)t.tv_usec );
+			sprintf(m_szBuffer, " [%012i.%06i] ", (int)t.tv_sec, (int)t.tv_usec );
 		}
 		
 	private: // private members

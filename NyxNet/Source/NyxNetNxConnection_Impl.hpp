@@ -119,7 +119,7 @@ namespace NyxNet
 
 		class XBuffer : public Nyx::TBuffer<Nyx::UInt8>
 		{
-			typedef		TBuffer<Nyx::UInt8>		BaseType;
+			typedef		Nyx::TBuffer<Nyx::UInt8>		BaseType;
 
 		public:
 			XBuffer() : BaseType() {}
