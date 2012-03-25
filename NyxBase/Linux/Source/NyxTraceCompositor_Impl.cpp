@@ -27,9 +27,6 @@ NyxLinux::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorChar
 m_pCompositorBuffer(NULL),
 m_bUseAsDefault(bUseAsDefault)
 {
-	size_t		Size = 0;
-
-	
 	switch (charset)
 	{
 		case Nyx::eTCCS_WideChar:
@@ -40,14 +37,8 @@ m_bUseAsDefault(bUseAsDefault)
 			break;
 	};
 
-//	m_pBuffer = new wchar_t[kBufferSize];
-//	m_pStartBufferPos = m_pCurPos = m_pBuffer;
-	
-	Size = sprintf( m_TraceHeader.ThreadId(), "%08lX", (unsigned long)(void*)pthread_self());
-	m_TraceHeader.ThreadId().SetLength(Size);
-	
-	//m_pStartBufferPos = m_pBuffer + swprintf(m_pBuffer, kBufferSize, L" [%8X] ", (void*)pthread_self());
-	
+	m_TraceHeader.ThreadId().Format("%08lX", (unsigned long)(void*)pthread_self());
+
 	m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = Nyx::CMutex::Alloc();
 	
@@ -63,15 +54,7 @@ NyxLinux::CTraceCompositor_Impl::CTraceCompositor_Impl( Nyx::CMutex* pMutex, Nyx
 m_pCompositorBuffer(pBuffer),
 m_bUseAsDefault(bUseAsDefault)
 {
-	size_t		Size = 0;
-
-//	m_pBuffer = new wchar_t[kBufferSize];
-//	m_pStartBufferPos = m_pCurPos = m_pBuffer;
-	
-	Size = sprintf( m_TraceHeader.ThreadId(), "%08lX", (unsigned long)(void*)pthread_self());
-	m_TraceHeader.ThreadId().SetLength(Size);
-	
-	//m_pStartBufferPos = m_pBuffer + swprintf(m_pBuffer, kBufferSize, L" [%8X] ", (void*)pthread_self());
+	m_TraceHeader.ThreadId().Format("%08lX", (unsigned long)(void*)pthread_self());
 	
 	m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = pMutex;
@@ -97,14 +80,12 @@ NyxLinux::CTraceCompositor_Impl::~CTraceCompositor_Impl()
  */
 void NyxLinux::CTraceCompositor_Impl::Begin(const Nyx::TraceFilter& filter)
 {	
-	size_t		Size = 0;
 	timeval		t;
 	
 	m_refMutex->Lock();
 	
 	gettimeofday(&t, NULL);
-	Size = sprintf( m_TraceHeader.TickCount(), "%012lu%06lu", (unsigned long)t.tv_sec, (unsigned long)t.tv_usec);
-	m_TraceHeader.TickCount().SetLength(Size);
+	m_TraceHeader.TickCount().Format("%012lu.%06lu", (unsigned long)t.tv_sec, (unsigned long)t.tv_usec);
 
 	m_pCompositorBuffer->Begin();
 	

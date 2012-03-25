@@ -1,4 +1,5 @@
 #include "NyxLocalTime.hpp"
+#include "NyxAString.hpp"
 
 #include <sys/time.h>
 #include <time.h>
@@ -91,6 +92,21 @@ namespace Nyx
     }
     
     
+    /**
+     *
+     */
+    NyxResult CLocalTime::GetString( Nyx::CAString& str ) const
+    {
+        if ( !Valid() )
+            return kNyxRes_Failure;
+
+        str.Reserve(12);
+        str.Format("%02d:%02d:%02d", m_Hours, m_Min, m_Sec );
+
+        return kNyxRes_Success;
+    }
+
+
     /**
      *
      */

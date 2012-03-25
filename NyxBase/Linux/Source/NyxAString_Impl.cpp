@@ -4,6 +4,8 @@
 #include "NyxAssert.hpp"
 
 #include <string.h>
+#include <stdio.h>
+#include <stdarg.h>
 
 namespace Nyx
 {
@@ -171,6 +173,21 @@ namespace Nyx
     size_t CAString::length() const
     {
         return strlen(m_Buffer.pConstChar);
+    }
+
+
+    /**
+     *
+     */
+    void CAString::Format(const char *szFormat, ...)
+    {
+        va_list     vl;
+
+        va_start(vl, szFormat);
+
+        vsprintf( m_Buffer.pChar, szFormat, vl );
+
+        va_end(vl);
     }
 }
 

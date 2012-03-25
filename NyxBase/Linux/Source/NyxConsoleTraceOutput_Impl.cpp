@@ -39,12 +39,12 @@ void NyxLinux::CConsoleTraceOutput_Impl::Write( const Nyx::CTraceHeader& header,
 	
 	m_Header.Clear();
 	m_Header += "[";
-	m_Header += (const char*)header.ThreadId();
+	m_Header += header.ThreadId().c_str();
 	m_Header += "] [";
-	m_Header += (const char*)header.TickCount();
+	m_Header += header.TickCount().c_str();
 	m_Header += "] : ";
 	
-	wprintf(L"%S", (const wchar_t*)m_Header);
+	wprintf(L"%S", m_Header.c_str());
 	wprintf(L"%S\n", wszText);
 	fflush(stdout);
 }
@@ -59,12 +59,12 @@ void NyxLinux::CConsoleTraceOutput_Impl::Write( const Nyx::CTraceHeader& header,
 	
 	m_Header.Clear();
 	m_Header += "[";
-	m_Header += (const char*)header.ThreadId();
+	m_Header += header.ThreadId().c_str();
 	m_Header += "] [";
-	m_Header += (const char*)header.TickCount();
+	m_Header += header.TickCount().c_str();
 	m_Header += "] : ";
 	
-	printf("%S", (const wchar_t*)m_Header);
+	printf("%S", m_Header.c_str());
 	printf("%s\n", szText);
 	fflush(stdout);
 }
