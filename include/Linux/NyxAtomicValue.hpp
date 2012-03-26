@@ -13,12 +13,12 @@ namespace Nyx
 		
 		const long operator ++ ()
 		{
-			return __sync_fetch_and_add( &m_Value, 1 );
+            return __sync_fetch_and_add( &m_Value, 1 ) + 1;
 		}
 		
 		const long operator -- ()
 		{
-			return __sync_fetch_and_sub(&m_Value, 1);
+            return __sync_fetch_and_sub(&m_Value, 1) - 1;
 		}
 		
 		const long Value() const { return m_Value; }
