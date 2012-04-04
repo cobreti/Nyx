@@ -58,7 +58,8 @@ OBJS := $(OBJDIR)/NyxMFString_Impl.o \
 	$(OBJDIR)/NyxTime_Impl.o \
 	$(OBJDIR)/NyxLocalTime_Impl.o \
 	$(OBJDIR)/NyxTraceTimeReference.o \
-	$(OBJDIR)/NyxFixedString_Impl.o
+	$(OBJDIR)/NyxFixedString_Impl.o \
+	$(OBJDIR)/NyxExternalModule_Impl.o
 
 
 $(OBJDIR)/%.o: ./Source/%.cpp
