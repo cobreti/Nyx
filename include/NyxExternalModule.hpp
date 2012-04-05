@@ -22,6 +22,8 @@ namespace Nyx
 		virtual NyxResult Load() = 0;
 		virtual NyxResult Unload() = 0;
 		virtual void* GetFct(const char* name) = 0;
+        virtual ExternalModuleHandle GetHandle() const = 0;
+        virtual bool Valid() const = 0;
 	};
 }
 

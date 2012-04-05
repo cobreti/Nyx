@@ -5,6 +5,11 @@
 #include "NyxObject_Impl.hpp"
 #include "NyxAString.hpp"
 
+namespace Nyx
+{
+    class CExternalModuleHandle;
+}
+
 namespace NyxWin32
 {
     /**
@@ -12,6 +17,8 @@ namespace NyxWin32
      */
     class CExternalModule_Impl : public Nyx::CObject_Impl<Nyx::CExternalModule>
     {
+        friend class Nyx::CExternalModuleHandle;
+
     public:
         CExternalModule_Impl(const char* szModuleFilename);
         virtual ~CExternalModule_Impl();
@@ -19,6 +26,8 @@ namespace NyxWin32
         virtual Nyx::NyxResult Load();
         virtual Nyx::NyxResult Unload();
 		virtual void* GetFct(const char* name);
+        virtual Nyx::ExternalModuleHandle GetHandle() const;
+        virtual bool Valid() const;
 
     protected:
 

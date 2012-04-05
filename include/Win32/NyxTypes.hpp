@@ -2,6 +2,7 @@
 #define _NYXTYPES_HPP_
 
 #include <sys/types.h>
+#include <windows.h>
 
 namespace Nyx
 {
@@ -34,6 +35,11 @@ namespace Nyx
 	 *	\brief		trace filters
 	 */
 	typedef		unsigned long		TraceFilter;
+
+    /**
+     *  \brief      external module handle
+     */
+    typedef     HMODULE             ExternalModuleHandle;
 
 
 	typedef enum

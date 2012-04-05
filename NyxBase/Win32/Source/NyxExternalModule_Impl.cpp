@@ -76,4 +76,22 @@ namespace NyxWin32
 
         return ::GetProcAddress(m_hModule, name);
     }
+
+
+    /**
+     *
+     */
+    Nyx::ExternalModuleHandle CExternalModule_Impl::GetHandle() const
+    {
+        return m_hModule;
+    }
+
+
+    /**
+     *
+     */
+    bool CExternalModule_Impl::Valid() const
+    {
+        return ( m_hModule != NULL );
+    }
 }
