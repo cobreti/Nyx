@@ -66,6 +66,8 @@ namespace NyxWin32
 
 		Nyx::CTraceCompositorBuffer*		m_pCompositorBuffer;
 
+        bool                                m_bUseAsDefault;
+
 		static XDummyTraceOutput	s_DummyTraceOutput;
 	};
 }

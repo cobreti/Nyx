@@ -25,7 +25,8 @@ Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(ETraceCompositorCharSet ch
  *
  */
 NyxWin32::CTraceCompositor_Impl::CTraceCompositor_Impl(Nyx::ETraceCompositorCharSet charset, bool bUseAsDefault) :
-m_pCompositorBuffer(NULL)
+m_pCompositorBuffer(NULL),
+m_bUseAsDefault(bUseAsDefault)
 {
 	//size_t		Size = 0;
 
@@ -46,7 +47,7 @@ m_pCompositorBuffer(NULL)
 	m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = Nyx::CMutex::Alloc();
 
-    if ( bUseAsDefault )
+    if ( m_bUseAsDefault )
 	    Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
 }
 
@@ -55,7 +56,8 @@ m_pCompositorBuffer(NULL)
  *
  */
 NyxWin32::CTraceCompositor_Impl::CTraceCompositor_Impl( Nyx::CMutex* pMutex, Nyx::CTraceCompositorBuffer* pBuffer ) :
-m_pCompositorBuffer(pBuffer)
+m_pCompositorBuffer(pBuffer),
+m_bUseAsDefault(true)
 {
 	//size_t		Size = 0;
 
@@ -75,7 +77,8 @@ m_pCompositorBuffer(pBuffer)
  */
 NyxWin32::CTraceCompositor_Impl::~CTraceCompositor_Impl()
 {
-	Nyx::CModule::GetDefault()->Traces().RemoveThreadDefault();
+    if ( m_bUseAsDefault )
+	    Nyx::CModule::GetDefault()->Traces().RemoveThreadDefault();
 
 	delete m_pCompositorBuffer;
 }
