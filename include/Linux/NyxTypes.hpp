@@ -39,6 +39,10 @@ namespace Nyx
 	 */
 	typedef		unsigned long		TraceFilter;
 
+	/**
+	 *
+	 */
+	typedef		void*				ExternalModuleHandle;
 
 	typedef enum
 	{

@@ -19,6 +19,8 @@ namespace NyxLinux
 		virtual Nyx::NyxResult Load();
 		virtual Nyx::NyxResult Unload();
 		virtual void* GetFct(const char* name);
+        virtual Nyx::ExternalModuleHandle GetHandle() const;
+        virtual bool Valid() const;
 
 	protected:
 

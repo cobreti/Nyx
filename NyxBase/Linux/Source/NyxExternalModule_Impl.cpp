@@ -70,5 +70,23 @@ namespace NyxLinux
 	{
 		return dlsym(m_pHandle, name);
 	}
+
+
+	/**
+	 *
+	 */
+    Nyx::ExternalModuleHandle CExternalModule_Impl::GetHandle() const
+    {
+    	return m_pHandle;
+    }
+
+
+    /**
+     *
+     */
+    bool CExternalModule_Impl::Valid() const
+    {
+    	return m_pHandle != NULL;
+    }
 }
 
