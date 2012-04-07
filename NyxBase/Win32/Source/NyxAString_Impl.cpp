@@ -198,5 +198,21 @@ namespace Nyx
         va_end(vl);
     }
 #pragma managed(pop)
+
+    bool CAString::Find(const char* substr, size_t* pIndex) const
+    {
+        bool            bRet = false;
+
+        const char*     pResult = strstr(m_Buffer.pConstChar, substr);
+        if ( pResult )
+        {
+            bRet = true;
+
+            if ( pIndex )
+                *pIndex = pResult - m_Buffer.pConstChar;
+        }
+
+        return bRet;
+    }
 }
 
