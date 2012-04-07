@@ -189,5 +189,25 @@ namespace Nyx
 
         va_end(vl);
     }
+
+
+    /**
+     *
+     */
+    bool CAString::Find(const char* substr, size_t* pIndex) const
+    {
+    	bool		res = false;
+
+    	const char*		pPos = strstr(m_Buffer.pConstChar, substr);
+    	if ( pPos )
+    	{
+    		res = true;
+
+    		if ( pIndex )
+    			*pIndex = pPos - m_Buffer.pConstChar;
+    	}
+
+    	return res;
+    }
 }
 

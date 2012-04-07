@@ -20,6 +20,11 @@ namespace NyxLinux
 	m_Module(module),
 	m_pHandle(NULL)
 	{
+		if ( !m_Module.Find("/", NULL) )
+		{
+			m_Module = "./";
+			m_Module += module;
+		}
 	}
 
 

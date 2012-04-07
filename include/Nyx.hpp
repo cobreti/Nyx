@@ -4,6 +4,7 @@
 #include <NyxModule.hpp>
 #include <NyxTraces.hpp>
 #include <NyxTraceCompositor.hpp>
+#include <NyxConsoleTraceOutput.hpp>
 #include <NyxBodyBlock.hpp>
 #include <NyxAssert.hpp>
 #include <NyxThread.hpp>
@@ -12,7 +13,6 @@
 #include <NyxMutex.hpp>
 #include <NyxLock.hpp>
 #include "NyxDelegateBase.hpp"
-//#include <NyxMTInterfaceAccess.hpp>
 #include <NyxBuffer.hpp>
 #include <NyxAlgorithm.hpp>
 #include <NyxAString.hpp>
@@ -23,6 +23,7 @@
 #include <NyxMemoryPool.hpp>
 #include <NyxStdAllocators.hpp>
 #include <NyxTime.hpp>
+#include <NyxExternalModule.hpp>
 
 
 #endif // _NYX_HPP_
