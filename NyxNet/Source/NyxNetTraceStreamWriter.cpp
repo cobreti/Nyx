@@ -131,11 +131,30 @@ namespace NyxNet
                 SectionsCountWriter.Write(&SectionsCount, sizeof(SectionsCount));
             }
             
-            // write version
+            // write flags
             {
                 CNxSectionStreamWriter		FlagsWriter(SWriter, sizeof(flags));
                 
                 FlagsWriter.Write(&flags, sizeof(flags));
+            }
+            
+            // write local time reference
+            {
+                //Nyx::UInt32                 value =     ((header.TimeReference().Time().Hours()) << 16) | 
+                //                                        ((header.TimeReference().Time().Minutes()) << 8) |
+                //                                        (header.TimeReference().Time().Seconds());
+
+                Nyx::NyxSize                time_length = header.TimeReference().TimeString().Length() + 1;
+
+                CNxSectionStreamWriter      LocalTimeWriter(SWriter, time_length);
+                LocalTimeWriter.Write((void*)header.TimeReference().TimeString().c_str(), time_length);
+            }
+
+            // write tick count reference
+            {
+                CNxSectionStreamWriter      RefTickCountWriter(SWriter, header.TimeReference().TickCount().Length()+1);
+
+                RefTickCountWriter.Write( (void*)header.TimeReference().TickCount().c_str(), (NyxNet::NxDataSize)header.TimeReference().TickCount().Length()+1);
             }
             
             // write thread id
