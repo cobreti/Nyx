@@ -2,6 +2,7 @@
 #define _NYXTRACEFEEDS_HPP_
 
 #include <Windows.h>
+#include <mmsystem.h>
 
 #include "NyxTraceFeed.hpp"
 #include "NyxTraceStream.hpp"
