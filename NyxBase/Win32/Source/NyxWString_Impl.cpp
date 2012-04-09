@@ -18,6 +18,15 @@ namespace Nyx
 		m_Flags.fMutable = 1;
 	}
 	
+
+    /**
+     *
+     */
+    CWString::CWString(size_t size) :
+    CMFString(size, eSF_Wide)
+    {
+    }
+
 	
 	/**
 	 *
@@ -259,6 +268,15 @@ namespace Nyx
         StringCbVPrintfW( m_Buffer.pWChar, Size(), wszFormat, vl );
         
         va_end(vl);
+    }
+
+    
+    /**
+     *
+     */
+    void CWString::Format(const wchar_t* wszFormat, va_list args_list)
+    {
+        StringCbVPrintfW( m_Buffer.pWChar, Size(), wszFormat, args_list );
     }
 #pragma managed(pop)
 }

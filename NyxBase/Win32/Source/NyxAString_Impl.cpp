@@ -197,6 +197,15 @@ namespace Nyx
         
         va_end(vl);
     }
+
+
+    /**
+     *
+     */
+    void CAString::Format(const char* szFormat, va_list args_list)
+    {
+        StringCbVPrintfA( m_Buffer.pChar, Size(), szFormat, args_list );
+    }
 #pragma managed(pop)
 
     bool CAString::Find(const char* substr, size_t* pIndex) const
