@@ -6,11 +6,11 @@ endif
 ifeq ($(Config),Release)
 	OBJDIR := Release
 	LIBDIR := ../../Lib/Linux/Release
-	CONFIG_CFLAGS := -O3 -fexceptions
+	CONFIG_CFLAGS := -O3
 else
 	OBJDIR := Debug
 	LIBDIR := ../../Lib/Linux/Debug
-	CONFIG_CFLAGS := -O0 -fexceptions -g
+	CONFIG_CFLAGS := -O0 -g
 endif
 
 
@@ -46,10 +46,10 @@ OBJS := $(OBJDIR)/NyxNetModule_Impl.o \
 
 
 $(OBJDIR)/%.o: ./Source/%.cpp
-	g++ -o $@ $(CXX_CFLAGS) -c $^
+	g++ -fPIC -o $@ $(CXX_CFLAGS) -c $^
 
 $(OBJDIR)/%.o: ../Source/%.cpp
-	g++ -o $@ $(CXX_CFLAGS) -c $^
+	g++ -fPIC -o $@ $(CXX_CFLAGS) -c $^
 
 $(LIBDIR)/libNyxNet.a: $(OBJS)	
 	ar -r $(LIBDIR)/libNyxNet.a $(OBJS)

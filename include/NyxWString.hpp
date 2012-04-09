@@ -15,6 +15,7 @@ namespace Nyx
 	{
 	public:
 		CWString();
+		explicit CWString(size_t size);
 		explicit CWString(const wchar_t* wszValue);
 		explicit CWString(const CMFString& rString);
 		
@@ -44,6 +45,7 @@ namespace Nyx
         CMFTmpString GetSubString( CRange range );
         
         void Format( const wchar_t* wszFormat, ... );
+        void Format( const wchar_t* wszFormat, va_list args_list );
 	};
 }
 

@@ -40,6 +40,7 @@ namespace Nyx
 		char* BufferPtr()	{ return m_Buffer.pChar; }
 
         void Format( const char* szFormat, ... );
+        void Format( const char* szFormat, va_list args_list );
 
         bool Find(const char* substr, size_t* pIndex) const;
     };

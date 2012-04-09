@@ -69,7 +69,8 @@ m_bUseAsDefault(bUseAsDefault)
  */
 NyxLinux::CTraceCompositor_Impl::~CTraceCompositor_Impl()
 {
-	Nyx::CModule::GetDefault()->Traces().RemoveThreadDefault();
+	if ( UsedAsDefault() )
+		Nyx::CModule::GetDefault()->Traces().RemoveThreadDefault();
 	
 	delete m_pCompositorBuffer;
 }

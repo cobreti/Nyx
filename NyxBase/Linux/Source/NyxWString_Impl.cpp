@@ -3,8 +3,6 @@
 #include "NyxAString.hpp"
 #include "NyxAssert.hpp"
 
-#include <stdarg.h>
-
 namespace Nyx
 {
 	/**
@@ -19,6 +17,16 @@ namespace Nyx
 	}
 	
 	
+	/**
+	 *
+	 */
+	CWString::CWString(size_t size) :
+	CMFString(size, eSF_Wide)
+	{
+
+	}
+
+
 	/**
 	 *
 	 */
@@ -258,6 +266,15 @@ namespace Nyx
         vswprintf( m_Buffer.pWChar, Size(), wszFormat, vl );
         
         va_end(vl);
+    }
+
+
+    /**
+     *
+     */
+    void CWString::Format( const wchar_t* wszFormat, va_list args_list )
+    {
+    	vswprintf( m_Buffer.pWChar, BufferLen(), wszFormat, args_list );
     }
 }
 

@@ -5,7 +5,6 @@
 
 #include <string.h>
 #include <stdio.h>
-#include <stdarg.h>
 
 namespace Nyx
 {
@@ -20,6 +19,16 @@ namespace Nyx
 		m_Flags.fMutable = 1;
 	}
 	
+
+	/**
+	 *
+	 */
+	CAString::CAString(size_t size) :
+	CMFString(size, eSF_Ansi)
+	{
+
+	}
+
 	/**
 	 *
 	 */
@@ -188,6 +197,15 @@ namespace Nyx
         vsprintf( m_Buffer.pChar, szFormat, vl );
 
         va_end(vl);
+    }
+
+
+    /**
+     *
+     */
+    void CAString::Format(const char* szFormat, va_list args_list)
+    {
+    	vsnprintf( m_Buffer.pChar, BufferLen(), szFormat, args_list);
     }
 
 

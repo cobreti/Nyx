@@ -63,10 +63,10 @@ OBJS := $(OBJDIR)/NyxMFString_Impl.o \
 
 
 $(OBJDIR)/%.o: ./Source/%.cpp
-	g++ -o $@ $(CXX_CFLAGS) -c $^
+	g++ -fPIC -o $@ $(CXX_CFLAGS) -c $^
 
 $(OBJDIR)/%.o: ../Source/%.cpp
-	g++ -o $@ $(CXX_CFLAGS) -c $^
+	g++ -fPIC -o $@ $(CXX_CFLAGS) -c $^
 
 $(LIBDIR)/libNyxBase.a: $(OBJS)	
 	ar -r $(LIBDIR)/libNyxBase.a $(OBJS)
