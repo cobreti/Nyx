@@ -88,7 +88,13 @@ m_bUseAsDefault(bUseAsDefault)
  */
 NyxOSX::CTraceCompositor_Impl::~CTraceCompositor_Impl()
 {
-	Nyx::CModule::GetDefault()->Traces().RemoveThreadDefault();
+    if ( m_bUseAsDefault )
+    {
+        Nyx::CModule*       pModule = Nyx::CModule::GetDefault();
+        
+        if ( pModule )
+            pModule->Traces().RemoveThreadDefault();
+    }
 	
 	delete m_pCompositorBuffer;
 }

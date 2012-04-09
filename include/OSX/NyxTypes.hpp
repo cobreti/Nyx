@@ -34,9 +34,15 @@ namespace Nyx
 	typedef		unsigned long		MsgIdentifier;
 	
 	/**
-	 *	\brief		trace filters
+	 *	\brief	trace filters
 	 */
 	typedef		unsigned long		TraceFilter;
+    
+    
+    /**
+     * \brief   external module handle
+     */
+    typedef     void*               ExternalModuleHandle;
 
 
 	typedef enum

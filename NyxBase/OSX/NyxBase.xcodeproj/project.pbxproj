@@ -17,6 +17,9 @@
 		1654D15E118C71C300297437 /* NyxOpaqueDataBucket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1654D15D118C71C300297437 /* NyxOpaqueDataBucket.cpp */; };
 		1654D169118C75D100297437 /* NyxOpaqueList_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1654D168118C75D100297437 /* NyxOpaqueList_Impl.hpp */; };
 		1654D16B118C775F00297437 /* NyxOpaqueList_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1654D16A118C775F00297437 /* NyxOpaqueList_Impl.cpp */; };
+		165524F615332BD200869C17 /* NyxStringsFormat.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 165524F515332BD200869C17 /* NyxStringsFormat.hpp */; };
+		165524FD1533322500869C17 /* NyxExternalModule_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 165524FB1533322500869C17 /* NyxExternalModule_Impl.cpp */; };
+		165524FE1533322500869C17 /* NyxExternalModule_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 165524FC1533322500869C17 /* NyxExternalModule_Impl.hpp */; };
 		1665B6F511EA430D00D4B309 /* NyxTraceCompositorBuffer_Ansi.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1665B6F311EA430D00D4B309 /* NyxTraceCompositorBuffer_Ansi.cpp */; };
 		1665B6F611EA430D00D4B309 /* NyxTraceCompositorBuffer_WideChar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1665B6F411EA430D00D4B309 /* NyxTraceCompositorBuffer_WideChar.cpp */; };
 		16685D4E1359F243007AF4E1 /* NyxAString.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16685D4D1359F243007AF4E1 /* NyxAString.hpp */; };
@@ -147,6 +150,9 @@
 		1654D15D118C71C300297437 /* NyxOpaqueDataBucket.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxOpaqueDataBucket.cpp; path = ../Source/NyxOpaqueDataBucket.cpp; sourceTree = SOURCE_ROOT; };
 		1654D168118C75D100297437 /* NyxOpaqueList_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxOpaqueList_Impl.hpp; path = ../Source/NyxOpaqueList_Impl.hpp; sourceTree = SOURCE_ROOT; };
 		1654D16A118C775F00297437 /* NyxOpaqueList_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxOpaqueList_Impl.cpp; path = ../Source/NyxOpaqueList_Impl.cpp; sourceTree = SOURCE_ROOT; };
+		165524F515332BD200869C17 /* NyxStringsFormat.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxStringsFormat.hpp; path = ../../include/NyxStringsFormat.hpp; sourceTree = "<group>"; };
+		165524FB1533322500869C17 /* NyxExternalModule_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxExternalModule_Impl.cpp; path = Source/NyxExternalModule_Impl.cpp; sourceTree = "<group>"; };
+		165524FC1533322500869C17 /* NyxExternalModule_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxExternalModule_Impl.hpp; path = Source/NyxExternalModule_Impl.hpp; sourceTree = "<group>"; };
 		1665B6F311EA430D00D4B309 /* NyxTraceCompositorBuffer_Ansi.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxTraceCompositorBuffer_Ansi.cpp; path = ../Source/NyxTraceCompositorBuffer_Ansi.cpp; sourceTree = SOURCE_ROOT; };
 		1665B6F411EA430D00D4B309 /* NyxTraceCompositorBuffer_WideChar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxTraceCompositorBuffer_WideChar.cpp; path = ../Source/NyxTraceCompositorBuffer_WideChar.cpp; sourceTree = SOURCE_ROOT; };
 		16685D4D1359F243007AF4E1 /* NyxAString.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxAString.hpp; path = ../../include/NyxAString.hpp; sourceTree = "<group>"; };
@@ -361,6 +367,8 @@
 		165A8E290FE5A22000E3C4F4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				165524FB1533322500869C17 /* NyxExternalModule_Impl.cpp */,
+				165524FC1533322500869C17 /* NyxExternalModule_Impl.hpp */,
 				16CA3D8A1403270B00FD1E43 /* NyxModule_Impl.mm */,
 				168C57FD10D5482C001FB07F /* NyxModule_Impl.hpp */,
 				168C580010D54834001FB07F /* NyxTraceModule_Impl.cpp */,
@@ -528,6 +536,7 @@
 		16E814D713CE7B7F00C61202 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
+				165524F515332BD200869C17 /* NyxStringsFormat.hpp */,
 				1676F90A1359CF5400705042 /* NyxFixedString.hpp */,
 				16685D4D1359F243007AF4E1 /* NyxAString.hpp */,
 				16685D4F1359F24C007AF4E1 /* NyxWString.hpp */,
@@ -762,6 +771,8 @@
 				160AF55314F1B216000D0B03 /* NyxTime.hpp in Headers */,
 				160AF55614F1B46C000D0B03 /* NyxLocalTime.hpp in Headers */,
 				1699F009151E73150089FF02 /* NyxTraceTimeReference.hpp in Headers */,
+				165524F615332BD200869C17 /* NyxStringsFormat.hpp in Headers */,
+				165524FE1533322500869C17 /* NyxExternalModule_Impl.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -849,6 +860,7 @@
 				160AF55814F1C67C000D0B03 /* NyxLocalTime_Impl.cpp in Sources */,
 				1699F005151E270D0089FF02 /* NyxFixedString_Impl.cpp in Sources */,
 				1699F007151E724D0089FF02 /* NyxTraceTimeReference.cpp in Sources */,
+				165524FD1533322500869C17 /* NyxExternalModule_Impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,6 +888,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OBJROOT = build;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
 				SDKROOT = macosx;
 				SYMROOT = build;
 			};
@@ -911,6 +927,10 @@
 					../../include/OSX,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release_32;
@@ -975,6 +995,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OBJROOT = build;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
 				SDKROOT = macosx;
 				SYMROOT = build;
 			};
@@ -995,6 +1019,10 @@
 					../../include/OSX,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release_Universal_32_64;

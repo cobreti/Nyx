@@ -340,6 +340,10 @@
 					../../include/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug_Universal_32_64;
@@ -375,6 +379,10 @@
 					../../include/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release_Universal_32_64;
@@ -438,6 +446,10 @@
 					../../include/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug_32;
@@ -458,6 +470,10 @@
 					../../include/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release_32;

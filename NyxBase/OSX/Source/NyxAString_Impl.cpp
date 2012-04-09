@@ -16,6 +16,16 @@ namespace Nyx
 		m_Flags.fMutable = 1;
 	}
 	
+    
+    /**
+     *
+     */
+    CAString::CAString(size_t size) :
+    CMFString(size, eSF_Ansi)
+    {
+    }
+    
+    
 	/**
 	 *
 	 */
@@ -180,9 +190,18 @@ namespace Nyx
         
         va_start(vl, szFormat);
         
-        vsprintf( m_Buffer.pChar, szFormat, vl );
+        vsnprintf( m_Buffer.pChar, Size(), szFormat, vl );
         
         va_end(vl);
+    }
+    
+    
+    /**
+     *
+     */
+    void CAString::Format(const char* szFormat, va_list args_list)
+    {
+        vsnprintf( m_Buffer.pChar, Size(), szFormat, args_list );
     }
     
 }
