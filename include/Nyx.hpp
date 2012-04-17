@@ -24,6 +24,7 @@
 #include <NyxStdAllocators.hpp>
 #include <NyxTime.hpp>
 #include <NyxExternalModule.hpp>
+#include <NyxInterfaceRef.hpp>
 
 
 #endif // _NYX_HPP_
