@@ -5,6 +5,8 @@
 #include "NyxMsgHandlers.hpp"
 #include "NyxMsgBucket.hpp"
 
+DECLARE_NYXOBJECTREF(CActiveObject)
+
 namespace Nyx
 {
 	class CMsgHandlers;

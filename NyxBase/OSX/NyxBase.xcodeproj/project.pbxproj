@@ -442,7 +442,6 @@
 				16E814D513CE7B5600C61202 /* File IO */,
 				16DD5B021391DF4E00714FF5 /* OSX */,
 				1676F8FF1359CF5400705042 /* Nyx.hpp */,
-				1676F9001359CF5400705042 /* NyxActiveObject.hpp */,
 				1676F9011359CF5400705042 /* NyxAlgorithm.hpp */,
 				1676F9031359CF5400705042 /* NyxBodyBlock.hpp */,
 				1676F9061359CF5400705042 /* NyxDefs.hpp */,
@@ -586,6 +585,7 @@
 		16E814DA13CE7C0500C61202 /* messaging */ = {
 			isa = PBXGroup;
 			children = (
+				1676F9001359CF5400705042 /* NyxActiveObject.hpp */,
 				1676F90D1359CF5400705042 /* NyxMsg.hpp */,
 				1676F90E1359CF5400705042 /* NyxMsgHandler.hpp */,
 				1676F90F1359CF5400705042 /* NyxMsgHandlers.hpp */,
