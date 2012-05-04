@@ -136,11 +136,9 @@
 		16E9833D12D8D41B00F48942 /* NyxMFString_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E9833B12D8D41B00F48942 /* NyxMFString_Impl.cpp */; };
 		16E9869712D9493100F48942 /* NyxWString_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16E9869612D9493100F48942 /* NyxWString_Impl.cpp */; };
 		16F65A9D12E229110023255C /* NyxAString_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16F65A9C12E229110023255C /* NyxAString_Impl.cpp */; };
-		D2AAC0700554677100DB518D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FB77AAFE841565C02AAC07 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08FB77AAFE841565C02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		1605928C11557E89005867D2 /* NyxThreadId_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxThreadId_Impl.hpp; path = Source/NyxThreadId_Impl.hpp; sourceTree = "<group>"; };
 		1605928E115582D5005867D2 /* NyxThreadId_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxThreadId_Impl.cpp; path = Source/NyxThreadId_Impl.cpp; sourceTree = "<group>"; };
 		160AF54914E89294000D0B03 /* NyxTime_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxTime_Impl.cpp; path = Source/NyxTime_Impl.cpp; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2AAC0700554677100DB518D /* Carbon.framework in Frameworks */,
 				168A555C0EB3AB4D006BAD6F /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				168A555B0EB3AB4D006BAD6F /* CoreServices.framework */,
-				08FB77AAFE841565C02AAC07 /* Carbon.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -871,6 +867,97 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		16335B4915543052002955C9 /* Debug_64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "../../Lib/OSX/$(CONFIGURATION)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					../../include/OSX,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OBJROOT = build;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
+				SDKROOT = macosx;
+				SYMROOT = build;
+			};
+			name = Debug_64;
+		};
+		16335B4A15543052002955C9 /* Debug_64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NyxBase_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = NyxBase;
+				ZERO_LINK = YES;
+			};
+			name = Debug_64;
+		};
+		16335C2B155452DC002955C9 /* Release_64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "../../Lib/OSX/$(CONFIGURATION)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = _DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					../../include/OSX,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				OBJROOT = build;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
+				SDKROOT = macosx;
+				SYMROOT = build;
+			};
+			name = Release_64;
+		};
+		16335C2C155452DC002955C9 /* Release_64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = NyxBase_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = NyxBase;
+				ZERO_LINK = YES;
+			};
+			name = Release_64;
+		};
 		165CF268114D5DDE007430AE /* Debug_32 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1038,6 +1125,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB920208733DBB0010E9CD /* Debug_Universal_32_64 */,
+				16335C2C155452DC002955C9 /* Release_64 */,
+				16335B4A15543052002955C9 /* Debug_64 */,
 				165CF269114D5DDE007430AE /* Debug_32 */,
 				1DEB920308733DBB0010E9CD /* Release_Universal_32_64 */,
 				165CF26B114D5E2B007430AE /* Release_32 */,
@@ -1049,6 +1138,8 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB920608733DBB0010E9CD /* Debug_Universal_32_64 */,
+				16335C2B155452DC002955C9 /* Release_64 */,
+				16335B4915543052002955C9 /* Debug_64 */,
 				165CF268114D5DDE007430AE /* Debug_32 */,
 				1DEB920708733DBB0010E9CD /* Release_Universal_32_64 */,
 				165CF26A114D5E2B007430AE /* Release_32 */,

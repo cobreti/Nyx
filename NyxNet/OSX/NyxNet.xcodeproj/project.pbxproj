@@ -320,6 +320,85 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		16335B4B15543122002955C9 /* Debug_64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "../../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				CONFIGURATION_TEMP_DIR = "$(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					../../include/OSX,
+					../../include/NyxNet,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
+				SDKROOT = macosx;
+			};
+			name = Debug_64;
+		};
+		16335B4C15543122002955C9 /* Debug_64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DEBUGGING_SYMBOLS = full;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = NyxNet;
+			};
+			name = Debug_64;
+		};
+		16335C2F15545490002955C9 /* Release_64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CONFIGURATION_BUILD_DIR = "../../Lib/OSX/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					../../include,
+					../../include/OSX,
+					../../include/NyxNet,
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-fPIC",
+				);
+				SDKROOT = macosx;
+			};
+			name = Release_64;
+		};
+		16335C3015545490002955C9 /* Release_64 */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_DEBUGGING_SYMBOLS = default;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = NyxNet;
+			};
+			name = Release_64;
+		};
 		165CF293114D660D007430AE /* Debug_Universal_32_64 */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -486,7 +565,9 @@
 			buildConfigurations = (
 				1DEB91EC08733DB70010E9CD /* Debug_32 */,
 				165CF294114D660D007430AE /* Debug_Universal_32_64 */,
+				16335B4C15543122002955C9 /* Debug_64 */,
 				1DEB91ED08733DB70010E9CD /* Release_32 */,
+				16335C3015545490002955C9 /* Release_64 */,
 				165CF296114D6617007430AE /* Release_Universal_32_64 */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -497,7 +578,9 @@
 			buildConfigurations = (
 				1DEB91F008733DB70010E9CD /* Debug_32 */,
 				165CF293114D660D007430AE /* Debug_Universal_32_64 */,
+				16335B4B15543122002955C9 /* Debug_64 */,
 				1DEB91F108733DB70010E9CD /* Release_32 */,
+				16335C2F15545490002955C9 /* Release_64 */,
 				165CF295114D6617007430AE /* Release_Universal_32_64 */,
 			);
 			defaultConfigurationIsVisible = 0;
