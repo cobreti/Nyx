@@ -36,7 +36,8 @@ namespace NyxNetLinux
 		NyxNet::TcpIpPort			m_Port;
 		NyxNet::ISocketListener*	m_pListener;
 		bool						m_bValid;
-	};
+        timeval						m_Timeout;
+    };
 }
 
 

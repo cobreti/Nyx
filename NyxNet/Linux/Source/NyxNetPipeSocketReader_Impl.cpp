@@ -141,7 +141,10 @@ Nyx::NyxResult NyxNetLinux::CPipeSocketReader_Impl::Read(	void* pBuffer,
 
 		do
 		{
-			FD_ZERO(&fdset);
+            m_Timeout.tv_sec = 10;
+            m_Timeout.tv_usec = 0;
+
+            FD_ZERO(&fdset);
 			FD_SET(m_PipeId, &fdset);
 			BytesRead = 0;
 			
@@ -151,7 +154,8 @@ Nyx::NyxResult NyxNetLinux::CPipeSocketReader_Impl::Read(	void* pBuffer,
 				void*	pWritePos = m_Buffer.getWritePos();
 				//Nyx::CTraceStream(0x0).Write(L"Buffer FreeSize: %i bytes", m_Buffer.FreeSize());
 				BytesRead = read(m_PipeId, pWritePos, m_Buffer.FreeSize());
-				m_Buffer.addDataSize(BytesRead);
+                if ( BytesRead > 0 )
+                    m_Buffer.addDataSize(BytesRead);
 				//Nyx::CTraceStream(0x0).Write(L"Read %i bytes from pipe", BytesRead);
 			}
 		}

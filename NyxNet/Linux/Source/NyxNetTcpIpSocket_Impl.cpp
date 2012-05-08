@@ -4,6 +4,7 @@
 
 #include <sys/socket.h>
 #include <sys/types.h> 
+#include <sys/fcntl.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
@@ -114,17 +115,35 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Accept( NyxNet::CTcpIpSocketRef& 
 	sockaddr_in			client_addr;
 	int					AcceptSocket;
 	socklen_t			client_addr_len;
-	
-	if ( m_Socket > 0 )
+    fd_set				fdset;
+    int					nRet = 0;
+
+//    int flags;
+//    flags = fcntl(m_Socket,F_GETFL,0);
+//    fcntl(m_Socket, F_SETFL, flags | O_NONBLOCK);
+
+    NewSocket = NULL;
+
+    while ( m_Socket > 0 && !NewSocket.Valid() )
 	{
-		client_addr_len = sizeof(client_addr);
-		AcceptSocket = accept(m_Socket, (sockaddr*)&client_addr, &client_addr_len);
-		
-		if ( AcceptSocket > 0 )
-		{
-			NewSocket = new NyxNetLinux::CTcpIpSocket_Impl(AcceptSocket);
-			res = Nyx::kNyxRes_Success;
-		}
+        m_Timeout.tv_sec = 10;
+        m_Timeout.tv_usec = 0;
+
+        FD_ZERO(&fdset);
+        FD_SET(m_Socket, &fdset);
+
+        nRet = select(m_Socket+1, &fdset, NULL, NULL, &m_Timeout);
+        if ( nRet > 0 )
+        {
+            client_addr_len = sizeof(client_addr);
+            AcceptSocket = accept(m_Socket, (sockaddr*)&client_addr, &client_addr_len);
+
+            if ( AcceptSocket > 0 )
+            {
+                NewSocket = new NyxNetLinux::CTcpIpSocket_Impl(AcceptSocket);
+                res = Nyx::kNyxRes_Success;
+            }
+        }
 	}
 	
 	m_bValid = Nyx::Succeeded(res);
@@ -170,7 +189,7 @@ void NyxNetLinux::CTcpIpSocket_Impl::Disconnect()
 {
 	if ( m_Socket > 0 )
 	{
-		close(m_Socket);
+        close(m_Socket);
 		m_Socket = 0;
 		
 		if ( m_pListener != NULL )
@@ -225,14 +244,31 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::N
 	}
 
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
-	ssize_t		size;
-	
-	size = ::read(m_Socket, pBuffer, DataSize);
-	if ( size > 0 )
-	{
-		ReadSize = size;
-		res = Nyx::kNyxRes_Success;
-	}
+    ssize_t             size;
+    fd_set				fdset;
+    int					nRet = 0;
+
+    do
+    {
+        m_Timeout.tv_sec = 10;
+        m_Timeout.tv_usec = 0;
+
+        FD_ZERO(&fdset);
+        FD_SET(m_Socket, &fdset);
+
+        nRet = select(m_Socket+1, &fdset, NULL, NULL, &m_Timeout);
+
+        if ( nRet > 0 )
+        {
+            size = ::read(m_Socket, pBuffer, DataSize);
+            if ( size > 0 )
+            {
+                ReadSize = size;
+                res = Nyx::kNyxRes_Success;
+            }
+        }
+    }
+    while ( Nyx::Failed(res) );
 	
 	return res;
 }
