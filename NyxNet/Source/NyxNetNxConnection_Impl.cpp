@@ -86,9 +86,9 @@ void NyxNet::CNxConnection_Impl::SetConnectionHandler( NyxNet::INxConnectionHand
 Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& datatype )
 {
 	Nyx::NyxResult		    res = Nyx::kNyxRes_Success;
-	NyxNet::NxDataSize		ReadSize;
+	Nyx::NyxSize			ReadSize;
     NyxNet::NxDataSize      DataSize = 0;
-    NyxNet::NxDataSize      RemainingSizeToRead = 0;
+    Nyx::NyxSize      		RemainingSizeToRead = 0;
 
 	m_refReadMutex->Lock();
 
@@ -96,7 +96,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
 	{
         DataSize = 0;
         datatype = NyxNet::eNxDT_HandShake;
-        res = m_pStreamRW->Read( &DataSize, sizeof(DataSize), ReadSize );
+        res = m_pStreamRW->Read( &DataSize, sizeof(NyxNet::NxDataSize), ReadSize );
         if ( Nyx::Succeeded(res) && DataSize > 0 && ReadSize > 0 )
         {
             m_ReadBuffer.Clear();
@@ -119,7 +119,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
 		    if ( Nyx::Succeeded(res) )
 		    {
 			    ++ m_ReceivedData;
-                m_ReadBuffer.ReadData( &datatype, sizeof(datatype) );
+                m_ReadBuffer.ReadData( &datatype, sizeof(NyxNet::NxDataType) );
 
 			    if ( datatype == NyxNet::eNxDT_HandShake )
 			    {
@@ -147,8 +147,8 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginReadSection( NyxNet::NxDataSize&
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
 	Nyx::NyxSize		ReadSize;
 
-    ReadSize = m_ReadBuffer.ReadData( &size, sizeof(size) );
-    if ( ReadSize == sizeof(size) )
+    ReadSize = m_ReadBuffer.ReadData( &size, sizeof(NyxNet::NxDataSize) );
+    if ( ReadSize == sizeof(NyxNet::NxDataSize) )
     {
 		++ m_ReceivedData;
         res = Nyx::kNyxRes_Success;
@@ -207,7 +207,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWrite( const NyxNet::NxDataType&
 	m_refWriteMutex->Lock();
 
 	m_WriteBuffer.Clear();
-	m_WriteBuffer.WriteDataResize( &datatype, sizeof(datatype), m_kBufferIncrement );
+    m_WriteBuffer.WriteDataResize( &datatype, sizeof(NyxNet::NxDataType), m_kBufferIncrement );
 
 	if ( Nyx::Failed(res) )
 		m_refWriteMutex->Unlock();			
@@ -219,11 +219,11 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWrite( const NyxNet::NxDataType&
 /**
  *
  */
-Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWriteSection( const NyxNet::NxDataType& size )
+Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginWriteSection( const NyxNet::NxDataSize& size )
 {
 	Nyx::NyxResult				res = Nyx::kNyxRes_Success;
 
-	m_WriteBuffer.WriteDataResize( &size, sizeof(size), m_kBufferIncrement );
+    m_WriteBuffer.WriteDataResize( &size, sizeof(NyxNet::NxDataSize), m_kBufferIncrement );
 
 	if ( Nyx::Failed(res) )
 		m_refWriteMutex->Unlock();			
@@ -259,11 +259,11 @@ void NyxNet::CNxConnection_Impl::EndWriteSection()
  */
 void NyxNet::CNxConnection_Impl::EndWrite()
 {
-    Nyx::NyxSize        DataSize = m_WriteBuffer.DataSize();
+    NyxNet::NxDataSize          DataSize = m_WriteBuffer.DataSize();
 
 	Nyx::NyxSize				WrittenSize(0);
 
-    m_pStreamRW->Write( &DataSize, sizeof(DataSize), WrittenSize );
+    m_pStreamRW->Write( &DataSize, sizeof(NyxNet::NxDataSize), WrittenSize );
 	m_pStreamRW->Write( m_WriteBuffer.Buffer(), m_WriteBuffer.DataSize(), WrittenSize );
 
 	m_refWriteMutex->Unlock();
@@ -437,13 +437,13 @@ void NyxNet::CNxConnection_Impl::ClientCheckHandshakeThreadProc()
 			{
 				Nyx::TLock<Nyx::CMutex>		WriteLock(m_refWriteMutex, true);
 				NyxNet::NxDataType			DataType = NyxNet::eNxDT_HandShake;
-                Nyx::NyxSize                DataSize = sizeof(DataType);
+                NyxNet::NxDataSize          DataSize = sizeof(NyxNet::NxDataType);
 				Nyx::NyxSize				SizeWritten(0);
 
                 NYXTRACE(0x0, L"DataSize = " << DataSize << L" | DataType = " << Nyx::CTF_Hex(DataType) );
 
-                m_pStreamRW->Write( &DataSize, sizeof(DataSize), SizeWritten );
-				m_pStreamRW->Write( &DataType, sizeof(DataType), SizeWritten );
+                m_pStreamRW->Write( &DataSize, sizeof(NyxNet::NxDataSize), SizeWritten );
+                m_pStreamRW->Write( &DataType, sizeof(NyxNet::NxDataType), SizeWritten );
 			}
 
 		}
