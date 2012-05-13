@@ -649,10 +649,6 @@
 			RelativePath="..\..\include\NyxNet\NyxNetTraceStreamWriter.hpp"
 			>
 		</File>
-		<File
-			RelativePath="..\include\NyxNetTypes.hpp"
-			>
-		</File>
 	</Files>
 	<Globals>
 	</Globals>

@@ -1,5 +1,4 @@
 #include "NyxNetNxConnection_Impl.hpp"
-//#include "NyxBodyBlock.hpp"
 #include "NyxNetTypes.hpp"
 #include "NyxStreamRW.hpp"
 #include "NyxNetConnection.hpp"
@@ -86,10 +85,10 @@ void NyxNet::CNxConnection_Impl::SetConnectionHandler( NyxNet::INxConnectionHand
  */
 Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& datatype )
 {
-	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
-	Nyx::NyxSize		ReadSize;
-    Nyx::NyxSize        DataSize = 0;
-    Nyx::NyxSize        RemainingSizeToRead = 0;
+	Nyx::NyxResult		    res = Nyx::kNyxRes_Success;
+	NyxNet::NxDataSize		ReadSize;
+    NyxNet::NxDataSize      DataSize = 0;
+    NyxNet::NxDataSize      RemainingSizeToRead = 0;
 
 	m_refReadMutex->Lock();
 
