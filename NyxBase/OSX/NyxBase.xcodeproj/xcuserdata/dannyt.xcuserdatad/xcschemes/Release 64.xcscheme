@@ -25,7 +25,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.GDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.GDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Release 64">
+      buildConfiguration = "Release_64">
       <Testables>
       </Testables>
    </TestAction>
@@ -36,7 +36,7 @@
       displayScale = "1.00"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release 64">
+      buildConfiguration = "Release_64">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -46,13 +46,13 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release 64">
+      buildConfiguration = "Release_64">
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Release 64">
+      buildConfiguration = "Release_64">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release 64"
+      buildConfiguration = "Release_64"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
