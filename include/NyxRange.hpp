@@ -25,7 +25,7 @@ namespace Nyx
         {
         }
         
-        CRange(const size_t& start, const size_t& length) :
+        CRange(const long& start, const long& length) :
             m_Start(start),
             m_Length(length)
         {
@@ -38,15 +38,17 @@ namespace Nyx
             return *this;
         }
         
-        const size_t&  Start() const               { return m_Start; }
-        size_t&        Start()                     { return m_Start; }
+        const long&     Start() const               { return m_Start; }
+        long&           Start()                     { return m_Start; }
         
-        const size_t&  Length() const              { return m_Length; }
-        size_t&        Length()                    { return m_Length; }
+        const long&     Length() const              { return m_Length; }
+        long&           Length()                    { return m_Length; }
+
+        bool            IsEmpty() const             { return m_Length < 1; }
         
     protected:
-        size_t     m_Start;
-        size_t     m_Length;
+        long     m_Start;
+        long     m_Length;
     };
     
     
