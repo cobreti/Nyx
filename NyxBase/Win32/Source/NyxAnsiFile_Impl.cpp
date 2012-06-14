@@ -184,7 +184,7 @@ namespace NyxWin32
                 
         if ( index > 0 )
         {
-            data.Reserve(index);
+            data.Reserve(index+1);
             char* pDataPtr = data.BufferPtr();
             
             m_Buffer.ReadData(pDataPtr, index);

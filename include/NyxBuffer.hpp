@@ -180,7 +180,7 @@ namespace Nyx
 		void addDataSize( const Nyx::NyxSize& size ) 
 		{ 
 			m_DataSize += size;
-			m_pNextWritePos += m_DataSize;
+			m_pNextWritePos += size;
 		}
 		
 		/**
