@@ -26,7 +26,9 @@ namespace NyxNet
         
         virtual void Write( const Nyx::CTraceHeader& header, const wchar_t* wszText );
         virtual void Write( const Nyx::CTraceHeader& header, const char* szText );
-                
+        virtual void Write( Nyx::CAString& name, const Nyx::CTraceHeader& header, const wchar_t* wszText );
+        virtual void Write( Nyx::CAString& name, const Nyx::CTraceHeader& header, const char* szText );
+                        
     protected:
         
         CNxConnectionRef                m_refConnection;

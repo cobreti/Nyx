@@ -1,0 +1,55 @@
+#include "NyxNetTcpIpTraceOutput_Impl.hpp"
+#include "NyxNetNxStreamRW.hpp"
+
+
+NyxNet::CTcpIpTraceOutputRef NyxNet::CTcpIpTraceOutput::Alloc(const char* szName, const char* addr)
+{
+	return new NyxNet::CTcpIpTraceOutput_Impl(szName, addr);
+}
+
+
+/**
+ *
+ */
+NyxNet::CTcpIpTraceOutput_Impl::CTcpIpTraceOutput_Impl(const char* szName, const char* addr)
+{
+	m_Name = szName;
+    m_Addr = addr;
+    
+	m_refSocket = NyxNet::CTcpIpSocket::Alloc();
+	m_refSocket->Create(m_Addr.c_str(), 8500);
+    
+	m_refConnection = NyxNet::CNxConnection::Alloc();
+	m_refConnection->Open(m_refSocket);
+    
+    m_TraceStreamWriter.Init(m_refConnection);
+    
+	m_refSocket->Connect();
+}
+
+
+/**
+ *
+ */
+NyxNet::CTcpIpTraceOutput_Impl::~CTcpIpTraceOutput_Impl()
+{
+	m_refSocket->Disconnect();
+}
+
+
+/**
+ *
+ */
+void NyxNet::CTcpIpTraceOutput_Impl::Write( const Nyx::CTraceHeader& header, const wchar_t* wszText )
+{
+    m_TraceStreamWriter.Write(m_Name, header, wszText);
+}
+
+
+/**
+ *
+ */
+void NyxNet::CTcpIpTraceOutput_Impl::Write( const Nyx::CTraceHeader& header, const char* szText )
+{
+    m_TraceStreamWriter.Write(m_Name, header, szText);
+}
