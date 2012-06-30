@@ -41,6 +41,7 @@ OBJS := $(OBJDIR)/NyxNetModule_Impl.o \
 		$(OBJDIR)/NyxNetTcpIpSocket_Impl.o \
 		$(OBJDIR)/NyxNetNxConnection_Impl.o \
 		$(OBJDIR)/NyxNetPipeTraceOutput_Impl.o \
+		$(OBJDIR)/NyxNetTcpIpTraceOutput_Impl.o \
 		$(OBJDIR)/NyxNetTraceStreamWriter.o \
 		$(OBJDIR)/NyxNetTraceFlags.o
 
