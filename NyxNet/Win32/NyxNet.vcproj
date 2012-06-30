@@ -501,6 +501,14 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Source\NyxNetTcpIpTraceOutput_Impl.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Source\NyxNetTcpIpTraceOutput_Impl.hpp"
+				>
+			</File>
+			<File
 				RelativePath="..\Source\NyxNetTraceStreamWriter.cpp"
 				>
 			</File>
@@ -635,6 +643,10 @@
 		</File>
 		<File
 			RelativePath="..\include\NyxNetTcpIpServer.hpp"
+			>
+		</File>
+		<File
+			RelativePath="..\..\include\NyxNet\NyxNetTcpIpTraceOutput.hpp"
 			>
 		</File>
 		<File
