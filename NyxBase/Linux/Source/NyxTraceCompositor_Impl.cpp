@@ -39,7 +39,7 @@ m_bUseAsDefault(bUseAsDefault)
 
 	m_TraceHeader.ThreadId().Format("%08lX", (unsigned long)(void*)pthread_self());
 
-	m_refOutput = &s_DummyTraceOutput;
+    //m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = Nyx::CMutex::Alloc();
 	
 	if ( UsedAsDefault() )
@@ -56,7 +56,7 @@ m_bUseAsDefault(bUseAsDefault)
 {
 	m_TraceHeader.ThreadId().Format("%08lX", (unsigned long)(void*)pthread_self());
 	
-	m_refOutput = &s_DummyTraceOutput;
+    //m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = pMutex;
 	
 	if ( UsedAsDefault() )
