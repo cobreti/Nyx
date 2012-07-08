@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Implementation">
+      <UniqueIdentifier>{8b1edcc9-f299-4831-9b0d-2aa66807e7ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementation\Sockets">
+      <UniqueIdentifier>{52a48667-76cf-443d-a05d-cfe891ffdb60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementation\Nx">
+      <UniqueIdentifier>{a27c9257-3b60-41d1-b853-65c71c8b7e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementation\Tracing">
+      <UniqueIdentifier>{5ec4aadb-1730-4ec0-8503-68fc65ecfa65}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\NyxNetModule_Impl.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxNetPipeClientConn.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxNetPipeServer_Impl.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxNetTcpIpClientConn.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxNetTcpIpServer_Impl.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxNetTcpIpTraceOutput_Impl.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxNetTraceStreamWriter.cpp">
+      <Filter>Implementation</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxNetPipeSocketReader_Impl.cpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxNetPipeSocketWriter_Impl.cpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxNetTcpIpSocket_Impl.cpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxNetNxConnection_Impl.cpp">
+      <Filter>Implementation\Nx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxNetPipeTraceOutput_Impl.cpp">
+      <Filter>Implementation\Tracing</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxNetTraceFlags.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\NyxNetModule_Impl.hpp">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxNetPipeClientConn.hpp">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxNetPipeServer_Impl.hpp">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxNetTcpIpClientConn.hpp">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxNetTcpIpServer_Impl.hpp">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\NyxNetTcpIpTraceOutput_Impl.hpp">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxNetPipeSocketReader_Impl.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxNetPipeSocketWriter_Impl.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxNetTcpIpSocket_Impl.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\NyxNetNxConnection_Impl.hpp">
+      <Filter>Implementation\Nx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\NyxNetPipeTraceOutput_Impl.hpp">
+      <Filter>Implementation\Tracing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetPipeSocket.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetPipeSocketReader.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetPipeSocketWriter.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetSocket.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetSocketListener.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetTcpIpSocket.hpp">
+      <Filter>Implementation\Sockets</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetNxConnection.hpp">
+      <Filter>Implementation\Nx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetNxConnectionHandler.hpp">
+      <Filter>Implementation\Nx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetNxDataHeader.hpp">
+      <Filter>Implementation\Nx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNetPipeTraceOutput.hpp">
+      <Filter>Implementation\Tracing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\NyxNet.hpp" />
+    <ClInclude Include="..\include\NyxNetConnection.hpp" />
+    <ClInclude Include="..\include\NyxNetConnectionHandler.hpp" />
+    <ClInclude Include="..\include\NyxNetModule.hpp" />
+    <ClInclude Include="..\include\NyxNetPipeServer.hpp" />
+    <ClInclude Include="..\include\NyxNetServer.hpp" />
+    <ClInclude Include="..\include\NyxNetTcpIpServer.hpp" />
+    <ClInclude Include="..\..\include\NyxNet\NyxNetTcpIpTraceOutput.hpp" />
+    <ClInclude Include="..\..\include\NyxNet\NyxNetTraceFlags.hpp" />
+    <ClInclude Include="..\..\include\NyxNet\NyxNetTraceStreamWriter.hpp" />
+  </ItemGroup>
+</Project>

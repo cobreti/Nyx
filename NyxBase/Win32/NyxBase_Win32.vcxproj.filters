@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Public headers">
+      <UniqueIdentifier>{57ff273e-23cd-4a05-9ab0-42ee4c292a8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public headers\Win32">
+      <UniqueIdentifier>{da9f0b34-d29a-44dc-859c-da66f778c75d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private">
+      <UniqueIdentifier>{31b4d352-e673-4ab1-b516-93caf412168a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Data Structure">
+      <UniqueIdentifier>{33bbc459-c8ea-4a36-b321-e0c6c74b3720}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Modules">
+      <UniqueIdentifier>{db5b230a-79c9-4838-8b6d-c55b860c955c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Delegates">
+      <UniqueIdentifier>{1aad5bcc-2e0f-42af-aa26-2cae988ee40c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Error handling">
+      <UniqueIdentifier>{8cfc1bde-ca58-40ad-b297-0f7212ec1cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Exceptions">
+      <UniqueIdentifier>{6475cc52-1ee6-4c08-8228-6b03c91e45e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\MemoryPool">
+      <UniqueIdentifier>{0605cd02-2947-46a6-bea7-cdef85bb17ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Messaging">
+      <UniqueIdentifier>{a35cff69-0c4c-4eef-85b1-346c372afa8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\ObjectsPool">
+      <UniqueIdentifier>{684f940b-0e05-45c5-876f-266d30226410}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Win32 specific">
+      <UniqueIdentifier>{537ed107-be92-4fd8-b750-70492e91bfb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Stream">
+      <UniqueIdentifier>{96dbe724-c061-433d-8cb9-a89dc65217b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\strings">
+      <UniqueIdentifier>{952a5b0c-caed-4149-8220-239dba3afc31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Tasks">
+      <UniqueIdentifier>{8b11bfe9-baa6-4912-ad02-0d5ff95b2a07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Templates">
+      <UniqueIdentifier>{fee33a34-0496-4b99-a2b5-d930c8d28970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Test Units">
+      <UniqueIdentifier>{2f2148a1-4a3b-4c96-8328-f93f5ddf157a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\threading">
+      <UniqueIdentifier>{39298abd-9a8d-4888-af2f-836939d27a04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Tracing">
+      <UniqueIdentifier>{daf2abe7-6f96-49b8-9741-e8ac662ac5d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\FileIO">
+      <UniqueIdentifier>{60386ba6-7747-49da-af8c-622ca79c8920}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Private\Time">
+      <UniqueIdentifier>{8f2f3f4d-7dc4-4bd1-84cf-b4ad459b7213}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\Nyx.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxActiveObject.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxAlgorithm.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxAnsiFile.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxAString.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxBodyBlock.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxBuffer.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxConsoleTraceOutput.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxDefs.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxDelegateBase.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxEvent.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxException.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxExternalModule.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxFile.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxFixedString.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxLocalTime.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nyxlock.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMemoryPool.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\nyxmempoolobj.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMemPoolWString.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMFString.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxModule.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMsg.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMsgHandler.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMsgHandlers.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMsgQueue.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMTAccessException.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMTInterfaceAccess.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMTObjAccessor.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxMutex.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxObject.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxObject_Impl.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxObjectsPool.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxOpaqueDataBucket.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxOpaqueDataTypes.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxOpaqueList.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxRange.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxRef.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxRefCount_Impl.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxResException.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxStreamHandler.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxStreamReader.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxStreamRW.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxStreamWriter.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxStringFormater.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxStringsFormat.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxStringT.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTask.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTaskExecuter.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTaskExecuterPool.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTestUnit.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTestUnitsGroup.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTextFile.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxThread.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxThreadId.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxThreadModule.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxThreadProc.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTime.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceCompositor.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceCompositorBuffer.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceCompositorBuffer_Ansi.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceCompositorBuffer_WideChar.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceFeed.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceHeader.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceModule.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceOutput.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraces.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceStream.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxTraceTimeReference.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NyxWString.hpp">
+      <Filter>Public headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxAssert.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxAtomicValue.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxClrDelegates.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxDbg.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxMsgBucket.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxStdAllocators.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxSystem.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxTraceFeeds.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Win32\NyxTypes.hpp">
+      <Filter>Public headers\Win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\NyxOpaqueList_Impl.hpp">
+      <Filter>Private\Data Structure</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxExternalModule_Impl.hpp">
+      <Filter>Private\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxModule_Impl.hpp">
+      <Filter>Private\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxThreadModule_Impl.hpp">
+      <Filter>Private\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxTraceModule_Impl.hpp">
+      <Filter>Private\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxMemoryPool_Impl.hpp">
+      <Filter>Private\MemoryPool</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxActiveObject_Impl.hpp">
+      <Filter>Private\Messaging</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxMsgHandlers_Impl.hpp">
+      <Filter>Private\Messaging</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxMsgQueue_Impl.hpp">
+      <Filter>Private\Messaging</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxObjectsPool_Impl.hpp">
+      <Filter>Private\ObjectsPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\NyxTaskExecuterPool_Impl.hpp">
+      <Filter>Private\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\NyxThreadTaskExecuter_Impl.hpp">
+      <Filter>Private\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxTestUnitsGroup_Impl.hpp">
+      <Filter>Private\Test Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxEvent_Impl.hpp">
+      <Filter>Private\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxMutex_Impl.hpp">
+      <Filter>Private\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxThread_Impl.hpp">
+      <Filter>Private\threading</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxConsoleTraceOutput_Impl.hpp">
+      <Filter>Private\Tracing</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxTraceCompositor_Impl.hpp">
+      <Filter>Private\Tracing</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\NyxAnsiFile_Impl.hpp">
+      <Filter>Private\FileIO</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\NyxOpaqueDataBucket.cpp">
+      <Filter>Private\Data Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxOpaqueList_Impl.cpp">
+      <Filter>Private\Data Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxExternalModule_Impl.cpp">
+      <Filter>Private\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxModule_Impl.cpp">
+      <Filter>Private\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxThreadModule_Impl.cpp">
+      <Filter>Private\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxTraceModule_Impl.cpp">
+      <Filter>Private\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxMemoryPool_Impl.cpp">
+      <Filter>Private\MemoryPool</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxMemPoolWString_Impl.cpp">
+      <Filter>Private\MemoryPool</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxActiveObject_Impl.cpp">
+      <Filter>Private\Messaging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxMsgHandlers_Impl.cpp">
+      <Filter>Private\Messaging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxMsgQueue_Impl.cpp">
+      <Filter>Private\Messaging</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxObjectsPool_Impl.cpp">
+      <Filter>Private\ObjectsPool</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxAString_Impl.cpp">
+      <Filter>Private\strings</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxFixedString_Impl.cpp">
+      <Filter>Private\strings</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxMFString_Impl.cpp">
+      <Filter>Private\strings</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxWString_Impl.cpp">
+      <Filter>Private\strings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxTaskExecuterPool_Impl.cpp">
+      <Filter>Private\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxThreadTaskExecuter_Impl.cpp">
+      <Filter>Private\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxTestUnitsGroup_Impl.cpp">
+      <Filter>Private\Test Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxEvent_Impl.cpp">
+      <Filter>Private\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxMutex_Impl.cpp">
+      <Filter>Private\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxThread_Impl.cpp">
+      <Filter>Private\threading</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxConsoleTraceOutput_Impl.cpp">
+      <Filter>Private\Tracing</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxTraceCompositor_Impl.cpp">
+      <Filter>Private\Tracing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxTraceCompositorBuffer_Ansi.cpp">
+      <Filter>Private\Tracing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\NyxTraceCompositorBuffer_WideChar.cpp">
+      <Filter>Private\Tracing</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxTraceStream.cpp">
+      <Filter>Private\Tracing</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxTraceTimeReference.cpp">
+      <Filter>Private\Tracing</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxAnsiFile_Impl.cpp">
+      <Filter>Private\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxLocalTime_Impl.cpp">
+      <Filter>Private\Time</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\NyxTime_Impl.cpp">
+      <Filter>Private\Time</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>
