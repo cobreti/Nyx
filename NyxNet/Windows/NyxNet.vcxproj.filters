@@ -30,9 +30,6 @@
     <ClCompile Include="Source\NyxNetTcpIpServer_Impl.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\NyxNetTcpIpTraceOutput_Impl.cpp">
-      <Filter>Implementation</Filter>
-    </ClCompile>
     <ClCompile Include="..\Source\NyxNetTraceStreamWriter.cpp">
       <Filter>Implementation</Filter>
     </ClCompile>
@@ -52,6 +49,9 @@
       <Filter>Implementation\Tracing</Filter>
     </ClCompile>
     <ClCompile Include="Source\NyxNetTraceFlags.cpp" />
+    <ClCompile Include="..\Source\NyxNetTcpIpTraceOutput_Impl.cpp">
+      <Filter>Implementation\Tracing</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\NyxNetModule_Impl.hpp">
@@ -67,9 +67,6 @@
       <Filter>Implementation</Filter>
     </ClInclude>
     <ClInclude Include="Source\NyxNetTcpIpServer_Impl.hpp">
-      <Filter>Implementation</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\NyxNetTcpIpTraceOutput_Impl.hpp">
       <Filter>Implementation</Filter>
     </ClInclude>
     <ClInclude Include="Source\NyxNetPipeSocketReader_Impl.hpp">
@@ -127,5 +124,8 @@
     <ClInclude Include="..\..\include\NyxNet\NyxNetTcpIpTraceOutput.hpp" />
     <ClInclude Include="..\..\include\NyxNet\NyxNetTraceFlags.hpp" />
     <ClInclude Include="..\..\include\NyxNet\NyxNetTraceStreamWriter.hpp" />
+    <ClInclude Include="..\Source\NyxNetTcpIpTraceOutput_Impl.hpp">
+      <Filter>Implementation\Tracing</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

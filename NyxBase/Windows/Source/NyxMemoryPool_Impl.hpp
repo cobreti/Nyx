@@ -42,6 +42,11 @@ namespace NyxWin32
 		
 		virtual void* AllocMem(size_t size);
 		virtual void FreeMem(void* pBlock);
+		virtual void Clear();
+
+	protected:
+
+		void ReleaseMemoryBlocks();
 
 	protected:
 		

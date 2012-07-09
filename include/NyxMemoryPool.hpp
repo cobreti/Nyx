@@ -19,7 +19,8 @@ namespace Nyx
 	public:
 		
 		virtual void* AllocMem(size_t size) = 0;
-		virtual void FreeMem(void* pBlock) = 0; 
+		virtual void FreeMem(void* pBlock) = 0;
+		virtual void Clear() = 0;
 	};
 };
 

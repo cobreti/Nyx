@@ -8,6 +8,8 @@
 #include "NyxLock.hpp"
 #include "NyxMemoryPool.hpp"
 
+#include <map>
+
 namespace NyxWin32
 {
     /**
@@ -21,13 +23,24 @@ namespace NyxWin32
 
         virtual void* AllocMem(size_t size);
         virtual void FreeMem(void* pBlock);
+		virtual void Clear();
 
     protected:
 
         struct ObjectBlock
         {
-            ObjectBlock*    pNextBlock;
+			struct TBlockHeader
+			{
+				ObjectBlock*		pNextBlock;
+				size_t				BlockSize;
+			} Header;
+
+			char			data[1];
         };
+
+	protected:
+
+		typedef		std::map<size_t, ObjectBlock*>		FreeBlocksTable;
 
     protected:
 
@@ -35,7 +48,8 @@ namespace NyxWin32
 
         Nyx::CMutexRef              m_refMutex;
         Nyx::CMemoryPoolRef         m_refMemoryPool;
-        ObjectBlock*                m_pFreeObjects;
+        //ObjectBlock*                m_pFreeObjects;
+		FreeBlocksTable				m_FreeBlocksTable;
     };
 }
 
