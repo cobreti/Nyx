@@ -79,14 +79,7 @@ namespace NyxOSX
 	 */
 	CMemoryPool_Impl::~CMemoryPool_Impl()
 	{
-		CMemoryBlock*		pBlock = NULL;
-		
-		while ( m_pTopBlock )
-		{
-			pBlock = m_pTopBlock;
-			m_pTopBlock = m_pTopBlock->Link();
-			delete pBlock;
-		}
+        FreeAllBlocks();
 	}
 
 
@@ -118,4 +111,32 @@ namespace NyxOSX
 	void CMemoryPool_Impl::FreeMem(void* pBlock)
 	{
 	}
+    
+    
+    /**
+     *
+     */
+    void CMemoryPool_Impl::Clear()
+    {
+        FreeAllBlocks();
+        m_pTopBlock = new CMemoryBlock(m_BlockSize);
+    }
+    
+    
+    /**
+     *
+     */
+    void CMemoryPool_Impl::FreeAllBlocks()
+    {
+		Nyx::TLock<Nyx::CMutex>		Lock(m_refMutex, true);
+
+		CMemoryBlock*		pBlock = NULL;
+		
+		while ( m_pTopBlock )
+		{
+			pBlock = m_pTopBlock;
+			m_pTopBlock = m_pTopBlock->Link();
+			delete pBlock;
+		}        
+    }
 }
