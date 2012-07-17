@@ -42,9 +42,14 @@ namespace NyxLinux
 		
 		virtual void* AllocMem(size_t size);
 		virtual void FreeMem(void* pBlock);
+		virtual void Clear();
 
 	protected:
 		
+		void FreeAllBlocks();
+
+	protected:
+
 		size_t				m_BlockSize;
 		CMemoryBlock*		m_pTopBlock;
 		Nyx::CMutexRef		m_refMutex;

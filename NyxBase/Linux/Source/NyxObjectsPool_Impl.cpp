@@ -74,5 +74,12 @@ namespace NyxLinux
         m_pFreeObjects = pObjBlock;
     }
 
+    /**
+     *
+     */
+    void CObjectsPool_Impl::Clear()
+    {
+    }
+
 }
 
