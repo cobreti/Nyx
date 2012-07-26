@@ -107,12 +107,12 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
             {
                 res = m_pStreamRW->Read( m_ReadBuffer.getWritePos(), RemainingSizeToRead, ReadSize );
 
-                NYXTRACE(0x0, L"--> CNxConnection - BeginRead - read " << ReadSize << L" of " << RemainingSizeToRead );
+                //NYXTRACE(0x0, L"--> CNxConnection - BeginRead - read " << ReadSize << L" of " << RemainingSizeToRead );
 
                 m_ReadBuffer.addDataSize(ReadSize);
                 RemainingSizeToRead -= ReadSize;
 
-                NYXTRACE(0x0, L"--> Remaining size to read : " << RemainingSizeToRead );
+                //NYXTRACE(0x0, L"--> Remaining size to read : " << RemainingSizeToRead );
             }
             while ( Nyx::Succeeded(res) && RemainingSizeToRead > 0 );
 
