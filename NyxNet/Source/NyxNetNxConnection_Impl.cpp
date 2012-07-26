@@ -440,7 +440,7 @@ void NyxNet::CNxConnection_Impl::ClientCheckHandshakeThreadProc()
                 NyxNet::NxDataSize          DataSize = sizeof(NyxNet::NxDataType);
 				Nyx::NyxSize				SizeWritten(0);
 
-                NYXTRACE(0x0, L"DataSize = " << (int)DataSize << L" | DataType = " << Nyx::CTF_Hex(DataType) );
+                //NYXTRACE(0x0, L"DataSize = " << (int)DataSize << L" | DataType = " << Nyx::CTF_Hex(DataType) );
 
                 m_pStreamRW->Write( &DataSize, sizeof(NyxNet::NxDataSize), SizeWritten );
                 m_pStreamRW->Write( &DataType, sizeof(NyxNet::NxDataType), SizeWritten );
