@@ -211,6 +211,31 @@ namespace Nyx
 	};
 
 
+    /**
+     *	\brief		pointer value trace feed
+     */
+    class CTF_Ptr : public CTraceFeed
+    {
+    public:
+        CTF_Ptr(void* pPtr)
+        {
+            //swprintf(m_wszBuffer, kBufferSize, L"%x", nValue);
+            sprintf_s(m_szBuffer, kBufferSize, "%Xh", pPtr);
+        }
+
+        virtual const wchar_t* GetWideCharText() const { return NULL; }
+        virtual const char* GetAnsiText() const { return m_szBuffer; }
+        virtual ECharFormat CharFormat() const { return eCF_Ansi; }
+
+    private: // private members
+
+        enum { kBufferSize = 20 };
+
+        char		m_szBuffer[kBufferSize];
+    };
+
+
+
 	/**
 	 *	\brief	Current thread id trace feed
 	 */
