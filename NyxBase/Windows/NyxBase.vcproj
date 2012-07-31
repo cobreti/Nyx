@@ -649,18 +649,6 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\include\NyxMTAccessException.hpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\NyxMTInterfaceAccess.hpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\NyxMTObjAccessor.hpp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\include\NyxMutex.hpp"
 				>
 			</File>
@@ -674,18 +662,6 @@
 			</File>
 			<File
 				RelativePath="..\..\include\NyxObjectsPool.hpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\NyxOpaqueDataBucket.hpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\NyxOpaqueDataTypes.hpp"
-				>
-			</File>
-			<File
-				RelativePath="..\..\include\NyxOpaqueList.hpp"
 				>
 			</File>
 			<File
@@ -868,22 +844,6 @@
 		<Filter
 			Name="Private"
 			>
-			<Filter
-				Name="Data Structure"
-				>
-				<File
-					RelativePath="..\Source\NyxOpaqueDataBucket.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\Source\NyxOpaqueList_Impl.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\Source\NyxOpaqueList_Impl.hpp"
-					>
-				</File>
-			</Filter>
 			<Filter
 				Name="Modules"
 				>
