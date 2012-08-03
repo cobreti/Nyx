@@ -50,8 +50,6 @@ OBJS := $(OBJDIR)/NyxMFString_Impl.o \
 	$(OBJDIR)/NyxMemPoolWString_Impl.o \
 	$(OBJDIR)/NyxTraceCompositorBuffer_Ansi.o \
 	$(OBJDIR)/NyxTraceCompositorBuffer_WideChar.o \
-	$(OBJDIR)/NyxOpaqueDataBucket.o \
-	$(OBJDIR)/NyxOpaqueList_Impl.o \
 	$(OBJDIR)/NyxTaskExecuterPool_Impl.o \
 	$(OBJDIR)/NyxThreadTaskExecuter_Impl.o \
 	$(OBJDIR)/NyxAnsiFile_Impl.o \
