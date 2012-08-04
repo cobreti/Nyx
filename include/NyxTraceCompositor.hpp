@@ -64,6 +64,13 @@ namespace Nyx
 		 *	\param		pOutput : trace output pointer
 		 */
 		virtual void SetOutput( CTraceOutput* pOutput ) = 0;
+
+		/**
+		 *	\brief		Override the thread id
+		 *	\param		id : thread id
+		 *	\param		mid : managed thread id (for managed code like .NET)
+		 */
+		virtual void OverrideThreadId(const unsigned int& id, const unsigned int& mid) = 0;
 	};
 }
 

@@ -151,6 +151,18 @@ void NyxWin32::CTraceCompositor_Impl::SetOutput(Nyx::CTraceOutput* pOutput)
 /**
  *
  */
+void NyxWin32::CTraceCompositor_Impl::OverrideThreadId(const unsigned int& id, const unsigned int& mid)
+{
+	if ( mid == 0 )
+		m_TraceHeader.ThreadId().Format( "%08X", id );
+	else
+		m_TraceHeader.ThreadId().Format( "%08X-%08X", id, mid );
+}
+
+
+/**
+ *
+ */
 void NyxWin32::CTraceCompositor_Impl::Write(const wchar_t& c)
 {
 	m_pCompositorBuffer->Write(c);
