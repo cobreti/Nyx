@@ -151,6 +151,14 @@ void NyxLinux::CTraceCompositor_Impl::SetOutput( Nyx::CTraceOutput* pOutput )
 /**
  *
  */
+void NyxLinux::CTraceCompositor_Impl::OverrideThreadId(const unsigned int& id, const unsigned int& mid)
+{
+}
+
+
+/**
+ *
+ */
 void NyxLinux::CTraceCompositor_Impl::Write(const wchar_t& c)
 {
 	m_pCompositorBuffer->Write(c);

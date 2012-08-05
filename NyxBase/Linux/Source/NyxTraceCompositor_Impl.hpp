@@ -23,6 +23,7 @@ namespace NyxLinux
 		virtual void Write(const Nyx::CTraceFeed& feed);
 		virtual CTraceCompositor* Clone();
 		virtual void SetOutput( Nyx::CTraceOutput* pOutput );
+		virtual void OverrideThreadId(const unsigned int& id, const unsigned int& mid);
 		
 		virtual void Write( const wchar_t& c );
 		
