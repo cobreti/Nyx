@@ -175,6 +175,14 @@ void NyxOSX::CTraceCompositor_Impl::SetOutput( Nyx::CTraceOutput* pOutput )
 /**
  *
  */
+void NyxOSX::CTraceCompositor_Impl::OverrideThreadId(const unsigned int& id, const unsigned int& mid)
+{
+}
+
+
+/**
+ *
+ */
 void NyxOSX::CTraceCompositor_Impl::Write(const wchar_t& c)
 {
 	m_pCompositorBuffer->Write(c);
