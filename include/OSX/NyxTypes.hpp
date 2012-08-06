@@ -3,6 +3,8 @@
 
 #include <carbon/carbon.h>
 
+#include "NyxSize.hpp"
+
 namespace Nyx
 {
 	typedef		unsigned char		UInt8;
@@ -23,11 +25,6 @@ namespace Nyx
     
     typedef     __uint64_t          UInt64;
 	
-	/**
-	 *	\brief	Nyx size type
-	 */
-	typedef		size_t				NyxSize;
-
 	/**
 	 *	\brief	Message identifier
 	 */
