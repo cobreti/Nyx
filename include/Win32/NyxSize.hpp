@@ -1,9 +1,6 @@
 #ifndef _NYXSIZE_HPP_
 #define _NYXSIZE_HPP_
 
-#include <sys/types.h>
-#include <windows.h>
-
 namespace Nyx
 {
 	/**
@@ -79,6 +76,24 @@ namespace Nyx
 			m_Value -= s;
 			return *this;
 		}
+        
+        bool operator == (const NyxSize& s) const { return m_Value == s.m_Value; }
+        bool operator == (int v) const { return m_Value == static_cast<unsigned int>(v); }
+
+        bool operator != (const NyxSize& s) const { return m_Value != s.m_Value; }
+        bool operator != (int v) const { return m_Value != static_cast<unsigned int>(v); }
+        
+        bool operator > (const NyxSize& s) const { return m_Value > s.m_Value; }
+        bool operator > (int v) const { return m_Value > static_cast<unsigned int>(v); }
+
+        bool operator >= (const NyxSize& s) const { return m_Value >= s.m_Value; }
+        bool operator >= (int v) const { return m_Value >= static_cast<unsigned int>(v); }
+
+        bool operator < (const NyxSize& s) const { return m_Value < s.m_Value; }
+        bool operator < (int v) const { return m_Value < static_cast<unsigned int>(v); }
+
+        bool operator <= (const NyxSize& s) const { return m_Value <= s.m_Value; }
+        bool operator <= (int v) const { return m_Value <= static_cast<unsigned int>(v); }
 
 	private:
 
