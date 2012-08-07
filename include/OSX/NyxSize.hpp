@@ -76,6 +76,30 @@ namespace Nyx
 			m_Value -= s;
 			return *this;
 		}
+        
+        bool operator == (const NyxSize& s) const { return m_Value == s.m_Value; }
+        bool operator == (size_t v) const { return m_Value == v; }
+        bool operator == (int v) const { return m_Value == v; }
+
+        bool operator != (const NyxSize& s) const { return m_Value != s.m_Value; }
+        bool operator != (size_t v) const { return m_Value != v; }
+        bool operator != (int v) const { return m_Value != v; }
+        
+        bool operator > (const NyxSize& s) const { return m_Value > s.m_Value; }
+        bool operator > (size_t v) const { return m_Value > v; }
+        bool operator > (int v) const { return m_Value > v; }
+
+        bool operator >= (const NyxSize& s) const { return m_Value >= s.m_Value; }
+        bool operator >= (size_t v) const { return m_Value >= v; }
+        bool operator >= (int v) const { return m_Value >= v; }
+
+        bool operator < (const NyxSize& s) const { return m_Value < s.m_Value; }
+        bool operator < (size_t v) const { return m_Value < v; }
+        bool operator < (int v) const { return m_Value < v; }
+
+        bool operator <= (const NyxSize& s) const { return m_Value <= s.m_Value; }
+        bool operator <= (size_t v) const { return m_Value <= v; }
+        bool operator <= (int v) const { return m_Value <= v; }
 
 	private:
 
