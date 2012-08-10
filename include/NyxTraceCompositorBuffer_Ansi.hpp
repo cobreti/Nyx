@@ -12,6 +12,7 @@ namespace Nyx
 		CTraceCompositorBuffer_Ansi();
 		virtual ~CTraceCompositorBuffer_Ansi();
 
+        virtual void Release();
 		virtual void Begin();
 		virtual void Write(const wchar_t& c);
 		virtual void Write(const char& c);

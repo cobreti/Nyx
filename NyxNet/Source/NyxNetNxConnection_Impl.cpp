@@ -148,7 +148,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginReadSection( NyxNet::NxDataSize&
 	Nyx::NyxSize		ReadSize;
 
     ReadSize = m_ReadBuffer.ReadData( &size, sizeof(NyxNet::NxDataSize) );
-    if ( ReadSize == sizeof(NyxNet::NxDataSize) )
+    if ( sizeof(NyxNet::NxDataSize) == ReadSize )
     {
 		++ m_ReceivedData;
         res = Nyx::kNyxRes_Success;
@@ -167,7 +167,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::Read( void* pBuffer, const NyxNet::Nx
 	Nyx::NyxSize		ReadSize(0);
 
     ReadSize = m_ReadBuffer.ReadData( pBuffer, size );
-    if ( ReadSize == size )
+    if ( size == ReadSize )
     {
 		++ m_ReceivedData;
         res = Nyx::kNyxRes_Success;

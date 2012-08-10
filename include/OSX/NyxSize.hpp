@@ -77,29 +77,33 @@ namespace Nyx
 			return *this;
 		}
         
+        const NyxSize operator - (const NyxSize& s) const
+        {
+            return NyxSize(m_Value - s.m_Value);
+        }
+        
+        const NyxSize operator + (const NyxSize& s) const
+        {
+            return NyxSize(m_Value + s.m_Value);
+        }
+
         bool operator == (const NyxSize& s) const { return m_Value == s.m_Value; }
-        bool operator == (size_t v) const { return m_Value == v; }
-        bool operator == (int v) const { return m_Value == v; }
+        bool operator == (const int& v) const { return m_Value == static_cast<unsigned int>(v); }
 
         bool operator != (const NyxSize& s) const { return m_Value != s.m_Value; }
-        bool operator != (size_t v) const { return m_Value != v; }
-        bool operator != (int v) const { return m_Value != v; }
+        bool operator != (int v) const { return m_Value != static_cast<unsigned int>(v); }
         
         bool operator > (const NyxSize& s) const { return m_Value > s.m_Value; }
-        bool operator > (size_t v) const { return m_Value > v; }
-        bool operator > (int v) const { return m_Value > v; }
+        bool operator > (int v) const { return m_Value > static_cast<unsigned int>(v); }
 
         bool operator >= (const NyxSize& s) const { return m_Value >= s.m_Value; }
-        bool operator >= (size_t v) const { return m_Value >= v; }
-        bool operator >= (int v) const { return m_Value >= v; }
+        bool operator >= (int v) const { return m_Value >= static_cast<unsigned int>(v); }
 
         bool operator < (const NyxSize& s) const { return m_Value < s.m_Value; }
-        bool operator < (size_t v) const { return m_Value < v; }
-        bool operator < (int v) const { return m_Value < v; }
+        bool operator < (int v) const { return m_Value < static_cast<unsigned int>(v); }
 
         bool operator <= (const NyxSize& s) const { return m_Value <= s.m_Value; }
-        bool operator <= (size_t v) const { return m_Value <= v; }
-        bool operator <= (int v) const { return m_Value <= v; }
+        bool operator <= (int v) const { return m_Value <= static_cast<unsigned int>(v); }
 
 	private:
 

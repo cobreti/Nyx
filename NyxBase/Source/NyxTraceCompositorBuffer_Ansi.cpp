@@ -28,6 +28,14 @@ Nyx::CTraceCompositorBuffer_Ansi::~CTraceCompositorBuffer_Ansi()
 /**
  *
  */
+void Nyx::CTraceCompositorBuffer_Ansi::Release()
+{
+    delete this;
+}
+
+/**
+ *
+ */
 void Nyx::CTraceCompositorBuffer_Ansi::Begin()
 {
 	m_pCurPos = m_pStartBufferPos;

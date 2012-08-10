@@ -8,6 +8,8 @@ namespace Nyx
 	class CMsg
 	{
 	public:
+        virtual ~CMsg() {}
+        
 		virtual const Nyx::MsgIdentifier Id() const = 0;
 	};
 };

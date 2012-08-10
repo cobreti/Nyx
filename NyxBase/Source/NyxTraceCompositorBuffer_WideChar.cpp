@@ -28,6 +28,15 @@ Nyx::CTraceCompositorBuffer_WideChar::~CTraceCompositorBuffer_WideChar()
 /**
  *
  */
+void Nyx::CTraceCompositorBuffer_WideChar::Release()
+{
+    delete this;
+}
+
+
+/**
+ *
+ */
 void Nyx::CTraceCompositorBuffer_WideChar::Begin()
 {
 	m_pCurPos = m_pStartBufferPos;

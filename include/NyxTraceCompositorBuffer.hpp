@@ -16,6 +16,8 @@ namespace Nyx
 	class CTraceCompositorBuffer
 	{
 	public: // public functions
+        virtual void Release() = 0;
+        
 		virtual void Begin() = 0;
 		virtual void Write(const wchar_t& c) = 0;
 		virtual void Write(const char& c) = 0;
@@ -23,6 +25,10 @@ namespace Nyx
 		virtual void Write(const char* szText) = 0;
 		virtual void End( const Nyx::CTraceHeader& header, Nyx::CTraceOutput* pTraceOutput ) = 0;
 		virtual CTraceCompositorBuffer* Clone() const = 0;
+        
+    protected:
+        
+        virtual ~CTraceCompositorBuffer() {}
 	};
 }
 
