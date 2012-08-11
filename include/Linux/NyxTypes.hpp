@@ -5,6 +5,8 @@
 #include <sys/time.h>
 #include <stdarg.h>
 
+#include "NyxSize.hpp"
+
 namespace Nyx
 {
 	typedef		unsigned char		UInt8;
@@ -25,11 +27,6 @@ namespace Nyx
     
     typedef     unsigned long long  UInt64;
 	
-	/**
-	 *	\brief	Nyx size type
-	 */
-	typedef		size_t				NyxSize;
-
 	/**
 	 *	\brief	Message identifier
 	 */
