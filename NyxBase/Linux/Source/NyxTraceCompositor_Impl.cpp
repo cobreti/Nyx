@@ -77,7 +77,7 @@ NyxLinux::CTraceCompositor_Impl::~CTraceCompositor_Impl()
 			pModule->Traces().RemoveThreadDefault();
 	}
 	
-	delete m_pCompositorBuffer;
+	m_pCompositorBuffer->Release();
 }
 
 
