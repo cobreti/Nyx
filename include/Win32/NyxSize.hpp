@@ -77,8 +77,28 @@ namespace Nyx
 			return *this;
 		}
         
+        const NyxSize operator - (const NyxSize& s) const
+        {
+            return NyxSize(m_Value - s.m_Value);
+        }
+
+		const NyxSize operator - (const int& v) const
+		{
+			return NyxSize(m_Value - v);
+		}
+        
+        const NyxSize operator + (const NyxSize& s) const
+        {
+            return NyxSize(m_Value + s.m_Value);
+        }
+
+		const NyxSize operator + (const int& v) const
+		{
+			return NyxSize(m_Value + v);
+		}
+
         bool operator == (const NyxSize& s) const { return m_Value == s.m_Value; }
-        bool operator == (int v) const { return m_Value == static_cast<unsigned int>(v); }
+        bool operator == (const int& v) const { return m_Value == static_cast<unsigned int>(v); }
 
         bool operator != (const NyxSize& s) const { return m_Value != s.m_Value; }
         bool operator != (int v) const { return m_Value != static_cast<unsigned int>(v); }

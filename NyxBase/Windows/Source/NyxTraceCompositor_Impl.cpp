@@ -80,7 +80,7 @@ NyxWin32::CTraceCompositor_Impl::~CTraceCompositor_Impl()
     if ( m_bUseAsDefault )
 	    Nyx::CModule::GetDefault()->Traces().RemoveThreadDefault();
 
-	delete m_pCompositorBuffer;
+	m_pCompositorBuffer->Release();
 }
 
 
