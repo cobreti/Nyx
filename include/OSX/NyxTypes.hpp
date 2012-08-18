@@ -2,38 +2,38 @@
 #define _NYXTYPES_HPP_
 
 #include <carbon/carbon.h>
-
+#include <libkern/OSAtomic.h>
 #include "NyxSize.hpp"
 
 namespace Nyx
 {
-	typedef		unsigned char		UInt8;
+	typedef		u_int8_t            UInt8;
 	
-	typedef		char				Int8;
+	typedef		int8_t				Int8;
 	
 	typedef		UInt8				Byte;
 	
-	typedef		unsigned short		UInt16;
+	typedef		u_int16_t           UInt16;
 	
-	typedef		short				Int16;
+	typedef		int16_t				Int16;
 	
-	typedef		unsigned int		UInt32;
+	typedef		u_int32_t           UInt32;
 	
-	typedef		int					Int32;
+	typedef		int32_t				Int32;
     
-    typedef     __int64_t           Int64;
+    typedef     u_int64_t           UInt64;
     
-    typedef     __uint64_t          UInt64;
+    typedef     int64_t             Int64;
 	
 	/**
 	 *	\brief	Message identifier
 	 */
-	typedef		unsigned long		MsgIdentifier;
+	typedef		UInt32              MsgIdentifier;
 	
 	/**
 	 *	\brief	trace filters
 	 */
-	typedef		unsigned long		TraceFilter;
+	typedef		UInt32              TraceFilter;
     
     
     /**
