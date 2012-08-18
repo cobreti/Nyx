@@ -179,6 +179,9 @@ namespace NyxOSX
         
         FillBuffer();
         
+        if ( m_Buffer.DataSize() == 0 )
+            return Nyx::kNyxRes_Failure;
+        
         Nyx::NyxSize            index = 0;
         Nyx::NyxSize            len = 0;
         const char*             pC = m_Buffer.getReadPos();
