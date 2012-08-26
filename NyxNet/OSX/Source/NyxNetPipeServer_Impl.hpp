@@ -27,6 +27,7 @@ namespace NyxNetOSX
 		virtual Nyx::NyxResult Start();
 		virtual Nyx::NyxResult Stop();
 		virtual bool IsRunning() const;
+        virtual NyxNet::CServerListenersRef Listeners();
 				
 	protected:
 
@@ -41,6 +42,7 @@ namespace NyxNetOSX
 		NyxNet::IConnectionHandler*		m_pConnectionHandler;
 		NyxNet::CPipeSocketReaderRef	m_refSocket;
 		NyxNetOSX::CPipeClientConnRef	m_refConnection;
+        NyxNet::CServerListenersRef     m_refListeners;
 	};
 }
 

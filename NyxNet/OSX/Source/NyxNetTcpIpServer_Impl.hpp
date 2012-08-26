@@ -24,6 +24,7 @@ namespace NyxNetOSX
 		virtual Nyx::NyxResult Start();
 		virtual Nyx::NyxResult Stop();
 		virtual bool IsRunning() const;
+        virtual NyxNet::CServerListenersRef Listeners();
 
 	protected: // protected types
 	
@@ -32,7 +33,7 @@ namespace NyxNetOSX
 			eState_Running,
 			eState_Stopped
 		};
-
+        
 	protected: // protected methods
 	
 		virtual void RunningLoop();
@@ -47,6 +48,7 @@ namespace NyxNetOSX
 		NyxNet::CTcpIpSocketRef				m_refBoundSocket;
 		NyxNet::IConnectionHandler*			m_pConnectionHandler;
 		Nyx::CTaskExecuterPoolRef			m_refTaskExecuterPool;
+        NyxNet::CServerListenersRef         m_refListeners;
 	};
 }
 

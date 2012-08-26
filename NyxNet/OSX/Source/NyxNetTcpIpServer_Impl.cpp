@@ -22,6 +22,7 @@ m_MaxConnections(0),
 m_eState(eState_Stopped),
 m_pConnectionHandler(NULL)
 {
+    m_refListeners = new NyxNet::CServerListeners();
 }
 
 
@@ -112,7 +113,16 @@ Nyx::NyxResult NyxNetOSX::CTcpIpServer_Impl::Stop()
  */
 bool NyxNetOSX::CTcpIpServer_Impl::IsRunning() const
 {
-	return (m_refThread.Valid() && m_refThread->IsRunning());
+	return (m_refThread.Valid() && m_refThread->IsRunning() && m_eState == eState_Running );
+}
+
+
+/**
+ *
+ */
+NyxNet::CServerListenersRef NyxNetOSX::CTcpIpServer_Impl::Listeners()
+{
+    return m_refListeners;
 }
 
 
@@ -127,6 +137,8 @@ void NyxNetOSX::CTcpIpServer_Impl::RunningLoop()
 	NyxBeginBody("CTcpIpServer running loop")
 	{
 		//Nyx::CTraceStream(0x0).Write(L"starting running loop");
+        
+        m_refListeners->OnServerStarted(this);
 
 		while ( m_eState == eState_Running )
 		{
@@ -155,6 +167,8 @@ void NyxNetOSX::CTcpIpServer_Impl::RunningLoop()
 				//Nyx::CTraceStream(0x0).Write(L"Failed to accept a connection");
 			}
 		}
+        
+        m_refListeners->OnServerStopped(this);
 		
 		Nyx::CTraceStream(0x0).Write(L"Terminating running loop");
 	}

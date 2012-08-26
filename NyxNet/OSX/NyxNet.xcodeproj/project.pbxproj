@@ -62,6 +62,7 @@
 		16264BBB14A40D8500AFAE80 /* NyxNetTraceStreamWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetTraceStreamWriter.cpp; path = ../Source/NyxNetTraceStreamWriter.cpp; sourceTree = "<group>"; };
 		162A71E311B1F79C00238224 /* NyxNetPipeTraceOutput_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetPipeTraceOutput_Impl.cpp; path = ../Source/NyxNetPipeTraceOutput_Impl.cpp; sourceTree = SOURCE_ROOT; };
 		162A71E411B1F79C00238224 /* NyxNetPipeTraceOutput_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetPipeTraceOutput_Impl.hpp; path = ../Source/NyxNetPipeTraceOutput_Impl.hpp; sourceTree = SOURCE_ROOT; };
+		162E4F1D15E9A17100142CC9 /* NyxNetServerListener.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = NyxNetServerListener.hpp; path = ../../include/NyxNet/NyxNetServerListener.hpp; sourceTree = "<group>"; };
 		164054C2159F7CB1002CB4C6 /* NyxNetTcpIpTraceOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTcpIpTraceOutput.hpp; path = ../../include/NyxNet/NyxNetTcpIpTraceOutput.hpp; sourceTree = "<group>"; };
 		164054C4159F7DC4002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTcpIpTraceOutput_Impl.hpp; path = ../Source/NyxNetTcpIpTraceOutput_Impl.hpp; sourceTree = "<group>"; };
 		164054C6159F7EAC002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetTcpIpTraceOutput_Impl.cpp; path = ../Source/NyxNetTcpIpTraceOutput_Impl.cpp; sourceTree = "<group>"; };
@@ -152,6 +153,7 @@
 				16685D381359F1DB007AF4E1 /* NyxNetTcpIpSocket.hpp */,
 				16685D391359F1DB007AF4E1 /* NyxNetTypes.hpp */,
 				16264BB314A3CCA400AFAE80 /* NyxNetTraceFlags.hpp */,
+				162E4F1D15E9A17100142CC9 /* NyxNetServerListener.hpp */,
 			);
 			name = "Public Headers";
 			sourceTree = "<group>";

@@ -25,8 +25,6 @@ namespace NyxNet
 										const Nyx::UInt32& MaxConnections,
 										NyxNet::IConnectionHandler* pConnHandler ) = 0;
 										
-		//virtual Nyx::NyxResult Start() = 0;
-		//virtual Nyx::NyxResult Stop() = 0;
 	};
 }
 

@@ -11,7 +11,7 @@ namespace NyxNet
 	{
 	public:
         
-		static CTcpIpTraceOutputRef Alloc( const char* Name, const char* addr );
+		static CTcpIpTraceOutputRef Alloc( const char* Name, const char* addr, const Nyx::UInt32 port );
 	};
 }
 

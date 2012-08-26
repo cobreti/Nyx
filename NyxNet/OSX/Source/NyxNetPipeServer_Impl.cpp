@@ -21,6 +21,7 @@ NyxNet::CPipeServerRef NyxNet::CPipeServer::Alloc()
 NyxNetOSX::CPipeServer_Impl::CPipeServer_Impl() :
 m_bTerminate(false)
 {
+    m_refListeners = new NyxNet::CServerListeners();
 }
 
 
@@ -96,11 +97,22 @@ bool NyxNetOSX::CPipeServer_Impl::IsRunning() const
 /**
  *
  */
+NyxNet::CServerListenersRef NyxNetOSX::CPipeServer_Impl::Listeners()
+{
+    return m_refListeners;
+}
+
+
+/**
+ *
+ */
 void NyxNetOSX::CPipeServer_Impl::Thread_RunningLoop()
 {
 	NyxNet::IConnectionHandler*			pConnHandler = NULL;
 	Nyx::NyxResult						res;
 
+    m_refListeners->OnServerStarted(this);
+    
 	while ( !m_bTerminate )
 	{
 		res = m_pConnectionHandler->OnNewConnection(  static_cast<NyxNet::IConnection*>(m_refConnection), pConnHandler );
@@ -116,6 +128,8 @@ void NyxNetOSX::CPipeServer_Impl::Thread_RunningLoop()
 	
 		m_pConnectionListener->OnHandleStream( static_cast<Nyx::IStreamRW&>(*this) );*/
 	}
+    
+    m_refListeners->OnServerStopped(this);
 	
 	//Disconnect();
 	

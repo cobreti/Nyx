@@ -2,22 +2,22 @@
 #include "NyxNetNxStreamRW.hpp"
 
 
-NyxNet::CTcpIpTraceOutputRef NyxNet::CTcpIpTraceOutput::Alloc(const char* szName, const char* addr)
+NyxNet::CTcpIpTraceOutputRef NyxNet::CTcpIpTraceOutput::Alloc(const char* szName, const char* addr, const Nyx::UInt32 port)
 {
-	return new NyxNet::CTcpIpTraceOutput_Impl(szName, addr);
+	return new NyxNet::CTcpIpTraceOutput_Impl(szName, addr, port);
 }
 
 
 /**
  *
  */
-NyxNet::CTcpIpTraceOutput_Impl::CTcpIpTraceOutput_Impl(const char* szName, const char* addr)
+NyxNet::CTcpIpTraceOutput_Impl::CTcpIpTraceOutput_Impl(const char* szName, const char* addr, const Nyx::UInt32 port)
 {
 	m_Name = szName;
     m_Addr = addr;
     
 	m_refSocket = NyxNet::CTcpIpSocket::Alloc();
-	m_refSocket->Create(m_Addr.c_str(), 8500);
+	m_refSocket->Create(m_Addr.c_str(), port);
     
 	m_refConnection = NyxNet::CNxConnection::Alloc();
 	m_refConnection->Open(m_refSocket);
