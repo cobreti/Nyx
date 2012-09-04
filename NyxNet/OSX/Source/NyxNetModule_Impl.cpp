@@ -36,6 +36,7 @@ NyxNet::CModule* NyxNet::CModule::Default()
 NyxNetOSX::CModule_Impl::CModule_Impl()
 {
 	s_pDefault = this;
+    m_refConnectionsTable = new NyxNet::CConnectionsTable_Impl();
 }
 
 
@@ -91,3 +92,11 @@ Nyx::NyxResult NyxNetOSX::CModule_Impl::GetHostIp( const char* szComputerName, N
 	return res;
 }
 
+
+/**
+ *
+ */
+NyxNet::CConnectionsTable* NyxNetOSX::CModule_Impl::GetConnectionsTable() const
+{
+    return m_refConnectionsTable;
+}

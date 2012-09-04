@@ -40,6 +40,7 @@ namespace NyxNetOSX
 	public: // IConnection methods
 
 		virtual void Close();
+        virtual NyxNet::CSocketRef Socket();
 
 	protected:
 

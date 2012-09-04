@@ -90,4 +90,10 @@ void NyxNetOSX::CTcpIpClientConn::Close()
 }
 
 
-
+/**
+ *
+ */
+NyxNet::CSocketRef NyxNetOSX::CTcpIpClientConn::Socket()
+{
+    return (NyxNet::CSocket*)m_refConnSocket;
+}

@@ -10,6 +10,8 @@ namespace NyxNet
 	typedef		Nyx::UInt32			NxDataType;
 
 	typedef		Nyx::UInt32			NxDataSize;
+    
+    typedef     Nyx::UInt32         ConnectionID;
 
 	enum ENxDataType
 	{

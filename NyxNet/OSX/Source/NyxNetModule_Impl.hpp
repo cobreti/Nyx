@@ -3,6 +3,8 @@
 
 #include "NyxNetModule.hpp"
 #include "NyxObject_Impl.hpp"
+#include "NyxNetConnectionsTable_Impl.hpp"
+
 
 namespace NyxNetOSX
 {
@@ -20,6 +22,11 @@ namespace NyxNetOSX
 	
 		virtual Nyx::NyxResult GetHostname( Nyx::CAString& rHostname );
 		virtual Nyx::NyxResult GetHostIp( const char* szComputerName, Nyx::CAString& rHostIp );
+        virtual NyxNet::CConnectionsTable* GetConnectionsTable() const;
+        
+    protected:
+        
+        NyxNet::CConnectionsTableRef        m_refConnectionsTable;
 	};
 }
 

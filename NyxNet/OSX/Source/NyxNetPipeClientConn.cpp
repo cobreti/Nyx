@@ -93,3 +93,10 @@ void NyxNetOSX::CPipeClientConn::Close()
 }
 
 
+/**
+ *
+ */
+NyxNet::CSocketRef NyxNetOSX::CPipeClientConn::Socket()
+{
+    return (NyxNet::CSocket*)m_refSocket;
+}

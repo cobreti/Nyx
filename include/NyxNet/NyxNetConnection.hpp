@@ -1,6 +1,8 @@
 #ifndef _NYXNETCONNECTION_HPP_
 #define _NYXNETCONNECTION_HPP_
 
+#include "NyxNetSocket.hpp"
+
 namespace NyxNet
 {
 	class IConnection
@@ -8,6 +10,7 @@ namespace NyxNet
 	public:
 
 		virtual void Close() = 0;
+        virtual CSocketRef Socket() = 0;
 	};
 }
 
