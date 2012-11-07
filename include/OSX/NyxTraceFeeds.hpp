@@ -188,6 +188,25 @@ namespace Nyx
 	
 	
 	/**
+	 *	\brief		hex value trace feed
+	 */
+	class CTF_Ptr : public CAnsiTraceFeed
+	{
+	public:
+		CTF_Ptr(void* addr) : CAnsiTraceFeed(m_szBuffer)
+		{
+			sprintf(m_szBuffer, "%lXh", (unsigned long)addr);
+		}
+		
+	private: // private members
+		
+		enum { kBufferSize = 20 };
+		
+		char		m_szBuffer[kBufferSize];
+	};
+	
+	
+	/**
 	 *	\brief	Current thread id trace feed
 	 */
 	class CTF_ThreadId : public CAnsiTraceFeed
