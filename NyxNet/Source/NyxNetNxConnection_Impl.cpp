@@ -32,7 +32,8 @@ m_ReceivedData(0),
 m_bRunning(true),
 m_HSTimeout(5000),
 m_MissedHandshakes(0),
-m_pConnectionHandler(NULL)
+m_pConnectionHandler(NULL),
+m_bUseHandshake(true)
 {
 	m_refHSEvent = Nyx::CEvent::Alloc();
 	m_refWriteMutex = Nyx::CMutex::Alloc();
@@ -53,7 +54,8 @@ m_ReceivedData(0),
 m_bRunning(true),
 m_HSTimeout(5000),
 m_MissedHandshakes(0),
-m_pConnectionHandler(NULL)
+m_pConnectionHandler(NULL),
+m_bUseHandshake(true)
 {
 	m_refHSEvent = Nyx::CEvent::Alloc();
 	m_refWriteMutex = Nyx::CMutex::Alloc();
@@ -77,6 +79,24 @@ NyxNet::CNxConnection_Impl::~CNxConnection_Impl()
 void NyxNet::CNxConnection_Impl::SetConnectionHandler( NyxNet::INxConnectionHandler* pConnectionHandler )
 {
 	m_pConnectionHandler = pConnectionHandler;
+}
+
+
+/**
+ *
+ */
+bool NyxNet::CNxConnection_Impl::GetUseHandshake() const
+{
+    return m_bUseHandshake;
+}
+
+
+/**
+ *
+ */
+void NyxNet::CNxConnection_Impl::SetUseHandshake(bool bUseHandshake)
+{
+    m_bUseHandshake = bUseHandshake;
 }
 
 
@@ -298,19 +318,25 @@ void NyxNet::CNxConnection_Impl::HandleStream( Nyx::IStreamRW& rStream )
 {
 	m_pStreamRW = &rStream;
 
-	m_refHSThread = Nyx::CThread::Alloc();
-	m_refHSThread->Start( new Nyx::CThreadDelegateNoRef<NyxNet::CNxConnection_Impl>(
-		this,
-		&NyxNet::CNxConnection_Impl::SvrCheckHandshakeThreadProc,
-		&NyxNet::CNxConnection_Impl::SvrStopCheckHandshakeThreadProc ) );
+    if ( m_bUseHandshake )
+    {
+        m_refHSThread = Nyx::CThread::Alloc();
+        m_refHSThread->Start( new Nyx::CThreadDelegateNoRef<NyxNet::CNxConnection_Impl>(
+            this,
+            &NyxNet::CNxConnection_Impl::SvrCheckHandshakeThreadProc,
+            &NyxNet::CNxConnection_Impl::SvrStopCheckHandshakeThreadProc ) );
+    }
 
 	while ( m_bRunning )
 	{
 		m_pConnectionHandler->HandleStream( static_cast<NyxNet::INxStreamRW&>(*this) );	
 	}
 
-	m_refHSThread->Stop();
-	m_refHSThread = NULL;
+    if ( m_bUseHandshake )
+    {
+        m_refHSThread->Stop();
+        m_refHSThread = NULL;
+    }
 
 	m_pStreamRW = NULL;
 }
@@ -354,11 +380,14 @@ void NyxNet::CNxConnection_Impl::OnConnectionTerminated( NyxNet::IConnection* pC
  */
 void NyxNet::CNxConnection_Impl::OnSocketConnected( NyxNet::CSocket* pSocket )
 {
-	m_refHSThread = Nyx::CThread::Alloc();
-	m_refHSThread->Start( new Nyx::CThreadDelegateNoRef<NyxNet::CNxConnection_Impl>(
-		this,
-		&NyxNet::CNxConnection_Impl::ClientCheckHandshakeThreadProc,
-		&NyxNet::CNxConnection_Impl::ClientStopCheckHandshakeThreadProc) );
+    if ( m_bUseHandshake )
+    {
+        m_refHSThread = Nyx::CThread::Alloc();
+        m_refHSThread->Start( new Nyx::CThreadDelegateNoRef<NyxNet::CNxConnection_Impl>(
+            this,
+            &NyxNet::CNxConnection_Impl::ClientCheckHandshakeThreadProc,
+            &NyxNet::CNxConnection_Impl::ClientStopCheckHandshakeThreadProc) );
+    }
 }
 
 

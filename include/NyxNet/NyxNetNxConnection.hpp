@@ -27,6 +27,8 @@ namespace NyxNet
 		virtual void Open( NyxNet::CSocket* pSocket ) = 0;
 		virtual void Close() = 0;
 		virtual void SetConnectionHandler( NyxNet::INxConnectionHandler* pConnectionHandler ) = 0;
+        virtual bool GetUseHandshake() const = 0;
+        virtual void SetUseHandshake(bool bUseHandshake) = 0;
 	};
 }
 

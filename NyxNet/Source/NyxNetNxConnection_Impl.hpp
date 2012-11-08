@@ -81,6 +81,9 @@ namespace NyxNet
 
 		virtual void SetConnectionHandler( NyxNet::INxConnectionHandler* pConnectionHandler );
 
+        virtual bool GetUseHandshake() const;
+        virtual void SetUseHandshake(bool bUseHandshake);
+
 	public:
 
 		virtual Nyx::NyxResult BeginRead( NyxNet::NxDataType& datatype );
@@ -141,6 +144,7 @@ namespace NyxNet
 		NyxNet::INxConnectionHandler*		m_pConnectionHandler;
 		XBuffer								m_WriteBuffer;
         XBuffer                             m_ReadBuffer;
+        bool                                m_bUseHandshake;
 	};
 }
 
