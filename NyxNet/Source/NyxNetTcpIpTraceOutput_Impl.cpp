@@ -2,16 +2,16 @@
 #include "NyxNetNxStreamRW.hpp"
 
 
-NyxNet::CTcpIpTraceOutputRef NyxNet::CTcpIpTraceOutput::Alloc(const char* szName, const char* addr, const Nyx::UInt32 port)
+NyxNet::CTcpIpTraceOutputRef NyxNet::CTcpIpTraceOutput::Alloc(const char* szName, const char* addr, const Nyx::UInt32 port, bool bUseHandshake )
 {
-	return new NyxNet::CTcpIpTraceOutput_Impl(szName, addr, port);
+	return new NyxNet::CTcpIpTraceOutput_Impl(szName, addr, port, bUseHandshake);
 }
 
 
 /**
  *
  */
-NyxNet::CTcpIpTraceOutput_Impl::CTcpIpTraceOutput_Impl(const char* szName, const char* addr, const Nyx::UInt32 port)
+NyxNet::CTcpIpTraceOutput_Impl::CTcpIpTraceOutput_Impl(const char* szName, const char* addr, const Nyx::UInt32 port, bool bUseHandshake )
 {
 	m_Name = szName;
     m_Addr = addr;
@@ -20,6 +20,7 @@ NyxNet::CTcpIpTraceOutput_Impl::CTcpIpTraceOutput_Impl(const char* szName, const
 	m_refSocket->Create(m_Addr.c_str(), port);
     
 	m_refConnection = NyxNet::CNxConnection::Alloc();
+    m_refConnection->SetUseHandshake(bUseHandshake);
 	m_refConnection->Open(m_refSocket);
     
     m_TraceStreamWriter.Init(m_refConnection);

@@ -16,7 +16,7 @@ namespace NyxNet
 	class CTcpIpTraceOutput_Impl : public Nyx::CObject_Impl<NyxNet::CTcpIpTraceOutput>
 	{
 	public:
-		CTcpIpTraceOutput_Impl(const char* szName, const char* addr, const Nyx::UInt32 port);
+		CTcpIpTraceOutput_Impl(const char* szName, const char* addr, const Nyx::UInt32 port, bool bUseHandshake );
 		virtual ~CTcpIpTraceOutput_Impl();
         
 		virtual void Write( const Nyx::CTraceHeader& header, const wchar_t* wszText );

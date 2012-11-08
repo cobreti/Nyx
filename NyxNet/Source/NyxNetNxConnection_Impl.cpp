@@ -356,6 +356,7 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::OnNewConnection( NyxNet::IConnection*
 	if ( Nyx::Succeeded(res) )
 	{
 		pHandler = new NyxNet::CNxConnection_Impl(pConnection);
+        pHandler->SetUseHandshake(m_bUseHandshake);
 		pHandler->SetConnectionHandler(pNxCloneHandler);
 
 		pCloneHandler = pHandler;

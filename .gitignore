@@ -2,3 +2,8 @@
 *.a
 moc_*
 ui_*
+Help/*
+NyxBase/OSX/build/*
+NyxNet/OSX/build/*
+
+
