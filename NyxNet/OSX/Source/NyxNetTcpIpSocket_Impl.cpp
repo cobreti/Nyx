@@ -196,15 +196,28 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::Nyx
         return Nyx::kNyxRes_Failure;
     
 	Nyx::NyxResult		res = Nyx::kNyxRes_Failure;
-	ssize_t		size;
+	ssize_t             size;
+    ssize_t             sizeToRead = DataSize;
+    char*               pByteBuffer = (char*)pBuffer;
 	
-	size = ::read(m_Socket, pBuffer, DataSize);
-	if ( size > 0 )
-	{
-		ReadSize = size;
-		res = Nyx::kNyxRes_Success;
-	}
-	
+    ReadSize = 0;
+    
+    do
+    {
+        size = ::read(m_Socket, pByteBuffer, sizeToRead);
+//        if ( size > 0 )
+//        {
+            ReadSize += size;
+            sizeToRead -= size;
+            pByteBuffer += size;
+//            res = Nyx::kNyxRes_Success;
+//        }
+    }
+    while ( sizeToRead > 0 && size != 0 );
+    
+    if ( sizeToRead == 0 )
+        res = Nyx::kNyxRes_Success;
+    
 	return res;
 }
 

@@ -18,6 +18,7 @@ namespace NyxNet
 		eNxDT_Unknown				= 0x000,
 		eNxDT_HandShake				= 0x001,
 		eNxDT_TraceData				= 0x002,
+        eNxDT_TxtTraceData          = 0x003,
 		eNxDT_UserData				= 0x100
 	};
 }
