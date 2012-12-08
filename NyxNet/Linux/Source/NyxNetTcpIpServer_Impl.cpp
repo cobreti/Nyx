@@ -22,6 +22,7 @@ m_MaxConnections(0),
 m_eState(eState_Stopped),
 m_pConnectionHandler(NULL)
 {
+	m_refListeners = new NyxNet::CServerListeners();
 }
 
 
@@ -112,6 +113,15 @@ Nyx::NyxResult NyxNetLinux::CTcpIpServer_Impl::Stop()
 bool NyxNetLinux::CTcpIpServer_Impl::IsRunning() const
 {
 	return (m_refThread.Valid() && m_refThread->IsRunning());
+}
+
+
+/**
+ *
+ */
+NyxNet::CServerListenersRef NyxNetLinux::CTcpIpServer_Impl::Listeners()
+{
+	return m_refListeners;
 }
 
 

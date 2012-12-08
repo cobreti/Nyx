@@ -40,6 +40,7 @@ namespace NyxNetLinux
 	public: // IConnection methods
 
 		virtual void Close();
+		virtual NyxNet::CSocketRef Socket();
 
 	protected:
 

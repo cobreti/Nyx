@@ -5,58 +5,61 @@
 	<storageModule moduleId="org.eclipse.cdt.core.settings">
 		<cconfiguration id="0.1251473393.1268257584">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="0.1251473393.1268257584" moduleId="org.eclipse.cdt.core.settings" name="Linux Debug">
-<externalSettings/>
-<extensions>
-<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-</extensions>
-</storageModule>
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-<configuration buildProperties="" description="" id="0.1251473393.1268257584" name="Linux Debug" parent="org.eclipse.cdt.build.core.prefbase.cfg">
-<folderInfo id="0.1251473393.1268257584." name="/" resourcePath="">
-<toolChain id="org.eclipse.cdt.build.core.prefbase.toolchain.1913284233" name="No ToolChain" resourceTypeBasedDiscovery="false" superClass="org.eclipse.cdt.build.core.prefbase.toolchain">
-<targetPlatform id="org.eclipse.cdt.build.core.prefbase.toolchain.1913284233.1095470758" name=""/>
-<builder arguments="Config=Debug" buildPath="${workspace_loc:/NyxNet}/Linux" command="make" id="org.eclipse.cdt.build.core.settings.default.builder.1717501738" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="org.eclipse.cdt.build.core.settings.default.builder"/>
-<tool id="org.eclipse.cdt.build.core.settings.holder.libs.1724528423" name="holder for library settings" superClass="org.eclipse.cdt.build.core.settings.holder.libs"/>
-<tool id="org.eclipse.cdt.build.core.settings.holder.1106679258" name="Assembly" superClass="org.eclipse.cdt.build.core.settings.holder">
-<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1680386452" languageId="org.eclipse.cdt.core.assembly" languageName="Assembly" sourceContentType="org.eclipse.cdt.core.asmSource" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
-</tool>
-<tool id="org.eclipse.cdt.build.core.settings.holder.1705535535" name="GNU C++" superClass="org.eclipse.cdt.build.core.settings.holder">
-<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.928141795" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
-<listOptionValue builtIn="false" value="/usr/include"/>
-<listOptionValue builtIn="false" value="../../include"/>
-<listOptionValue builtIn="false" value="../../include/Linux"/>
-<listOptionValue builtIn="false" value="../../include/NyxNet"/>
-</option>
-<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.2141970182" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
-</tool>
-<tool id="org.eclipse.cdt.build.core.settings.holder.589908241" name="GNU C" superClass="org.eclipse.cdt.build.core.settings.holder">
-<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1580412425" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
-<listOptionValue builtIn="false" value="/usr/include"/>
-</option>
-<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1891711553" languageId="org.eclipse.cdt.core.gcc" languageName="GNU C" sourceContentType="org.eclipse.cdt.core.cSource,org.eclipse.cdt.core.cHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
-</tool>
-</toolChain>
-</folderInfo>
-</configuration>
-</storageModule>
+				<configuration buildProperties="" description="" id="0.1251473393.1268257584" name="Linux Debug" parent="org.eclipse.cdt.build.core.prefbase.cfg">
+					<folderInfo id="0.1251473393.1268257584." name="/" resourcePath="">
+						<toolChain id="org.eclipse.cdt.build.core.prefbase.toolchain.1913284233" name="No ToolChain" resourceTypeBasedDiscovery="false" superClass="org.eclipse.cdt.build.core.prefbase.toolchain">
+							<targetPlatform id="org.eclipse.cdt.build.core.prefbase.toolchain.1913284233.1095470758" name=""/>
+							<builder arguments="Config=Debug" buildPath="${workspace_loc:/NyxNet}/Linux" command="make" id="org.eclipse.cdt.build.core.settings.default.builder.1717501738" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="org.eclipse.cdt.build.core.settings.default.builder"/>
+							<tool id="org.eclipse.cdt.build.core.settings.holder.libs.1724528423" name="holder for library settings" superClass="org.eclipse.cdt.build.core.settings.holder.libs"/>
+							<tool id="org.eclipse.cdt.build.core.settings.holder.1106679258" name="Assembly" superClass="org.eclipse.cdt.build.core.settings.holder">
+								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1680386452" languageId="org.eclipse.cdt.core.assembly" languageName="Assembly" sourceContentType="org.eclipse.cdt.core.asmSource" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+							</tool>
+							<tool id="org.eclipse.cdt.build.core.settings.holder.1705535535" name="GNU C++" superClass="org.eclipse.cdt.build.core.settings.holder">
+								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.928141795" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/usr/include"/>
+									<listOptionValue builtIn="false" value="../../include"/>
+									<listOptionValue builtIn="false" value="../../include/Linux"/>
+									<listOptionValue builtIn="false" value="../../include/NyxNet"/>
+								</option>
+								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.2141970182" languageId="org.eclipse.cdt.core.g++" languageName="GNU C++" sourceContentType="org.eclipse.cdt.core.cxxSource,org.eclipse.cdt.core.cxxHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+							</tool>
+							<tool id="org.eclipse.cdt.build.core.settings.holder.589908241" name="GNU C" superClass="org.eclipse.cdt.build.core.settings.holder">
+								<option id="org.eclipse.cdt.build.core.settings.holder.incpaths.1580412425" superClass="org.eclipse.cdt.build.core.settings.holder.incpaths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/usr/include"/>
+								</option>
+								<inputType id="org.eclipse.cdt.build.core.settings.holder.inType.1891711553" languageId="org.eclipse.cdt.core.gcc" languageName="GNU C" sourceContentType="org.eclipse.cdt.core.cSource,org.eclipse.cdt.core.cHeader" superClass="org.eclipse.cdt.build.core.settings.holder.inType"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-		<storageModule moduleId="scannerConfiguration"/>
-</cconfiguration>
+			<storageModule moduleId="scannerConfiguration"/>
+			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+		</cconfiguration>
 		<cconfiguration id="0.1251473393.1083229436">
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="0.1251473393.1083229436" moduleId="org.eclipse.cdt.core.settings" name="Linux Release">
-<externalSettings/>
-<extensions>
-<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-</extensions>
-</storageModule>
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration buildProperties="" description="" id="0.1251473393.1083229436" name="Linux Release" parent="org.eclipse.cdt.build.core.prefbase.cfg">
 					<folderInfo id="0.1251473393.1083229436." name="/" resourcePath="">
@@ -87,12 +90,13 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
-		<storageModule moduleId="scannerConfiguration"/>
-</cconfiguration>
+			<storageModule moduleId="scannerConfiguration"/>
+			<storageModule moduleId="org.eclipse.cdt.core.language.mapping"/>
+		</cconfiguration>
 	</storageModule>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-<project id="NyxNet.null.315736247" name="NyxNet"/>
-</storageModule>
+		<project id="NyxNet.null.315736247" name="NyxNet"/>
+	</storageModule>
 	<storageModule moduleId="refreshScope" versionNumber="1">
 		<resource resourceType="PROJECT" workspacePath="/NyxNet"/>
 	</storageModule>

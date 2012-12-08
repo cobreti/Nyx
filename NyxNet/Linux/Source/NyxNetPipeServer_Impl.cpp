@@ -21,6 +21,7 @@ NyxNet::CPipeServerRef NyxNet::CPipeServer::Alloc()
 NyxNetLinux::CPipeServer_Impl::CPipeServer_Impl() :
 m_bTerminate(false)
 {
+	m_refListeners = new NyxNet::CServerListeners();
 }
 
 
@@ -92,6 +93,14 @@ bool NyxNetLinux::CPipeServer_Impl::IsRunning() const
 	return (m_refThread.Valid() && m_refThread->IsRunning());
 }
 
+
+/**
+ *
+ */
+NyxNet::CServerListenersRef NyxNetLinux::CPipeServer_Impl::Listeners()
+{
+	return m_refListeners;
+}
 
 /**
  *

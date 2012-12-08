@@ -91,4 +91,10 @@ void NyxNetLinux::CTcpIpClientConn::Close()
 }
 
 
-
+/**
+ *
+ */
+NyxNet::CSocketRef NyxNetLinux::CTcpIpClientConn::Socket()
+{
+	return (NyxNet::CSocket*)m_refConnSocket;
+}

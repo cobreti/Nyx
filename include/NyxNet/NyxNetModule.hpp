@@ -21,7 +21,7 @@ namespace NyxNet
 	
 		virtual Nyx::NyxResult GetHostname( Nyx::CAString& rHostname ) = 0;
 		virtual Nyx::NyxResult GetHostIp( const char* szComputerName, Nyx::CAString& rHostIp ) = 0;
-        virtual CConnectionsTable* GetConnectionsTable() const = 0;
+//        virtual CConnectionsTable* GetConnectionsTable() const = 0;
 	};
 }
 
