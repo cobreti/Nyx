@@ -86,6 +86,8 @@ namespace NyxNet
 
 	public:
 
+        virtual bool RequiresBytesSwap() const;
+
 		virtual Nyx::NyxResult BeginRead( NyxNet::NxDataType& datatype );
 		virtual Nyx::NyxResult BeginReadSection( NyxNet::NxDataSize& size );
 		virtual Nyx::NyxResult Read( void* pBuffer, const NyxNet::NxDataSize& size );
@@ -145,6 +147,7 @@ namespace NyxNet
 		XBuffer								m_WriteBuffer;
         XBuffer                             m_ReadBuffer;
         bool                                m_bUseHandshake;
+        Nyx::UInt32							m_BytesOrderMarker;
 	};
 }
 

@@ -137,6 +137,8 @@ void NyxNetLinux::CTcpIpServer_Impl::RunningLoop()
 	{
 		//Nyx::CTraceStream(0x0).Write(L"starting running loop");
 
+		m_refListeners->OnServerStarted(this);
+
 		while ( m_eState == eState_Running )
 		{
 			refConnSocket = NULL;
@@ -165,6 +167,8 @@ void NyxNetLinux::CTcpIpServer_Impl::RunningLoop()
 			}
 		}
 		
+		m_refListeners->OnServerStopped(this);
+
 		Nyx::CTraceStream(0x0).Write(L"Terminating running loop");
 	}
 	NyxEndBody(res)

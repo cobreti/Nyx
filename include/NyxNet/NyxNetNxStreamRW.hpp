@@ -18,6 +18,8 @@ namespace NyxNet
 
 	protected:
 
+		virtual bool RequiresBytesSwap() const = 0;
+
 		virtual Nyx::NyxResult BeginReadSection( NyxNet::NxDataSize& size ) = 0;
 		virtual Nyx::NyxResult Read( void* pBuffer, const NyxNet::NxDataSize& size ) = 0;
 		virtual void EndReadSection() = 0;
@@ -152,6 +154,8 @@ namespace NyxNet
 				m_rStream.EndRead();
 		}
 
+		bool RequiresBytesSwap() const					{ return m_rStream.RequiresBytesSwap(); }
+
 		bool Valid() const									{ return m_bValid; }
 
 		const NyxNet::NxDataType& DataType() const			{ return m_DataType; }
@@ -192,6 +196,8 @@ namespace NyxNet
 
 			return m_rStream.Read(pBuffer, size);
 		}
+
+		bool RequiresBytesSwap() const					{ return m_rStream.RequiresBytesSwap(); }
 
 		bool Valid() const								{ return m_bValid; }
 

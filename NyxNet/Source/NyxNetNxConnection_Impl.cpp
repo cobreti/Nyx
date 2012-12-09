@@ -5,6 +5,7 @@
 #include "NyxLock.hpp"
 #include "NyxTraceStream.hpp"
 #include "NyxTraces.hpp"
+#include "NyxSwap.hpp"
 
 #include <stdio.h>
 #include <string.h>
@@ -33,7 +34,8 @@ m_bRunning(true),
 m_HSTimeout(5000),
 m_MissedHandshakes(0),
 m_pConnectionHandler(NULL),
-m_bUseHandshake(true)
+m_bUseHandshake(true),
+m_BytesOrderMarker(0)
 {
 	m_refHSEvent = Nyx::CEvent::Alloc();
 	m_refWriteMutex = Nyx::CMutex::Alloc();
@@ -103,6 +105,14 @@ void NyxNet::CNxConnection_Impl::SetUseHandshake(bool bUseHandshake)
 /**
  *
  */
+bool NyxNet::CNxConnection_Impl::RequiresBytesSwap() const
+{
+    return (m_BytesOrderMarker == 0xFEFF0000);
+}
+
+/**
+ *
+ */
 Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& datatype )
 {
 	Nyx::NyxResult		    res = Nyx::kNyxRes_Success;
@@ -116,7 +126,12 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
 	{
         DataSize = 0;
         datatype = NyxNet::eNxDT_HandShake;
+        res = m_pStreamRW->Read( &m_BytesOrderMarker, sizeof(m_BytesOrderMarker), ReadSize );
         res = m_pStreamRW->Read( &DataSize, sizeof(NyxNet::NxDataSize), ReadSize );
+
+        if ( Nyx::Succeeded(res) && RequiresBytesSwap() )
+        	DataSize = Nyx::Swap_UInt32(DataSize);
+
         if ( Nyx::Succeeded(res) && DataSize > 0 && ReadSize > 0 )
         {
             m_ReadBuffer.Clear();
@@ -140,6 +155,9 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
 		    {
 			    ++ m_ReceivedData;
                 m_ReadBuffer.ReadData( &datatype, sizeof(NyxNet::NxDataType) );
+
+                if ( RequiresBytesSwap() )
+                    datatype = Nyx::Swap_UInt32(datatype);
 
 			    if ( datatype == NyxNet::eNxDT_HandShake )
 			    {
@@ -168,6 +186,10 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginReadSection( NyxNet::NxDataSize&
 	Nyx::NyxSize		ReadSize;
 
     ReadSize = m_ReadBuffer.ReadData( &size, sizeof(NyxNet::NxDataSize) );
+
+    if ( RequiresBytesSwap() )
+    	size = Nyx::Swap_UInt32(size);
+
     if ( sizeof(NyxNet::NxDataSize) == ReadSize )
     {
 		++ m_ReceivedData;
