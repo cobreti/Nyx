@@ -127,7 +127,9 @@ Nyx::NyxResult NyxNet::CNxConnection_Impl::BeginRead( NyxNet::NxDataType& dataty
         DataSize = 0;
         datatype = NyxNet::eNxDT_HandShake;
         res = m_pStreamRW->Read( &m_BytesOrderMarker, sizeof(m_BytesOrderMarker), ReadSize );
-        res = m_pStreamRW->Read( &DataSize, sizeof(NyxNet::NxDataSize), ReadSize );
+        
+        if ( Nyx::Succeeded(res) )
+            res = m_pStreamRW->Read( &DataSize, sizeof(NyxNet::NxDataSize), ReadSize );
 
         if ( Nyx::Succeeded(res) && RequiresBytesSwap() )
         	DataSize = Nyx::Swap_UInt32(DataSize);
@@ -302,9 +304,11 @@ void NyxNet::CNxConnection_Impl::EndWriteSection()
 void NyxNet::CNxConnection_Impl::EndWrite()
 {
     NyxNet::NxDataSize          DataSize = m_WriteBuffer.DataSize();
+    Nyx::UInt32                 BytesOrderMarker = 0xFFFE;
 
 	Nyx::NyxSize				WrittenSize(0);
 
+    m_pStreamRW->Write( &BytesOrderMarker, sizeof(BytesOrderMarker), WrittenSize );
     m_pStreamRW->Write( &DataSize, sizeof(NyxNet::NxDataSize), WrittenSize );
 	m_pStreamRW->Write( m_WriteBuffer.Buffer(), m_WriteBuffer.DataSize(), WrittenSize );
 
@@ -491,9 +495,11 @@ void NyxNet::CNxConnection_Impl::ClientCheckHandshakeThreadProc()
 				NyxNet::NxDataType			DataType = NyxNet::eNxDT_HandShake;
                 NyxNet::NxDataSize          DataSize = sizeof(NyxNet::NxDataType);
 				Nyx::NyxSize				SizeWritten(0);
+                Nyx::UInt32                 BytesOrderMarker = 0xFFFE;
 
                 //NYXTRACE(0x0, L"DataSize = " << (int)DataSize << L" | DataType = " << Nyx::CTF_Hex(DataType) );
 
+                m_pStreamRW->Write( &BytesOrderMarker, sizeof(BytesOrderMarker), SizeWritten );
                 m_pStreamRW->Write( &DataSize, sizeof(NyxNet::NxDataSize), SizeWritten );
                 m_pStreamRW->Write( &DataType, sizeof(NyxNet::NxDataType), SizeWritten );
 			}
