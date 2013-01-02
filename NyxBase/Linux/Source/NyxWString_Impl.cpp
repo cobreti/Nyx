@@ -150,6 +150,15 @@ namespace Nyx
 	/**
 	 *
 	 */
+	const CWString& CWString::AssignUTF8 (const char* szText)
+	{
+		FromCharToWideChar(szText, "UTF-8");
+		return *this;
+	}
+
+	/**
+	 *
+	 */
 	bool CWString::operator == (const CWString& str) const
 	{
 		return wcscmp(m_Buffer.pConstWChar, str.m_Buffer.pConstWChar) == 0;

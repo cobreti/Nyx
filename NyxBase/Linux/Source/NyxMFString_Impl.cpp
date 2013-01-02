@@ -1,6 +1,7 @@
 #include <string.h>
 #include <wchar.h>
 #include <stdlib.h>
+#include <iconv.h>
 //#include <stdio.h>
 
 #include "NyxMFString.hpp"
@@ -522,27 +523,64 @@ namespace Nyx
 	{
 		NyxAssert( NULL != szString, "invalid ansi string : null pointer" );
 		NyxAssert( m_Flags.fWideChar, "destination string isn't wide char" );
-		
+
 		size_t		len = strlen(szString);
 		size_t		size = LenToSize( len+1, sizeof(wchar_t) );
-		
+
 		if ( size > m_BufferSize && CanResize() )
 			Resize(size);
-		
+
 		wchar_t*		pDst = m_Buffer.pWChar;
 		const char*		pSrc = szString;
-		
+
 		while ( *pSrc != '\0' )
 		{
 			*pDst = *pSrc;
 			++pDst;
 			++pSrc;
 		}
-		
+
 		*pDst = '\0';
 	}
-	
-	
+
+
+	void CMFString::FromCharToWideChar( const char* szString, char* encoding )
+	{
+		NyxAssert( NULL != szString, "invalid ansi string : null pointer" );
+		NyxAssert( m_Flags.fWideChar, "destination string isn't wide char" );
+		
+		size_t		len = strlen(szString);
+		size_t		size = LenToSize( len+1, sizeof(wchar_t) );
+		
+		iconv_t		hConv = iconv_open("WCHAR_T", encoding);
+
+		if ( size > m_BufferSize && CanResize() )
+			Resize(size);
+		
+		size_t		ret = 0;
+		size_t		outBytes = 0;
+		char*		ptr = m_Buffer.pChar;
+		
+		::memset(m_Buffer.pWChar, 0, m_BufferSize);
+		outBytes = m_BufferSize - sizeof(wchar_t);
+		ret = iconv(hConv, (char**)&szString, &len, &ptr, &outBytes);
+		
+		iconv_close(hConv);
+
+//		wchar_t*		pDst = m_Buffer.pWChar;
+//		const char*		pSrc = szString;
+//
+//		while ( *pSrc != '\0' )
+//		{
+//			*pDst = *pSrc;
+//			++pDst;
+//			++pSrc;
+//		}
+//
+//		*pDst = '\0';
+	}
+
+
 	/**
 	 *
 	 */
