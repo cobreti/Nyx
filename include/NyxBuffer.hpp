@@ -204,7 +204,9 @@ namespace Nyx
 		{
 			Nyx::NyxSize		ReadSize = (size >= m_DataSize) ? m_DataSize : size;
 			
-			memcpy(pBuffer, m_pNextReadPos, ReadSize);
+			if ( pBuffer != NULL )
+				memcpy(pBuffer, m_pNextReadPos, ReadSize);
+
 			m_DataSize -= ReadSize;
 			m_pNextWritePos -= ReadSize;
             memmove(m_pBuffer, m_pBuffer+ReadSize, m_DataSize);
