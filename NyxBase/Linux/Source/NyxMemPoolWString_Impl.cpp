@@ -64,4 +64,26 @@ namespace Nyx
 		
 		return *this;
 	}
+
+
+	/**
+	 *
+	 */
+	const CMemPoolWString& CMemPoolWString::operator = (const CUtf8String& text)
+	{
+		NyxAssert( m_Buffer.pData == NULL, "String buffer already allocated" );
+
+		m_Flags.fFixedSize = 1;
+
+		size_t		BufferSize = LenToSize(text.size() + 1, sizeof(wchar_t));
+
+		m_Buffer.pData = MemoryPool()->AllocMem(BufferSize);
+		if ( m_Buffer.pData )
+		{
+			m_BufferSize = BufferSize;
+			FromCharToWideChar(text.c_str(), "UTF-8");
+		}
+
+		return *this;
+	}
 }

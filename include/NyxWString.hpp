@@ -7,6 +7,7 @@
 namespace Nyx
 {
 	class CAString;
+	class CUtf8String;
 
 	/**
 	 *
@@ -28,9 +29,10 @@ namespace Nyx
 		const CWString& operator = (const CMFString& str);
 		const CWString& operator = (const CMFTmpString& str);
 		const CWString& operator = (const CAString& str);
+		const CWString& operator = (const CUtf8String& str);
 		const CWString& operator = (const wchar_t* wszText);
 		const CWString& operator = (const char* szText);
-		const CWString& AssignUTF8 (const char* szText);
+//		const CWString& AssignUTF8 (const char* szText);
 		
 		const wchar_t* c_str() const		{ return m_Buffer.pConstWChar; }
         size_t length() const;

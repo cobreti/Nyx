@@ -1,6 +1,7 @@
 #include "NyxWString.hpp"
 #include "NyxBodyBlock.hpp"
 #include "NyxAString.hpp"
+#include "NyxUtf8String.hpp"
 #include "NyxAssert.hpp"
 
 namespace Nyx
@@ -21,7 +22,7 @@ namespace Nyx
 	 *
 	 */
 	CWString::CWString(size_t size) :
-	CMFString(size, eSF_Wide)
+	CMFString(size, kSF_Wide)
 	{
 
 	}
@@ -130,6 +131,16 @@ namespace Nyx
 	/**
 	 *
 	 */
+	const CWString& CWString::operator = (const CUtf8String& str)
+	{
+		FromCharToWideChar(str.m_Buffer.pConstChar, "UTF-8");
+		return *this;
+	}
+
+
+	/**
+	 *
+	 */
 	const CWString& CWString::operator = (const wchar_t* wszText)
 	{
 		Set(wszText);
@@ -147,14 +158,14 @@ namespace Nyx
 	}
 	
 	
-	/**
-	 *
-	 */
-	const CWString& CWString::AssignUTF8 (const char* szText)
-	{
-		FromCharToWideChar(szText, "UTF-8");
-		return *this;
-	}
+//	/**
+//	 *
+//	 */
+//	const CWString& CWString::AssignUTF8 (const char* szText)
+//	{
+//		FromCharToWideChar(szText, "UTF-8");
+//		return *this;
+//	}
 
 	/**
 	 *
@@ -255,7 +266,7 @@ namespace Nyx
     CMFTmpString CWString::GetSubString( CRange range )
     {
         const wchar_t*      pStart = m_Buffer.pConstWChar + range.Start();
-        CMFTmpString        result(range.Length(), eSF_Wide);
+        CMFTmpString        result(range.Length(), kSF_Wide);
         
         wcsncpy( result.m_Buffer.pWChar, pStart, range.Length() );
         

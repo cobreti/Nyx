@@ -2,6 +2,7 @@
 #define _NYXMEMPOOLWSTRING_HPP_
 
 #include <NyxWString.hpp>
+#include <NyxUtf8String.hpp>
 #include <NyxMemPoolObj.hpp>
 
 namespace Nyx
@@ -19,6 +20,7 @@ namespace Nyx
 		
 		const CMemPoolWString& operator = (const char* szText);
 		const CMemPoolWString& operator = (const wchar_t* wszText);
+		const CMemPoolWString& operator = (const CUtf8String& text);
 	};
 }
 

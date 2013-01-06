@@ -10,8 +10,10 @@ namespace Nyx
 	 */
 	enum EStringsFormat
 	{
-		eSF_Ansi,
-		eSF_Wide
+		kSF_Unknown			= 0,
+		kSF_Ansi			= 1,
+		kSF_Wide			= 2,
+		kSF_UTF8			= 3
 	};
 };
 

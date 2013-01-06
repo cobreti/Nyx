@@ -35,7 +35,7 @@ namespace Nyx
 		
 		void Clear();
 		
-		Nyx::Byte		fAnsi:1;
+		Nyx::Byte		fChar:1;
 		Nyx::Byte		fWideChar:1;
 		Nyx::Byte		fFixedSize:1;
 		Nyx::Byte		fDynAllocated:1;
@@ -53,7 +53,7 @@ namespace Nyx
 		
 	public:
 		CMFString();
-		explicit CMFString(const char* szValue);
+		explicit CMFString(const char* szValue, EStringsFormat format = kSF_Ansi);
 		explicit CMFString(const wchar_t* wszValue);
 		explicit CMFString(const CMFStringRef& refValue);
 		explicit CMFString(const CMFString& str);
@@ -74,7 +74,7 @@ namespace Nyx
 		CMFTmpString operator + (const wchar_t* wszCalue) const;
 
 		bool IsWideString() const		{ return m_Flags.fWideChar; }
-		bool IsAnsiString() const		{ return m_Flags.fAnsi; }
+		bool IsAnsiString() const		{ return m_Flags.fChar; }
 		
 		const CAString& AString() const;
 		CAString& AString();
@@ -87,24 +87,24 @@ namespace Nyx
 		void Reserve( size_t NumberOfCharacters ); // pre-allocate the given number of characters
 
 	protected:
-		
+
 		void ReleaseBuffer();
 		void Resize( size_t newsize );
 
-		void Set( const char* szValue );
+		void Set( const char* szValue, EStringsFormat format = kSF_Ansi  );
 		void Set( const wchar_t* wszValue );
 		void Set( const CMFString& str );
-		
+
 		void Append( const char* szValue );
 		void Append( const wchar_t* wszValue );
 		void Append( const CMFString& str );
-		
+
 		void Add( const CMFString& str, CMFString& resultStr ) const;
 		void Add( const char* szValue, CMFString& resultStr ) const;
 		void Add( const wchar_t* wszValue, CMFString& resultStr ) const;
 		void Add( const char* szValue, size_t len, CMFString& resultStr ) const;
 		void Add( const wchar_t* wszValue, size_t len, CMFString& resultStr ) const;
-		
+
 		void FromCharToWideChar( const char* szString );
 		void FromCharToWideChar( const char* szString, char* encoding );
 		void FromWideCharToChar( const wchar_t* wszString );
@@ -115,13 +115,14 @@ namespace Nyx
 		
 		bool CanResize() const	{ return !m_Flags.fFixedSize && m_Flags.fDynAllocated && m_Flags.fMutable; }
 		
-		bool IsSameFormat(const CMFString& str) const		{ return m_Flags.fAnsi == str.m_Flags.fAnsi && m_Flags.fWideChar == str.m_Flags.fWideChar; }
+		bool IsSameFormat(const CMFString& str) const		{ return m_Flags.fChar == str.m_Flags.fChar && m_Flags.fWideChar == str.m_Flags.fWideChar; }
 
 	protected:
 
 		TStringFlags		m_Flags;
 		TStringBufferPtr	m_Buffer;
 		size_t				m_BufferSize;	//	in bytes
+		EStringsFormat		m_Format;
 	};
 	
 	
@@ -139,6 +140,7 @@ namespace Nyx
 	private:
 		TStringBufferPtr		m_Buffer;
 		TStringFlags			m_Flags;
+		EStringsFormat			m_Format;
 	};
 	
 	
