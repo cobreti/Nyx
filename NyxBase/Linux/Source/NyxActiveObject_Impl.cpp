@@ -19,6 +19,7 @@ Nyx::CActiveObject* Nyx::CActiveObject::Alloc()
  *
  */
 NyxLinux::CActiveObject_Impl::CActiveObject_Impl() :
+m_MsgCount(0),
 m_bRunning(false),
 m_pSentMsg(NULL)
 {

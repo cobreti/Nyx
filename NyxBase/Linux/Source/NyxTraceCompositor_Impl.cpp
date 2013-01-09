@@ -14,7 +14,7 @@ NyxLinux::CTraceCompositor_Impl::XDummyTraceOutput NyxLinux::CTraceCompositor_Im
 /**
  *
  */
-Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(ETraceCompositorCharSet charset, bool bUseAsDefault)
+Nyx::CTraceCompositorRef Nyx::CTraceCompositor::Alloc(Nyx::ETraceCompositorCharSet charset, bool bUseAsDefault)
 {
 	return new NyxLinux::CTraceCompositor_Impl(charset, bUseAsDefault);
 }
@@ -41,7 +41,7 @@ m_bUseAsDefault(bUseAsDefault)
 
     //m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = Nyx::CMutex::Alloc();
-	
+
 	if ( UsedAsDefault() )
 		Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
 }
@@ -55,10 +55,10 @@ m_pCompositorBuffer(pBuffer),
 m_bUseAsDefault(bUseAsDefault)
 {
 	m_TraceHeader.ThreadId().Format("%08lX", (unsigned long)(void*)pthread_self());
-	
+
     //m_refOutput = &s_DummyTraceOutput;
 	m_refMutex = pMutex;
-	
+
 	if ( UsedAsDefault() )
 		Nyx::CModule::GetDefault()->Traces().SetThreadDefault(this);
 }
@@ -76,7 +76,7 @@ NyxLinux::CTraceCompositor_Impl::~CTraceCompositor_Impl()
 		if ( pModule )
 			pModule->Traces().RemoveThreadDefault();
 	}
-	
+
 	m_pCompositorBuffer->Release();
 }
 
@@ -85,16 +85,16 @@ NyxLinux::CTraceCompositor_Impl::~CTraceCompositor_Impl()
  *
  */
 void NyxLinux::CTraceCompositor_Impl::Begin(const Nyx::TraceFilter& filter)
-{	
+{
 	timeval		t;
-	
+
 	m_refMutex->Lock();
-	
+
 	gettimeofday(&t, NULL);
 	m_TraceHeader.TickCount().Format("%012lu.%06lu", (unsigned long)t.tv_sec, (unsigned long)t.tv_usec);
 
 	m_pCompositorBuffer->Begin();
-	
+
 //	m_pCurPos = m_pStartBufferPos;
 }
 
@@ -132,9 +132,9 @@ void NyxLinux::CTraceCompositor_Impl::Write(const Nyx::CTraceFeed& feed)
 Nyx::CTraceCompositor* NyxLinux::CTraceCompositor_Impl::Clone()
 {
 	Nyx::CTraceCompositor*		pTraceCompositor = new NyxLinux::CTraceCompositor_Impl( new XDummyMutex(), m_pCompositorBuffer->Clone(), UsedAsDefault() );
-	
+
 	pTraceCompositor->SetOutput(m_refOutput);
-	
+
 	return pTraceCompositor;
 }
 

@@ -266,6 +266,10 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::N
                 ReadSize = size;
                 res = Nyx::kNyxRes_Success;
             }
+            else
+            {
+            	return Nyx::kNyxRes_Failure;
+            }
         }
     }
     while ( Nyx::Failed(res) );
