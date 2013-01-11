@@ -37,7 +37,7 @@ namespace NyxLinux
         if ( m_pFile )
             return Nyx::kNyxRes_Failure;
 
-        m_pFile = fopen(filename, "W+");
+        m_pFile = fopen(filename, "w+");
         
         if ( !m_pFile )
             return Nyx::kNyxRes_Failure;
