@@ -11,9 +11,10 @@ namespace Nyx
 	CAString::CAString() :
 	CMFString()
 	{
-		m_Flags.fAnsi = 1;
+		m_Flags.fChar = 1;
 		m_Flags.fDynAllocated = 1;
 		m_Flags.fMutable = 1;
+		m_Format = kSF_Ansi;
 	}
 	
     
@@ -21,7 +22,7 @@ namespace Nyx
      *
      */
     CAString::CAString(size_t size) :
-    CMFString(size, eSF_Ansi)
+    CMFString(size, kSF_Ansi)
     {
     }
     

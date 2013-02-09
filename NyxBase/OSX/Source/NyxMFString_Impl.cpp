@@ -1,3 +1,9 @@
+#include <string.h>
+#include <wchar.h>
+#include <stdlib.h>
+#include <iconv.h>
+//#include <stdio.h>
+
 #include "NyxMFString.hpp"
 #include "NyxBodyBlock.hpp"
 #include "NyxAString.hpp"
@@ -16,7 +22,7 @@ namespace Nyx
 	 *
 	 */
 	TStringFlags::TStringFlags() :
-	fAnsi(0),
+	fChar(0),
 	fWideChar(0),
 	fFixedSize(0),
 	fDynAllocated(0),
@@ -41,19 +47,21 @@ namespace Nyx
 	m_BufferSize(0)
 	{
 		m_Buffer.pData = NULL;
+		m_Format = kSF_Unknown;
 	}
 	
 	
 	/**
 	 *
 	 */
-	CMFString::CMFString(const char* szValue) :
+	CMFString::CMFString(const char* szValue, EStringsFormat format /*= kSF_Ansi*/) :
 	m_BufferSize(0)
 	{
 		m_Buffer.pData = NULL;
 		m_Flags.fDynAllocated = 1;
-		m_Flags.fAnsi = 1;
+		m_Flags.fChar = 1;
 		m_Flags.fMutable = 1;
+		m_Format = format;
 		
 		Set(szValue);
 	}
@@ -69,6 +77,7 @@ namespace Nyx
 		m_Flags.fDynAllocated = 1;
 		m_Flags.fWideChar = 1;
 		m_Flags.fMutable = 1;
+		m_Format = kSF_Wide;
 		
 		Set(wszValue);
 	}
@@ -81,19 +90,22 @@ namespace Nyx
 	m_BufferSize(0)
 	{
 		m_Buffer.pData = NULL;
+		m_Format = kSF_Unknown;
 //		m_Flags.fMutable = 1;
 
-		if ( refValue.m_Flags.fAnsi )
+		if ( refValue.m_Flags.fChar )
 		{
-			m_Flags.fAnsi = 1;
+			m_Flags.fChar = 1;
 			m_Buffer.pConstChar = refValue.m_Buffer.pConstChar;
 			m_BufferSize = LenToSize(strlen(m_Buffer.pChar) + 1, sizeof(char));
+			m_Format = kSF_Ansi;
 		}
 		else if ( refValue.m_Flags.fWideChar )
 		{
 			m_Flags.fWideChar = 1;
 			m_Buffer.pConstWChar = refValue.m_Buffer.pConstWChar;
 			m_BufferSize = LenToSize(wcslen(m_Buffer.pWChar) + 1, sizeof(wchar_t));
+			m_Format = kSF_Wide;
 		}
 	};
 	
@@ -121,21 +133,26 @@ namespace Nyx
 		m_Flags.fDynAllocated = 1;
 		m_Flags.fFixedSize = 1;
 		m_Flags.fMutable = 1;
+		m_Format = kSF_Unknown;
 		
 		switch (format)
 		{
-		case eSF_Ansi:
+		case kSF_Ansi:
 			{
-				m_Flags.fAnsi = 1;
+				m_Flags.fChar = 1;
+				m_Format = format;
 				Resize( LenToSize(size, sizeof(char)) );
 			}
 			break;
-		case eSF_Wide:
+		case kSF_Wide:
 			{
 				m_Flags.fWideChar = 1;
+				m_Format = format;
 				Resize( LenToSize(size+1, sizeof(wchar_t)) );
 			}
 			break;
+        default:
+            break;
 		};
 	}
 	
@@ -191,10 +208,12 @@ namespace Nyx
 		m_Flags = tmpStr.m_Flags;
 		m_Buffer.pData = tmpStr.m_Buffer.pData;
 		m_BufferSize = tmpStr.m_BufferSize;
+		m_Format = tmpStr.m_Format;
 		
 		tmpStr.m_BufferSize = 0;
 		tmpStr.m_Buffer.pData = NULL;
 		tmpStr.m_Flags.Clear();
+		tmpStr.m_Format = kSF_Unknown;
 		
 		return *this;
 	}
@@ -315,7 +334,7 @@ namespace Nyx
 		
 		size_t	newSize = 0;
 		
-		if ( m_Flags.fAnsi )
+		if ( m_Flags.fChar )
 			newSize = LenToSize(NumberOfCharacters, sizeof(char));
 		else if ( m_Flags.fWideChar )
 			newSize = LenToSize(NumberOfCharacters, sizeof(wchar_t));
@@ -365,15 +384,16 @@ namespace Nyx
 	/**
 	 *
 	 */
-	void CMFString::Set(const char* szValue)
+	void CMFString::Set(const char* szValue, EStringsFormat format /*= kSF_Ansi*/)
 	{
 		size_t	newsize = LenToSize(strlen(szValue) + 1, sizeof(char));
 		
 		if ( newsize > m_BufferSize && CanResize() )
 			Resize( newsize );
 		
-		m_Flags.fAnsi = 1;
+		m_Flags.fChar = 1;
 		m_Flags.fWideChar = 0;
+		m_Format = format;
 		strlcpy(m_Buffer.pChar, szValue, BufferLen());
 	}
 
@@ -389,7 +409,8 @@ namespace Nyx
 			Resize( newsize );
 
 		m_Flags.fWideChar = 1;
-		m_Flags.fAnsi = 0;
+		m_Flags.fChar = 0;
+		m_Format = kSF_Wide;
 		wcslcpy(m_Buffer.pWChar, wszValue, BufferLen());
 	}
 	
@@ -399,7 +420,7 @@ namespace Nyx
 	 */
 	void CMFString::Set( const CMFString& str )
 	{
-		if ( str.m_Flags.fAnsi )
+		if ( str.m_Flags.fChar )
 			Set(str.m_Buffer.pConstChar);
 		else if ( str.m_Flags.fWideChar )
 			Set(str.m_Buffer.pConstWChar);
@@ -411,7 +432,7 @@ namespace Nyx
 	 */
 	void CMFString::Append( const char* szValue )
 	{
-		HandleErrorOnCond(!m_Flags.fAnsi, "Invalid string format");
+		HandleErrorOnCond(!m_Flags.fChar, "Invalid string format");
 		
 		size_t	newsize = LenToSize(m_BufferSize + strlen(szValue), sizeof(char));
 		
@@ -443,7 +464,7 @@ namespace Nyx
 	 */
 	void CMFString::Append( const CMFString& str )
 	{
-		if ( str.m_Flags.fAnsi )
+		if ( str.m_Flags.fChar )
 			Append(str.m_Buffer.pConstChar);
 		else if ( str.m_Flags.fWideChar )
 			Append(str.m_Buffer.pConstWChar );
@@ -487,7 +508,7 @@ namespace Nyx
 	{
 		HandleErrorOnCond( !IsAnsiString(), "cannot add string of different format" );
 		
-		resultStr.m_Flags.fAnsi = 1;
+		resultStr.m_Flags.fChar = 1;
 		resultStr.m_Flags.fDynAllocated = 1;
 		resultStr.Resize( sizeInBytes + m_BufferSize );		
 		strlcpy( resultStr.m_Buffer.pChar, m_Buffer.pConstChar, resultStr.BufferLen() );
@@ -536,6 +557,31 @@ namespace Nyx
 		
 		*pDst = '\0';
 	}
+
+
+	void CMFString::FromCharToWideChar( const char* szString, char* encoding )
+	{
+		NyxAssert( NULL != szString, "invalid ansi string : null pointer" );
+		NyxAssert( m_Flags.fWideChar, "destination string isn't wide char" );
+		
+		size_t		len = strlen(szString);
+		size_t		size = LenToSize( len+1, sizeof(wchar_t) );
+		
+		iconv_t		hConv = iconv_open("WCHAR_T", encoding);
+
+		if ( size > m_BufferSize && CanResize() )
+			Resize(size);
+		
+		size_t		ret = 0;
+		size_t		outBytes = 0;
+		char*		ptr = m_Buffer.pChar;
+		
+		::memset(m_Buffer.pWChar, 0, m_BufferSize);
+		outBytes = m_BufferSize - sizeof(wchar_t);
+		ret = iconv(hConv, (char**)&szString, &len, &ptr, &outBytes);
+		
+		iconv_close(hConv);
+	}
 	
 	
 	/**
@@ -544,7 +590,7 @@ namespace Nyx
 	void CMFString::FromWideCharToChar( const wchar_t* wszString )
 	{
 		NyxAssert( NULL != wszString, "invalid wide string : null pointer" );
-		NyxAssert( m_Flags.fAnsi, "destination string isn't ansi" );
+		NyxAssert( m_Flags.fChar, "destination string isn't ansi" );
 		
 		size_t		len = wcslen(wszString);
 		size_t		size = len + 1;
@@ -571,7 +617,7 @@ namespace Nyx
 	 */
 	size_t CMFString::BufferLen() const
 	{
-		if ( m_Flags.fAnsi )
+		if ( m_Flags.fChar )
 			return m_BufferSize;
 		else if ( m_Flags.fWideChar )
 			return m_BufferSize >> kWCharShift;
@@ -586,7 +632,7 @@ namespace Nyx
 	CMFStringRef::CMFStringRef(const char* szValue)
 	{
 		m_Buffer.pConstChar = szValue;
-		m_Flags.fAnsi = 1;
+		m_Flags.fChar = 1;
 	}
 	
 	

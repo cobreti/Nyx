@@ -21,7 +21,7 @@ namespace Nyx
      *
      */
     CWString::CWString(size_t size) :
-    CMFString(size, eSF_Wide)
+    CMFString(size, kSF_Wide)
     {
     }
     
@@ -245,7 +245,7 @@ namespace Nyx
     CMFTmpString CWString::GetSubString( CRange range )
     {
         const wchar_t*      pStart = m_Buffer.pConstWChar + range.Start();
-        CMFTmpString        result(range.Length(), eSF_Wide);
+        CMFTmpString        result(range.Length(), kSF_Wide);
         
         wcsncpy( result.m_Buffer.pWChar, pStart, range.Length() );
         
