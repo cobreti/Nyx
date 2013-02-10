@@ -117,7 +117,9 @@ void NyxLinux::CActiveObject_Impl::Send( const Nyx::CMsg& msg )
 	__sync_fetch_and_add(&m_MsgCount, 1);
 	m_pSentMsg = const_cast<Nyx::CMsg*>(&msg);
 	m_refPostMsgInEvent->Signal(0);
-	m_refSentMsgHandled->WaitSignaled();
+
+	while ( m_pSentMsg == const_cast<Nyx::CMsg*>(&msg) )
+		m_refSentMsgHandled->WaitSignaled(10);
 }
 
 
