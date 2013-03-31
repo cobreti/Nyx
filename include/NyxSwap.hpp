@@ -24,7 +24,7 @@ namespace Nyx
 		c3 = (i >> 16) & 255;
 		c4 = (i >> 24) & 255;
 
-		return ((u_int32_t)c1 << 24) + ((UInt32)c2 << 16) + ((UInt32)c3 << 8) + c4;
+		return ((UInt32)c1 << 24) + ((UInt32)c2 << 16) + ((UInt32)c3 << 8) + c4;
 	}
 
 	inline

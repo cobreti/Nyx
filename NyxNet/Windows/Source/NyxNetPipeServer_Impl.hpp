@@ -30,6 +30,7 @@ namespace NyxNetWin32
 		virtual Nyx::NyxResult Start();
 		virtual Nyx::NyxResult Stop();
 		virtual bool IsRunning() const;
+        virtual NyxNet::CServerListenersRef Listeners();
 
 	protected:
 
@@ -38,14 +39,11 @@ namespace NyxNetWin32
 
 	protected:
 		Nyx::CThreadRef						m_refThread;
-
 		bool								m_bTerminate;
-
 		NyxNet::IConnectionHandler*			m_pConnectionHandler;
-
 		NyxNet::CPipeSocketReaderRef		m_refSocket;
-
 		NyxNetWin32::CPipeClientConnRef		m_refConnection;
+        NyxNet::CServerListenersRef			m_refListeners;
 	};
 }
 

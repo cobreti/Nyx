@@ -23,6 +23,7 @@ m_MaxConnections(0),
 m_eState(eState_Stopped),
 m_pConnectionHandler(NULL)
 {
+    m_refListeners = new NyxNet::CServerListeners();
 }
 
 
@@ -119,6 +120,15 @@ bool NyxNetWin32::CTcpIpServer_Impl::IsRunning() const
 /**
  *
  */
+NyxNet::CServerListenersRef NyxNetWin32::CTcpIpServer_Impl::Listeners()
+{
+    return m_refListeners;
+}
+
+
+/**
+ *
+ */
 void NyxNetWin32::CTcpIpServer_Impl::RunningLoop()
 {
 	Nyx::NyxResult			res = Nyx::kNyxRes_Success;;
@@ -127,6 +137,8 @@ void NyxNetWin32::CTcpIpServer_Impl::RunningLoop()
 	NyxBeginBody("CTcpIpServer running loop")
 	{
 		//Nyx::CTraceStream(0x0).Write(L"starting running loop");
+
+        m_refListeners->OnServerStarted(this);
 
 		while ( m_eState == eState_Running )
 		{
@@ -155,6 +167,8 @@ void NyxNetWin32::CTcpIpServer_Impl::RunningLoop()
 			}
 		}
 		
+        m_refListeners->OnServerStopped(this);
+
 		Nyx::CTraceStream(0x0).Write(L"Terminating running loop");
 	}
 	NyxEndBody(res)

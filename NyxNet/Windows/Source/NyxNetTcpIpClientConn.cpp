@@ -88,3 +88,12 @@ void NyxNetWin32::CTcpIpClientConn::Close()
 {
 	Stop();
 }
+
+
+/**
+ *
+ */
+NyxNet::CSocketRef NyxNetWin32::CTcpIpClientConn::Socket()
+{
+    return (NyxNet::CSocket*)m_refConnSocket;
+}

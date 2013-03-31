@@ -1264,6 +1264,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\Source\NyxUtf8String_Impl.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\Source\NyxWString_Impl.cpp"
 					>
 				</File>

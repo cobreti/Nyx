@@ -19,6 +19,7 @@ NyxNet::CPipeServerRef NyxNet::CPipeServer::Alloc()
 NyxNetWin32::CPipeServer_Impl::CPipeServer_Impl() :
 m_pConnectionHandler(NULL)
 {
+    m_refListeners = new NyxNet::CServerListeners();
 }
 
 
@@ -97,10 +98,21 @@ bool NyxNetWin32::CPipeServer_Impl::IsRunning() const
 /**
  *
  */
+NyxNet::CServerListenersRef NyxNetWin32::CPipeServer_Impl::Listeners()
+{
+    return m_refListeners;
+}
+
+
+/**
+ *
+ */
 void NyxNetWin32::CPipeServer_Impl::ThreadRunningLoop()
 {
 	NyxNet::IConnectionHandler*			pConnHandler = NULL;
 	Nyx::NyxResult						res;
+
+	m_refListeners->OnServerStarted(this);
 
 	while (!m_bTerminate)
 	{
@@ -111,6 +123,8 @@ void NyxNetWin32::CPipeServer_Impl::ThreadRunningLoop()
 			m_refConnection->Execute();
 		}
 	}
+
+	m_refListeners->OnServerStopped(this);
 
 	Nyx::CTraceStream(0x00) << Nyx::CTF_Text(L"Connection terminated");
 }

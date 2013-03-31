@@ -91,3 +91,12 @@ void NyxNetWin32::CPipeClientConn::Close()
 {
 	Stop();
 }
+
+
+/**
+ *
+ */
+NyxNet::CSocketRef NyxNetWin32::CPipeClientConn::Socket()
+{
+    return (NyxNet::CSocket*)m_refSocket;
+}
