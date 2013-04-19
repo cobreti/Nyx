@@ -202,18 +202,18 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::Nyx
 	
     ReadSize = 0;
     
-    do
+//    do
     {
         size = ::read(m_Socket, pByteBuffer, sizeToRead);
-//        if ( size > 0 )
-//        {
+        if ( size > 0 )
+        {
             ReadSize += size;
             sizeToRead -= size;
             pByteBuffer += size;
-//            res = Nyx::kNyxRes_Success;
-//        }
+            res = Nyx::kNyxRes_Success;
+        }
     }
-    while ( sizeToRead > 0 && size != 0 );
+//    while ( sizeToRead > 0 && size != 0 );
     
     if ( sizeToRead == 0 )
         res = Nyx::kNyxRes_Success;
