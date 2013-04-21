@@ -405,6 +405,15 @@ void NyxNet::CNxConnection_Impl::OnConnectionTerminated( NyxNet::IConnection* pC
 /**
  *
  */
+void NyxNet::CNxConnection_Impl::CloseConnection( NyxNet::IConnection* pConnection )
+{
+    
+}
+
+
+/**
+ *
+ */
 void NyxNet::CNxConnection_Impl::OnSocketConnected( NyxNet::CSocket* pSocket )
 {
     if ( m_bUseHandshake )

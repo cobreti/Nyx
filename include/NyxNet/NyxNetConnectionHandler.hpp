@@ -12,6 +12,7 @@ namespace NyxNet
 	public:
 		virtual Nyx::NyxResult OnNewConnection( NyxNet::IConnection* pConnection, NyxNet::IConnectionHandler*& pCloneHandler ) = 0;
 		virtual void OnConnectionTerminated( NyxNet::IConnection* pConnection ) = 0;
+        virtual void CloseConnection( NyxNet::IConnection* pConnection ) = 0;
 	};
 }
 

@@ -54,6 +54,7 @@ Nyx::NyxResult NyxNetOSX::CTcpIpClientConn::Stop()
 	Nyx::NyxResult		res = Nyx::kNyxRes_Success;
 	
 	m_refConnSocket->Disconnect();
+    m_pConnectionHandler->CloseConnection( static_cast<NyxNet::IConnection*>(this) );
 	
 	return res;
 }

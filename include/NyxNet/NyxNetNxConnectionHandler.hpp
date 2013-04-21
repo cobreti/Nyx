@@ -12,7 +12,6 @@ namespace NyxNet
 		virtual void HandleStream( NyxNet::INxStreamRW& rStream ) = 0;
 		virtual Nyx::NyxResult OnNewConnection( NyxNet::IConnection* pConnection, NyxNet::INxConnectionHandler*& pCloneHandler ) = 0;
 		virtual void OnConnectionTerminated( NyxNet::IConnection* pConnection ) = 0;
-
 	};
 }
 
