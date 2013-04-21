@@ -6,6 +6,8 @@
 namespace NyxNet
 {
 	typedef		Nyx::UInt32			TcpIpPort;
+    
+    typedef     int                 TcpIpSocketId;
 
 	typedef		Nyx::UInt32			NxDataType;
 

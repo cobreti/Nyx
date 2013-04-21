@@ -111,7 +111,12 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Accept( NyxNet::CTcpIpSocketRef& Ne
 		
 		if ( AcceptSocket > 0 )
 		{
-			NewSocket = new NyxNetOSX::CTcpIpSocket_Impl(AcceptSocket);
+            NyxNetOSX::CTcpIpSocket_Impl*       pNewSocket = new NyxNetOSX::CTcpIpSocket_Impl(AcceptSocket);
+            inet_ntop( AF_INET, &client_addr.sin_addr.s_addr,
+                      pNewSocket->m_ClientAddress.Ip().BufferPtr(), pNewSocket->m_ClientAddress.Ip().Size());
+            pNewSocket->m_ClientAddress.Port() = ntohs(client_addr.sin_port);
+
+			NewSocket = pNewSocket;
 			res = Nyx::kNyxRes_Success;
 		}
 	}
@@ -220,7 +225,7 @@ Nyx::NyxResult NyxNetOSX::CTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::Nyx
     
 	return res;
 }
-
+	
 
 /**
  *

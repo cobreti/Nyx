@@ -10,6 +10,7 @@ DECLARE_NSPOBJECTREF(NyxNet, CSocket)
 namespace NyxNet
 {
 	class ISocketListener;
+    class CTcpIpSocket;
 
 	class CSocket : public Nyx::CObject
 	{
@@ -21,6 +22,7 @@ namespace NyxNet
 		virtual void SetListener( NyxNet::ISocketListener* pListener ) = 0;
         virtual bool Valid() const = 0;
         virtual Nyx::NyxResult Renew() = 0;
+        virtual CTcpIpSocket* TcpIpSocket() { return NULL; }
 	};
 }
 

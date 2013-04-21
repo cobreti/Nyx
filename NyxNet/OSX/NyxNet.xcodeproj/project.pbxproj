@@ -16,6 +16,7 @@
 		162E4F2015EAABAF00142CC9 /* NyxNetConnectionsTable.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 162E4F1F15EAABAE00142CC9 /* NyxNetConnectionsTable.hpp */; };
 		162E4F2215EAAD9700142CC9 /* NyxNetConnectionsTable_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 162E4F2115EAAD9700142CC9 /* NyxNetConnectionsTable_Impl.hpp */; };
 		162E4F2515EAAE8300142CC9 /* NyxNetConnectionsTable_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 162E4F2315EAAE8200142CC9 /* NyxNetConnectionsTable_Impl.cpp */; };
+		16328D381724619300AB50F7 /* NyxNetTypes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16328D371724619300AB50F7 /* NyxNetTypes.hpp */; };
 		164054C3159F7CB1002CB4C6 /* NyxNetTcpIpTraceOutput.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 164054C2159F7CB1002CB4C6 /* NyxNetTcpIpTraceOutput.hpp */; };
 		164054C5159F7DC4002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 164054C4159F7DC4002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.hpp */; };
 		164054C7159F7EAC002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 164054C6159F7EAC002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.cpp */; };
@@ -37,7 +38,6 @@
 		16685D491359F1DB007AF4E1 /* NyxNetSocketListener.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16685D361359F1DB007AF4E1 /* NyxNetSocketListener.hpp */; };
 		16685D4A1359F1DB007AF4E1 /* NyxNetTcpIpServer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16685D371359F1DB007AF4E1 /* NyxNetTcpIpServer.hpp */; };
 		16685D4B1359F1DB007AF4E1 /* NyxNetTcpIpSocket.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16685D381359F1DB007AF4E1 /* NyxNetTcpIpSocket.hpp */; };
-		16685D4C1359F1DB007AF4E1 /* NyxNetTypes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16685D391359F1DB007AF4E1 /* NyxNetTypes.hpp */; };
 		168C582910D54D4C001FB07F /* NyxNetNxConnection_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168C582710D54D4C001FB07F /* NyxNetNxConnection_Impl.cpp */; };
 		168C582A10D54D4C001FB07F /* NyxNetNxConnection_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168C582810D54D4C001FB07F /* NyxNetNxConnection_Impl.hpp */; };
 		168C583110D54D63001FB07F /* NyxNetPipeSocketReader_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168C582B10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.cpp */; };
@@ -69,6 +69,8 @@
 		162E4F1F15EAABAE00142CC9 /* NyxNetConnectionsTable.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetConnectionsTable.hpp; path = ../../include/NyxNet/NyxNetConnectionsTable.hpp; sourceTree = "<group>"; };
 		162E4F2115EAAD9700142CC9 /* NyxNetConnectionsTable_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetConnectionsTable_Impl.hpp; path = ../Source/NyxNetConnectionsTable_Impl.hpp; sourceTree = "<group>"; };
 		162E4F2315EAAE8200142CC9 /* NyxNetConnectionsTable_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetConnectionsTable_Impl.cpp; path = ../Source/NyxNetConnectionsTable_Impl.cpp; sourceTree = "<group>"; };
+		16328D361724594500AB50F7 /* NyxNetAddress.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = NyxNetAddress.hpp; path = ../../include/NyxNet/NyxNetAddress.hpp; sourceTree = "<group>"; };
+		16328D371724619300AB50F7 /* NyxNetTypes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTypes.hpp; path = ../../include/OSX/NyxNet/NyxNetTypes.hpp; sourceTree = "<group>"; };
 		164054C2159F7CB1002CB4C6 /* NyxNetTcpIpTraceOutput.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTcpIpTraceOutput.hpp; path = ../../include/NyxNet/NyxNetTcpIpTraceOutput.hpp; sourceTree = "<group>"; };
 		164054C4159F7DC4002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTcpIpTraceOutput_Impl.hpp; path = ../Source/NyxNetTcpIpTraceOutput_Impl.hpp; sourceTree = "<group>"; };
 		164054C6159F7EAC002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetTcpIpTraceOutput_Impl.cpp; path = ../Source/NyxNetTcpIpTraceOutput_Impl.cpp; sourceTree = "<group>"; };
@@ -90,7 +92,6 @@
 		16685D361359F1DB007AF4E1 /* NyxNetSocketListener.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetSocketListener.hpp; path = ../../include/NyxNet/NyxNetSocketListener.hpp; sourceTree = "<group>"; };
 		16685D371359F1DB007AF4E1 /* NyxNetTcpIpServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTcpIpServer.hpp; path = ../../include/NyxNet/NyxNetTcpIpServer.hpp; sourceTree = "<group>"; };
 		16685D381359F1DB007AF4E1 /* NyxNetTcpIpSocket.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTcpIpSocket.hpp; path = ../../include/NyxNet/NyxNetTcpIpSocket.hpp; sourceTree = "<group>"; };
-		16685D391359F1DB007AF4E1 /* NyxNetTypes.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTypes.hpp; path = ../../include/NyxNet/NyxNetTypes.hpp; sourceTree = "<group>"; };
 		168C582710D54D4C001FB07F /* NyxNetNxConnection_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetNxConnection_Impl.cpp; path = ../Source/NyxNetNxConnection_Impl.cpp; sourceTree = SOURCE_ROOT; };
 		168C582810D54D4C001FB07F /* NyxNetNxConnection_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetNxConnection_Impl.hpp; path = ../Source/NyxNetNxConnection_Impl.hpp; sourceTree = SOURCE_ROOT; };
 		168C582B10D54D63001FB07F /* NyxNetPipeSocketReader_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetPipeSocketReader_Impl.cpp; path = Source/NyxNetPipeSocketReader_Impl.cpp; sourceTree = "<group>"; };
@@ -158,9 +159,10 @@
 				16685D361359F1DB007AF4E1 /* NyxNetSocketListener.hpp */,
 				16685D371359F1DB007AF4E1 /* NyxNetTcpIpServer.hpp */,
 				16685D381359F1DB007AF4E1 /* NyxNetTcpIpSocket.hpp */,
-				16685D391359F1DB007AF4E1 /* NyxNetTypes.hpp */,
 				16264BB314A3CCA400AFAE80 /* NyxNetTraceFlags.hpp */,
 				162E4F1D15E9A17100142CC9 /* NyxNetServerListener.hpp */,
+				16328D361724594500AB50F7 /* NyxNetAddress.hpp */,
+				16328D371724619300AB50F7 /* NyxNetTypes.hpp */,
 			);
 			name = "Public Headers";
 			sourceTree = "<group>";
@@ -264,13 +266,13 @@
 				16685D491359F1DB007AF4E1 /* NyxNetSocketListener.hpp in Headers */,
 				16685D4A1359F1DB007AF4E1 /* NyxNetTcpIpServer.hpp in Headers */,
 				16685D4B1359F1DB007AF4E1 /* NyxNetTcpIpSocket.hpp in Headers */,
-				16685D4C1359F1DB007AF4E1 /* NyxNetTypes.hpp in Headers */,
 				16264BB414A3CCA400AFAE80 /* NyxNetTraceFlags.hpp in Headers */,
 				16264BBA14A40C0200AFAE80 /* NyxNetTraceStreamWriter.hpp in Headers */,
 				164054C3159F7CB1002CB4C6 /* NyxNetTcpIpTraceOutput.hpp in Headers */,
 				164054C5159F7DC4002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.hpp in Headers */,
 				162E4F2015EAABAF00142CC9 /* NyxNetConnectionsTable.hpp in Headers */,
 				162E4F2215EAAD9700142CC9 /* NyxNetConnectionsTable_Impl.hpp in Headers */,
+				16328D381724619300AB50F7 /* NyxNetTypes.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +366,7 @@
 					../../include,
 					../../include/OSX,
 					../../include/NyxNet,
+					../../include/OSX/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -404,6 +407,7 @@
 					../../include,
 					../../include/OSX,
 					../../include/NyxNet,
+					../../include/OSX/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -445,6 +449,7 @@
 					../../include,
 					../../include/OSX,
 					../../include/NyxNet,
+					../../include/OSX/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -485,6 +490,7 @@
 					../../include,
 					../../include/OSX,
 					../../include/NyxNet,
+					../../include/OSX/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -555,6 +561,7 @@
 					../../include,
 					../../include/OSX,
 					../../include/NyxNet,
+					../../include/OSX/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -579,6 +586,7 @@
 					../../include,
 					../../include/OSX,
 					../../include/NyxNet,
+					../../include/OSX/NyxNet,
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CPLUSPLUSFLAGS = (
