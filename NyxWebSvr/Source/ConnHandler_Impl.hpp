@@ -1,13 +1,13 @@
 //
-//  NyxWebSvrConnHandler_Impl.hpp
+//  ConnHandler_Impl.hpp
 //  NyxWebSvr
 //
 //  Created by Danny Thibaudeau on 2013-04-28.
 //  Copyright (c) 2013 Danny Thibaudeau. All rights reserved.
 //
 
-#ifndef NyxWebSvr_NyxWebSvrConnHandler_Impl_hpp
-#define NyxWebSvr_NyxWebSvrConnHandler_Impl_hpp
+#ifndef NyxWebSvr_ConnHandler_Impl_hpp
+#define NyxWebSvr_ConnHandler_Impl_hpp
 
 #include <Nyx.hpp>
 #include <NyxNet.hpp>

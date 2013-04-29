@@ -1,4 +1,4 @@
-#include "NyxWebSvrModule_Impl.hpp"
+#include "Module_Impl.hpp"
 
 
 NyxWebSvr::CModuleRef NyxWebSvr::CModule::Alloc()

@@ -1,13 +1,13 @@
 //
-//  NyxWebSvrConnListener_Impl.cpp
+//  ConnListener_Impl.cpp
 //  NyxWebSvr
 //
 //  Created by Danny Thibaudeau on 2013-04-27.
 //  Copyright (c) 2013 Danny Thibaudeau. All rights reserved.
 //
 
-#include "NyxWebSvrConnListener_Impl.hpp"
-#include "NyxWebSvrConnHandler_Impl.hpp"
+#include "ConnListener_Impl.hpp"
+#include "ConnHandler_Impl.hpp"
 
 
 NyxWebSvr::CConnListenerRef NyxWebSvr::CConnListener::Alloc()

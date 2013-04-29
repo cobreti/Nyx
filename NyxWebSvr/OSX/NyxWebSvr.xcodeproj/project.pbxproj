@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16328D4B172C508300AB50F7 /* NyxWebSvrModule.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16328D4A172C508300AB50F7 /* NyxWebSvrModule.hpp */; };
-		16328D4D172C509A00AB50F7 /* NyxWebSvrModule_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D4C172C509A00AB50F7 /* NyxWebSvrModule_Impl.cpp */; };
-		16328D56172CA5C300AB50F7 /* NyxWebSvrConnListener_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D55172CA5C300AB50F7 /* NyxWebSvrConnListener_Impl.cpp */; };
-		16328D59172DCE2200AB50F7 /* NyxWebSvrConnHandler_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D58172DCE2200AB50F7 /* NyxWebSvrConnHandler_Impl.cpp */; };
+		16328D4B172C508300AB50F7 /* Module.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16328D4A172C508300AB50F7 /* Module.hpp */; };
+		16328D4D172C509A00AB50F7 /* Module_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D4C172C509A00AB50F7 /* Module_Impl.cpp */; };
+		16328D56172CA5C300AB50F7 /* ConnListener_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D55172CA5C300AB50F7 /* ConnListener_Impl.cpp */; };
+		16328D59172DCE2200AB50F7 /* ConnHandler_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D58172DCE2200AB50F7 /* ConnHandler_Impl.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		16328D42172C4FE300AB50F7 /* libNyxWebSvr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNyxWebSvr.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		16328D4A172C508300AB50F7 /* NyxWebSvrModule.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxWebSvrModule.hpp; path = ../../include/NyxWebSvr/NyxWebSvrModule.hpp; sourceTree = "<group>"; };
-		16328D4C172C509A00AB50F7 /* NyxWebSvrModule_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxWebSvrModule_Impl.cpp; path = ../Source/NyxWebSvrModule_Impl.cpp; sourceTree = "<group>"; };
-		16328D50172C54C300AB50F7 /* NyxWebSvrModule_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = NyxWebSvrModule_Impl.hpp; path = ../Source/NyxWebSvrModule_Impl.hpp; sourceTree = "<group>"; };
-		16328D53172CA4FE00AB50F7 /* NyxWebSvrConnListener.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = NyxWebSvrConnListener.hpp; path = ../../include/NyxWebSvr/NyxWebSvrConnListener.hpp; sourceTree = "<group>"; };
-		16328D54172CA54300AB50F7 /* NyxWebSvrConnListener_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = NyxWebSvrConnListener_Impl.hpp; path = ../Source/NyxWebSvrConnListener_Impl.hpp; sourceTree = "<group>"; };
-		16328D55172CA5C300AB50F7 /* NyxWebSvrConnListener_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxWebSvrConnListener_Impl.cpp; path = ../Source/NyxWebSvrConnListener_Impl.cpp; sourceTree = "<group>"; };
-		16328D57172DCDBF00AB50F7 /* NyxWebSvrConnHandler_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = NyxWebSvrConnHandler_Impl.hpp; path = ../Source/NyxWebSvrConnHandler_Impl.hpp; sourceTree = "<group>"; };
-		16328D58172DCE2200AB50F7 /* NyxWebSvrConnHandler_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxWebSvrConnHandler_Impl.cpp; path = ../Source/NyxWebSvrConnHandler_Impl.cpp; sourceTree = "<group>"; };
+		16328D4A172C508300AB50F7 /* Module.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Module.hpp; path = ../../include/NyxWebSvr/Module.hpp; sourceTree = "<group>"; };
+		16328D4C172C509A00AB50F7 /* Module_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Module_Impl.cpp; path = ../Source/Module_Impl.cpp; sourceTree = "<group>"; };
+		16328D50172C54C300AB50F7 /* Module_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Module_Impl.hpp; path = ../Source/Module_Impl.hpp; sourceTree = "<group>"; };
+		16328D53172CA4FE00AB50F7 /* ConnListener.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ConnListener.hpp; path = ../../include/NyxWebSvr/ConnListener.hpp; sourceTree = "<group>"; };
+		16328D54172CA54300AB50F7 /* ConnListener_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ConnListener_Impl.hpp; path = ../Source/ConnListener_Impl.hpp; sourceTree = "<group>"; };
+		16328D55172CA5C300AB50F7 /* ConnListener_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnListener_Impl.cpp; path = ../Source/ConnListener_Impl.cpp; sourceTree = "<group>"; };
+		16328D57172DCDBF00AB50F7 /* ConnHandler_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ConnHandler_Impl.hpp; path = ../Source/ConnHandler_Impl.hpp; sourceTree = "<group>"; };
+		16328D58172DCE2200AB50F7 /* ConnHandler_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnHandler_Impl.cpp; path = ../Source/ConnHandler_Impl.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +56,8 @@
 		16328D4E172C540A00AB50F7 /* public headers */ = {
 			isa = PBXGroup;
 			children = (
-				16328D4A172C508300AB50F7 /* NyxWebSvrModule.hpp */,
-				16328D53172CA4FE00AB50F7 /* NyxWebSvrConnListener.hpp */,
+				16328D4A172C508300AB50F7 /* Module.hpp */,
+				16328D53172CA4FE00AB50F7 /* ConnListener.hpp */,
 			);
 			name = "public headers";
 			sourceTree = "<group>";
@@ -65,12 +65,12 @@
 		16328D4F172C541600AB50F7 /* implementation */ = {
 			isa = PBXGroup;
 			children = (
-				16328D4C172C509A00AB50F7 /* NyxWebSvrModule_Impl.cpp */,
-				16328D50172C54C300AB50F7 /* NyxWebSvrModule_Impl.hpp */,
-				16328D54172CA54300AB50F7 /* NyxWebSvrConnListener_Impl.hpp */,
-				16328D55172CA5C300AB50F7 /* NyxWebSvrConnListener_Impl.cpp */,
-				16328D57172DCDBF00AB50F7 /* NyxWebSvrConnHandler_Impl.hpp */,
-				16328D58172DCE2200AB50F7 /* NyxWebSvrConnHandler_Impl.cpp */,
+				16328D4C172C509A00AB50F7 /* Module_Impl.cpp */,
+				16328D50172C54C300AB50F7 /* Module_Impl.hpp */,
+				16328D54172CA54300AB50F7 /* ConnListener_Impl.hpp */,
+				16328D55172CA5C300AB50F7 /* ConnListener_Impl.cpp */,
+				16328D57172DCDBF00AB50F7 /* ConnHandler_Impl.hpp */,
+				16328D58172DCE2200AB50F7 /* ConnHandler_Impl.cpp */,
 			);
 			name = implementation;
 			sourceTree = "<group>";
@@ -82,7 +82,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16328D4B172C508300AB50F7 /* NyxWebSvrModule.hpp in Headers */,
+				16328D4B172C508300AB50F7 /* Module.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16328D4D172C509A00AB50F7 /* NyxWebSvrModule_Impl.cpp in Sources */,
-				16328D56172CA5C300AB50F7 /* NyxWebSvrConnListener_Impl.cpp in Sources */,
-				16328D59172DCE2200AB50F7 /* NyxWebSvrConnHandler_Impl.cpp in Sources */,
+				16328D4D172C509A00AB50F7 /* Module_Impl.cpp in Sources */,
+				16328D56172CA5C300AB50F7 /* ConnListener_Impl.cpp in Sources */,
+				16328D59172DCE2200AB50F7 /* ConnHandler_Impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

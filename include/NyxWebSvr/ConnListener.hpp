@@ -1,13 +1,13 @@
 //
-//  NyxWebSvrConnListener.hpp
+//  ConnListener.hpp
 //  NyxWebSvr
 //
 //  Created by Danny Thibaudeau on 2013-04-27.
 //  Copyright (c) 2013 Danny Thibaudeau. All rights reserved.
 //
 
-#ifndef NyxWebSvr_NyxWebSvrConnListener_hpp
-#define NyxWebSvr_NyxWebSvrConnListener_hpp
+#ifndef NyxWebSvr_ConnListener_hpp
+#define NyxWebSvr_ConnListener_hpp
 
 #include <Nyx.hpp>
 #include <NyxNet.hpp>

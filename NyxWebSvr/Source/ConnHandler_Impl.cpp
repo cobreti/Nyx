@@ -9,7 +9,7 @@
 #include <NyxNetConnection.hpp>
 #include <NyxStreamRW.hpp>
 
-#include "NyxWebSvrConnHandler_Impl.hpp"
+#include "ConnHandler_Impl.hpp"
 
 
 namespace NyxWebSvr
@@ -89,7 +89,7 @@ namespace NyxWebSvr
                 char* pStart = sockBuffer.getReadPos();
                 char* pCur = pStart;
                 size_t size = 0;
-                size_t readBufferSize = 0;
+//                size_t readBufferSize = 0;
                 
                 while ( size < sockBuffer.DataSize() )
                 {

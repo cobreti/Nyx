@@ -1,15 +1,15 @@
 //
-//  NyxWebSvrModule_Imp.hpp
+//  Module_Imp.hpp
 //  NyxWebSvr
 //
 //  Created by Danny Thibaudeau on 2013-04-27.
 //  Copyright (c) 2013 Danny Thibaudeau. All rights reserved.
 //
 
-#ifndef NyxWebSvr_NyxWebSvrModule_Imp_hpp
-#define NyxWebSvr_NyxWebSvrModule_Imp_hpp
+#ifndef NyxWebSvr_Module_Imp_hpp
+#define NyxWebSvr_Module_Imp_hpp
 
-#include "NyxWebSvrModule.hpp"
+#include "Module.hpp"
 
 namespace NyxWebSvr
 {
