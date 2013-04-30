@@ -11,6 +11,7 @@
 		16328D4D172C509A00AB50F7 /* Module_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D4C172C509A00AB50F7 /* Module_Impl.cpp */; };
 		16328D56172CA5C300AB50F7 /* ConnListener_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D55172CA5C300AB50F7 /* ConnListener_Impl.cpp */; };
 		16328D59172DCE2200AB50F7 /* ConnHandler_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D58172DCE2200AB50F7 /* ConnHandler_Impl.cpp */; };
+		16328D5D172F489C00AB50F7 /* ConnHttpHandler_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D5C172F489C00AB50F7 /* ConnHttpHandler_Impl.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,9 @@
 		16328D55172CA5C300AB50F7 /* ConnListener_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnListener_Impl.cpp; path = ../Source/ConnListener_Impl.cpp; sourceTree = "<group>"; };
 		16328D57172DCDBF00AB50F7 /* ConnHandler_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ConnHandler_Impl.hpp; path = ../Source/ConnHandler_Impl.hpp; sourceTree = "<group>"; };
 		16328D58172DCE2200AB50F7 /* ConnHandler_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnHandler_Impl.cpp; path = ../Source/ConnHandler_Impl.cpp; sourceTree = "<group>"; };
+		16328D5A172F469D00AB50F7 /* ConnStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ConnStream.hpp; path = ../../include/NyxWebSvr/ConnStream.hpp; sourceTree = "<group>"; };
+		16328D5B172F485900AB50F7 /* ConnHttpHandler_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ConnHttpHandler_Impl.hpp; path = ../Source/ConnHttpHandler_Impl.hpp; sourceTree = "<group>"; };
+		16328D5C172F489C00AB50F7 /* ConnHttpHandler_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConnHttpHandler_Impl.cpp; path = ../Source/ConnHttpHandler_Impl.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			children = (
 				16328D4A172C508300AB50F7 /* Module.hpp */,
 				16328D53172CA4FE00AB50F7 /* ConnListener.hpp */,
+				16328D5A172F469D00AB50F7 /* ConnStream.hpp */,
 			);
 			name = "public headers";
 			sourceTree = "<group>";
@@ -71,6 +76,8 @@
 				16328D55172CA5C300AB50F7 /* ConnListener_Impl.cpp */,
 				16328D57172DCDBF00AB50F7 /* ConnHandler_Impl.hpp */,
 				16328D58172DCE2200AB50F7 /* ConnHandler_Impl.cpp */,
+				16328D5B172F485900AB50F7 /* ConnHttpHandler_Impl.hpp */,
+				16328D5C172F489C00AB50F7 /* ConnHttpHandler_Impl.cpp */,
 			);
 			name = implementation;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 				16328D4D172C509A00AB50F7 /* Module_Impl.cpp in Sources */,
 				16328D56172CA5C300AB50F7 /* ConnListener_Impl.cpp in Sources */,
 				16328D59172DCE2200AB50F7 /* ConnHandler_Impl.cpp in Sources */,
+				16328D5D172F489C00AB50F7 /* ConnHttpHandler_Impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

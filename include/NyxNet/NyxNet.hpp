@@ -11,6 +11,8 @@
 #include <NyxNetNxConnection.hpp>
 #include <NyxNetNxConnectionHandler.hpp>
 #include <NyxNetPipeTraceOutput.hpp>
+#include <NyxNetConnection.hpp>
+
 
 #endif // _NYXNET_HPP_
 

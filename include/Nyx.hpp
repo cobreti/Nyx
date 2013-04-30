@@ -25,6 +25,7 @@
 #include <NyxTime.hpp>
 #include <NyxExternalModule.hpp>
 #include <NyxInterfaceRef.hpp>
+#include <NyxStreamRW.hpp>
 
 
 #endif // _NYX_HPP_

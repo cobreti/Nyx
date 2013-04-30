@@ -12,12 +12,15 @@
 #include <Nyx.hpp>
 #include <NyxNet.hpp>
 
+#include "ConnStream.hpp"
+
 namespace NyxWebSvr
 {
     /**
      *
      */
-    class CConnHandler_Impl : public Nyx::CRefCount_Impl<NyxNet::IConnectionHandler>
+    class CConnHandler_Impl :   public Nyx::CRefCount_Impl<NyxNet::IConnectionHandler>,
+                                public NyxWebSvr::CConnStream
     {
     public:
         CConnHandler_Impl(NyxNet::IConnection* pConnection);
@@ -30,10 +33,17 @@ namespace NyxWebSvr
         virtual void OnConnectionTerminated( NyxNet::IConnection* pConnection );
         virtual void CloseConnection( NyxNet::IConnection* pConnection );
 
+    public: // CConnStream
+        
+        virtual Nyx::NyxResult Read( void* pBuffer, const Nyx::NyxSize& sizeToRead, Nyx::NyxSize& readSize );
+        virtual Nyx::NyxResult Write( void* pBuffer, const Nyx::NyxSize& sizeToWrite, Nyx::NyxSize& writtenSize );
+        virtual NyxNet::CSocketRef Socket() { return m_pConnection->Socket(); }
+        
     protected:
 
         NyxNet::IConnection*        m_pConnection;
         bool                        m_bRunning;
+        Nyx::IStreamRW*             m_pStream;
 
     };
 }
