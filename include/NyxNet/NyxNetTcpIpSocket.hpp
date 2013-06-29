@@ -23,8 +23,6 @@ namespace NyxNet
 		virtual Nyx::NyxResult Bind( const NyxNet::TcpIpPort& Port ) = 0;
 		virtual Nyx::NyxResult Accept( CTcpIpSocketRef& NewSocket ) = 0;
 		virtual Nyx::NyxResult Create( const char* szIp, const NyxNet::TcpIpPort& Port ) = 0;
-		virtual Nyx::NyxResult Connect() = 0;
-		virtual void Disconnect() = 0;
         virtual const NyxNet::CAddress& ClientAddress() const = 0;
         virtual NyxNet::TcpIpSocketId TcpIpSocketId() = 0;
 	};

@@ -45,6 +45,7 @@ namespace NyxWebSvr
         CConnHandler_Impl*  pConnHandler = new CConnHandler_Impl(NULL);
         
         m_refTcpIpServer = NyxNet::CTcpIpServer::Alloc();
+        m_refTcpIpServer->SetUseSSL();
         m_refTcpIpServer->Create(port, maxConnections, pConnHandler);
         
         

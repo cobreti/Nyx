@@ -2,6 +2,7 @@
 #include "NyxBodyBlock.hpp"
 #include "NyxStreamHandler.hpp"
 #include "NyxNetTcpIpClientConn.hpp"
+#include "NyxNetSSLTcpIpSocket.hpp"
 
 
 /**
@@ -20,7 +21,8 @@ NyxNetOSX::CTcpIpServer_Impl::CTcpIpServer_Impl() :
 m_Port(0),
 m_MaxConnections(0),
 m_eState(eState_Stopped),
-m_pConnectionHandler(NULL)
+m_pConnectionHandler(NULL),
+m_bUseSSL(false)
 {
     m_refListeners = new NyxNet::CServerListeners();
 }
@@ -49,9 +51,16 @@ Nyx::NyxResult NyxNetOSX::CTcpIpServer_Impl::Create(	const NyxNet::TcpIpPort& po
 		m_MaxConnections = MaxConnections;
 		m_pConnectionHandler = pConnHandler;
 		
-		m_refBoundSocket = NyxNet::CTcpIpSocket::Alloc();
+        if ( m_bUseSSL )
+        {
+            m_refBoundSocket = (NyxNet::CSSLTcpIpSocket*)NyxNet::CSSLTcpIpSocket::Alloc();
+        }
+        else
+        {
+            m_refBoundSocket = NyxNet::CTcpIpSocket::Alloc();
+        }
 
-		m_refTaskExecuterPool = Nyx::CTaskExecuterPool::Alloc();		
+		m_refTaskExecuterPool = Nyx::CTaskExecuterPool::Alloc();
 	}
 	NyxEndBody(res)
 	
@@ -129,6 +138,16 @@ NyxNet::CServerListenersRef NyxNetOSX::CTcpIpServer_Impl::Listeners()
 /**
  *
  */
+void NyxNetOSX::CTcpIpServer_Impl::SetUseSSL()
+{
+    m_bUseSSL = true;
+}
+
+
+
+/**
+ *
+ */
 void NyxNetOSX::CTcpIpServer_Impl::RunningLoop()
 {
 	Nyx::NyxResult			res = Nyx::kNyxRes_Success;;
@@ -146,7 +165,7 @@ void NyxNetOSX::CTcpIpServer_Impl::RunningLoop()
 			res = m_refBoundSocket->Accept(refConnSocket);
 			
 			if ( Nyx::Succeeded(res) )
-			{
+			{                
 				NyxNet::IConnectionHandler*		pConnHandler = NULL;
 				Nyx::CTaskExecuterRef			refTaskExecuter;
 				NyxNetOSX::CTcpIpClientConnRef	refConnection;
@@ -160,13 +179,21 @@ void NyxNetOSX::CTcpIpServer_Impl::RunningLoop()
 					res = m_refTaskExecuterPool->Execute(refConnection);
 				}
 
-				//Nyx::CTraceStream(0x0).Write(L"succeeded in accepting a connection");
+				Nyx::CTraceStream(0x0).Write(L"succeeded in accepting a connection");
 			}
 			else
 			{
-				//Nyx::CTraceStream(0x0).Write(L"Failed to accept a connection");
+				Nyx::CTraceStream(0x0).Write(L"Failed to accept a connection");
 			}
-		}
+
+//            if ( m_bUseSSL )
+//            {
+//                m_refBoundSocket = (NyxNet::CSSLTcpIpSocket*)NyxNet::CSSLTcpIpSocket::Alloc();
+//                m_refBoundSocket->Bind(m_Port);
+//                m_refBoundSocket->Listen(m_MaxConnections);
+//            }
+            
+        }
         
         m_refListeners->OnServerStopped(this);
 		
@@ -181,5 +208,20 @@ void NyxNetOSX::CTcpIpServer_Impl::RunningLoop()
  */
 void NyxNetOSX::CTcpIpServer_Impl::StopRunningLoop()
 {
+}
+
+
+/**
+ *
+ */
+NyxNet::CTcpIpSocketRef NyxNetOSX::CTcpIpServer_Impl::ExtendSocket( NyxNet::CTcpIpSocketRef refSocket )
+{
+    if ( m_bUseSSL )
+    {
+        NyxNet::CSSLTcpIpSocketRef refSSLSocket = NyxNet::CSSLTcpIpSocket::Alloc();
+        return (NyxNet::CSSLTcpIpSocket*)refSSLSocket;
+    }
+
+    return refSocket;
 }
 

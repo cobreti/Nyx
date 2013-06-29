@@ -56,6 +56,8 @@
 		168C584C10D54D7F001FB07F /* NyxNetTcpIpClientConn.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168C584010D54D7F001FB07F /* NyxNetTcpIpClientConn.hpp */; };
 		168C584D10D54D7F001FB07F /* NyxNetTcpIpServer_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168C584110D54D7F001FB07F /* NyxNetTcpIpServer_Impl.cpp */; };
 		168C584E10D54D7F001FB07F /* NyxNetTcpIpServer_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 168C584210D54D7F001FB07F /* NyxNetTcpIpServer_Impl.hpp */; };
+		16B33880177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B3387E177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.cpp */; };
+		16B33881177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16B3387F177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +112,9 @@
 		168C584010D54D7F001FB07F /* NyxNetTcpIpClientConn.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTcpIpClientConn.hpp; path = Source/NyxNetTcpIpClientConn.hpp; sourceTree = "<group>"; };
 		168C584110D54D7F001FB07F /* NyxNetTcpIpServer_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetTcpIpServer_Impl.cpp; path = Source/NyxNetTcpIpServer_Impl.cpp; sourceTree = "<group>"; };
 		168C584210D54D7F001FB07F /* NyxNetTcpIpServer_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetTcpIpServer_Impl.hpp; path = Source/NyxNetTcpIpServer_Impl.hpp; sourceTree = "<group>"; };
+		16B3387D177F742F002DE578 /* NyxNetSSLTcpIpSocket.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = NyxNetSSLTcpIpSocket.hpp; path = ../../include/NyxNet/NyxNetSSLTcpIpSocket.hpp; sourceTree = "<group>"; };
+		16B3387E177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NyxNetSSLTcpIpSocket_Impl.cpp; path = Source/NyxNetSSLTcpIpSocket_Impl.cpp; sourceTree = "<group>"; };
+		16B3387F177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = NyxNetSSLTcpIpSocket_Impl.hpp; path = Source/NyxNetSSLTcpIpSocket_Impl.hpp; sourceTree = "<group>"; };
 		D2AAC046055464E500DB518D /* libNyxNet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNyxNet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -163,6 +168,7 @@
 				162E4F1D15E9A17100142CC9 /* NyxNetServerListener.hpp */,
 				16328D361724594500AB50F7 /* NyxNetAddress.hpp */,
 				16328D371724619300AB50F7 /* NyxNetTypes.hpp */,
+				16B3387D177F742F002DE578 /* NyxNetSSLTcpIpSocket.hpp */,
 			);
 			name = "Public Headers";
 			sourceTree = "<group>";
@@ -203,6 +209,8 @@
 				168C582E10D54D63001FB07F /* NyxNetPipeSocketWriter_Impl.hpp */,
 				168C582F10D54D63001FB07F /* NyxNetTcpIpSocket_Impl.cpp */,
 				168C583010D54D63001FB07F /* NyxNetTcpIpSocket_Impl.hpp */,
+				16B3387E177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.cpp */,
+				16B3387F177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.hpp */,
 			);
 			name = Sockets;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 				162E4F2015EAABAF00142CC9 /* NyxNetConnectionsTable.hpp in Headers */,
 				162E4F2215EAAD9700142CC9 /* NyxNetConnectionsTable_Impl.hpp in Headers */,
 				16328D381724619300AB50F7 /* NyxNetTypes.hpp in Headers */,
+				16B33881177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +351,7 @@
 				160AF55014F00D21000D0B03 /* NyxNetTraceFlags.cpp in Sources */,
 				164054C7159F7EAC002CB4C6 /* NyxNetTcpIpTraceOutput_Impl.cpp in Sources */,
 				162E4F2515EAAE8300142CC9 /* NyxNetConnectionsTable_Impl.cpp in Sources */,
+				16B33880177F74C9002DE578 /* NyxNetSSLTcpIpSocket_Impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
