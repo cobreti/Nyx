@@ -18,9 +18,7 @@ m_ssl(NULL),
 m_bio(NULL),
 m_bSSLOwner(false)
 {
-    m_refSocket = NyxNet::CTcpIpSocket::Alloc();
-    
-    InitSSL();
+    m_refSocket = NyxNet::CTcpIpSocket::Alloc();   
 }
 
 
@@ -34,6 +32,7 @@ m_ssl(NULL),
 m_bio(NULL),
 m_bSSLOwner(false)
 {
+    InitSSL();
 }
 
 
@@ -79,28 +78,28 @@ Nyx::NyxResult NyxNetOSX::CSSLTcpIpSocket_Impl::Accept( NyxNet::CTcpIpSocketRef&
     res = m_refSocket->Accept(socket);
     if ( Nyx::Succeeded(res) )
     {
-        int socketid = socket->TcpIpSocketId();
-        BIO* sslclient = BIO_new_socket(socketid, BIO_NOCLOSE);
-        BIO_set_nbio(sslclient, 0);
-        SSL_set_bio(m_ssl, sslclient, sslclient);
-        
-        int r = SSL_accept(m_ssl);
-        
-        if ( r != 1 )
-        {
-            err = SSL_get_error(m_ssl, r);
-            NYXTRACE(0x0, L"SSL_accept failure (" << Nyx::CTF_Int(err) << L")" );
-            return Nyx::kNyxRes_Failure;
-        }
-        
-        if ( SSL_get_verify_result(m_ssl) != X509_V_OK)
-        {
-            NYXTRACE(0x0, L"ssl verify result failure");
-        }
+//        int socketid = socket->TcpIpSocketId();
+//        BIO* sslclient = BIO_new_socket(socketid, BIO_NOCLOSE);
+//        BIO_set_nbio(sslclient, 0);
+//        SSL_set_bio(m_ssl, sslclient, sslclient);
+//        
+//        int r = SSL_accept(m_ssl);
+//        
+//        if ( r != 1 )
+//        {
+//            err = SSL_get_error(m_ssl, r);
+//            NYXTRACE(0x0, L"SSL_accept failure (" << Nyx::CTF_Int(err) << L")" );
+//            return Nyx::kNyxRes_Failure;
+//        }
+//        
+//        if ( SSL_get_verify_result(m_ssl) != X509_V_OK)
+//        {
+//            NYXTRACE(0x0, L"ssl verify result failure");
+//        }
 
         NyxNetOSX::CSSLTcpIpSocket_Impl*    pSSLSocket = new NyxNetOSX::CSSLTcpIpSocket_Impl(socket);
-        pSSLSocket->m_ssl = m_ssl;
-        pSSLSocket->m_bio = sslclient;
+//        pSSLSocket->m_ssl = m_ssl;
+//        pSSLSocket->m_bio = m_bio;
         
         NewSocket = pSSLSocket;
         return Nyx::kNyxRes_Success;

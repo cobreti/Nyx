@@ -53,7 +53,7 @@ Nyx::NyxResult NyxNetOSX::CTcpIpServer_Impl::Create(	const NyxNet::TcpIpPort& po
 		
         if ( m_bUseSSL )
         {
-            m_refBoundSocket = (NyxNet::CSSLTcpIpSocket*)NyxNet::CSSLTcpIpSocket::Alloc();
+            m_refBoundSocket = static_cast<NyxNet::CSSLTcpIpSocket*>(NyxNet::CSSLTcpIpSocket::Alloc());
         }
         else
         {
@@ -216,11 +216,11 @@ void NyxNetOSX::CTcpIpServer_Impl::StopRunningLoop()
  */
 NyxNet::CTcpIpSocketRef NyxNetOSX::CTcpIpServer_Impl::ExtendSocket( NyxNet::CTcpIpSocketRef refSocket )
 {
-    if ( m_bUseSSL )
-    {
-        NyxNet::CSSLTcpIpSocketRef refSSLSocket = NyxNet::CSSLTcpIpSocket::Alloc();
-        return (NyxNet::CSSLTcpIpSocket*)refSSLSocket;
-    }
+//    if ( m_bUseSSL )
+//    {
+//        NyxNet::CSSLTcpIpSocketRef refSSLSocket = NyxNet::CSSLTcpIpSocket::Alloc();
+//        return (NyxNet::CSSLTcpIpSocket*)refSSLSocket;
+//    }
 
     return refSocket;
 }
