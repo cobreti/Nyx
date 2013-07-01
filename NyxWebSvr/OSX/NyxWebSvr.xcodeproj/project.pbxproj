@@ -13,6 +13,12 @@
 		16328D59172DCE2200AB50F7 /* ConnHandler_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D58172DCE2200AB50F7 /* ConnHandler_Impl.cpp */; };
 		16328D5D172F489C00AB50F7 /* ConnHttpHandler_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16328D5C172F489C00AB50F7 /* ConnHttpHandler_Impl.cpp */; };
 		167225BC1741B19A00A108FC /* Header_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 167225BB1741B19A00A108FC /* Header_Impl.cpp */; };
+		16B338841781BAAC002DE578 /* HttpServer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16B338831781BAAC002DE578 /* HttpServer.hpp */; };
+		16B338871781BB48002DE578 /* HttpServer_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B338851781BB48002DE578 /* HttpServer_Impl.cpp */; };
+		16B338881781BB48002DE578 /* HttpServer_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16B338861781BB48002DE578 /* HttpServer_Impl.hpp */; };
+		16B3388A1781CB04002DE578 /* HttpsServer.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16B338891781CB04002DE578 /* HttpsServer.hpp */; };
+		16B3388D1781CB57002DE578 /* HttpsServer_Impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 16B3388B1781CB57002DE578 /* HttpsServer_Impl.cpp */; };
+		16B3388E1781CB57002DE578 /* HttpsServer_Impl.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 16B3388C1781CB57002DE578 /* HttpsServer_Impl.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +37,13 @@
 		167225B91741B0EF00A108FC /* Header.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Header.hpp; path = ../../include/NyxWebSvr/Header.hpp; sourceTree = "<group>"; };
 		167225BA1741B13E00A108FC /* Header_Impl.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Header_Impl.hpp; path = ../Source/Header_Impl.hpp; sourceTree = "<group>"; };
 		167225BB1741B19A00A108FC /* Header_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Header_Impl.cpp; path = ../Source/Header_Impl.cpp; sourceTree = "<group>"; };
+		16B338831781BAAC002DE578 /* HttpServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HttpServer.hpp; path = ../../include/NyxWebSvr/HttpServer.hpp; sourceTree = "<group>"; };
+		16B338851781BB48002DE578 /* HttpServer_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HttpServer_Impl.cpp; path = ../Source/HttpServer_Impl.cpp; sourceTree = "<group>"; };
+		16B338861781BB48002DE578 /* HttpServer_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HttpServer_Impl.hpp; path = ../Source/HttpServer_Impl.hpp; sourceTree = "<group>"; };
+		16B338891781CB04002DE578 /* HttpsServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HttpsServer.hpp; path = ../../include/NyxWebSvr/HttpsServer.hpp; sourceTree = "<group>"; };
+		16B3388B1781CB57002DE578 /* HttpsServer_Impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HttpsServer_Impl.cpp; path = ../Source/HttpsServer_Impl.cpp; sourceTree = "<group>"; };
+		16B3388C1781CB57002DE578 /* HttpsServer_Impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = HttpsServer_Impl.hpp; path = ../Source/HttpsServer_Impl.hpp; sourceTree = "<group>"; };
+		16B3388F1781CF41002DE578 /* ConnHttpHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ConnHttpHandler.hpp; path = ../../include/NyxWebSvr/ConnHttpHandler.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +81,9 @@
 				16328D53172CA4FE00AB50F7 /* ConnListener.hpp */,
 				16328D5A172F469D00AB50F7 /* ConnStream.hpp */,
 				167225B91741B0EF00A108FC /* Header.hpp */,
+				16B338831781BAAC002DE578 /* HttpServer.hpp */,
+				16B338891781CB04002DE578 /* HttpsServer.hpp */,
+				16B3388F1781CF41002DE578 /* ConnHttpHandler.hpp */,
 			);
 			name = "public headers";
 			sourceTree = "<group>";
@@ -75,6 +91,10 @@
 		16328D4F172C541600AB50F7 /* implementation */ = {
 			isa = PBXGroup;
 			children = (
+				16B338851781BB48002DE578 /* HttpServer_Impl.cpp */,
+				16B338861781BB48002DE578 /* HttpServer_Impl.hpp */,
+				16B3388B1781CB57002DE578 /* HttpsServer_Impl.cpp */,
+				16B3388C1781CB57002DE578 /* HttpsServer_Impl.hpp */,
 				16328D4C172C509A00AB50F7 /* Module_Impl.cpp */,
 				16328D50172C54C300AB50F7 /* Module_Impl.hpp */,
 				16328D54172CA54300AB50F7 /* ConnListener_Impl.hpp */,
@@ -97,6 +117,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				16328D4B172C508300AB50F7 /* Module.hpp in Headers */,
+				16B338841781BAAC002DE578 /* HttpServer.hpp in Headers */,
+				16B338881781BB48002DE578 /* HttpServer_Impl.hpp in Headers */,
+				16B3388A1781CB04002DE578 /* HttpsServer.hpp in Headers */,
+				16B3388E1781CB57002DE578 /* HttpsServer_Impl.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +180,8 @@
 				16328D59172DCE2200AB50F7 /* ConnHandler_Impl.cpp in Sources */,
 				16328D5D172F489C00AB50F7 /* ConnHttpHandler_Impl.cpp in Sources */,
 				167225BC1741B19A00A108FC /* Header_Impl.cpp in Sources */,
+				16B338871781BB48002DE578 /* HttpServer_Impl.cpp in Sources */,
+				16B3388D1781CB57002DE578 /* HttpsServer_Impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,15 @@ namespace NyxWebSvr
     /**
      *
      */
+    CConnHttpHandlerRef CConnHttpHandler::Alloc()
+    {
+        return new CConnHttpHandler_Impl();
+    }
+    
+    
+    /**
+     *
+     */
     CConnHttpHandler_Impl::CConnHttpHandler_Impl() :
     m_bRunning(true)
     {
@@ -34,16 +43,49 @@ namespace NyxWebSvr
         
     }
     
+    
+    /**
+     *
+     */
+    void CConnHttpHandler_Impl::HandleStream( const char* header, Nyx::IStreamRW& rStream )
+    {
+        Nyx::NyxSize readSize = 0;
+        Nyx::NyxResult res;
+
+        m_Header.Clear();
+        m_Header.WriteData(header, strlen(header));
+
+        if ( NULL != strstr(m_Header.Buffer(), "\n\r") || NULL != strstr(m_Header.Buffer(), "\n\n") )
+        {
+            OnRequest(rStream);
+        }
+        else
+        {
+            while (m_bRunning)
+            {
+                res = rStream.Read(m_Header.getWritePos(), m_Header.FreeSize(), readSize);
+                
+                if ( readSize > 0 )
+                {
+                    m_Header.addDataSize(readSize);
+                    *m_Header.getWritePos() = '\0';
+                    
+                    if ( NULL != strstr(m_Header.Buffer(), "\n\r") || NULL != strstr(m_Header.Buffer(), "\n\n") )
+                        OnRequest(rStream);
+                }
+                
+                
+                m_bRunning = ( readSize > 0 );
+            }
+        }
+    }
+    
 
     /**
      *
      */
     void CConnHttpHandler_Impl::HandleStream( Nyx::IStreamRW& rStream )
     {
-//        Nyx::TBuffer<char>          sockBuffer;
-//        
-//        sockBuffer.Alloc(4096);
-        
         m_Header.Clear();
         
         Nyx::NyxSize readSize = 0;
@@ -59,36 +101,7 @@ namespace NyxWebSvr
                 *m_Header.getWritePos() = '\0';
                 
                 if ( NULL != strstr(m_Header.Buffer(), "\n\r") || NULL != strstr(m_Header.Buffer(), "\n\n") )
-                {
-                    NYXTRACE(0x0, L"HTTP Header : " << Nyx::CTF_AnsiText(m_Header.Buffer()) );
-                    
-                    char* szOp = m_Header.Buffer();
-                    char* szPath = strstr(szOp, " ");
-                    *szPath = '\0';
-                    szPath++;
-                    char* szProtocol = strstr(szPath, " ");
-                    *szProtocol = '\0';
-                    szProtocol ++;
-                    char* szParams = strstr(szProtocol, "\n");
-                    *szParams = '\0';
-                    szParams ++;
-                    
-                    NYXTRACE(0x0, L"Operation : " << Nyx::CTF_AnsiText(szOp) );
-                    NYXTRACE(0x0, L"Path : " << Nyx::CTF_AnsiText(szPath) );
-                    NYXTRACE(0x0, L"Protocol : " << Nyx::CTF_AnsiText(szProtocol));
-                    NYXTRACE(0x0, L"Params : " << Nyx::CTF_AnsiText(szParams));
-
-                    if ( strcmp(szOp, "GET") == 0 )
-                    {
-                        OnGetRequest(rStream, szPath, szParams);
-                    }
-                    else if ( strcmp(szOp, "POST") == 0 )
-                    {
-                        OnPostRequest(rStream, szPath, szParams);
-                    }
-                    
-                    m_Header.Clear();
-                }
+                    OnRequest(rStream);
             }
             
             
@@ -99,6 +112,82 @@ namespace NyxWebSvr
     }
     
     
+    /**
+     *
+     */
+    Nyx::NyxResult CConnHttpHandler_Impl::OnNewConnection( NyxNet::IConnection* pConnection, NyxNet::IConnectionHandler*& pCloneHandler )
+    {
+        NyxNet::CSocketRef      refSocket = pConnection->Socket();
+        NyxNet::CTcpIpSocket*   pTcpIpSocket = refSocket->TcpIpSocket();
+        
+        NYXTRACE(0x0, L"new connection from "
+                 << Nyx::CTF_AnsiText(pTcpIpSocket->ClientAddress().Ip().c_str())
+                 << L" port "
+                 << Nyx::CTF_Int(pTcpIpSocket->ClientAddress().Port()) );
+        
+        CConnHttpHandler_Impl* pNewConnection = new CConnHttpHandler_Impl();
+        
+        pCloneHandler = static_cast<NyxNet::IConnectionHandler*>(pNewConnection);
+        
+        return Nyx::kNyxRes_Success;
+    }
+    
+    
+    /**
+     *
+     */
+    void CConnHttpHandler_Impl::OnConnectionTerminated( NyxNet::IConnection* pConnection )
+    {
+        NYXTRACE(0x0, L"connection terminated");
+        delete this;
+    }
+    
+    
+    /**
+     *
+     */
+    void CConnHttpHandler_Impl::CloseConnection( NyxNet::IConnection* pConnection )
+    {
+        
+    }
+    
+    
+    /**
+     *
+     */
+    void CConnHttpHandler_Impl::OnRequest( Nyx::IStreamRW& rStream )
+    {       
+        NYXTRACE(0x0, L"HTTP Header : " << Nyx::CTF_AnsiText(m_Header.Buffer()) );
+        
+        char* szOp = m_Header.Buffer();
+        char* szPath = strstr(szOp, " ");
+        *szPath = '\0';
+        szPath++;
+        char* szProtocol = strstr(szPath, " ");
+        *szProtocol = '\0';
+        szProtocol ++;
+        char* szParams = strstr(szProtocol, "\n");
+        *szParams = '\0';
+        szParams ++;
+        
+        NYXTRACE(0x0, L"Operation : " << Nyx::CTF_AnsiText(szOp) );
+        NYXTRACE(0x0, L"Path : " << Nyx::CTF_AnsiText(szPath) );
+        NYXTRACE(0x0, L"Protocol : " << Nyx::CTF_AnsiText(szProtocol));
+        NYXTRACE(0x0, L"Params : " << Nyx::CTF_AnsiText(szParams));
+        
+        if ( strcmp(szOp, "GET") == 0 )
+        {
+            OnGetRequest(rStream, szPath, szParams);
+        }
+        else if ( strcmp(szOp, "POST") == 0 )
+        {
+            OnPostRequest(rStream, szPath, szParams);
+        }
+        
+        m_Header.Clear();
+    }
+    
+
     /**
      *
      */

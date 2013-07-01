@@ -51,7 +51,6 @@ namespace NyxWebSvr
         pHandler->HandleStream(rStream);
         
         m_pStream = NULL;
-        
     }
 
     
