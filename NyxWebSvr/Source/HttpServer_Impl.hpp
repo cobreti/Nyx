@@ -27,10 +27,12 @@ namespace NyxWebSvr
         virtual Nyx::NyxResult Create( NyxNet::TcpIpPort port, const Nyx::UInt32 maxConnections );
         virtual void Start();
         virtual void Stop();
+        virtual CHttpHandlersTableRef Handlers();
         
     protected:
         
         NyxNet::CTcpIpServerRef     m_refTcpIpServer;
+        CHttpHandlersTableRef       m_refHandlersTable;
     };
 
 }

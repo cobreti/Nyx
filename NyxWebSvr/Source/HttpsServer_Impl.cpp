@@ -8,6 +8,7 @@
 
 #include "HttpsServer_Impl.hpp"
 #include "ConnHandler_Impl.hpp"
+#include "HttpHandlersTable_Impl.hpp"
 
 
 NyxWebSvr::CHttpsServerRef NyxWebSvr::CHttpsServer::Alloc()
@@ -22,8 +23,8 @@ namespace NyxWebSvr
      *
      */
     CHttpsServer_Impl::CHttpsServer_Impl()
-    {
-        
+    {        
+        m_refHandlersTable = new NyxWebSvr::CHttpHandlersTable_Impl();
     }
     
     
@@ -42,7 +43,7 @@ namespace NyxWebSvr
     Nyx::NyxResult CHttpsServer_Impl::Create( NyxNet::TcpIpPort port, const Nyx::UInt32 maxConnections )
     {
         Nyx::NyxResult res = Nyx::kNyxRes_Success;
-        CConnHandler_Impl*  pConnHandler = new CConnHandler_Impl(NULL);
+        CConnHandler_Impl*  pConnHandler = new CConnHandler_Impl(this);
         
         m_refTcpIpServer = NyxNet::CTcpIpServer::Alloc();
         m_refTcpIpServer->SetUseSSL();
@@ -68,6 +69,15 @@ namespace NyxWebSvr
     void CHttpsServer_Impl::Stop()
     {
         m_refTcpIpServer->Stop();
+    }
+    
+    
+    /**
+     *
+     */
+    CHttpHandlersTableRef CHttpsServer_Impl::Handlers()
+    {
+        return m_refHandlersTable;
     }
 }
 

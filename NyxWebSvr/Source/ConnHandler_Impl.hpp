@@ -16,6 +16,8 @@
 
 namespace NyxWebSvr
 {
+    class CHttpServer;
+    
     /**
      *
      */
@@ -23,7 +25,7 @@ namespace NyxWebSvr
                                 public NyxWebSvr::CConnStream
     {
     public:
-        CConnHandler_Impl(NyxNet::IConnection* pConnection);
+        CConnHandler_Impl(CHttpServer* pServer);
         virtual ~CConnHandler_Impl();
         
     public: // IConnectionHandler methods
@@ -37,11 +39,12 @@ namespace NyxWebSvr
         
         virtual Nyx::NyxResult Read( void* pBuffer, const Nyx::NyxSize& sizeToRead, Nyx::NyxSize& readSize );
         virtual Nyx::NyxResult Write( void* pBuffer, const Nyx::NyxSize& sizeToWrite, Nyx::NyxSize& writtenSize );
-        virtual NyxNet::CSocketRef Socket() { return m_pConnection->Socket(); }
+        virtual NyxNet::CSocketRef Socket() { return NULL; }
         
     protected:
 
-        NyxNet::IConnection*        m_pConnection;
+//        NyxNet::IConnection*        m_pConnection;
+        CHttpServer*                m_pServer;
         bool                        m_bRunning;
         Nyx::IStreamRW*             m_pStream;
 

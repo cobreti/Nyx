@@ -10,15 +10,20 @@
 #define NyxWebSvr_ConnHttpHandler_hpp
 
 
+#include <Nyx.hpp>
+#include <NyxNet.hpp>
+
 namespace NyxWebSvr
 {
     DECLARE_OBJECTREF(CConnHttpHandler)
  
+//    class CHttpPathHandler;
+    
     class CConnHttpHandler : public Nyx::CObject, public NyxNet::IConnectionHandler
     {
     public:
         
-        static CConnHttpHandlerRef Alloc();
+//        static CConnHttpHandlerRef Alloc();
         
     public:
         
@@ -26,7 +31,9 @@ namespace NyxWebSvr
         virtual void OnRequest( Nyx::IStreamRW& rStream ) = 0;
         virtual void OnGetRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams ) = 0;
         virtual void OnPostRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams ) = 0;
-        virtual void Write( Nyx::IStreamRW& rStream, char* MimeType, void* pData, int DataLen ) = 0;
+        virtual void Write( char* MimeType, const void* pData, int DataLen ) = 0;
+        
+//        virtual void SetPathHandler( const char* szPath, CHttpPathHandler* pHandler ) = 0;
     };
 }
 

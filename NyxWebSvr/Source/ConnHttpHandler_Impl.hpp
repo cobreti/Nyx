@@ -10,11 +10,13 @@
 #define NyxWebSvr_ConnHttpHandler_Impl_hpp
 
 #include <NyxWebSvr/ConnHttpHandler.hpp>
+#include <NyxWebSvr/HttpHandler.hpp>
+#include <map>
 
 namespace NyxWebSvr
 {
     class CConnStream;
-    
+    class CHttpServer;
     
     /**
      *
@@ -22,7 +24,7 @@ namespace NyxWebSvr
     class CConnHttpHandler_Impl : public Nyx::CRefCount_Impl<CConnHttpHandler>
     {
     public:
-        CConnHttpHandler_Impl();
+        CConnHttpHandler_Impl(CHttpServer* pServer);
         virtual ~CConnHttpHandler_Impl();
         
         virtual void HandleStream( const char* header, Nyx::IStreamRW& rStream );
@@ -36,16 +38,22 @@ namespace NyxWebSvr
         virtual void OnGetRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams );
         virtual void OnPostRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams );
         
-        virtual void Write( Nyx::IStreamRW& rStream, char* MimeType, void* pData, int DataLen );
+        virtual void Write( char* MimeType, const void* pData, int DataLen );
+        
+//        virtual void SetPathHandler( const char* szPath, CHttpPathHandler* pHandler );
         
     protected:
         
-        typedef     Nyx::TBuffer<char>      HeaderBuffer;
+        typedef     Nyx::TBuffer<char>                                  HeaderBuffer;
+//        typedef     std::map<Nyx::CAString, CHttpPathHandlerRef>        HttpPathHandlersTable;
         
     protected:
         
-        bool            m_bRunning;
-        HeaderBuffer    m_Header;
+        bool                        m_bRunning;
+        HeaderBuffer                m_Header;
+        Nyx::IStreamRW*             m_pStream;
+        CHttpServer*                m_pServer;
+//        HttpPathHandlersTable       m_PathHandlersTable;
     };
     
 }

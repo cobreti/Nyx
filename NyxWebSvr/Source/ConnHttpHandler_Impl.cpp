@@ -11,6 +11,9 @@
 
 #include "ConnHttpHandler_Impl.hpp"
 #include "ConnStream.hpp"
+#include "HttpHandler.hpp"
+#include "HttpServer.hpp"
+#include "HttpHandlersTable.hpp"
 
 
 namespace NyxWebSvr
@@ -19,17 +22,19 @@ namespace NyxWebSvr
     /**
      *
      */
-    CConnHttpHandlerRef CConnHttpHandler::Alloc()
-    {
-        return new CConnHttpHandler_Impl();
-    }
+//    CConnHttpHandlerRef CConnHttpHandler::Alloc()
+//    {
+//        return new CConnHttpHandler_Impl();
+//    }
     
     
     /**
      *
      */
-    CConnHttpHandler_Impl::CConnHttpHandler_Impl() :
-    m_bRunning(true)
+    CConnHttpHandler_Impl::CConnHttpHandler_Impl(CHttpServer* pServer) :
+    m_bRunning(true),
+    m_pStream(NULL),
+    m_pServer(pServer)
     {
         m_Header.Alloc(64 * 1024);
     }
@@ -54,6 +59,8 @@ namespace NyxWebSvr
 
         m_Header.Clear();
         m_Header.WriteData(header, strlen(header));
+        
+        m_pStream = &rStream;
 
         if ( NULL != strstr(m_Header.Buffer(), "\n\r") || NULL != strstr(m_Header.Buffer(), "\n\n") )
         {
@@ -78,6 +85,8 @@ namespace NyxWebSvr
                 m_bRunning = ( readSize > 0 );
             }
         }
+        
+        m_pStream = NULL;
     }
     
 
@@ -91,6 +100,8 @@ namespace NyxWebSvr
         Nyx::NyxSize readSize = 0;
         Nyx::NyxResult res;
 
+        m_pStream = &rStream;
+        
         while (m_bRunning)
         {
             res = rStream.Read(m_Header.getWritePos(), m_Header.FreeSize(), readSize);
@@ -107,6 +118,8 @@ namespace NyxWebSvr
             
             m_bRunning = ( readSize > 0 );
         }
+        
+        m_pStream = NULL;
         
         NYXTRACE(0x0, L"ending Connection stream handler");
     }
@@ -125,7 +138,7 @@ namespace NyxWebSvr
                  << L" port "
                  << Nyx::CTF_Int(pTcpIpSocket->ClientAddress().Port()) );
         
-        CConnHttpHandler_Impl* pNewConnection = new CConnHttpHandler_Impl();
+        CConnHttpHandler_Impl* pNewConnection = new CConnHttpHandler_Impl(m_pServer);
         
         pCloneHandler = static_cast<NyxNet::IConnectionHandler*>(pNewConnection);
         
@@ -193,6 +206,20 @@ namespace NyxWebSvr
      */
     void CConnHttpHandler_Impl::OnGetRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams )
     {
+//        Nyx::CAString   path(szPath);
+        
+        NyxWebSvr::CHttpHandlerRef  refHandler = m_pServer->Handlers()->Get(szPath);
+        if ( refHandler.Valid() )
+        {
+            refHandler->OnGetRequest(*this, szPath, szParams);
+            return;
+        }
+//        if ( m_PathHandlersTable.find(path) != m_PathHandlersTable.end() )
+//        {
+//            m_PathHandlersTable[path]->OnGetRequest(*this, szPath, szParams);
+//            return;
+//        }
+        
         Nyx::CAString content;
 
         content = "";
@@ -220,7 +247,7 @@ namespace NyxWebSvr
         }
 
 
-        Write(rStream, "text/html; charset=utf-8", content.BufferPtr(), content.length());
+        Write("text/html; charset=utf-8", content.BufferPtr(), content.length());
 }
 
     
@@ -229,14 +256,27 @@ namespace NyxWebSvr
      */
     void CConnHttpHandler_Impl::OnPostRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams )
     {
+        NyxWebSvr::CHttpHandlerRef  refHandler = m_pServer->Handlers()->Get(szPath);
+        if ( refHandler.Valid() )
+        {
+            refHandler->OnPostRequest(*this, szPath, szParams);
+            return;
+        }
+
+        //        Nyx::CAString   path(szPath);
         
+//        if ( m_PathHandlersTable.find(path) != m_PathHandlersTable.end() )
+//        {
+//            m_PathHandlersTable[path]->OnPostRequest(*this, szPath, szParams);
+//            return;
+//        }
     }
     
     
     /**
      *
      */
-    void CConnHttpHandler_Impl::Write( Nyx::IStreamRW& rStream, char* MimeType, void* pData, int DataLen )
+    void CConnHttpHandler_Impl::Write( char* MimeType, const void* pData, int DataLen )
     {
         char    szDataLen[10];
         Nyx::NyxSize writtenSize = 0;
@@ -252,9 +292,20 @@ namespace NyxWebSvr
         header += szDataLen;
         header += "\r\n\r\n";
 
-        rStream.Write(header.BufferPtr(), header.length(), writtenSize);
-        rStream.Write(pData, DataLen, writtenSize);
+        m_pStream->Write(header.BufferPtr(), header.length(), writtenSize);
+        m_pStream->Write((void*)pData, DataLen, writtenSize);
     }
+    
+    
+    /**
+     *
+     */
+//    void CConnHttpHandler_Impl::SetPathHandler( const char* szPath, CHttpPathHandler* pHandler )
+//    {
+//        Nyx::CAString       path(szPath);
+//        
+//        m_PathHandlersTable[path] = pHandler;
+//    }
 }
 
 

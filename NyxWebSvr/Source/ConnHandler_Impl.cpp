@@ -19,8 +19,9 @@ namespace NyxWebSvr
     /**
      *
      */
-    CConnHandler_Impl::CConnHandler_Impl(NyxNet::IConnection* pConnection) :
-    m_pConnection(pConnection),
+    CConnHandler_Impl::CConnHandler_Impl(CHttpServer* pServer) :
+//    m_pConnection(pConnection),
+    m_pServer(pServer),
     m_bRunning(true),
     m_pStream(NULL)
     {
@@ -46,7 +47,7 @@ namespace NyxWebSvr
         //    NyxNet::CSocketRef refSocket = m_pConnection->Socket();
         //    int socketid = refSocket->tcpsocket();
         
-        CConnHttpHandler_Impl*      pHandler = new CConnHttpHandler_Impl();
+        CConnHttpHandler_Impl*      pHandler = new CConnHttpHandler_Impl(m_pServer);
         
         pHandler->HandleStream(rStream);
         
@@ -67,7 +68,7 @@ namespace NyxWebSvr
                  << L" port "
                  << Nyx::CTF_Int(pTcpIpSocket->ClientAddress().Port()) );
         
-        CConnHandler_Impl* pNewConnection = new CConnHandler_Impl(pConnection);
+        CConnHandler_Impl* pNewConnection = new CConnHandler_Impl(m_pServer);
         
         pCloneHandler = static_cast<NyxNet::IConnectionHandler*>(pNewConnection);
         

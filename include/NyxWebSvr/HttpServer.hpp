@@ -3,8 +3,7 @@
 
 #include <Nyx.hpp>
 #include <NyxNet.hpp>
-
-
+#include <NyxWebSvr/HttpHandlersTable.hpp>
 
 namespace NyxWebSvr
 {
@@ -19,12 +18,12 @@ namespace NyxWebSvr
         
         static CHttpServerRef Alloc();
         
-        
     public:
         
         virtual Nyx::NyxResult Create( NyxNet::TcpIpPort port, const Nyx::UInt32 maxConnections ) = 0;
         virtual void Start() = 0;
         virtual void Stop() = 0;
+        virtual CHttpHandlersTableRef Handlers() = 0;
     };
     
 }
