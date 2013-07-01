@@ -48,7 +48,7 @@ namespace NyxWebSvr
         
         CConnHttpHandler_Impl*      pHandler = new CConnHttpHandler_Impl();
         
-        pHandler->HandleStream(*static_cast<NyxWebSvr::CConnStream*>(this));
+        pHandler->HandleStream(rStream);
         
         m_pStream = NULL;
         

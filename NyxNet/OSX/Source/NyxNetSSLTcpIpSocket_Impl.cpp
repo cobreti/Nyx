@@ -43,6 +43,8 @@ NyxNetOSX::CSSLTcpIpSocket_Impl::~CSSLTcpIpSocket_Impl()
 {
     if ( m_bSSLOwner )
     {
+//        BIO_free(m_bio);
+        SSL_free(m_ssl);
         SSL_CTX_free(m_ctx);
     }
 }

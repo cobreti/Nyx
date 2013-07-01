@@ -23,11 +23,23 @@ namespace NyxWebSvr
         CConnHttpHandler_Impl();
         virtual ~CConnHttpHandler_Impl();
         
-        virtual void HandleStream( CConnStream& rStream );
+        virtual void HandleStream( Nyx::IStreamRW& rStream );
         
     protected:
         
+        typedef     Nyx::TBuffer<char>      HeaderBuffer;
+        
+    protected:
+        
+        virtual void OnGetRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams );
+        virtual void OnPostRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams );
+        
+        virtual void Write( Nyx::IStreamRW& rStream, char* MimeType, void* pData, int DataLen );
+
+    protected:
+        
         bool            m_bRunning;
+        HeaderBuffer    m_Header;
     };
     
 }
