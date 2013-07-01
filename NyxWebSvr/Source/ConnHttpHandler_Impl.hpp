@@ -39,13 +39,13 @@ namespace NyxWebSvr
         virtual void OnPostRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams );
         
         virtual void Write( char* MimeType, const void* pData, int DataLen );
+        virtual CHttpHandlersTableRef Handlers();
         
 //        virtual void SetPathHandler( const char* szPath, CHttpPathHandler* pHandler );
         
     protected:
         
         typedef     Nyx::TBuffer<char>                                  HeaderBuffer;
-//        typedef     std::map<Nyx::CAString, CHttpPathHandlerRef>        HttpPathHandlersTable;
         
     protected:
         
@@ -53,7 +53,7 @@ namespace NyxWebSvr
         HeaderBuffer                m_Header;
         Nyx::IStreamRW*             m_pStream;
         CHttpServer*                m_pServer;
-//        HttpPathHandlersTable       m_PathHandlersTable;
+        CHttpHandlersTableRef       m_refHandlersTable;
     };
     
 }

@@ -12,6 +12,7 @@
 
 #include <Nyx.hpp>
 #include <NyxNet.hpp>
+#include <NyxWebSvr/HttpHandlersTable.hpp>
 
 namespace NyxWebSvr
 {
@@ -23,7 +24,7 @@ namespace NyxWebSvr
     {
     public:
         
-//        static CConnHttpHandlerRef Alloc();
+        static CConnHttpHandlerRef Alloc();
         
     public:
         
@@ -32,6 +33,7 @@ namespace NyxWebSvr
         virtual void OnGetRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams ) = 0;
         virtual void OnPostRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams ) = 0;
         virtual void Write( char* MimeType, const void* pData, int DataLen ) = 0;
+        virtual CHttpHandlersTableRef Handlers() = 0;
         
 //        virtual void SetPathHandler( const char* szPath, CHttpPathHandler* pHandler ) = 0;
     };

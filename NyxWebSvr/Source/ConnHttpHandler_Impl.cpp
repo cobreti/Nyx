@@ -14,6 +14,7 @@
 #include "HttpHandler.hpp"
 #include "HttpServer.hpp"
 #include "HttpHandlersTable.hpp"
+#include "HttpHandlersTable_Impl.hpp"
 
 
 namespace NyxWebSvr
@@ -22,10 +23,10 @@ namespace NyxWebSvr
     /**
      *
      */
-//    CConnHttpHandlerRef CConnHttpHandler::Alloc()
-//    {
-//        return new CConnHttpHandler_Impl();
-//    }
+    CConnHttpHandlerRef CConnHttpHandler::Alloc()
+    {
+        return new CConnHttpHandler_Impl(NULL);
+    }
     
     
     /**
@@ -37,6 +38,7 @@ namespace NyxWebSvr
     m_pServer(pServer)
     {
         m_Header.Alloc(64 * 1024);
+        m_refHandlersTable = new NyxWebSvr::CHttpHandlersTable_Impl();
     }
     
     
@@ -208,7 +210,13 @@ namespace NyxWebSvr
     {
 //        Nyx::CAString   path(szPath);
         
-        NyxWebSvr::CHttpHandlerRef  refHandler = m_pServer->Handlers()->Get(szPath);
+        NyxWebSvr::CHttpHandlerRef  refHandler;
+        
+        if ( m_pServer )
+            refHandler = m_pServer->Handlers()->Get(szPath);
+        else
+            refHandler = m_refHandlersTable->Get(szPath);
+        
         if ( refHandler.Valid() )
         {
             refHandler->OnGetRequest(*this, szPath, szParams);
@@ -256,7 +264,13 @@ namespace NyxWebSvr
      */
     void CConnHttpHandler_Impl::OnPostRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams )
     {
-        NyxWebSvr::CHttpHandlerRef  refHandler = m_pServer->Handlers()->Get(szPath);
+        NyxWebSvr::CHttpHandlerRef  refHandler;
+        
+        if ( m_pServer )
+            refHandler = m_pServer->Handlers()->Get(szPath);
+        else
+            refHandler = m_refHandlersTable->Get(szPath);
+        
         if ( refHandler.Valid() )
         {
             refHandler->OnPostRequest(*this, szPath, szParams);
@@ -294,6 +308,15 @@ namespace NyxWebSvr
 
         m_pStream->Write(header.BufferPtr(), header.length(), writtenSize);
         m_pStream->Write((void*)pData, DataLen, writtenSize);
+    }
+    
+    
+    /**
+     *
+     */
+    CHttpHandlersTableRef CConnHttpHandler_Impl::Handlers()
+    {
+        return m_refHandlersTable;
     }
     
     

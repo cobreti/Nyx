@@ -9,7 +9,7 @@
 #ifndef NyxWebSvr_HttpHandler_hpp
 #define NyxWebSvr_HttpHandler_hpp
 
-#include <NyxWebSvr/ConnHttpHandler.hpp>
+//#include <NyxWebSvr/ConnHttpHandler.hpp>
 
 namespace NyxWebSvr
 {
