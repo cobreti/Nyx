@@ -19,6 +19,7 @@ m_bio(NULL),
 m_bSSLOwner(false)
 {
     m_refSocket = NyxNet::CTcpIpSocket::Alloc();   
+    InitSSL();
 }
 
 
