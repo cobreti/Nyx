@@ -13,6 +13,11 @@ namespace NyxNet
         
 		static CSSLTcpIpSocketRef Alloc();
         
+    public:
+        
+        virtual void SetPrivKeyFile( const Nyx::CAString& privKeyFile ) = 0;
+        virtual void SetPublicKeyFile( const Nyx::CAString& publicKeyFile ) = 0;
+        virtual void SetDhKeyFile( const Nyx::CAString& dhKeyFile ) = 0;
 	};
 }
 

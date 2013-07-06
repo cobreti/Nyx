@@ -26,6 +26,10 @@ namespace NyxNetOSX
 		virtual bool IsRunning() const;
         virtual NyxNet::CServerListenersRef Listeners();
         virtual void SetUseSSL();
+        virtual bool GetUseSSL() const { return m_bUseSSL; }
+        virtual void SetSSLFiles(   const Nyx::CAString& privKeyFile,
+                                    const Nyx::CAString& publicKeyFile,
+                                    const Nyx::CAString& dhFile );
 
 	protected: // protected types
 	
@@ -52,6 +56,9 @@ namespace NyxNetOSX
 		Nyx::CTaskExecuterPoolRef			m_refTaskExecuterPool;
         NyxNet::CServerListenersRef         m_refListeners;
         bool                                m_bUseSSL;
+        Nyx::CAString                       m_privKeyFile;
+        Nyx::CAString                       m_publicKeyFile;
+        Nyx::CAString                       m_dhKeyFile;
 	};
 }
 

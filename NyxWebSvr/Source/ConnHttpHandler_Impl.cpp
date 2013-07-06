@@ -60,6 +60,7 @@ namespace NyxWebSvr
         Nyx::NyxResult res;
 
         m_Header.Clear();
+        memset( m_Header.Buffer(), 0, m_Header.TotalSize() );
         m_Header.WriteData(header, strlen(header));
         
         m_pStream = &rStream;
@@ -189,7 +190,7 @@ namespace NyxWebSvr
         NYXTRACE(0x0, L"Path : " << Nyx::CTF_AnsiText(szPath) );
         NYXTRACE(0x0, L"Protocol : " << Nyx::CTF_AnsiText(szProtocol));
         NYXTRACE(0x0, L"Params : " << Nyx::CTF_AnsiText(szParams));
-        
+                
         if ( strcmp(szOp, "GET") == 0 )
         {
             OnGetRequest(rStream, szPath, szParams);
@@ -222,6 +223,9 @@ namespace NyxWebSvr
             refHandler->OnGetRequest(*this, szPath, szParams);
             return;
         }
+        
+        return;
+        
 //        if ( m_PathHandlersTable.find(path) != m_PathHandlersTable.end() )
 //        {
 //            m_PathHandlersTable[path]->OnGetRequest(*this, szPath, szParams);

@@ -53,7 +53,12 @@ Nyx::NyxResult NyxNetOSX::CTcpIpServer_Impl::Create(	const NyxNet::TcpIpPort& po
 		
         if ( m_bUseSSL )
         {
-            m_refBoundSocket = static_cast<NyxNet::CSSLTcpIpSocket*>(NyxNet::CSSLTcpIpSocket::Alloc());
+            NyxNet::CSSLTcpIpSocketRef  refSocket = NyxNet::CSSLTcpIpSocket::Alloc();
+            refSocket->SetPrivKeyFile(m_privKeyFile);
+            refSocket->SetPublicKeyFile(m_publicKeyFile);
+            refSocket->SetDhKeyFile(m_dhKeyFile);
+            
+            m_refBoundSocket = static_cast<NyxNet::CSSLTcpIpSocket*>( (NyxNet::CTcpIpSocket*)refSocket );
         }
         else
         {
@@ -141,6 +146,19 @@ NyxNet::CServerListenersRef NyxNetOSX::CTcpIpServer_Impl::Listeners()
 void NyxNetOSX::CTcpIpServer_Impl::SetUseSSL()
 {
     m_bUseSSL = true;
+}
+
+
+/**
+ *
+ */
+void NyxNetOSX::CTcpIpServer_Impl::SetSSLFiles( const Nyx::CAString& privKeyFile,
+                                                const Nyx::CAString& publicKeyFile,
+                                                const Nyx::CAString& dhFile )
+{
+    m_privKeyFile = privKeyFile;
+    m_publicKeyFile = publicKeyFile;
+    m_dhKeyFile = dhFile;
 }
 
 

@@ -17,7 +17,7 @@ namespace NyxNet
 		virtual Nyx::NyxResult Start() = 0;
 		virtual Nyx::NyxResult Stop() = 0;
 		virtual bool IsRunning() const = 0;
-        virtual NyxNet::CServerListenersRef Listeners() = 0;
+        virtual NyxNet::CServerListenersRef Listeners() = 0;        
 	};
 }
 

@@ -19,7 +19,7 @@ m_bio(NULL),
 m_bSSLOwner(false)
 {
     m_refSocket = NyxNet::CTcpIpSocket::Alloc();   
-    InitSSL();
+//    InitSSL();
 }
 
 
@@ -33,7 +33,7 @@ m_ssl(NULL),
 m_bio(NULL),
 m_bSSLOwner(false)
 {
-    InitSSL();
+//    InitSSL();
 }
 
 
@@ -101,6 +101,10 @@ Nyx::NyxResult NyxNetOSX::CSSLTcpIpSocket_Impl::Accept( NyxNet::CTcpIpSocketRef&
 //        }
 
         NyxNetOSX::CSSLTcpIpSocket_Impl*    pSSLSocket = new NyxNetOSX::CSSLTcpIpSocket_Impl(socket);
+        pSSLSocket->SetPrivKeyFile(m_privKeyFile);
+        pSSLSocket->SetPublicKeyFile(m_publicKeyFile);
+        pSSLSocket->SetDhKeyFile(m_dhKeyFile);
+        pSSLSocket->InitSSL();
 //        pSSLSocket->m_ssl = m_ssl;
 //        pSSLSocket->m_bio = m_bio;
         
@@ -198,6 +202,34 @@ Nyx::NyxResult NyxNetOSX::CSSLTcpIpSocket_Impl::Renew()
     return m_refSocket->Renew();
 }
 
+
+/**
+ *
+ */
+void NyxNetOSX::CSSLTcpIpSocket_Impl::SetPrivKeyFile( const Nyx::CAString& privKeyFile )
+{
+    m_privKeyFile = privKeyFile;
+}
+
+
+/**
+ *
+ */
+void NyxNetOSX::CSSLTcpIpSocket_Impl::SetPublicKeyFile( const Nyx::CAString& publicKeyFile )
+{
+    m_publicKeyFile = publicKeyFile;
+}
+
+
+/**
+ *
+ */
+void NyxNetOSX::CSSLTcpIpSocket_Impl::SetDhKeyFile( const Nyx::CAString& dhKeyFile )
+{
+    m_dhKeyFile = dhKeyFile;
+}
+
+
 static int password_callback(char *buf, int size, int rwflag, void *password)
 {
     strncpy(buf, "NyxWeb", size);
@@ -218,9 +250,13 @@ void NyxNetOSX::CSSLTcpIpSocket_Impl::InitSSL()
     // Sets the default certificate password callback function. Read more under the Certificate Verification section.
     SSL_CTX_set_default_passwd_cb(m_ctx, password_callback);
     // Sets the certificate file to be used.
-    res = SSL_CTX_use_certificate_file(m_ctx, "/Users/dannyt/dev/WebServerTest/cert.pem", SSL_FILETYPE_PEM);
+//    res = SSL_CTX_use_certificate_file(m_ctx, "/Users/dannyt/dev/WebServerTest/cert.pem", SSL_FILETYPE_PEM);
+    res = SSL_CTX_use_certificate_file(m_ctx, m_publicKeyFile.c_str(), SSL_FILETYPE_PEM);
+
     // Sets the private key file to be used.
-    res = SSL_CTX_use_PrivateKey_file(m_ctx, "/Users/dannyt/dev/WebServerTest/privkey.pem", SSL_FILETYPE_PEM);
+//    res = SSL_CTX_use_PrivateKey_file(m_ctx, "/Users/dannyt/dev/WebServerTest/privkey.pem", SSL_FILETYPE_PEM);
+    res = SSL_CTX_use_PrivateKey_file(m_ctx, m_privKeyFile.c_str(), SSL_FILETYPE_PEM);
+
     
     // Load trusted root authorities
     //        res = SSL_CTX_load_verify_locations(m_ctx, "/Users/dannyt/dev/WebServerTest/rootCA.pem", 0);
@@ -236,7 +272,8 @@ void NyxNetOSX::CSSLTcpIpSocket_Impl::InitSSL()
     
     // We need to load the Diffie-Hellman key exchange parameters.
     // First load dh1024.pem (you DID create it, didn't you?)
-    BIO* bio = BIO_new_file("/Users/dannyt/dev/WebServerTest/dh1024.pem", "r");
+//    BIO* bio = BIO_new_file("/Users/dannyt/dev/WebServerTest/dh1024.pem", "r");
+    BIO* bio = BIO_new_file(m_dhKeyFile.c_str(), "r");
     // Did we get a handle to the file?
     //    if (bio == NULL) {
     //        printf("Couldn't open DH param file!\n");

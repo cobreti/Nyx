@@ -22,6 +22,10 @@ namespace NyxNet
 	public:
 	
         virtual void SetUseSSL() = 0;
+        virtual bool GetUseSSL() const = 0;
+        virtual void SetSSLFiles(   const Nyx::CAString& privKeyFile,
+                                    const Nyx::CAString& publicKeyFile,
+                                    const Nyx::CAString& dhFile ) = 0;
 		virtual Nyx::NyxResult Create(	const NyxNet::TcpIpPort& port,
 										const Nyx::UInt32& MaxConnections,
 										NyxNet::IConnectionHandler* pConnHandler ) = 0;

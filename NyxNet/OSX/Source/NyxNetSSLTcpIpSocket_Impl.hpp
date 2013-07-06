@@ -35,6 +35,10 @@ namespace NyxNetOSX
         virtual const NyxNet::CAddress& ClientAddress() const { return m_refSocket->ClientAddress(); }
         virtual NyxNet::TcpIpSocketId TcpIpSocketId() { return m_refSocket->TcpIpSocketId(); }
         
+        virtual void SetPrivKeyFile( const Nyx::CAString& privKeyFile );
+        virtual void SetPublicKeyFile( const Nyx::CAString& publicKeyFile );
+        virtual void SetDhKeyFile( const Nyx::CAString& dhKeyFile );
+
     protected:
         
         void InitSSL();
@@ -46,6 +50,9 @@ namespace NyxNetOSX
         SSL*                        m_ssl;
         BIO*                        m_bio;
         bool                        m_bSSLOwner;
+        Nyx::CAString               m_privKeyFile;
+        Nyx::CAString               m_publicKeyFile;
+        Nyx::CAString               m_dhKeyFile;
 	};
 }
 
