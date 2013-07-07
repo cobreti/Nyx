@@ -162,7 +162,10 @@ namespace Nyx
 		/**
 		 *	\brief		Returns the buffer size in bytes
 		 */
-		const Nyx::NyxSize& TotalSize() const { return m_Size * sizeof(TYPE); }
+		const Nyx::NyxSize TotalSize() const
+        {
+            return m_Size * Nyx::NyxSize(sizeof(TYPE));
+        }
 		
 		/**
 		 *	\brief		Returns the data size

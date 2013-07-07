@@ -77,6 +77,36 @@ namespace Nyx
 			return *this;
 		}
         
+        const NyxSize operator * (size_t s) const
+        {
+            return NyxSize(m_Value * s);
+        }
+        
+        const NyxSize operator * (const NyxSize& s) const
+        {
+            return NyxSize(m_Value * s.m_Value);
+        }
+
+        const NyxSize operator / (size_t s) const
+        {
+            return NyxSize(m_Value / s);
+        }
+
+        const NyxSize operator / (const NyxSize& s) const
+        {
+            return NyxSize(m_Value / s.m_Value);
+        }
+
+        const NyxSize operator - (size_t s) const
+        {
+            return NyxSize(m_Value - s);
+        }
+
+        const NyxSize operator + (size_t s) const
+        {
+            return NyxSize(m_Value - s);
+        }
+
         const NyxSize operator - (const NyxSize& s) const
         {
             return NyxSize(m_Value - s.m_Value);

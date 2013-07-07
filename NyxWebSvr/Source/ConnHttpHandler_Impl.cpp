@@ -58,13 +58,18 @@ namespace NyxWebSvr
     {
         Nyx::NyxSize readSize = 0;
         Nyx::NyxResult res;
-
+        
         m_Header.Clear();
+        
+        NYXTRACE(0x0, L"header total size: " << m_Header.Size() );
+        NYXTRACE(0x0, L"header total size: " << m_Header.TotalSize() );
+        
         memset( m_Header.Buffer(), 0, m_Header.TotalSize() );
+        
         m_Header.WriteData(header, strlen(header));
         
         m_pStream = &rStream;
-
+        
         if ( NULL != strstr(m_Header.Buffer(), "\n\r") || NULL != strstr(m_Header.Buffer(), "\n\n") )
         {
             OnRequest(rStream);
