@@ -146,7 +146,7 @@ Nyx::NyxResult NyxNetOSX::CSSLTcpIpSocket_Impl::Write(	const void* pBuffer, cons
     WrittenSize = 0;
     
     int size = SSL_write(m_ssl, pBuffer, DataSize);
-    if ( size < 0 )
+    if ( size <= 0 )
         return Nyx::kNyxRes_Failure;
     
     WrittenSize = size;
@@ -159,7 +159,7 @@ Nyx::NyxResult NyxNetOSX::CSSLTcpIpSocket_Impl::Read( void* pBuffer, const Nyx::
     ReadSize = 0;
     
     int size = SSL_read(m_ssl, pBuffer, DataSize);
-    if ( size < 0 )
+    if ( size <= 0 )
         return Nyx::kNyxRes_Failure;
     
     ReadSize = size;    
