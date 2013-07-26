@@ -140,7 +140,14 @@ Nyx::NyxResult NyxNetLinux::CTcpIpSocket_Impl::Accept( NyxNet::CTcpIpSocketRef& 
 
             if ( AcceptSocket > 0 )
             {
-                NewSocket = new NyxNetLinux::CTcpIpSocket_Impl(AcceptSocket);
+//                NewSocket = new NyxNetLinux::CTcpIpSocket_Impl(AcceptSocket);
+                NyxNetLinux::CTcpIpSocket_Impl*       pNewSocket = new NyxNetLinux::CTcpIpSocket_Impl(AcceptSocket);
+                inet_ntop( AF_INET, &client_addr.sin_addr.s_addr,
+                          pNewSocket->m_ClientAddress.Ip().BufferPtr(), pNewSocket->m_ClientAddress.Ip().Size());
+                pNewSocket->m_ClientAddress.Port() = ntohs(client_addr.sin_port);
+
+    			NewSocket = pNewSocket;
+
                 res = Nyx::kNyxRes_Success;
             }
         }

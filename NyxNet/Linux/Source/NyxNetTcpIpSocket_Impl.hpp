@@ -4,6 +4,7 @@
 #include "NyxObject_Impl.hpp"
 #include "NyxNetTcpIpSocket.hpp"
 #include "NyxAString.hpp"
+#include "NyxNetAddress.hpp"
 
 
 namespace NyxNetLinux
@@ -28,6 +29,8 @@ namespace NyxNetLinux
 		virtual void SetListener( NyxNet::ISocketListener* pListener );
 		virtual bool Valid() const;
 		virtual Nyx::NyxResult Renew();
+        virtual const NyxNet::CAddress& ClientAddress() const { return m_ClientAddress; }
+        virtual NyxNet::TcpIpSocketId TcpIpSocketId() { return m_Socket; }
 
 	protected:
 	
@@ -37,6 +40,7 @@ namespace NyxNetLinux
 		NyxNet::ISocketListener*	m_pListener;
 		bool						m_bValid;
         timeval						m_Timeout;
+        NyxNet::CAddress            m_ClientAddress;
     };
 }
 

@@ -1,3 +1,5 @@
+#include <memory.h>
+
 #include "NyxNetPipeSocketReader_Impl.hpp"
 #include "NyxNetSocketListener.hpp"
 #include <NyxTraceStream.hpp>
@@ -5,7 +7,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <memory.h>
 #include <unistd.h>
 
 

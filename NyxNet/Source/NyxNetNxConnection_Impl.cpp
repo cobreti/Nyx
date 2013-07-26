@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+
 #include "NyxNetNxConnection_Impl.hpp"
 #include "NyxNetTypes.hpp"
 #include "NyxStreamRW.hpp"
@@ -7,8 +10,6 @@
 #include "NyxTraces.hpp"
 #include "NyxSwap.hpp"
 
-#include <stdio.h>
-#include <string.h>
 
 #pragma unmanaged
 
