@@ -31,6 +31,7 @@ namespace NyxNetLinux
 		virtual Nyx::NyxResult Renew();
         virtual const NyxNet::CAddress& ClientAddress() const { return m_ClientAddress; }
         virtual NyxNet::TcpIpSocketId TcpIpSocketId() { return m_Socket; }
+        virtual CTcpIpSocket* TcpIpSocket() { return static_cast<NyxNet::CTcpIpSocket*>(this); }
 
 	protected:
 	

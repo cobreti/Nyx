@@ -384,7 +384,13 @@ namespace Nyx
 	 */
 	void CMFString::Set(const char* szValue, EStringsFormat format /*= kF_Ansi*/ )
 	{
-		size_t	newsize = LenToSize(strlen(szValue) + 1, sizeof(char));
+        if ( szValue == NULL )
+        {
+            ReleaseBuffer();
+            return;
+        }
+
+        size_t	newsize = LenToSize(strlen(szValue) + 1, sizeof(char));
 		
 		if ( newsize > m_BufferSize && CanResize() )
 			Resize( newsize );
