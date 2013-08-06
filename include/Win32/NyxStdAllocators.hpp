@@ -4,6 +4,14 @@
 #include <NyxObjectsPool.hpp>
 #include <list>
 
+#ifndef _FARQ
+	#define _FARQ
+#endif
+
+#ifndef _SIZT
+	#define _SIZT	size_t
+#endif
+
 namespace Nyx
 {
     template<class _Ty, class Pool>
@@ -23,7 +31,7 @@ namespace Nyx
 	    typedef const value_type _FARQ& const_reference;
 
 	    typedef _SIZT size_type;
-	    typedef _PDFT difference_type;
+	    //typedef _PDFT difference_type;
 
 	    template<class _Other>
 		    struct rebind
