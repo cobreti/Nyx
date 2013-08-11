@@ -368,6 +368,12 @@ namespace Nyx
 	 */
 	void CMFString::Set(const char* szValue, EStringsFormat format)
 	{
+        if ( szValue == NULL )
+        {
+            ReleaseBuffer();
+            return;
+        }
+
 		size_t	newsize = LenToSize(strlen(szValue) + 1, sizeof(char));
 		
 		if ( newsize > m_BufferSize && CanResize() )
@@ -385,6 +391,12 @@ namespace Nyx
 	 */
 	void CMFString::Set(const wchar_t* wszValue)
 	{
+        if ( wszValue == NULL )
+        {
+            ReleaseBuffer();
+            return;
+        }
+
 		size_t	newsize = LenToSize(wcslen(wszValue) + 1, sizeof(wchar_t));
 		
 		if ( newsize > m_BufferSize && CanResize() )

@@ -1,6 +1,8 @@
 #ifndef _NYXTRACEFEEDS_HPP_
 #define _NYXTRACEFEEDS_HPP_
 
+#define NOMINMAX
+
 #include <Windows.h>
 #include <mmsystem.h>
 

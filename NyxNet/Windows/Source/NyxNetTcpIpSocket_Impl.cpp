@@ -1,8 +1,10 @@
+#include <winsock2.h>
+#include <Ws2tcpip.h>
+
 #include "NyxNetTcpIpSocket_Impl.hpp"
 #include "NyxNetSocketListener.hpp"
 
-#include <Windows.h>
-#include <winsock.h>
+//#include <Windows.h>
 
 /**
  *
@@ -19,7 +21,8 @@ NyxNet::CTcpIpSocketRef NyxNet::CTcpIpSocket::Alloc()
 NyxNet::CTcpIpSocket_Impl::CTcpIpSocket_Impl() :
 m_Socket(INVALID_SOCKET),
 m_Port(0),
-m_pListener(NULL)
+m_pListener(NULL),
+m_bValid(false)
 {
 	m_Socket = socket(PF_INET, SOCK_STREAM, 0);
 }
@@ -31,7 +34,8 @@ m_pListener(NULL)
 NyxNet::CTcpIpSocket_Impl::CTcpIpSocket_Impl( const SOCKET& SocketValue ) :
 m_Socket(SocketValue),
 m_Port(0),
-m_pListener(NULL)
+m_pListener(NULL),
+m_bValid(true)
 {
 }
 
@@ -107,7 +111,14 @@ Nyx::NyxResult NyxNet::CTcpIpSocket_Impl::Accept( NyxNet::CTcpIpSocketRef& NewSo
 		
 		if ( AcceptSocket != INVALID_SOCKET )
 		{
-			NewSocket = new NyxNet::CTcpIpSocket_Impl(AcceptSocket);
+			//NewSocket = new NyxNet::CTcpIpSocket_Impl(AcceptSocket);
+			//res = Nyx::kNyxRes_Success;
+            NyxNet::CTcpIpSocket_Impl*       pNewSocket = new NyxNet::CTcpIpSocket_Impl(AcceptSocket);
+            inet_ntop( AF_INET, &client_addr.sin_addr.s_addr,
+                      pNewSocket->m_ClientAddress.Ip().BufferPtr(), pNewSocket->m_ClientAddress.Ip().Size());
+            pNewSocket->m_ClientAddress.Port() = ntohs(client_addr.sin_port);
+
+			NewSocket = pNewSocket;
 			res = Nyx::kNyxRes_Success;
 		}
 	}

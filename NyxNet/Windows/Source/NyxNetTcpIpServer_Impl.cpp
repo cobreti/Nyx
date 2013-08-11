@@ -2,6 +2,7 @@
 #include "NyxBodyBlock.hpp"
 #include "NyxNetConnectionHandler.hpp"
 #include "NyxNetTcpIpClientConn.hpp"
+#include "NyxNetSSLTcpIpSocket.hpp"
 
 #pragma unmanaged
 
@@ -21,7 +22,8 @@ NyxNetWin32::CTcpIpServer_Impl::CTcpIpServer_Impl() :
 m_Port(0),
 m_MaxConnections(0),
 m_eState(eState_Stopped),
-m_pConnectionHandler(NULL)
+m_pConnectionHandler(NULL),
+m_bUseSSL(false)
 {
     m_refListeners = new NyxNet::CServerListeners();
 }
@@ -50,7 +52,21 @@ Nyx::NyxResult NyxNetWin32::CTcpIpServer_Impl::Create(	const NyxNet::TcpIpPort& 
 		m_MaxConnections = MaxConnections;
 		m_pConnectionHandler = pConnHandler;
 		
-		m_refBoundSocket = NyxNet::CTcpIpSocket::Alloc();
+        if ( m_bUseSSL )
+        {
+            NyxNet::CSSLTcpIpSocketRef  refSocket = NyxNet::CSSLTcpIpSocket::Alloc();
+            refSocket->SetPrivKeyFile(m_privKeyFile);
+            refSocket->SetPublicKeyFile(m_publicKeyFile);
+            refSocket->SetDhKeyFile(m_dhKeyFile);
+            
+            m_refBoundSocket = static_cast<NyxNet::CSSLTcpIpSocket*>( (NyxNet::CTcpIpSocket*)refSocket );
+        }
+        else
+        {
+            m_refBoundSocket = NyxNet::CTcpIpSocket::Alloc();
+        }
+
+//		m_refBoundSocket = NyxNet::CTcpIpSocket::Alloc();
 
 		m_refTaskExecuterPool = Nyx::CTaskExecuterPool::Alloc();		
 	}
@@ -124,6 +140,30 @@ NyxNet::CServerListenersRef NyxNetWin32::CTcpIpServer_Impl::Listeners()
 {
     return m_refListeners;
 }
+
+
+/**
+ *
+ */
+void NyxNetWin32::CTcpIpServer_Impl::SetUseSSL()
+{
+    m_bUseSSL = true;
+}
+
+
+/**
+ *
+ */
+void NyxNetWin32::CTcpIpServer_Impl::SetSSLFiles(	const Nyx::CAString& privKeyFile,
+													const Nyx::CAString& publicKeyFile,
+													const Nyx::CAString& dhFile )
+{
+    m_privKeyFile = privKeyFile;
+    m_publicKeyFile = publicKeyFile;
+    m_dhKeyFile = dhFile;
+}
+
+
 
 
 /**

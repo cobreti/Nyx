@@ -1,6 +1,7 @@
 #ifndef _NYXDBG_HPP_
 #define _NYXDBG_HPP_
 
+#define NOMINMAX
 
 #include <windows.h>
 #include <assert.h>

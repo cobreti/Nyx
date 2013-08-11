@@ -1,6 +1,7 @@
 #ifndef _NYXATOMICVALUE_HPP_
 #define _NYXATOMICVALUE_HPP_
 
+#define NOMINMAX
 
 #include <Windows.h>
 

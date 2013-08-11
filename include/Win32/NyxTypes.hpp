@@ -1,6 +1,8 @@
 #ifndef _NYXTYPES_HPP_
 #define _NYXTYPES_HPP_
 
+#define NOMINMAX
+
 #include <sys/types.h>
 #include <windows.h>
 
