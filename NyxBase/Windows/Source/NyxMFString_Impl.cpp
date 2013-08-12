@@ -549,7 +549,9 @@ namespace Nyx
 	
 	void CMFString::FromCharToWideChar( const char* szString, char* encoding )
 	{
-		NyxAssert( NULL != szString, "invalid ansi string : null pointer" );
+		FromCharToWideChar(szString);
+
+		/*NyxAssert( NULL != szString, "invalid ansi string : null pointer" );
 		NyxAssert( m_Flags.fWideChar, "destination string isn't wide char" );
 		
 		size_t		len = strlen(szString);
@@ -575,7 +577,7 @@ namespace Nyx
 								(LPWSTR)&ptr,
 								outBytes / sizeof(wchar_t) );
 		
-		//iconv_close(hConv);
+		//iconv_close(hConv);*/
 	}
 
 

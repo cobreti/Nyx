@@ -23,6 +23,7 @@ namespace NyxNet
 		virtual Nyx::NyxResult Create( const char* szIp, const NyxNet::TcpIpPort& Port );
 		virtual Nyx::NyxResult Connect();
 		virtual void Disconnect();
+		virtual CTcpIpSocket* TcpIpSocket() { return static_cast<NyxNet::CTcpIpSocket*>(this); }
 		virtual Nyx::NyxResult Write( const void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& WrittenSize );
 		virtual Nyx::NyxResult Read( void* pBuffer, const Nyx::NyxSize& DataSize, Nyx::NyxSize& ReadSize );
 		virtual void SetListener( NyxNet::ISocketListener* pListener );

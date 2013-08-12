@@ -7,13 +7,12 @@
 
 
 
-#if 0
 struct CRYPTO_dynlock_value
 {
-    pthread_mutex_t mutex;
+    HANDLE mutex;
 };
 
-static pthread_mutex_t *mutex_buf = NULL;
+static HANDLE *mutex_buf = NULL;
 
 /**
  * OpenSSL locking function.
@@ -27,9 +26,9 @@ static pthread_mutex_t *mutex_buf = NULL;
 static void locking_function(int mode, int n, const char *file, int line)
 {
     if (mode & CRYPTO_LOCK) {
-        pthread_mutex_lock(&mutex_buf[n]);
+        WaitForSingleObject(mutex_buf[n], INFINITE);
     } else {
-        pthread_mutex_unlock(&mutex_buf[n]);
+        ReleaseMutex(mutex_buf[n]);
     }
 }
 
@@ -40,7 +39,7 @@ static void locking_function(int mode, int n, const char *file, int line)
  */
 static unsigned long id_function(void)
 {
-    return ((unsigned long) pthread_self());
+    return ((unsigned long) ::GetCurrentThreadId() );
 }
 
 /**
@@ -58,7 +57,7 @@ static struct CRYPTO_dynlock_value *dyn_create_function(const char *file, int li
     if (!value) {
         goto err;
     }
-    pthread_mutex_init(&value->mutex, NULL);
+	value->mutex = ::CreateMutex(NULL, FALSE, NULL);
     
     return value;
     
@@ -79,9 +78,9 @@ static void dyn_lock_function(int mode, struct CRYPTO_dynlock_value *l,
                               const char *file, int line)
 {
     if (mode & CRYPTO_LOCK) {
-        pthread_mutex_lock(&l->mutex);
+        WaitForSingleObject(l->mutex, INFINITE);
     } else {
-        pthread_mutex_unlock(&l->mutex);
+        ReleaseMutex(l->mutex);
     }
 }
 
@@ -97,7 +96,7 @@ static void dyn_lock_function(int mode, struct CRYPTO_dynlock_value *l,
 static void dyn_destroy_function(struct CRYPTO_dynlock_value *l,
                                  const char *file, int line)
 {
-    pthread_mutex_destroy(&l->mutex);
+    CloseHandle(l->mutex);
     free(l);
 }
 
@@ -111,12 +110,12 @@ int tls_init(void)
     int i;
     
     /* static locks area */
-    mutex_buf = (pthread_mutex_t *) malloc(CRYPTO_num_locks() * sizeof(pthread_mutex_t));
+    mutex_buf = (HANDLE *) malloc(CRYPTO_num_locks() * sizeof(HANDLE));
     if (mutex_buf == NULL) {
         return (-1);
     }
     for (i = 0; i < CRYPTO_num_locks(); i++) {
-        pthread_mutex_init(&mutex_buf[i], NULL);
+        mutex_buf[i] = CreateMutex(NULL, FALSE, NULL);
     }
     /* static locks callbacks */
     CRYPTO_set_locking_callback(locking_function);
@@ -134,7 +133,6 @@ int tls_init(void)
     return (0);
 }
 
-#endif
 
 
 
@@ -152,15 +150,12 @@ namespace NyxWebSvr
      */
     CModule_Impl::CModule_Impl()
     {
-
-#if 0
         CRYPTO_malloc_init(); // Initialize malloc, free, etc for OpenSSL's use
         SSL_library_init(); // Initialize OpenSSL's SSL libraries
         SSL_load_error_strings(); // Load SSL error strings
         ERR_load_BIO_strings(); // Load BIO error strings
         OpenSSL_add_all_algorithms(); // Load all available encryption algorithms
         tls_init();
-#endif
     }
     
     
