@@ -81,15 +81,15 @@ namespace Nyx
             return (pointer)m_refObjectsPool->AllocMem(sizeof(_Ty));
         }
         
-	    void construct(pointer _Ptr, const _Ty& _Val)
-        {	// construct object at _Ptr with value _Val
-            std::_Construct(_Ptr, _Val);
-        }
-        
-	    void destroy(pointer _Ptr)
-        {	// destroy object at _Ptr
-            std::_Destroy(_Ptr);
-        }
+//	    void construct(pointer _Ptr, const _Ty& _Val)
+//        {	// construct object at _Ptr with value _Val
+//            std::_Construct(_Ptr, _Val);
+//        }
+//        
+//	    void destroy(pointer _Ptr)
+//        {	// destroy object at _Ptr
+//            std::_Destroy(_Ptr);
+//        }
         
         size_type max_size() const
         {	// estimate maximum array size
