@@ -9,6 +9,7 @@ QT       -= gui
 TARGET = NyxNet
 TEMPLATE = lib
 CONFIG += staticlib
+DEFINES += STDCONSTRUCT
 
 
 

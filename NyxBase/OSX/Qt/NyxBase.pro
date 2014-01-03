@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       -= gui
-
+DEFINES += STDCONSTRUCT
 TEMPLATE = lib
 CONFIG += staticlib
 
