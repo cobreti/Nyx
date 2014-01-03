@@ -80,17 +80,19 @@ namespace Nyx
             NyxAssert( _Count == 1, "invalid cound value");
             return (pointer)m_refObjectsPool->AllocMem(sizeof(_Ty));
         }
-        
-//	    void construct(pointer _Ptr, const _Ty& _Val)
-//        {	// construct object at _Ptr with value _Val
-//            std::_Construct(_Ptr, _Val);
-//        }
-//        
-//	    void destroy(pointer _Ptr)
-//        {	// destroy object at _Ptr
-//            std::_Destroy(_Ptr);
-//        }
-        
+
+#if defined(STDCONSTRUCT)
+        void construct(pointer _Ptr, const _Ty& _Val)
+        {	// construct object at _Ptr with value _Val
+            std::_Construct(_Ptr, _Val);
+        }
+
+        void destroy(pointer _Ptr)
+        {	// destroy object at _Ptr
+            std::_Destroy(_Ptr);
+        }
+#endif
+
         size_type max_size() const
         {	// estimate maximum array size
             size_type _Count = (size_type)(-1) / sizeof (_Ty);

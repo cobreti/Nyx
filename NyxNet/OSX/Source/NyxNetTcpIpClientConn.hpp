@@ -3,7 +3,7 @@
 
 #include "NyxTask.hpp"
 #include "NyxObject_Impl.hpp"
-#include "NyxNetTcpipSocket.hpp"
+#include "NyxNetTcpIpSocket.hpp"
 #include "NyxStreamRW.hpp"
 #include "NyxNetConnection.hpp"
 #include "NyxNetConnectionHandler.hpp"

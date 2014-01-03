@@ -1,5 +1,5 @@
 #include "NyxLocalTime.hpp"
-#include "NyxASTring.hpp"
+#include "NyxAString.hpp"
 
 #include <sys/time.h>
 
