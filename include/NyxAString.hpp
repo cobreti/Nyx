@@ -31,6 +31,7 @@ namespace Nyx
 		const CAString& operator = (const wchar_t* wszText);
 
 		bool operator < (const CAString& str) const;
+        bool operator == (const CAString& str) const;
         bool operator != (const CAString& str) const;
         bool operator != (const char* szStr) const;
 		
