@@ -22,12 +22,12 @@ INCLUDEPATH += ../../Source
 
 CONFIG(debug, debug | release) {
     OBJECTS_DIR = ./Debug
-    DESTDIR = ../../../Lib/Qt/Debug
+    DESTDIR = ../../../Lib/Qt/Debug_64
 }
 
 CONFIG(release, debug | release) {
     OBJECTS_DIR = ./Release
-    DESTDIR = ../../../Lib/Qt/Release
+    DESTDIR = ../../../Lib/Qt/Release_64
 }
 
 HEADERS += \
