@@ -5,9 +5,11 @@
 #-------------------------------------------------
 
 QT       -= gui
-DEFINES += STDCONSTRUCT
+#DEFINES += STDCONSTRUCT
 TEMPLATE = lib
 CONFIG += staticlib
+
+CONFIG += c++11
 
 SOURCES += \
     ../Source/NyxActiveObject_Impl.cpp \

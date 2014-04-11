@@ -9,8 +9,8 @@ QT       -= gui
 TARGET = NyxWebSvr
 TEMPLATE = lib
 CONFIG += staticlib
-DEFINES += STDCONSTRUCT
-
+# DEFINES += STDCONSTRUCT
+CONFIG += c++11
 
 
 INCLUDEPATH += ../../../include
