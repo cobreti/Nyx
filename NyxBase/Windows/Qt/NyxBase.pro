@@ -5,9 +5,10 @@
 #-------------------------------------------------
 
 QT       -= gui
-DEFINES += STDCONSTRUCT
+# DEFINES += STDCONSTRUCT
 TEMPLATE = lib
 CONFIG += staticlib
+CONFIG += c++11
 
 SOURCES += \
     ../Source/NyxActiveObject_Impl.cpp \
@@ -129,7 +130,6 @@ HEADERS += \
     ../Source/NyxMsgQueue_Impl.hpp \
     ../Source/NyxMutex_Impl.hpp \
     ../Source/NyxObjectsPool_Impl.hpp \
-    ../Source/NyxString_Impl.hpp \
     ../Source/NyxTestUnitsGroup_Impl.hpp \
     ../Source/NyxThread_Impl.hpp \
     ../Source/NyxThreadId_Impl.hpp \
