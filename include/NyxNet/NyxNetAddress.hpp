@@ -63,6 +63,50 @@ namespace NyxNet
          *
          */
         ~CAddress() {}
+
+
+        bool Empty() const
+        {
+            return m_Ip.length() > 0;
+        }
+
+        const CAddress& operator = (const CAddress& addr)
+        {
+            m_Ip = addr.m_Ip;
+            m_Port = addr.m_Port;
+
+            return *this;
+        }
+
+
+        bool operator == (const CAddress& addr) const
+        {
+            return (m_Port == addr.m_Port && m_Ip == addr.m_Ip);
+        }
+
+
+        bool operator != (const CAddress& addr) const
+        {
+            return (m_Port != addr.m_Port || m_Ip != addr.m_Ip);
+        }
+
+
+        bool operator < (const CAddress& addr) const
+        {
+            if ( m_Ip < addr.m_Ip )
+            {
+                return true;
+            }
+            else
+            {
+                if ( m_Port < addr.m_Port )
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
         
         
         const Nyx::CAString&        Ip() const      { return m_Ip; }
