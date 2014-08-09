@@ -20,11 +20,17 @@ namespace Nyx
         explicit CTraceStream(const Nyx::TraceFilter& filter) :
 		m_pTrace(NULL)
 		{
-			m_pTrace = Nyx::CModule::GetDefault()->Traces().ThreadDefault();
-			if ( m_pTrace == NULL )
-				m_pTrace = Nyx::CModule::GetDefault()->Traces().Reference();
-			if ( m_pTrace )
-				m_pTrace->Begin(filter);			
+            Nyx::CModule* pModule = CModule::GetDefault();
+            if ( pModule )
+            {
+                CTraceModule& rTracesModule = pModule->Traces();
+                m_pTrace = rTracesModule.ThreadDefault();
+
+                if ( m_pTrace == NULL )
+                    m_pTrace = Nyx::CModule::GetDefault()->Traces().Reference();
+                if ( m_pTrace )
+                    m_pTrace->Begin(filter);
+            }
 			//m_pTrace->Write(CTF_TickCount());
 		}
 
