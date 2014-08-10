@@ -2,3 +2,6 @@
 /Debug_64/
 /release/
 /Release_64/
+*.Debug
+*.Release
+*.pro.user
