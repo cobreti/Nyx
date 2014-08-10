@@ -13,11 +13,10 @@ CONFIG += staticlib
 CONFIG += c++11
 
 
-
 INCLUDEPATH += ../../../include
-INCLUDEPATH += ../../../include/OSX
+INCLUDEPATH += ../../../include/Win32
 INCLUDEPATH += ../../../include/NyxNet
-INCLUDEPATH += ../../../include/OSX/NyxNet
+INCLUDEPATH += ../../../include/Win32/NyxNet
 INCLUDEPATH += ../../Source
 
 HEADERS += \
@@ -80,12 +79,12 @@ SOURCES += \
     ../../Source/NyxNetTraceStreamWriter.cpp
 
 CONFIG(debug, debug | release) {
-    OBJECTS_DIR = ./Debug_64
+    OBJECTS_DIR = ./Debug
     DESTDIR = ../../../Lib/Qt/Debug_64
 }
 
 CONFIG(release, debug | release) {
-    OBJECTS_DIR = ./Release_64
+    OBJECTS_DIR = ./Release
     DESTDIR = ../../../Lib/Qt/Release_64
 }
 

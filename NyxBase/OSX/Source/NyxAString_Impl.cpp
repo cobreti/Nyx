@@ -155,6 +155,17 @@ namespace Nyx
 		return strcmp(m_Buffer.pConstChar, str.m_Buffer.pConstChar) < 0;
 	}
     
+
+    /**
+     * @brief CAString::operator ==
+     * @param str
+     * @return
+     */
+    bool CAString::operator == (const CAString& str) const
+    {
+        return strcmp(m_Buffer.pConstChar, str.m_Buffer.pConstChar) == 0;
+    }
+
     
     /**
      *

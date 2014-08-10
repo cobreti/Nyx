@@ -1,0 +1,5 @@
+/Debug/
+/Release/
+*.Debug
+*.pro.user
+*.Release

@@ -5,10 +5,9 @@
 #-------------------------------------------------
 
 QT       -= gui
-#DEFINES += STDCONSTRUCT
+# DEFINES += STDCONSTRUCT
 TEMPLATE = lib
 CONFIG += staticlib
-
 CONFIG += c++11
 
 SOURCES += \
@@ -35,6 +34,10 @@ SOURCES += \
     ../Source/NyxTraceTimeReference.cpp \
     ../Source/NyxUtf8String_Impl.cpp \
     ../Source/NyxWString_Impl.cpp \
+    ../Source/NyxAnsiFile_Impl.cpp \
+    ../Source/NyxModule_Impl.cpp \
+    ../Source/NyxThread_Impl.cpp \
+    ../Source/NyxThreadModule_Impl.cpp \
     ../../Source/NyxTaskExecuterPool_Impl.cpp \
     ../../Source/NyxThreadTaskExecuter_Impl.cpp \
     ../../Source/NyxTraceCompositorBuffer_Ansi.cpp \
@@ -107,17 +110,17 @@ HEADERS += \
     ../../../include/NyxTraceTimeReference.hpp \
     ../../../include/NyxUtf8String.hpp \
     ../../../include/NyxWString.hpp \
-    ../../../include/OSX/NyxAssert.hpp \
-    ../../../include/OSX/NyxAtomicValue.hpp \
-    ../../../include/OSX/NyxDbg.hpp \
-    ../../../include/OSX/NyxMsgBucket.hpp \
-    ../../../include/OSX/NyxSize.hpp \
-    ../../../include/OSX/NyxStdAllocators.hpp \
-    ../../../include/OSX/NyxSystem.hpp \
-    ../../../include/OSX/NyxTraceFeeds.hpp \
-    ../../../include/OSX/NyxTypes.hpp \
+    ../../../include/Win32/NyxAssert.hpp \
+    ../../../include/Win32/NyxAtomicValue.hpp \
+    ../../../include/Win32/NyxDbg.hpp \
+    ../../../include/Win32/NyxMsgBucket.hpp \
+    ../../../include/Win32/NyxSize.hpp \
+    ../../../include/Win32/NyxStdAllocators.hpp \
+    ../../../include/Win32/NyxSystem.hpp \
+    ../../../include/Win32/NyxTraceFeeds.hpp \
+    ../../../include/Win32/NyxTypes.hpp \
     ../Source/NyxActiveObject_Impl.hpp \
-    ../Source/NyxAnsiFile_Impl.h \
+    ../Source/NyxAnsiFile_Impl.hpp \
     ../Source/NyxConsoleTraceOutput_Impl.hpp \
     ../Source/NyxEvent_Impl.hpp \
     ../Source/NyxExternalModule_Impl.hpp \
@@ -127,7 +130,6 @@ HEADERS += \
     ../Source/NyxMsgQueue_Impl.hpp \
     ../Source/NyxMutex_Impl.hpp \
     ../Source/NyxObjectsPool_Impl.hpp \
-    ../Source/NyxString_Impl.hpp \
     ../Source/NyxTestUnitsGroup_Impl.hpp \
     ../Source/NyxThread_Impl.hpp \
     ../Source/NyxThreadId_Impl.hpp \
@@ -138,22 +140,15 @@ HEADERS += \
     ../../Source/NyxThreadTaskExecuter_Impl.hpp
 
 
-OBJECTIVE_SOURCES += \
-    ../Source/NyxAnsiFile_Impl.mm \
-    ../Source/NyxModule_Impl.mm \
-    ../Source/NyxThread_Impl.mm \
-    ../Source/NyxThreadModule_Impl.mm
-
-
 INCLUDEPATH += ../../../include
-INCLUDEPATH += ../../../include/OSX
+INCLUDEPATH += ../../../include/Win32
 
 CONFIG(debug, debug | release) {
-    OBJECTS_DIR = ./Debug_64
+    OBJECTS_DIR = ./Debug
     DESTDIR = ../../../Lib/Qt/Debug_64
 }
 
 CONFIG(release, debug | release) {
-    OBJECTS_DIR = ./Release_64
+    OBJECTS_DIR = ./Release
     DESTDIR = ../../../Lib/Qt/Release_64
 }
