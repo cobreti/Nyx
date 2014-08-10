@@ -86,17 +86,9 @@ HEADERS += \
     ../../include/NyxTraceStream.hpp \
     ../../include/NyxTraceTimeReference.hpp \
     ../../include/NyxUtf8String.hpp \
-    ../../include/NyxWString.hpp \
-    ../../include/OSX/NyxAssert.hpp \
-    ../../include/OSX/NyxAtomicValue.hpp \
-    ../../include/OSX/NyxDbg.hpp \
-    ../../include/OSX/NyxMsgBucket.hpp \
-    ../../include/OSX/NyxSize.hpp \
-    ../../include/OSX/NyxStdAllocators.hpp \
-    ../../include/OSX/NyxSystem.hpp \
-    ../../include/OSX/NyxTraceFeeds.hpp \
-    ../../include/OSX/NyxTypes.hpp \
-    ../../Source/NyxActiveObject_Impl.hpp
+    ../../include/NyxWString.hpp
+
+
 
 HEADERS += \
     ../Source/NyxTaskExecuterPool_Impl.hpp \
@@ -104,6 +96,15 @@ HEADERS += \
 
 macx {
     HEADERS += \
+        ../../include/OSX/NyxAssert.hpp \
+        ../../include/OSX/NyxAtomicValue.hpp \
+        ../../include/OSX/NyxDbg.hpp \
+        ../../include/OSX/NyxMsgBucket.hpp \
+        ../../include/OSX/NyxSize.hpp \
+        ../../include/OSX/NyxStdAllocators.hpp \
+        ../../include/OSX/NyxSystem.hpp \
+        ../../include/OSX/NyxTraceFeeds.hpp \
+        ../../include/OSX/NyxTypes.hpp \
         ../OSX/Source/NyxAnsiFile_Impl.h \
         ../OSX/Source/NyxConsoleTraceOutput_Impl.hpp \
         ../OSX/Source/NyxEvent_Impl.hpp \
@@ -121,6 +122,39 @@ macx {
         ../OSX/Source/NyxThreadModule_Impl.hpp \
         ../OSX/Source/NyxTraceCompositor_Impl.hpp \
         ../OSX/Source/NyxTraceModule_Impl.hpp \
+        ../OSX/Source/NyxActiveObject_Impl.hpp
+}
+
+
+win32 {
+    HEADERS += \
+    ../../include/Win32/NyxAssert.hpp \
+    ../../include/Win32/NyxAtomicValue.hpp \
+    ../../include/Win32/NyxDbg.hpp \
+    ../../include/Win32/NyxMsgBucket.hpp \
+    ../../include/Win32/NyxSize.hpp \
+    ../../include/Win32/NyxStdAllocators.hpp \
+    ../../include/Win32/NyxSystem.hpp \
+    ../../include/Win32/NyxTraceFeeds.hpp \
+    ../../include/Win32/NyxTypes.hpp \
+    ../Windows/Source/NyxActiveObject_Impl.hpp \
+    ../Windows/Source/NyxAnsiFile_Impl.hpp \
+    ../Windows/Source/NyxConsoleTraceOutput_Impl.hpp \
+    ../Windows/Source/NyxEvent_Impl.hpp \
+    ../Windows/Source/NyxExternalModule_Impl.hpp \
+    ../Windows/Source/NyxMemoryPool_Impl.hpp \
+    ../Windows/Source/NyxModule_Impl.hpp \
+    ../Windows/Source/NyxMsgHandlers_Impl.hpp \
+    ../Windows/Source/NyxMsgQueue_Impl.hpp \
+    ../Windows/Source/NyxMutex_Impl.hpp \
+    ../Windows/Source/NyxObjectsPool_Impl.hpp \
+    ../Windows/Source/NyxTestUnitsGroup_Impl.hpp \
+    ../Windows/Source/NyxThread_Impl.hpp \
+    ../Windows/Source/NyxThreadId_Impl.hpp \
+    ../Windows/Source/NyxThreadModule_Impl.hpp \
+    ../Windows/Source/NyxTraceCompositor_Impl.hpp \
+    ../Windows/Source/NyxTraceModule_Impl.hpp \
+    ../Windows/Source/NyxActiveObject_Impl.hpp
 }
 
 
@@ -152,15 +186,54 @@ macx {
 }
 
 
-OBJECTIVE_SOURCES += \
-    ../OSX/Source/NyxAnsiFile_Impl.mm \
-    ../OSX/Source/NyxModule_Impl.mm \
-    ../OSX/Source/NyxThread_Impl.mm \
-    ../OSX/Source/NyxThreadModule_Impl.mm
+win32 {
+    SOURCES += \
+        ../Windows/Source/NyxActiveObject_Impl.cpp \
+        ../Windows/Source/NyxAString_Impl.cpp \
+        ../Windows/Source/NyxConsoleTraceOutput_Impl.cpp \
+        ../Windows/Source/NyxEvent_Impl.cpp \
+        ../Windows/Source/NyxExternalModule_Impl.cpp \
+        ../Windows/Source/NyxFixedString_Impl.cpp \
+        ../Windows/Source/NyxLocalTime_Impl.cpp \
+        ../Windows/Source/NyxMemoryPool_Impl.cpp \
+        ../Windows/Source/NyxMemPoolWString_Impl.cpp \
+        ../Windows/Source/NyxMFString_Impl.cpp \
+        ../Windows/Source/NyxMsgHandlers_Impl.cpp \
+        ../Windows/Source/NyxMsgQueue_Impl.cpp \
+        ../Windows/Source/NyxMutex_Impl.cpp \
+        ../Windows/Source/NyxObjectsPool_Impl.cpp \
+        ../Windows/Source/NyxTestUnitsGroup_Impl.cpp \
+        ../Windows/Source/NyxThreadId_Impl.cpp \
+        ../Windows/Source/NyxTime_Impl.cpp \
+        ../Windows/Source/NyxTraceCompositor_Impl.cpp \
+        ../Windows/Source/NyxTraceModule_Impl.cpp \
+        ../Windows/Source/NyxTraceStream.cpp \
+        ../Windows/Source/NyxTraceTimeReference.cpp \
+        ../Windows/Source/NyxUtf8String_Impl.cpp \
+        ../Windows/Source/NyxWString_Impl.cpp \
+        ../Windows/Source/NyxAnsiFile_Impl.cpp \
+        ../Windows/Source/NyxModule_Impl.cpp \
+        ../Windows/Source/NyxThread_Impl.cpp \
+        ../Windows/Source/NyxThreadModule_Impl.cpp
+}
 
+macx {
+    OBJECTIVE_SOURCES += \
+        ../OSX/Source/NyxAnsiFile_Impl.mm \
+        ../OSX/Source/NyxModule_Impl.mm \
+        ../OSX/Source/NyxThread_Impl.mm \
+        ../OSX/Source/NyxThreadModule_Impl.mm
+}
 
 INCLUDEPATH += ../../include
-INCLUDEPATH += ../../include/OSX
+
+macx {
+    INCLUDEPATH += ../../include/OSX
+}
+
+win32 {
+    INCLUDEPATH += ../../include/Win32
+}
 
 CONFIG(debug, debug | release) {
     OBJECTS_DIR = ./Debug_64
