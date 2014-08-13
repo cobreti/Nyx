@@ -126,6 +126,37 @@ macx {
 }
 
 
+linux {
+    HEADERS += \
+        ../../include/Linux/NyxAssert.hpp \
+        ../../include/Linux/NyxAtomicValue.hpp \
+        ../../include/Linux/NyxDbg.hpp \
+        ../../include/Linux/NyxMsgBucket.hpp \
+        ../../include/Linux/NyxSize.hpp \
+        ../../include/Linux/NyxStdAllocators.hpp \
+        ../../include/Linux/NyxSystem.hpp \
+        ../../include/Linux/NyxTraceFeeds.hpp \
+        ../../include/Linux/NyxTypes.hpp \
+        ../Linux/Source/NyxAnsiFile_Impl.h \
+        ../Linux/Source/NyxConsoleTraceOutput_Impl.hpp \
+        ../Linux/Source/NyxEvent_Impl.hpp \
+        ../Linux/Source/NyxExternalModule_Impl.hpp \
+        ../Linux/Source/NyxMemoryPool_Impl.hpp \
+        ../Linux/Source/NyxModule_Impl.hpp \
+        ../Linux/Source/NyxMsgHandlers_Impl.hpp \
+        ../Linux/Source/NyxMsgQueue_Impl.hpp \
+        ../Linux/Source/NyxMutex_Impl.hpp \
+        ../Linux/Source/NyxObjectsPool_Impl.hpp \
+        ../Linux/Source/NyxString_Impl.hpp \
+        ../Linux/Source/NyxTestUnitsGroup_Impl.hpp \
+        ../Linux/Source/NyxThread_Impl.hpp \
+        ../Linux/Source/NyxThreadId_Impl.hpp \
+        ../Linux/Source/NyxThreadModule_Impl.hpp \
+        ../Linux/Source/NyxTraceCompositor_Impl.hpp \
+        ../Linux/Source/NyxTraceModule_Impl.hpp \
+        ../Linux/Source/NyxActiveObject_Impl.hpp
+}
+
 win32 {
     HEADERS += \
     ../../include/Win32/NyxAssert.hpp \
@@ -186,6 +217,34 @@ macx {
 }
 
 
+linux {
+    SOURCES += \
+        ../Linux/Source/NyxActiveObject_Impl.cpp \
+        ../Linux/Source/NyxAString_Impl.cpp \
+        ../Linux/Source/NyxConsoleTraceOutput_Impl.cpp \
+        ../Linux/Source/NyxEvent_Impl.cpp \
+        ../Linux/Source/NyxExternalModule_Impl.cpp \
+        ../Linux/Source/NyxFixedString_Impl.cpp \
+        ../Linux/Source/NyxLocalTime_Impl.cpp \
+        ../Linux/Source/NyxMemoryPool_Impl.cpp \
+        ../Linux/Source/NyxMemPoolWString_Impl.cpp \
+        ../Linux/Source/NyxMFString_Impl.cpp \
+        ../Linux/Source/NyxMsgHandlers_Impl.cpp \
+        ../Linux/Source/NyxMsgQueue_Impl.cpp \
+        ../Linux/Source/NyxMutex_Impl.cpp \
+        ../Linux/Source/NyxObjectsPool_Impl.cpp \
+        ../Linux/Source/NyxTestUnitsGroup_Impl.cpp \
+        ../Linux/Source/NyxThreadId_Impl.cpp \
+        ../Linux/Source/NyxTime_Impl.cpp \
+        ../Linux/Source/NyxTraceCompositor_Impl.cpp \
+        ../Linux/Source/NyxTraceModule_Impl.cpp \
+        ../Linux/Source/NyxTraceStream.cpp \
+        ../Linux/Source/NyxTraceTimeReference.cpp \
+        ../Linux/Source/NyxUtf8String_Impl.cpp \
+        ../Linux/Source/NyxWString_Impl.cpp
+}
+
+
 win32 {
     SOURCES += \
         ../Windows/Source/NyxActiveObject_Impl.cpp \
@@ -233,6 +292,12 @@ macx {
 
 win32 {
     INCLUDEPATH += ../../include/Win32
+}
+
+linux {
+    INCLUDEPATH += \
+        ../../include/Linux \
+        /usr/include
 }
 
 CONFIG(debug, debug | release) {
