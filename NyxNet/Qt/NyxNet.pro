@@ -17,10 +17,6 @@ INCLUDEPATH += ../../include
 INCLUDEPATH += ../../include/NyxNet
 INCLUDEPATH += ../Source
 
-win32 {
-    INCLUDEPATH += ../../include/Win32
-    INCLUDEPATH += ../../include/Win32/NyxNet
-}
 
 HEADERS += \
     ../../include/OSX/NyxNet/NyxNetTypes.hpp \
@@ -57,18 +53,6 @@ HEADERS += \
     ../Source/NyxNetPipeTraceOutput_Impl.hpp \
     ../Source/NyxNetTcpIpTraceOutput_Impl.hpp
 
-win32 {
-    HEADERS += \
-        ../Windows/Source/NyxNetModule_Impl.hpp \
-        ../Windows/Source/NyxNetPipeClientConn.hpp \
-        ../Windows/Source/NyxNetPipeServer_Impl.hpp \
-        ../Windows/Source/NyxNetPipeSocketReader_Impl.hpp \
-        ../Windows/Source/NyxNetPipeSocketWriter_Impl.hpp \
-        ../Windows/Source/NyxNetSSLTcpIpSocket_Impl.hpp \
-        ../Windows/Source/NyxNetTcpIpClientConn.hpp \
-        ../Windows/Source/NyxNetTcpIpServer_Impl.hpp \
-        ../Windows/Source/NyxNetTcpIpSocket_Impl.hpp
-}
 
 SOURCES += \
     ../Source/NyxNetConnectionsTable_Impl.cpp \
@@ -79,6 +63,20 @@ SOURCES += \
 
 
 win32 {
+    INCLUDEPATH += ../../include/Win32
+    INCLUDEPATH += ../../include/Win32/NyxNet
+
+    HEADERS += \
+        ../Windows/Source/NyxNetModule_Impl.hpp \
+        ../Windows/Source/NyxNetPipeClientConn.hpp \
+        ../Windows/Source/NyxNetPipeServer_Impl.hpp \
+        ../Windows/Source/NyxNetPipeSocketReader_Impl.hpp \
+        ../Windows/Source/NyxNetPipeSocketWriter_Impl.hpp \
+        ../Windows/Source/NyxNetSSLTcpIpSocket_Impl.hpp \
+        ../Windows/Source/NyxNetTcpIpClientConn.hpp \
+        ../Windows/Source/NyxNetTcpIpServer_Impl.hpp \
+        ../Windows/Source/NyxNetTcpIpSocket_Impl.hpp
+
     SOURCES += \
         ../Windows/Source/NyxNetModule_Impl.cpp \
         ../Windows/Source/NyxNetPipeClientConn.cpp \
@@ -90,6 +88,38 @@ win32 {
         ../Windows/Source/NyxNetTcpIpServer_Impl.cpp \
         ../Windows/Source/NyxNetTcpIpSocket_Impl.cpp \
         ../Windows/Source/NyxNetTraceFlags.cpp
+}
+
+
+
+macx {
+    INCLUDEPATH += ../../include/OSX
+    INCLUDEPATH += ../../include/OSX/NyxNet
+
+    HEADERS += \
+        ../OSX/Source/NyxNetModule_Impl.hpp \
+        ../OSX/Source/NyxNetPipeClientConn.hpp \
+        ../OSX/Source/NyxNetPipeServer_Impl.hpp \
+        ../OSX/Source/NyxNetPipeSocketReader_Impl.hpp \
+        ../OSX/Source/NyxNetPipeSocketWriter_Impl.hpp \
+        ../OSX/Source/NyxNetSSLTcpIpSocket_Impl.hpp \
+        ../OSX/Source/NyxNetTcpIpClientConn.hpp \
+        ../OSX/Source/NyxNetTcpIpServer_Impl.hpp \
+        ../OSX/Source/NyxNetTcpIpSocket_Impl.hpp
+
+
+    SOURCES += \
+        ../OSX/Source/NyxNetModule_Impl.cpp \
+        ../OSX/Source/NyxNetPipeClientConn.cpp \
+        ../OSX/Source/NyxNetPipeServer_Impl.cpp \
+        ../OSX/Source/NyxNetPipeSocketReader_Impl.cpp \
+        ../OSX/Source/NyxNetPipeSocketWriter_Impl.cpp \
+        ../OSX/Source/NyxNetSSLTcpIpSocket_Impl.cpp \
+        ../OSX/Source/NyxNetTcpIpClientConn.cpp \
+        ../OSX/Source/NyxNetTcpIpServer_Impl.cpp \
+        ../OSX/Source/NyxNetTcpIpSocket_Impl.cpp \
+        ../OSX/Source/NyxNetTraceFlags.cpp
+
 }
 
 CONFIG(debug, debug | release) {
