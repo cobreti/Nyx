@@ -18,11 +18,6 @@ INCLUDEPATH += ../../include/NyxNet
 INCLUDEPATH += ../../include/NyxWebSvr
 INCLUDEPATH += ../Source
 
-win32 {
-    INCLUDEPATH += ../../include/Win32
-    INCLUDEPATH += ../../include/Win32/NyxNet
-}
-
 CONFIG(debug, debug | release) {
     OBJECTS_DIR = ./Debug
     DESTDIR = ../../Lib/Qt/Debug_64
@@ -62,12 +57,24 @@ SOURCES += \
 
 
 win32 {
+    INCLUDEPATH += ../../include/Win32
+    INCLUDEPATH += ../../include/Win32/NyxNet
+
     HEADERS += \
         ../Windows/Source/Module_Impl.cpp
-}
 
-
-win32 {
     SOURCES += \
         ../Windows/Source/Module_Impl.cpp
 }
+
+macx {
+    INCLUDEPATH += ../../include/OSX
+    INCLUDEPATH += ../../include/OSX/NyxNet
+
+    HEADERS += \
+        ../OSX/Source/Module_Impl.cpp
+
+    SOURCES += \
+        ../OSX/Source/Module_Impl.cpp
+}
+
