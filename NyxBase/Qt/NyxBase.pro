@@ -20,6 +20,7 @@ SOURCES += \
 
 
 
+
 HEADERS += \
     ../../include/Nyx.hpp \
     ../../include/NyxActiveObject.hpp \
@@ -137,7 +138,6 @@ linux {
         ../../include/Linux/NyxSystem.hpp \
         ../../include/Linux/NyxTraceFeeds.hpp \
         ../../include/Linux/NyxTypes.hpp \
-        ../Linux/Source/NyxAnsiFile_Impl.h \
         ../Linux/Source/NyxConsoleTraceOutput_Impl.hpp \
         ../Linux/Source/NyxEvent_Impl.hpp \
         ../Linux/Source/NyxExternalModule_Impl.hpp \
@@ -147,14 +147,14 @@ linux {
         ../Linux/Source/NyxMsgQueue_Impl.hpp \
         ../Linux/Source/NyxMutex_Impl.hpp \
         ../Linux/Source/NyxObjectsPool_Impl.hpp \
-        ../Linux/Source/NyxString_Impl.hpp \
         ../Linux/Source/NyxTestUnitsGroup_Impl.hpp \
         ../Linux/Source/NyxThread_Impl.hpp \
         ../Linux/Source/NyxThreadId_Impl.hpp \
         ../Linux/Source/NyxThreadModule_Impl.hpp \
         ../Linux/Source/NyxTraceCompositor_Impl.hpp \
         ../Linux/Source/NyxTraceModule_Impl.hpp \
-        ../Linux/Source/NyxActiveObject_Impl.hpp
+        ../Linux/Source/NyxActiveObject_Impl.hpp \
+        ../Linux/Source/NyxAnsiFile_Impl.hpp
 }
 
 win32 {
@@ -244,7 +244,8 @@ linux {
         ../Linux/Source/NyxWString_Impl.cpp \
         ../Linux/Source/NyxModule_Impl.cpp \
         ../Linux/Source/NyxThread_Impl.cpp \
-        ../Linux/Source/NyxThreadModule_Impl.cpp
+        ../Linux/Source/NyxThreadModule_Impl.cpp \
+        ../Linux/Source/NyxAnsiFile.cpp
 }
 
 
