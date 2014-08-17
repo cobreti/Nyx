@@ -241,7 +241,10 @@ linux {
         ../Linux/Source/NyxTraceStream.cpp \
         ../Linux/Source/NyxTraceTimeReference.cpp \
         ../Linux/Source/NyxUtf8String_Impl.cpp \
-        ../Linux/Source/NyxWString_Impl.cpp
+        ../Linux/Source/NyxWString_Impl.cpp \
+        ../Linux/Source/NyxModule_Impl.cpp \
+        ../Linux/Source/NyxThread_Impl.cpp \
+        ../Linux/Source/NyxThreadModule_Impl.cpp
 }
 
 

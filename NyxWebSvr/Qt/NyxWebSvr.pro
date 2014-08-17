@@ -78,3 +78,15 @@ macx {
         ../OSX/Source/Module_Impl.cpp
 }
 
+linux {
+    INCLUDEPATH += ../../include/Linux
+    INCLUDEPATH += ../../include/Linux/NyxNet
+
+    HEADERS += \
+        ../Linux/Source/Module_Impl.cpp
+
+    SOURCES += \
+        ../Linux/Source/Module_Impl.cpp
+}
+
+

@@ -9,7 +9,6 @@ QT       -= gui
 TARGET = NyxNet
 TEMPLATE = lib
 CONFIG += staticlib
-# DEFINES += STDCONSTRUCT
 CONFIG += c++11
 
 
@@ -121,6 +120,36 @@ macx {
         ../OSX/Source/NyxNetTraceFlags.cpp
 
 }
+
+linux {
+    INCLUDEPATH += ../../include/Linux
+    INCLUDEPATH += ../../include/Linux/NyxNet
+
+    HEADERS += \
+        ../Linux/Source/NyxNetModule_Impl.hpp \
+        ../Linux/Source/NyxNetPipeClientConn.hpp \
+        ../Linux/Source/NyxNetPipeServer_Impl.hpp \
+        ../Linux/Source/NyxNetPipeSocketReader_Impl.hpp \
+        ../Linux/Source/NyxNetPipeSocketWriter_Impl.hpp \
+        ../Linux/Source/NyxNetSSLTcpIpSocket_Impl.hpp \
+        ../Linux/Source/NyxNetTcpIpClientConn.hpp \
+        ../Linux/Source/NyxNetTcpIpServer_Impl.hpp \
+        ../Linux/Source/NyxNetTcpIpSocket_Impl.hpp
+
+
+    SOURCES += \
+        ../Linux/Source/NyxNetModule_Impl.cpp \
+        ../Linux/Source/NyxNetPipeClientConn.cpp \
+        ../Linux/Source/NyxNetPipeServer_Impl.cpp \
+        ../Linux/Source/NyxNetPipeSocketReader_Impl.cpp \
+        ../Linux/Source/NyxNetPipeSocketWriter_Impl.cpp \
+        ../Linux/Source/NyxNetSSLTcpIpSocket_Impl.cpp \
+        ../Linux/Source/NyxNetTcpIpClientConn.cpp \
+        ../Linux/Source/NyxNetTcpIpServer_Impl.cpp \
+        ../Linux/Source/NyxNetTcpIpSocket_Impl.cpp \
+        ../Linux/Source/NyxNetTraceFlags.cpp
+}
+
 
 CONFIG(debug, debug | release) {
     OBJECTS_DIR = ./Debug
