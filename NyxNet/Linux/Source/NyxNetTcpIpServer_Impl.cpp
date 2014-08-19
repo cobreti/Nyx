@@ -4,7 +4,6 @@
 #include "NyxNetTcpIpClientConn.hpp"
 #include "NyxNetSSLTcpIpSocket.hpp"
 
-
 /**
  *
  */
@@ -65,7 +64,7 @@ Nyx::NyxResult NyxNetLinux::CTcpIpServer_Impl::Create(	const NyxNet::TcpIpPort& 
         	m_refBoundSocket = NyxNet::CTcpIpSocket::Alloc();
         }
 
-		m_refTaskExecuterPool = Nyx::CTaskExecuterPool::Alloc();		
+        m_refTaskExecuterPool = Nyx::CTaskExecuterPool::Alloc();
 	}
 	NyxEndBody(res)
 	

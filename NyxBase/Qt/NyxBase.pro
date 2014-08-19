@@ -13,12 +13,10 @@ CONFIG += c++11
 
 
 SOURCES += \
-    ../Source/NyxTaskExecuterPool_Impl.cpp \
     ../Source/NyxThreadTaskExecuter_Impl.cpp \
     ../Source/NyxTraceCompositorBuffer_Ansi.cpp \
-    ../Source/NyxTraceCompositorBuffer_WideChar.cpp
-
-
+    ../Source/NyxTraceCompositorBuffer_WideChar.cpp \
+    ../Source/NyxTaskExecuterPool_Impl.cpp
 
 
 HEADERS += \

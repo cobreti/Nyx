@@ -8,6 +8,7 @@ Nyx::CAnsiFileRef Nyx::CAnsiFile::Alloc()
 }
 
 
+
 namespace NyxLinux
 {
     /**
