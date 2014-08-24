@@ -103,7 +103,7 @@ namespace NyxLinux
      */
     Nyx::NyxResult CAnsiFile_Impl::Write( const char* data, size_t data_length )
     {
-        if ( NULL != m_pFile )
+        if ( NULL == m_pFile )
             return Nyx::kNyxRes_Failure;
 
         fwrite(data, data_length, 1, m_pFile);
