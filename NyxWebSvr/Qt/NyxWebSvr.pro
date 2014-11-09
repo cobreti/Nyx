@@ -4,6 +4,7 @@
 #
 #-------------------------------------------------
 
+QMAKE_MAC_SDK = macosx10.9
 QT       -= gui
 
 TARGET = NyxWebSvr
