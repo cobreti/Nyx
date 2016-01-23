@@ -38,7 +38,7 @@ namespace NyxWebSvr
         virtual void OnGetRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams );
         virtual void OnPostRequest( Nyx::IStreamRW& rStream, char* szPath, char* szParams );
         
-        virtual void Write( char* MimeType, const void* pData, int DataLen );
+        virtual void Write( const char* MimeType, const void* pData, int DataLen );
         virtual CHttpHandlersTableRef Handlers();
         
 //        virtual void SetPathHandler( const char* szPath, CHttpPathHandler* pHandler );

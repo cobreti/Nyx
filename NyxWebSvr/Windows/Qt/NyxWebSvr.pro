@@ -38,7 +38,6 @@ HEADERS += \
     ../../../include/NyxWebSvr/HttpHandler.hpp \
     ../../../include/NyxWebSvr/HttpHandlersTable.hpp \
     ../../../include/NyxWebSvr/HttpServer.hpp \
-    ../../../include/NyxWebSvr/HttpsServer.hpp \
     ../../../include/NyxWebSvr/Module.hpp \
     ../Source/Module_Impl.hpp \
     ../../Source/ConnHandler_Impl.hpp \
@@ -46,8 +45,8 @@ HEADERS += \
     ../../Source/ConnListener_Impl.hpp \
     ../../Source/Header_Impl.hpp \
     ../../Source/HttpHandlersTable_Impl.hpp \
-    ../../Source/HttpServer_Impl.hpp \
-    ../../Source/HttpsServer_Impl.hpp
+    ../../Source/HttpServer_Impl.hpp
+#    ../../Source/HttpsServer_Impl.hpp
 
 SOURCES += \
     ../Source/Module_Impl.cpp \
@@ -56,6 +55,5 @@ SOURCES += \
     ../../Source/ConnListener_Impl.cpp \
     ../../Source/Header_Impl.cpp \
     ../../Source/HttpHandlersTable_Impl.cpp \
-    ../../Source/HttpServer_Impl.cpp \
-    ../../Source/HttpsServer_Impl.cpp
+    ../../Source/HttpServer_Impl.cpp
 

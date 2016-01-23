@@ -18,7 +18,7 @@ Nyx::CConsoleTraceOutputRef Nyx::CConsoleTraceOutput::Alloc()
 NyxWin32::CConsoleTraceOutput_Impl::CConsoleTraceOutput_Impl() :
 m_hConsole(NULL),
 m_bOwnConsole(false),
-m_wszNewLine(L"\n"),
+m_wszNewLine((wchar_t*)L"\n"),
 m_dwNewLineSize(0)
 {
 	m_dwNewLineSize = (DWORD)wcslen(m_wszNewLine);

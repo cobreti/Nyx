@@ -115,7 +115,7 @@ HEADERS += \
     ../../../include/Win32/NyxDbg.hpp \
     ../../../include/Win32/NyxMsgBucket.hpp \
     ../../../include/Win32/NyxSize.hpp \
-    ../../../include/Win32/NyxStdAllocators.hpp \
+#    ../../../include/Win32/NyxStdAllocators.hpp \
     ../../../include/Win32/NyxSystem.hpp \
     ../../../include/Win32/NyxTraceFeeds.hpp \
     ../../../include/Win32/NyxTypes.hpp \

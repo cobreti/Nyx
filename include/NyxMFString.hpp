@@ -106,7 +106,7 @@ namespace Nyx
 		void Add( const wchar_t* wszValue, size_t len, CMFString& resultStr ) const;
 
 		void FromCharToWideChar( const char* szString );
-		void FromCharToWideChar( const char* szString, char* encoding );
+        void FromCharToWideChar( const char* szString, const char* encoding );
 		void FromWideCharToChar( const wchar_t* wszString );
 		
 		size_t LenToSize(size_t len, size_t elem_size) const	{ return len*elem_size; }

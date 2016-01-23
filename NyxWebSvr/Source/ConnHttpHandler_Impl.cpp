@@ -299,7 +299,7 @@ namespace NyxWebSvr
     /**
      *
      */
-    void CConnHttpHandler_Impl::Write( char* MimeType, const void* pData, int DataLen )
+    void CConnHttpHandler_Impl::Write( const char* MimeType, const void* pData, int DataLen )
     {
         char    szDataLen[10];
         Nyx::NyxSize writtenSize = 0;

@@ -2,7 +2,7 @@
 #include "NyxBodyBlock.hpp"
 #include "NyxNetConnectionHandler.hpp"
 #include "NyxNetTcpIpClientConn.hpp"
-#include "NyxNetSSLTcpIpSocket.hpp"
+//#include "NyxNetSSLTcpIpSocket.hpp"
 
 #pragma unmanaged
 
@@ -54,12 +54,12 @@ Nyx::NyxResult NyxNetWin32::CTcpIpServer_Impl::Create(	const NyxNet::TcpIpPort& 
 		
         if ( m_bUseSSL )
         {
-            NyxNet::CSSLTcpIpSocketRef  refSocket = NyxNet::CSSLTcpIpSocket::Alloc();
-            refSocket->SetPrivKeyFile(m_privKeyFile);
-            refSocket->SetPublicKeyFile(m_publicKeyFile);
-            refSocket->SetDhKeyFile(m_dhKeyFile);
+//            NyxNet::CSSLTcpIpSocketRef  refSocket = NyxNet::CSSLTcpIpSocket::Alloc();
+//            refSocket->SetPrivKeyFile(m_privKeyFile);
+//            refSocket->SetPublicKeyFile(m_publicKeyFile);
+//            refSocket->SetDhKeyFile(m_dhKeyFile);
             
-            m_refBoundSocket = static_cast<NyxNet::CSSLTcpIpSocket*>( (NyxNet::CTcpIpSocket*)refSocket );
+//            m_refBoundSocket = static_cast<NyxNet::CSSLTcpIpSocket*>( (NyxNet::CTcpIpSocket*)refSocket );
         }
         else
         {

@@ -547,7 +547,7 @@ namespace Nyx
 	}
 	
 	
-	void CMFString::FromCharToWideChar( const char* szString, char* encoding )
+    void CMFString::FromCharToWideChar( const char* szString, const char* encoding )
 	{
 		FromCharToWideChar(szString);
 

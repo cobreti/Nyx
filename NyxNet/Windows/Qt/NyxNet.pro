@@ -51,7 +51,7 @@ HEADERS += \
     ../Source/NyxNetPipeServer_Impl.hpp \
     ../Source/NyxNetPipeSocketReader_Impl.hpp \
     ../Source/NyxNetPipeSocketWriter_Impl.hpp \
-    ../Source/NyxNetSSLTcpIpSocket_Impl.hpp \
+#    ../Source/NyxNetSSLTcpIpSocket_Impl.hpp \
     ../Source/NyxNetTcpIpClientConn.hpp \
     ../Source/NyxNetTcpIpServer_Impl.hpp \
     ../Source/NyxNetTcpIpSocket_Impl.hpp \
@@ -67,7 +67,7 @@ SOURCES += \
     ../Source/NyxNetPipeServer_Impl.cpp \
     ../Source/NyxNetPipeSocketReader_Impl.cpp \
     ../Source/NyxNetPipeSocketWriter_Impl.cpp \
-    ../Source/NyxNetSSLTcpIpSocket_Impl.cpp \
+#    ../Source/NyxNetSSLTcpIpSocket_Impl.cpp \
     ../Source/NyxNetTcpIpClientConn.cpp \
     ../Source/NyxNetTcpIpServer_Impl.cpp \
     ../Source/NyxNetTcpIpSocket_Impl.cpp \
